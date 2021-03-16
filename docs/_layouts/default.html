@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: "en" }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    {% if page.title != null %}
+      <title>{{ page.title }} - {{ site.data.locales[page.lang].title }}</title>
+    {% else %}
+      <title>{{ site.data.locales[page.lang].title }}</title>
+    {% endif %}
+    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+    <link rel="canonical" href="{{ site.url }}{{ page.url | replace: 'index.html', '' }}">
+  </head>
+  <body>
+    {% capture toppage %}/{{ page.lang }}/{% endcapture %}
+    <header>
+      <h1><a href="{{ toppage }}">{{ site.data.locales[page.lang].title }}</a></h1>
+      <nav>
+        <ul>
+          {% for item in site.data.locales[page.lang].menu %}
+            {% if page.url contains item.url %}
+              <li class="selected"><a href="{{ item.url }}">{{ item.text }}</a></li>
+            {% else %}
+              <li><a href="{{ item.url }}">{{ item.text }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </nav>
+    </header>
+    <hr class="sep">
+    <div id="main">
+      {{ content }}
+    </div>
+    <hr class="sep">
+    <footer>
+      <div class="lang_menu">
+        <ul>
+          {% for lang in site.data.languages %}
+            {% if toppage == lang.url %}
+              <li class="selected">{{ lang.name }}</li>
+            {% elsif page.translated %}
+              <li><a href="{{ page.url | replace_first: toppage, lang.url }}">{{ lang.name }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+      <p>{{ site.data.locales[page.lang].credits }}</p>
+    </footer>
+  </body>
+</html>

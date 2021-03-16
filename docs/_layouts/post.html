@@ -1,0 +1,9 @@
+---
+layout: default
+---
+
+<article class="post">
+<h2>{{ page.title }}</h2>
+<p class="post-date">{{ page.date | date: site.data.locales[page.lang].news.post_date }}</p>
+{{ content }}
+</article>

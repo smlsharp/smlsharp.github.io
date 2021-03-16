@@ -1,0 +1,5 @@
+---
+- name: English
+  url: /en/
+- name: 日本語
+  url: /ja/

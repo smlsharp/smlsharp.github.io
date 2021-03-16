@@ -1,0 +1,24 @@
+---
+title: "SML# Project"
+
+menu:
+- text: Downloads
+  url: /en/downloads/
+- text: Documents
+  url: /en/documents/
+- text: Development
+  url: /en/development/
+- text: News
+  url: /en/news/
+- text: About SML#
+  url: /en/about/
+
+credits: 
+  This website is managed by SML# development team.
+
+news:
+  recent: "Recent News"
+  post_date: "%-d %b %Y"
+  more: "more..."
+  next: "next"
+  prev: "prev"

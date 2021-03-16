@@ -1,0 +1,24 @@
+---
+title: "SML#プロジェクト"
+
+menu:
+- text: ダウンロード
+  url: /ja/downloads/
+- text: ドキュメント
+  url: /ja/documents/
+- text: 開発
+  url: /ja/development/
+- text: ニュース
+  url: /ja/news/
+- text: SML#について
+  url: /ja/about/
+
+credits:
+  このWebサイトはSML#開発チームによって管理されています。
+
+news:
+  recent: "最近のニュース"
+  post_date: "%Y年%-m月%-d日"
+  more: "もっと読む..."
+  next: "次"
+  prev: "前"

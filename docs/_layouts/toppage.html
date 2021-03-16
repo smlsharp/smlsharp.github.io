@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+<div id="intro">
+  {{ content }}
+</div>
+<h2>{{ site.data.locales[page.lang].news.recent }}</h2>
+{% for post in site.categories[page.lang] limit:5 %}
+  <article class="excerpt">
+    <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+    <p class="post-date">{{ post.date | date: site.data.locales[page.lang].news.post_date }}</p>
+    {{ post.excerpt | markdownify }}
+    <p class="post-more"><a href="{{ post.url }}">{{ site.data.locales[page.lang].news.more }}</a></p>
+  </article>
+{% endfor %}
