@@ -58,10 +58,12 @@ header nav ul li a {
 }
 header nav ul li.selected a {
   font-weight: bold;
-  color: #faf;
+  text-shadow: 0 0 2px #333;
+  color: #fff;
 }
 header nav ul li a:hover {
   background-color: #969;
+  color: #fff;
 }
 
 div#main {
@@ -101,7 +103,11 @@ footer div.lang_menu ul li a {
   color: #eee;
 }
 footer div.lang_menu ul li.selected {
-  color: #faf;
+  font-weight: bold;
+  text-shadow: 0 0 2px #333;
+  margin: 0 2px;
+  padding: 4px;
+  color: #fff;
 }
 footer div.lang_menu ul li a:hover {
   background-color: #969;
