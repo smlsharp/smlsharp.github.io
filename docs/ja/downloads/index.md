@@ -1,6 +1,5 @@
 ---
 title: "ダウンロード"
-lang: ja
 translated: true
 ---
 

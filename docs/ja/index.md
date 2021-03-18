@@ -1,6 +1,5 @@
 ---
 layout: toppage
-lang: ja
 translated: true
 ---
 

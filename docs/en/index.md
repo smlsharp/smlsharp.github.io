@@ -1,6 +1,5 @@
 ---
 layout: toppage
-lang: en
 translated: true
 ---
 SML# is a new programming language in the Standard ML family.

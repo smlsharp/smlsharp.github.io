@@ -1,3 +1,20 @@
 url: https://smlsharp.github.io
 permalink: pretty
 highlighter: rouge
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  -
+    scope:
+      path: ja
+    values:
+      lang: ja
+  -
+    scope:
+      path: en
+    values:
+      lang: en
