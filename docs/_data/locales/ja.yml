@@ -6,6 +6,8 @@ menu:
   url: /ja/downloads/
 - text: ドキュメント
   url: /ja/documents/
+- text: 教科書
+  url: /ja/textbooks/
 - text: 開発
   url: /ja/development/
 - text: ニュース
