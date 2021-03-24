@@ -1,12 +1,24 @@
+$headerBgColor: #858;
+$headerFgColor: #eee;
+$headerHoverBgColor: #969;
+$headerHoverFgColor: #fff;
+$headerSelectedFgColor: #fff;
+$headerShadowColor: #333;
+$linkColor: #d5a;
+
+html {
+  line-height: 1.6;
+}
+
 body {
-  margin: 0;
-  padding: 0;
   font-family: "Noto Sans", "Helvetica Neue", Helvetica, sans-serif;
 }
+
 a {
-  color: #d5a;
+  color: $linkColor;
   text-decoration: underline;
 }
+
 hr.sep {
   display: none;
 }
@@ -29,7 +41,7 @@ header#page_header h1 a {
   background: url(/assets/image/header-togetoge.png) no-repeat top left;
   background-size: 100px 100px;
   margin: 0;
-  padding: 20px 0 48px 112px;
+  padding: 20px 0 (100px - 20px - 32px) (100px + 12px);
   text-decoration: none;
   font-weight: bold;
   font-size: 32px;
@@ -39,9 +51,9 @@ header#page_header h1 a {
 }
 header#page_header nav ul {
   display: block;
-  background-color: #858;
+  background-color: $headerBgColor;
   margin: -34px 0 0 0;
-  padding: 8px 0 8px 128px;
+  padding: 8px 0 8px (24px + 100px);
 }
 header#page_header nav ul li {
   display: inline-block;
@@ -52,18 +64,18 @@ header#page_header nav ul li a {
   padding: 8px;
   border-radius: 6px;
   text-decoration: none;
-  color: #eee;
+  color: $headerFgColor;
   font-size: 16px;
   line-height: 1.0;
 }
 header#page_header nav ul li.selected a {
   font-weight: bold;
-  text-shadow: 0 0 2px #333;
-  color: #fff;
+  text-shadow: 0 0 2px $headerShadowColor;
+  color: $headerSelectedFgColor;
 }
 header#page_header nav ul li a:hover {
-  background-color: #969;
-  color: #fff;
+  background-color: $headerHoverBgColor;
+  color: $headerHoverFgColor;
 }
 
 div#main {
@@ -87,7 +99,7 @@ footer#page_footer div.lang_menu ul {
   display: inline-block;
   border-width: 2px 0 2px 2px;
   border-style: solid;
-  border-color: #858;
+  border-color: $headerBgColor;
   margin: 0;
   padding: 4px 24px 4px 24px;
   border-top-left-radius: 6px;
@@ -102,18 +114,18 @@ footer#page_footer div.lang_menu ul li a {
   padding: 4px;
   border-radius: 4px;
   text-decoration: none;
-  color: #858;
+  color: $headerBgColor;
 }
 footer#page_footer div.lang_menu ul li.selected {
-  background-color: #858;
+  background-color: $headerBgColor;
   border-radius: 4px;
-  text-shadow: 0 0 2px #333;
+  text-shadow: 0 0 2px $headerShadowColor;
   padding: 4px;
-  color: #fff;
+  color: $headerSelectedFgColor;
 }
 footer#page_footer div.lang_menu ul li a:hover {
-  background-color: #969;
-  color: #eee;
+  background-color: $headerHoverBgColor;
+  color: $headerHoverFgColor;
 }
 footer#page_footer p {
   display: inline-block;
@@ -130,11 +142,17 @@ div#main div#intro {
   min-height: 220px;
 }
 
+div#main pre {
+  overflow: scroll;
+  /* word-wrap: break-word; */
+}
+
 article {
   display: block;
   margin: 0;
   padding: 0;
 }
+
 article.excerpt {
   display: block;
   margin: 1em 0 2em 0;
