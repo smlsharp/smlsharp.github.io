@@ -15,7 +15,7 @@
   </head>
   <body>
     {% capture toppage %}/{{ page.lang }}/{% endcapture %}
-    <header>
+    <header id="page_header">
       <h1><a href="{{ toppage }}">{{ site.data.locales[page.lang].title }}</a></h1>
       <nav>
         <ul>
@@ -34,7 +34,7 @@
       {{ content }}
     </div>
     <hr class="sep">
-    <footer>
+    <footer id="page_footer">
       <div class="lang_menu">
         <ul>
           {% for lang in site.data.languages %}

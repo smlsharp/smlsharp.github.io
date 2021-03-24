@@ -11,20 +11,20 @@ hr.sep {
   display: none;
 }
 
-header, header nav {
+header#page_header, header nav {
   display: block;
   margin: 0;
   padding: 0;
 }
-header {
+header#page_header {
   margin-bottom: 2em;
 }
-header h1 {
+header#page_header h1 {
   display: block;
   margin: 30px 24px 0 24px;
   padding: 0;
 }
-header h1 a {
+header#page_header h1 a {
   display: inline-block;
   background: url(/assets/image/header-togetoge.png) no-repeat top left;
   background-size: 100px 100px;
@@ -37,16 +37,16 @@ header h1 a {
   color: #333;
   white-space: nowrap;
 }
-header nav ul {
+header#page_header nav ul {
   display: block;
   background-color: #858;
   margin: -34px 0 0 0;
   padding: 8px 0 8px 128px;
 }
-header nav ul li {
+header#page_header nav ul li {
   display: inline-block;
 }
-header nav ul li a {
+header#page_header nav ul li a {
   display: inline-block;
   margin: 0 2px;
   padding: 8px;
@@ -56,12 +56,12 @@ header nav ul li a {
   font-size: 16px;
   line-height: 1.0;
 }
-header nav ul li.selected a {
+header#page_header nav ul li.selected a {
   font-weight: bold;
   text-shadow: 0 0 2px #333;
   color: #fff;
 }
-header nav ul li a:hover {
+header#page_header nav ul li a:hover {
   background-color: #969;
   color: #fff;
 }
@@ -70,7 +70,7 @@ div#main {
   margin: 0 48px;
 }
 
-footer {
+footer#page_footer {
   display: block;
   margin: 3em 0;
   padding: 0;
@@ -78,12 +78,12 @@ footer {
   font-size: 12px;
   line-height: 1.0;
 }
-footer div.lang_menu {
+footer#page_footer div.lang_menu {
   display: block;
   margin: 0;
   padding: 0;
 }
-footer div.lang_menu ul {
+footer#page_footer div.lang_menu ul {
   display: inline-block;
   border-width: 2px 0 2px 2px;
   border-style: solid;
@@ -93,29 +93,29 @@ footer div.lang_menu ul {
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
 }
-footer div.lang_menu ul li {
+footer#page_footer div.lang_menu ul li {
   display: inline-block;
   margin: 0 2px;
 }
-footer div.lang_menu ul li a {
+footer#page_footer div.lang_menu ul li a {
   display: inline-block;
   padding: 4px;
   border-radius: 4px;
   text-decoration: none;
   color: #858;
 }
-footer div.lang_menu ul li.selected {
+footer#page_footer div.lang_menu ul li.selected {
   background-color: #858;
   border-radius: 4px;
   text-shadow: 0 0 2px #333;
   padding: 4px;
   color: #fff;
 }
-footer div.lang_menu ul li a:hover {
+footer#page_footer div.lang_menu ul li a:hover {
   background-color: #969;
   color: #eee;
 }
-footer p {
+footer#page_footer p {
   display: inline-block;
   margin: 8px 12px;
 }
