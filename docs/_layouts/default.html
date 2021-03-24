@@ -11,6 +11,7 @@
     {% endif %}
     <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
     <link rel="canonical" href="{{ site.url }}{{ page.url | replace: 'index.html', '' }}">
+    {{ page.head }}
   </head>
   <body>
     {% capture toppage %}/{{ page.lang }}/{% endcapture %}
