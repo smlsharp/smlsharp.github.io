@@ -1,6 +1,8 @@
 url: https://smlsharp.github.io
 permalink: pretty
 highlighter: rouge
+sass:
+  style: compressed
 defaults:
   -
     scope:
