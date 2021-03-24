@@ -21,6 +21,6 @@ credits:
 news:
   recent: "Recent News"
   post_date: "%-d %b %Y"
-  more: "more..."
+  more: "Read more..."
   next: "next"
   prev: "prev"
