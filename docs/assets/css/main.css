@@ -120,6 +120,16 @@ footer#page_footer p {
   margin: 8px 12px;
 }
 
+div#main div#intro {
+  margin: 1em 0 2em 0;
+  border: #888 solid 1px;
+  padding: 0 210px 0 1em;
+  box-shadow: 0 2px 5px #888;
+  background: url(/assets/image/togetoge-007.png) no-repeat right 10px;
+  background-size: 200px 200px;
+  min-height: 220px;
+}
+
 article {
   display: block;
   margin: 0;
