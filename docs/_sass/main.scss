@@ -5,6 +5,7 @@ $headerHoverFgColor: #fff;
 $headerSelectedFgColor: #fff;
 $headerShadowColor: #333;
 $linkColor: #d5a;
+$codeColor: #eee;
 
 html {
   line-height: 1.6;
@@ -143,8 +144,14 @@ div#main div#intro {
 }
 
 div#main pre {
+  background-color: $codeColor;
+  padding: .3em;
   overflow: scroll;
   /* word-wrap: break-word; */
+}
+
+div#main code {
+  background-color: $codeColor;
 }
 
 article {
