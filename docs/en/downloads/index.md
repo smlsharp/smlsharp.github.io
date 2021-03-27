@@ -8,7 +8,7 @@ under a BSD-style license, named SML# license.
 Please be sure to read the [SML# license](https://github.com/smlsharp/smlsharp/blob/master/LICENSE).
 
 The latest version of SML# is 3.7.1.
-See the [document](/en/documents/) page for details on how to set up SML#.
+See the [document](../documents/index.md) page for details on how to set up SML#.
 See the [Changes](https://github.com/smlsharp/smlsharp/blob/master/Changes) file for major changes in each release.
 
 ### Latest release
@@ -27,7 +27,7 @@ we are serving SML# private repositories, each of which offers source and binary
 Once you install SML# through the package system, SML# is automatically updated
 at the timing of system update.
 How to set up SML# for each operating system is given below.
-See the [document](/en/documents/) for details.
+See the [document](../documents/index.md) for details.
 
 * Debian sid
   ```

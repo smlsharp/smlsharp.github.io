@@ -19,4 +19,4 @@ This is a bugfix release. Major changes are the following:
   SHA256: 6dbe0c6c11b6636f9cf5696961782fd43490ea63265d6e19bf387764931f4449
   ```
 
-See [document](/en/documents/) for how to set up SML#.
+See [document](../../documents/index.md) for how to set up SML#.

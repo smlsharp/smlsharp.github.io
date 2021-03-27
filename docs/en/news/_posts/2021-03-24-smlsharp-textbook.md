@@ -18,5 +18,5 @@ See [publisher's webpage](https://www.kyoritsu-pub.co.jp/bookdetail/978432012471
 
 We will provide detailed information on the book and support for readers in the following webpages:
 
-* [Textbook page in this website](/en/textbooks/)
+* [Textbook page in this website](../../textbooks/index.md)
 * [Website for readers](https://github.com/smlsharp/mlpractice-book) (GitHub)
