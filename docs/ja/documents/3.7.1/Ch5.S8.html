@@ -1,0 +1,321 @@
+---
+layout: default
+permalink: /ja/documents/3.7.1/Ch5.S8.html
+translated: true
+lang: ja
+head: |
+ <!--Generated on Sun Mar 28 04:49:23 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on 令和3年3月.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch5.html" title="Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="up up" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="up up up" href="./" title="プログラミング言語SML#解説 3.7.1版">
+ <link rel="start" href="./" title="プログラミング言語SML#解説 3.7.1版">
+ <link rel="prev" href="Ch5.S7.html" title="5.7 Windows 10 ‣ Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="next" href="Ch6.html" title="Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch5.S1.html" title="5.1 動作環境 ‣ Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch5.S2.html" title="5.2 Debian GNU/Linux ‣ Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch5.S3.html" title="5.3 Ubuntu ‣ Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch5.S4.html" title="5.4 Fedora ‣ Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch5.S5.html" title="5.5 CentOS ‣ Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch5.S6.html" title="5.6 macOS ‣ Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch5.S7.html" title="5.7 Windows 10 ‣ Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML#の拡張機能：マルチスレッドプログラミング ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 3.7.1版">
+title: "5.8 ソースからビルドする場合‣ Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 3.7.1版</div>
+<div>
+<a href="Ch5.html" title="Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">5 </span>
+SML#のインストール</span></a><a href="Ch5.S7.html" title="5.7 Windows 10 ‣ Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">5.7 </span>Windows 10</span></a><a href="Ch6.html" title="Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">6 </span>SML#プログラミング環境の準備</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">5.8 </span>ソースからビルドする場合</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">その他のシステムではソースからビルドしてください．
+ソースからのビルドには，以下の開発ツールとライブラリが事前に
+インストールされている必要があります．</p>
+<ol id="I1" class="ltx_enumerate">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">プログラム開発用のツール群GNU binutils（GNU Binary Utilities）．</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">CおよびC++コンパイラ（gccまたはclang）</p>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p">make（GNU makeを推奨）</p>
+</div>
+</li>
+<li id="I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">4.</span> 
+<div id="I1.i4.p1" class="ltx_para">
+<p class="ltx_p">MassiveThreadsおよびGMPライブラリ本体とヘッダーファイル</p>
+</div>
+</li>
+<li id="I1.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">5.</span> 
+<div id="I1.i5.p1" class="ltx_para">
+<p class="ltx_p">LLVM 3.9.1以降のライブラリ，ヘッダーファイル，およびコマンド</p>
+</div>
+</li>
+</ol>
+<p class="ltx_p">これらのソフトウェアがインストール済みならば，SML#は
+標準的な3ステップ <span class="ltx_text ltx_font_typewriter">./configure &amp;&amp; make &amp;&amp; make install</span> で
+インストールすることができます．
+</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">これらのソフトウェアがOSのパッケージシステムによって提供されていない
+場合，これらもソースからビルドする必要があります．
+これらのコンパイルの詳細は，各ソフトウェアの公式ドキュメントなどを
+参照してください．</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">本文書の執筆時点でのMassiveThreadsおよびLLVM 11.0.0の大まかな
+インストール手順は以下の通りです．
+</p>
+</div>
+<section id="SS0.SSS0.Px1" class="ltx_paragraph">
+<h2 class="ltx_title ltx_title_paragraph">MassiveThreads</h2>
+
+<div id="SS0.SSS0.Px1.p1" class="ltx_para">
+<p class="ltx_p">MassiveThreadsのWebページ
+<a href="https://github.com/massivethreads/massivethreads" title="" class="ltx_ref ltx_url ltx_font_typewriter">https://github.com/massivethreads/massivethreads</a>などからMassiveThreads 1.00のソースコード
+<span class="ltx_text ltx_font_typewriter">massivethreads-1.00.tar.gz</span>を入手，展開し，
+標準的な3ステップ <span class="ltx_text ltx_font_typewriter">./configure &amp;&amp; make &amp;&amp; make install</span> で
+インストールしてください．
+</p>
+</div>
+</section>
+<section id="SS0.SSS0.Px2" class="ltx_paragraph">
+<h2 class="ltx_title ltx_title_paragraph">LLVM 11.0.0</h2>
+
+<div id="SS0.SSS0.Px2.p1" class="ltx_para">
+<p class="ltx_p">LLVMのWebページ <a href="http://llvm.org/" title="" class="ltx_ref ltx_url ltx_font_typewriter">http://llvm.org/</a> などからLLVMのソースコード
+<span class="ltx_text ltx_font_typewriter">llvm-11.0.0.src.tar.xz</span>を入手，展開し，以下の5ステップでビルドします．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">mkdir build
+<br class="ltx_break">
+cd build
+<br class="ltx_break">
+cmake -G "Unix Makefiles" \
+<br class="ltx_break">
+     -DCMAKE_INSTALL_PREFIX=/<math id="SS0.SSS0.Px2.p1.m1" class="ltx_Math" alttext="\mathit{where}" display="inline"><mrow><mi>w</mi><mi>h</mi><mi>e</mi><mi>r</mi><mi>e</mi></mrow></math>/<math id="SS0.SSS0.Px2.p1.m2" class="ltx_Math" alttext="\mathit{llvm}" display="inline"><mrow><mi>l</mi><mi>l</mi><mi>v</mi><mi>m</mi></mrow></math>/<math id="SS0.SSS0.Px2.p1.m3" class="ltx_Math" alttext="\mathit{is}" display="inline"><mrow><mi>i</mi><mi>s</mi></mrow></math> \
+<br class="ltx_break">
+     -DCMAKE_BUILD_TYPE=Release \
+<br class="ltx_break">
+     -DLLVM_BUILD_LLVM_DYLIB=On \
+<br class="ltx_break">
+     -DLLVM_ENABLE_BINDINGS=Off
+<br class="ltx_break">
+make
+<br class="ltx_break">
+make install</span></p>
+</blockquote>
+<p class="ltx_p">上記例で<span class="ltx_text ltx_font_typewriter">cmake</span>に指定しているオプションは必須ではありませんが，
+指定することをおすすめします．
+<span class="ltx_text ltx_font_typewriter">-DCMAKE_INSTALL_PREFIX</span>は他のLLVMのインストールと衝突を
+避けるために指定することをおすすめします．
+<span class="ltx_text ltx_font_typewriter">-DCMAKE_BUILD_TYPE=Release</span>はLLVM自体を最適化します．
+<span class="ltx_text ltx_font_typewriter">-DLLVM_BUILD_LLVM_DYLIB=On</span>オプションは共有ライブラリを
+ビルドします．
+<span class="ltx_text ltx_font_typewriter">-DLLVM_ENABLE_BINDINGS=Off</span>はSML#に不要なモジュールの
+ビルドを防ぎます．
+</p>
+</div>
+<div id="SS0.SSS0.Px2.p2" class="ltx_para">
+<p class="ltx_p">以上の環境の下で，以下の手順でSML#をソースからビルドします．
+</p>
+</div>
+<div id="SS0.SSS0.Px2.p3" class="ltx_para">
+<ol id="I2" class="ltx_enumerate">
+<li id="I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="I2.i1.p1" class="ltx_para">
+<p class="ltx_p">ソースパッケージ
+（<a href="https://github.com/smlsharp/smlsharp/releases/download/v3.7.1/smlsharp-3.7.1.tar.gz" title="" class="ltx_ref ltx_url ltx_font_typewriter">https://github.com/smlsharp/smlsharp/releases/download/v3.7.1/smlsharp-3.7.1.tar.gz</a>）
+をダウンロードします．
+最新のソースパッケージは
+<a href="https://smlsharp.github.io/ja/downloads/" title="" class="ltx_ref ltx_url ltx_font_typewriter">https://smlsharp.github.io/ja/downloads/</a>からも取得できます．
+</p>
+</div>
+</li>
+<li id="I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="I2.i2.p1" class="ltx_para">
+<p class="ltx_p">適当なSML#ソースディレクトリを決め，そこにソースパッケージを
+展開します．
+ただし，絶対パスに日本語が含まれるディレクトリは避けてください．
+SML#をビルドできません．
+</p>
+</div>
+</li>
+<li id="I2.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span> 
+<div id="I2.i3.p1" class="ltx_para">
+<p class="ltx_p">適当なSML#のインストール先ディレクトリを決めます．
+以下，そのディレクトリを<math id="I2.i3.p1.m1" class="ltx_Math" alttext="\mathit{prefix}" display="inline"><mrow><mi>p</mi><mi>r</mi><mi>e</mi><mi>f</mi><mi>i</mi><mi>x</mi></mrow></math>とします．
+</p>
+</div>
+</li>
+<li id="I2.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">4.</span> 
+<div id="I2.i4.p1" class="ltx_para">
+<p class="ltx_p">SML#ソースディレクトリにて<span class="ltx_text ltx_font_typewriter">configure</span>スクリプトを実行します．
+このとき，<span class="ltx_text ltx_font_typewriter">--prefix</span>オプションに<math id="I2.i4.p1.m1" class="ltx_Math" alttext="\mathit{prefix}" display="inline"><mrow><mi>p</mi><mi>r</mi><mi>e</mi><mi>f</mi><mi>i</mi><mi>x</mi></mrow></math>を，
+<span class="ltx_text ltx_font_typewriter">--with-llvm</span>にLLVMをインストールしたディレクトリを指定します．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ ./configure --prefix=<math id="I2.i4.p1.m2" class="ltx_Math" alttext="\mathit{prefix}" display="inline"><mrow><mi>p</mi><mi>r</mi><mi>e</mi><mi>f</mi><mi>i</mi><mi>x</mi></mrow></math> --with-llvm=/<math id="I2.i4.p1.m3" class="ltx_Math" alttext="\mathit{where}" display="inline"><mrow><mi>w</mi><mi>h</mi><mi>e</mi><mi>r</mi><mi>e</mi></mrow></math>/<math id="I2.i4.p1.m4" class="ltx_Math" alttext="\mathit{llvm}" display="inline"><mrow><mi>l</mi><mi>l</mi><mi>v</mi><mi>m</mi></mrow></math>/<math id="I2.i4.p1.m5" class="ltx_Math" alttext="\mathit{is}" display="inline"><mrow><mi>i</mi><mi>s</mi></mrow></math></span></p>
+</blockquote>
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">--prefix</span>オプションを省略した場合は <span class="ltx_text ltx_font_typewriter">/usr/local</span>に
+インストールされます．
+<span class="ltx_text ltx_font_typewriter">--with-llvm</span>オプションを省略した場合は，LLVMのライブラリ
+とコマンドを標準的な場所（<span class="ltx_text ltx_font_typewriter">/usr/bin</span>など）から探します．
+</p>
+</div>
+</li>
+<li id="I2.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">5.</span> 
+<div id="I2.i5.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">make</span>コマンドを実行しビルドを行います．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ make</span></p>
+</blockquote>
+<p class="ltx_p">なお，ビルド終了後，以下のコマンドでSML#コンパイラをインストール
+する前に起動することができます．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ src/compiler/smlsharp -Bsrc</span></p>
+</blockquote>
+</div>
+</li>
+<li id="I2.i6" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">6.</span> 
+<div id="I2.i6.p1" class="ltx_para">
+<p class="ltx_p">（オプション）
+以下のコマンドで，
+ビルドしたSML#コンパイラで
+SML#コンパイラをビルドし直すことができます．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ make stage
+<br class="ltx_break">
+$ make</span></p>
+</blockquote>
+</div>
+</li>
+<li id="I2.i7" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">7.</span> 
+<div id="I2.i7.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">make install</span>コマンドでインストールします．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ make install</span></p>
+</blockquote>
+<p class="ltx_p">システム管理の都合上，インストールされるファイルを
+<math id="I2.i7.p1.m1" class="ltx_Math" alttext="\mathit{prefix}" display="inline"><mrow><mi>p</mi><mi>r</mi><mi>e</mi><mi>f</mi><mi>i</mi><mi>x</mi></mrow></math>とは異なるディレクトリ<math id="I2.i7.p1.m2" class="ltx_Math" alttext="\mathit{prefix}^{\prime}" display="inline"><mrow><mi>p</mi><mi>r</mi><mi>e</mi><mi>f</mi><mi>i</mi><mi>x</mi><msup><mi></mi><mo>′</mo></msup></mrow></math>に出力させたい場合は，
+<span class="ltx_text ltx_font_typewriter">make install</span>コマンドに<span class="ltx_text ltx_font_typewriter">DESTDIR=<math id="I2.i7.p1.m3" class="ltx_Math" alttext="\mathit{prefix}^{\prime}" display="inline"><mrow><mi>p</mi><mi>r</mi><mi>e</mi><mi>f</mi><mi>i</mi><mi>x</mi><msup><mi></mi><mo mathvariant="normal">′</mo></msup></mrow></math></span>オプションを
+指定してください．
+</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="SS0.SSS0.Px2.p4" class="ltx_para">
+<p class="ltx_p">以上により，以下のファイルがインストールされます．</p>
+<ol id="I3" class="ltx_enumerate">
+<li id="I3.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="I3.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">smlsharp</span>コマンド：<math id="I3.i1.p1.m1" class="ltx_Math" alttext="\mathit{prefix}" display="inline"><mrow><mi>p</mi><mi>r</mi><mi>e</mi><mi>f</mi><mi>i</mi><mi>x</mi></mrow></math><span class="ltx_text ltx_font_typewriter">/bin/smlsharp</span></p>
+</div>
+</li>
+<li id="I3.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="I3.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">smlformat</span>コマンド：<math id="I3.i2.p1.m1" class="ltx_Math" alttext="\mathit{prefix}" display="inline"><mrow><mi>p</mi><mi>r</mi><mi>e</mi><mi>f</mi><mi>i</mi><mi>x</mi></mrow></math><span class="ltx_text ltx_font_typewriter">/bin/smlformat</span></p>
+</div>
+</li>
+<li id="I3.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span> 
+<div id="I3.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">smllex</span>コマンド：<math id="I3.i3.p1.m1" class="ltx_Math" alttext="\mathit{prefix}" display="inline"><mrow><mi>p</mi><mi>r</mi><mi>e</mi><mi>f</mi><mi>i</mi><mi>x</mi></mrow></math><span class="ltx_text ltx_font_typewriter">/bin/smllex</span></p>
+</div>
+</li>
+<li id="I3.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">4.</span> 
+<div id="I3.i4.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">smlyacc</span>コマンド：<math id="I3.i4.p1.m1" class="ltx_Math" alttext="\mathit{prefix}" display="inline"><mrow><mi>p</mi><mi>r</mi><mi>e</mi><mi>f</mi><mi>i</mi><mi>x</mi></mrow></math><span class="ltx_text ltx_font_typewriter">/bin/smlyacc</span>
+</p>
+</div>
+</li>
+<li id="I3.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">5.</span> 
+<div id="I3.i5.p1" class="ltx_para">
+<p class="ltx_p">ライブラリファイル：<math id="I3.i5.p1.m1" class="ltx_Math" alttext="\mathit{prefix}" display="inline"><mrow><mi>p</mi><mi>r</mi><mi>e</mi><mi>f</mi><mi>i</mi><mi>x</mi></mrow></math><span class="ltx_text ltx_font_typewriter">/lib/smlsharp/</span>ディレクトリ以下のファイル</p>
+</div>
+</li>
+</ol>
+<p class="ltx_p">以下のコマンドでSML#コンパイラが起動できるはずです．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ <math id="SS0.SSS0.Px2.p4.m1" class="ltx_Math" alttext="\mathit{prefix}" display="inline"><mrow><mi>p</mi><mi>r</mi><mi>e</mi><mi>f</mi><mi>i</mi><mi>x</mi></mrow></math>/bin/smlsharp</span></p>
+</blockquote>
+</div>
+<div id="SS0.SSS0.Px2.p5" class="ltx_para">
+<p class="ltx_p">補足とヒント：</p>
+<ul id="I4" class="ltx_itemize">
+<li id="I4.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I4.i1.p1" class="ltx_para">
+<p class="ltx_p">マルチコアCPUをお使いの方は，GNU makeならば<span class="ltx_text ltx_font_typewriter">make</span>コマンドを実行
+するとき<span class="ltx_text ltx_font_typewriter">-j<math id="I4.i1.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">n<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I4.i1.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>スイッチを指定すると，並列にコンパイルされ，
+実行時間が短縮される場合があります．<math id="I4.i1.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">n<span class="ltx_text ltx_font_upright"><math id="I4.i1.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は並列度です．コアの数程度
+に指定すると良い結果が得られると思います．</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch5.S7.html" title="5.7 Windows 10 ‣ Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">5.7 </span>Windows 10</span></a><a href="Ch6.html" title="Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">6 </span>SML#プログラミング環境の準備</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sun Mar 28 04:49:23 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

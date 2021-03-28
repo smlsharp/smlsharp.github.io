@@ -1,0 +1,125 @@
+---
+layout: default
+permalink: /en/documents/3.7.1/Ch16.S3.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Sun Mar 28 04:50:44 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Mar, 2021.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch16.html" title="Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="up up" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="up up up" href="./" title="SML# Document Version 3.7.1">
+ <link rel="start" href="./" title="SML# Document Version 3.7.1">
+ <link rel="prev" href="Ch16.S2.html" title="16.2 Programs in the separate compilation mode ‣ Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="next" href="Ch17.html" title="Chapter 17 Lexical structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch16.S1.html" title="16.1 Programs in the interactive mode ‣ Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch16.S2.html" title="16.2 Programs in the separate compilation mode ‣ Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch15.html" title="Chapter 15 Introduction ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch16.html" title="Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch17.html" title="Chapter 17 Lexical structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch18.html" title="Chapter 18 Types ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch19.html" title="Chapter 19 Expressions ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch20.html" title="Chapter 20 Patterns and Pattern Matching ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch21.html" title="Chapter 21 Scope rules for identifier ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch22.html" title="Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch23.html" title="Chapter 23 Declarations of the core language and their interfaces ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch24.html" title="Chapter 24 Module language declarations and interface ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch25.html" title="Chapter 25 Overview of SML# Libraries ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch26.html" title="Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch27.html" title="Chapter 27 SML# System Library ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch28.html" title="Chapter 28 The smlsharp command ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch29.html" title="Chapter 29 SML# Run-time data management ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 3.7.1">
+title: "16.3  Major Components of SML# Programs ‣ Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 3.7.1</div>
+<div>
+<a href="Ch16.html" title="Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">16 </span>The SML# Structure</span></a><a href="Ch16.S2.html" title="16.2 Programs in the separate compilation mode ‣ Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">16.2 </span>Programs in the separate compilation mode</span></a><a href="Ch17.html" title="Chapter 17 Lexical structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">17 </span>Lexical structure</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">16.3 </span>
+Major Components of SML# Programs
+</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">Before defining the syntax and semantics of these declarations and
+interfaces,
+we define those of the following elements that construct these declarations
+and interfaces.</p>
+<dl id="I1" class="ltx_description">
+<dt id="I1.ix1" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Lexical structures</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix1.p1" class="ltx_para">
+<p class="ltx_p">The definition of keywords and identifiers
+(Chapter <a href="Ch17.html" title="Chapter 17 Lexical structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">17</span></a>).</p>
+</div>
+</dd>
+<dt id="I1.ix2" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Expressions</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix2.p1" class="ltx_para">
+<p class="ltx_p">The major components of programs made from lexical components.
+They have static types and generates dynamic values
+(Chapter <a href="Ch19.html" title="Chapter 19 Expressions ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">19</span></a>).</p>
+</div>
+</dd>
+<dt id="I1.ix3" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Types</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix3.p1" class="ltx_para">
+<p class="ltx_p">Used for type annotations of expressions and identifiers and
+the definition of interfaces
+(Chapter <a href="Ch18.html" title="Chapter 18 Types ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">18</span></a>).</p>
+</div>
+</dd>
+<dt id="I1.ix4" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Patterns</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix4.p1" class="ltx_para">
+<p class="ltx_p">Denoting the structure of values received by functions and value bindings.
+(Chapter <a href="Ch20.html" title="Chapter 20 Patterns and Pattern Matching ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">20</span></a>).</p>
+</div>
+</dd>
+<dt id="I1.ix5" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Scoping rules</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix5.p1" class="ltx_para">
+<p class="ltx_p">The definition of scopes of identifiers and dynamic value bindings.
+(Chapter <a href="Ch21.html" title="Chapter 21 Scope rules for identifier ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">21</span></a>).</p>
+</div>
+</dd>
+<dt id="I1.ix6" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">SQL expressions</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix6.p1" class="ltx_para">
+<p class="ltx_p">The expressions denoting SQL commmands that is seamlessly
+integrated into SML#.
+Similarly to other expressions,
+they have polymorphic types and can be used with other expressions.
+(Chapter <a href="Ch22.html" title="Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22</span></a>).</p>
+</div>
+</dd>
+</dl>
+<p class="ltx_p">Then, we define the syntax and semnatics of core declarations
+in Chapter <a href="Ch23.html" title="Chapter 23 Declarations of the core language and their interfaces ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">23</span></a>
+and those of module declarations in Chapter <a href="Ch24.html" title="Chapter 24 Module language declarations and interface ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">24</span></a>.
+</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch16.S2.html" title="16.2 Programs in the separate compilation mode ‣ Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">16.2 </span>Programs in the separate compilation mode</span></a><a href="Ch17.html" title="Chapter 17 Lexical structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">17 </span>Lexical structure</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sun Mar 28 04:50:44 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

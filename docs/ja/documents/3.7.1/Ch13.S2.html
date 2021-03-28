@@ -1,0 +1,166 @@
+---
+layout: default
+permalink: /ja/documents/3.7.1/Ch13.S2.html
+translated: true
+lang: ja
+head: |
+ <!--Generated on Sun Mar 28 04:49:23 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on 令和3年3月.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch13.html" title="Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="up up" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="up up up" href="./" title="プログラミング言語SML#解説 3.7.1版">
+ <link rel="start" href="./" title="プログラミング言語SML#解説 3.7.1版">
+ <link rel="prev" href="Ch13.S1.html" title="13.1 動的型付け ‣ Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="next" href="Ch13.S3.html" title="13.3 プリティプリンタ ‣ Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch13.S1.html" title="13.1 動的型付け ‣ Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch13.S3.html" title="13.3 プリティプリンタ ‣ Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch13.S4.html" title="13.4 JSONと部分動的レコード ‣ Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch13.S5.html" title="13.5 JSONの操作 ‣ Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch13.S6.html" title="13.6 JSONプログラミング例 ‣ Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML#の拡張機能：マルチスレッドプログラミング ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 3.7.1版">
+title: "13.2  項と型のリーフィケーション ‣ Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 3.7.1版</div>
+<div>
+<a href="Ch13.html" title="Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">13 </span>
+SML#の拡張機能：動的型付け機構とJSONの型付き操作</span></a><a href="Ch13.S1.html" title="13.1 動的型付け ‣ Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">13.1 </span>
+動的型付け</span></a><a href="Ch13.S3.html" title="13.3 プリティプリンタ ‣ Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">13.3 </span>
+プリティプリンタ</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">13.2 </span>
+項と型のリーフィケーション
+</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">静的型付き言語では一般に，型情報はコンパイラのみが管理するメタな
+情報であり，型情報はコンパイル後のコードにはデータ構造として含まれません．
+また，値のメモリ上のデータ構造も，型によって決められるメタな
+情報です．
+これらメタな情報をコードが扱えるオブジェクトとして取り出すことを
+リーフィケーションと言います．
+SML#の動的型付けは，このリーフィケーションを基盤として
+構築されています．
+ユーザーもこのリーフィケーション機構を利用して，型情報や
+値の内部構造を，MLのdatatypeとして取り出すことができます．</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">SML#は以下の関数を提供します．</p>
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">Dynamic.dynamicToTerm : Dynamic.void Dynamic.dyn -&gt; Dynamic.term</span>．
+この関数は，
+動的に型付けされた値から値の構造を<span class="ltx_text ltx_font_typewriter">Dynamic.term</span>型の項表現として
+取り出します．
+<span class="ltx_text ltx_font_typewriter">Dynamic.term</span>型は一般的なMLのdatatypeであり，他のdatatypeと
+同様，MLの<span class="ltx_text ltx_font_typewriter">case</span>式などで分析することができます．</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">Dynamic.dynamicToTy : Dynamic.void dyn -&gt; Dynamic.ty</span>．
+この関数は，
+動的に型付けされた値から型情報を<span class="ltx_text ltx_font_typewriter">Dynamic.ty</span>型の項表現として
+取り出します．
+<span class="ltx_text ltx_font_typewriter">Dynamic.term</span>型と同様に，<span class="ltx_text ltx_font_typewriter">Dynamic.ty</span>型もごく一般的な
+MLのdatatypeです．</p>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">Dynamic.termToDynamic : Dynamic.term -&gt; Dynamic.void Dynamic.dyn</span>．
+この関数は
+項表現を動的に型付けされた値に変換します．
+<span class="ltx_text ltx_font_typewriter">_dynamic</span>構文と組み合わせることで，<span class="ltx_text ltx_font_typewriter">Dynamic.term</span>型
+の値として構築された構造を，MLの静的型付けされた値に変換することが可能です．</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">以下の対話セッションは，<span class="ltx_text ltx_font_typewriter">Dynamic.term</span>型を通じてMLのレコードから
+別の型のレコードを構築する例です．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># open Dynamic;
+<br class="ltx_break">
+...
+<br class="ltx_break">
+# val x = {name = "Sendai", wind = 7.6};
+<br class="ltx_break">
+val x = {name = "Sendai", wind = 7.6} : {name: string, wind: real}
+<br class="ltx_break">
+# val d = dynamicToTerm (dynamic x);
+<br class="ltx_break">
+val d = RECORD {#name =&gt; STRING "Sendai", #wind =&gt; REAL64 7.6} : term
+<br class="ltx_break">
+# case d of
+<br class="ltx_break">
+&gt;   RECORD m =&gt;
+<br class="ltx_break">
+&gt;   RECORD (RecordLabel.Map.insert
+<br class="ltx_break">
+&gt;             (m, RecordLabel.fromString "weather", STRING "cloudy"))
+<br class="ltx_break">
+&gt;   | x =&gt; x;
+<br class="ltx_break">
+val it =
+<br class="ltx_break">
+  RECORD
+<br class="ltx_break">
+  {#name =&gt; STRING "Sendai", #weather =&gt; STRING "cloudy", #wind =&gt; REAL64 7.6}
+<br class="ltx_break">
+  : term
+<br class="ltx_break">
+# termToDynamic it;
+<br class="ltx_break">
+val it = _ : void dyn;
+<br class="ltx_break">
+# _dynamic it as {name:string, wind:real, weather:string};
+<br class="ltx_break">
+val it =
+<br class="ltx_break">
+  {name = "Sendai", weather = "cloudy", wind = 7.6}
+<br class="ltx_break">
+  : {name: string, weather: string, wind: real}</span></p>
+</blockquote>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch13.S1.html" title="13.1 動的型付け ‣ Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">13.1 </span>
+動的型付け</span></a><a href="Ch13.S3.html" title="13.3 プリティプリンタ ‣ Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">13.3 </span>
+プリティプリンタ</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sun Mar 28 04:49:23 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

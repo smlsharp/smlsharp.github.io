@@ -1,0 +1,643 @@
+---
+layout: default
+permalink: /en/documents/3.7.1/Ch22.S1.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Sun Mar 28 04:50:44 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Mar, 2021.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch22.html" title="Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="up up" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="up up up" href="./" title="SML# Document Version 3.7.1">
+ <link rel="start" href="./" title="SML# Document Version 3.7.1">
+ <link rel="prev" href="Ch22.html" title="Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="next" href="Ch22.S2.html" title="22.2 Extended ML Expressions for SQL Queries ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch22.S2.html" title="22.2 Extended ML Expressions for SQL Queries ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch22.S3.html" title="22.3 Database Server Description: The _sqlserver Expression ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch22.S4.html" title="22.4 SQL Value Expressions ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch22.S5.html" title="22.5 SELECT queries ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch22.S6.html" title="22.6 SQL commands ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch22.S7.html" title="22.7 SQL execution function expressions ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch22.S8.html" title="22.8 SQL Library: The SQL Structure ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch22.S9.html" title="22.9 SQL Library: The SQL.Op structure ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch22.S10.html" title="22.10 SQL Library: The SQL.Numeric Structure ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch22.S11.html" title="22.11 Difference from the standard SQL (Informative) ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch15.html" title="Chapter 15 Introduction ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch16.html" title="Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch17.html" title="Chapter 17 Lexical structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch18.html" title="Chapter 18 Types ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch19.html" title="Chapter 19 Expressions ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch20.html" title="Chapter 20 Patterns and Pattern Matching ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch21.html" title="Chapter 21 Scope rules for identifier ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch22.html" title="Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch23.html" title="Chapter 23 Declarations of the core language and their interfaces ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch24.html" title="Chapter 24 Module language declarations and interface ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch25.html" title="Chapter 25 Overview of SML# Libraries ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch26.html" title="Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch27.html" title="Chapter 27 SML# System Library ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch28.html" title="Chapter 28 The smlsharp command ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch29.html" title="Chapter 29 SML# Run-time data management ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 3.7.1">
+title: "22.1 SQL Types‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 3.7.1</div>
+<div>
+<a href="Ch22.html" title="Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22 </span>SQL Expressions and Commands</span></a><a href="Ch22.html" title="Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22 </span>SQL Expressions and Commands</span></a><a href="Ch22.S2.html" title="22.2 Extended ML Expressions for SQL Queries ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.2 </span>Extended ML Expressions for SQL Queries</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">22.1 </span>SQL Types</h1>
+
+<section id="SS1" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.1.1 </span>SQL Basic Types</h2>
+
+<div id="SS1.p1" class="ltx_para">
+<p class="ltx_p">Except for NULL,
+the following SML# types corespond to SQL basic types:
+</p>
+</div>
+<div id="SS1.p2" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row ltx_border_l ltx_border_r ltx_border_t">SML#’s basic types</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">corresponding SQL types</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t">
+<span class="ltx_text ltx_font_typewriter">int</span>, <span class="ltx_text ltx_font_typewriter">intInf</span>, <span class="ltx_text ltx_font_typewriter">word</span>
+</th>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">integer types</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">bool</span></th>
+<td class="ltx_td ltx_align_left ltx_border_r">BOOLEAN type of SQL:99 (feature ID T031)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">char</span></th>
+<td class="ltx_td ltx_align_left ltx_border_r">
+<span class="ltx_text ltx_font_typewriter">CHAR(1)</span> type</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">string</span></th>
+<td class="ltx_td ltx_align_left ltx_border_r">
+<span class="ltx_text ltx_font_typewriter">TEXT</span> or <span class="ltx_text ltx_font_typewriter">VARVHAR</span> type</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">real</span></th>
+<td class="ltx_td ltx_align_left ltx_border_r">double-precision floating point types</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">real32</span></th>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">single-precision floating point types</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="SS1.p3" class="ltx_para">
+<p class="ltx_p">In addition to SML# basic types,
+the following types are defined for the interoperation with SQL:
+</p>
+</div>
+<div id="SS1.p4" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row ltx_border_l ltx_border_r ltx_border_t">SML#’s types</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">corresponding SQL types</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">SQL.numeric</span></th>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">
+<span class="ltx_text ltx_font_typewriter">NUMERIC</span> type (decimals of maximum precision)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">SQL.decimal</span></th>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">
+<span class="ltx_text ltx_font_typewriter">DECIMAL</span> type (alias of <span class="ltx_text ltx_font_typewriter">NUMERIC</span>)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="SS1.p5" class="ltx_para">
+<p class="ltx_p">The concrete correspondence between SML# and SQL types
+depend on the selection of database engines.
+See Section <a href="Ch22.S8.html#SS1" title="22.8.1 Connecting to a database server ‣ 22.8 SQL Library: The SQL Structure ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.8.1</span></a> for details of
+the type correspondence for each database engines.
+</p>
+</div>
+<div id="SS1.p6" class="ltx_para">
+<p class="ltx_p">SQL’s NULL corresponds to SML#’s NONE of <span class="ltx_text ltx_font_typewriter">option</span> type.
+Expressions that may evaluate to NULL,
+such as references to columns without the NOT NULL constraint,
+have the <span class="ltx_text ltx_font_typewriter">option</span> type of one of the above basic types.
+</p>
+</div>
+</section>
+<section id="SS2" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.1.2 </span>The Type of SQL Logical Expressions</h2>
+
+<div id="SS2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.bool3</span> is the SML# type of the SQL boolean
+expressions, which consists of comarison and logical operators.
+This <span class="ltx_text ltx_font_typewriter">SQL.bool3</span> type is intoduced just for
+the typechecking of SQL queries in SML# and thus
+it does not correspond to any SQL type.
+</p>
+</div>
+<div id="SS2.p2" class="ltx_para">
+<p class="ltx_p">SML# distinguishes the types of boolean expressions
+<span class="ltx_text ltx_font_typewriter">SQL.bool3</span> and boolean values <span class="ltx_text ltx_font_typewriter">bool</span>.
+This is due to the historical confusion of the SQL standards
+on dealing with truth values.
+Traditionally,
+the SQL’s truth value is a 3-valued boolean consiting of
+true, false, and unknown, which are not first-class citizens
+(they cannot be stored in any table, for example).
+Therefore, there is no literal denoting truth values.
+The first-class boolean value has been introduced
+in SQL99 as an optional feature (feature ID T031).
+However,
+the optional feature has been criticized
+since this optional specification includes serious inconsistencies
+against the SQL core features.
+Consequently,
+almost all of RDBMS vendors have not supported the BOOLEAN type.
+Even after a few decades since SQL99 had shipped out,
+no popular RDBMS except for PostgreSQL supports the BOOLEAN type.
+</p>
+</div>
+<div id="SS2.p3" class="ltx_para">
+<p class="ltx_p">To avoid misunderstanding and incompatibility due to the
+confusion,
+SML# enforces the type distinction between boolean expressions
+and values.
+Thus,
+boolean literal <span class="ltx_text ltx_font_typewriter">true</span> and <span class="ltx_text ltx_font_typewriter">false</span>
+cannot be used as boolean expressions, and vice versa.
+See also
+Section <a href="Ch22.S4.html#SS2" title="22.4.2 SQL constant expressions ‣ 22.4 SQL Value Expressions ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.4.2</span></a> for boolean literals,
+and
+Section <a href="Ch22.S4.html#SS6" title="22.4.6 SQL logical expressions ‣ 22.4 SQL Value Expressions ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.4.6</span></a> for boolean expressions.
+</p>
+</div>
+</section>
+<section id="SS3" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.1.3 </span>Types for SQL Tables and Schema</h2>
+
+<div id="SS3.p1" class="ltx_para">
+<p class="ltx_p">SML#’s record and list types are associated with
+the structures of SQL’s tables, views, and schema.
+SQL tables and views corresponds to the type of
+a list of a record whose field names are column names and field types
+are column types.
+If a column is not defined with the NOT NULL constraint,
+the type of the column in SML# is the <span class="ltx_text ltx_font_typewriter">option</span> type of
+one of the basic types.
+For example, the structure of
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">CREATE TABLE foo (bar INT, baz TEXT NOT NULL);</span></p>
+</blockquote>
+<p class="ltx_p">is represented by the following SML# type:
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">{bar : int option, baz : string} list</span></p>
+</blockquote>
+</div>
+<div id="SS3.p2" class="ltx_para">
+<p class="ltx_p">As seen in the above example,
+the constraints that means “it is not NULL”,
+such as the NOT NULL and PRIMARY KEY constraints,
+are represented in SML# types
+and therefore typechecked at compile-time.
+Any other SQL constraints are not reflected in SML# types
+and are checked at run-time when an SQL query is executed in a database
+server.
+</p>
+</div>
+<div id="SS3.p3" class="ltx_para">
+<p class="ltx_p">SQL schema are represented in a record type, each field of which
+represents the name and structure of each table.
+For example, the SQL schema
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">CREATE TABLE employee (id INT PRIMARY KEY, name TEXT NOT NULL,
+<br class="ltx_break">
+                       age INT NOT NULL, deptId INT, salary INT);
+<br class="ltx_break">
+CREATE TABLE department (deptId INT PRIMARY KEY, name TEXT NOT NULL);</span></p>
+</blockquote>
+<p class="ltx_p">is represented as follows in SML#:
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">{
+<br class="ltx_break">
+  employee : {id : int, name : string, age : int,
+<br class="ltx_break">
+              deptId : int option, salary : int option} list,
+<br class="ltx_break">
+  department : {deptId : int, name : string} list
+<br class="ltx_break">
+}</span></p>
+</blockquote>
+</div>
+</section>
+<section id="SS4" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.1.4 </span>Types for SQL Queries and Their Fragments</h2>
+
+<div id="SS4.p1" class="ltx_para">
+<p class="ltx_p">Each category of SQL queries and their subexpressions has
+a different type in SML#.
+The following table shows the correspondence between the
+syntax categories of SQL and SML# types:
+</p>
+</div>
+<div id="SS4.p2" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_l ltx_border_r ltx_border_t">Syntax categories</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">SML# type</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">SQL value expressions</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">(<math id="SS4.p2.m1" class="ltx_Math" alttext="\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math> -&gt; <math id="SS4.p2.m2" class="ltx_Math" alttext="\tau_{2}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">2</mn></msub></mrow></math>,<math id="SS4.p2.m3" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.exp</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">SQL commands</td>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">(<math id="SS4.p2.m4" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>,<math id="SS4.p2.m5" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.command</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">SQL queries</td>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">(<math id="SS4.p2.m6" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>,<math id="SS4.p2.m7" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.query</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">SELECT clauses</td>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">(<math id="SS4.p2.m8" class="ltx_Math" alttext="\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math>,<math id="SS4.p2.m9" class="ltx_Math" alttext="\tau_{2}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">2</mn></msub></mrow></math>,<math id="SS4.p2.m10" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.select</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">FROM clauses</td>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">(<math id="SS4.p2.m11" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>,<math id="SS4.p2.m12" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.from</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">WHERE clauses</td>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">(<math id="SS4.p2.m13" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>,<math id="SS4.p2.m14" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.whr</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">ORDER BY clauses</td>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">(<math id="SS4.p2.m15" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>,<math id="SS4.p2.m16" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.orderby</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">OFFSET clauses</td>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">(<math id="SS4.p2.m17" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>,<math id="SS4.p2.m18" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.offset</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_l ltx_border_r">LIMIT clauses</td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r"><span class="ltx_text ltx_font_typewriter">(<math id="SS4.p2.m19" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>,<math id="SS4.p2.m20" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.limit</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="SS4.p3" class="ltx_para">
+<p class="ltx_p">where <math id="SS4.p3.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math> is either a table or basic type
+and <math id="SS4.p3.m2" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math> is the type atom
+that identifies a connection to a database server.
+The meaning of the above SML# types are the following:
+</p>
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">(<math id="I1.i1.p1.m1" class="ltx_Math" alttext="\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math> -&gt; <math id="I1.i1.p1.m2" class="ltx_Math" alttext="\tau_{2}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">2</mn></msub></mrow></math>, <math id="I1.i1.p1.m3" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.exp</span>
+is the type of SQL value expressions that have type <math id="I1.i1.p1.m4" class="ltx_Math" alttext="\tau_{2}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn>2</mn></msub></mrow></math>
+under the database connection <math id="I1.i1.p1.m5" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math> and row type <math id="I1.i1.p1.m6" class="ltx_Math" alttext="\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn>1</mn></msub></mrow></math>.
+</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">(<math id="I1.i2.p1.m1" class="ltx_Math" alttext="\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math>,<math id="I1.i2.p1.m2" class="ltx_Math" alttext="\tau_{2}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">2</mn></msub></mrow></math>,<math id="I1.i2.p1.m3" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.select</span>
+is the type of SELECT clauses that transforms tables of type <math id="I1.i2.p1.m4" class="ltx_Math" alttext="\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn>1</mn></msub></mrow></math>
+to those of type <math id="I1.i2.p1.m5" class="ltx_Math" alttext="\tau_{2}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn>2</mn></msub></mrow></math> under the database connection <math id="I1.i2.p1.m6" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>.
+</p>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p">For any other category,
+<span class="ltx_text ltx_font_typewriter">(<math id="I1.i3.p1.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>,<math id="I1.i3.p1.m2" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.<math id="I1.i3.p1.m3" class="ltx_Math" alttext="X" display="inline"><mi>X</mi></math></span>
+is the type of constructs of <math id="I1.i3.p1.m4" class="ltx_Math" alttext="X" display="inline"><mi>X</mi></math> that have type <math id="I1.i3.p1.m5" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>
+under the database connection <math id="I1.i3.p1.m6" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>.
+</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+<section id="SS5" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.1.5 </span>Types for SQL Handles</h2>
+
+<div id="SS5.p1" class="ltx_para">
+<p class="ltx_p">SML# gives database connections and query results
+the following types:
+</p>
+</div>
+<div id="SS5.p2" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row ltx_border_l ltx_border_r ltx_border_t">Types</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">Descriptions</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t">
+<math id="SS5.p2.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> SQL.server</span>
+</th>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">a description of a connection to a database of type <math id="SS5.p2.m2" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>
+</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r">
+<math id="SS5.p2.m3" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> SQL.conn</span>
+</th>
+<td class="ltx_td ltx_align_left ltx_border_r">a connection handle to a database of type <math id="SS5.p2.m4" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>
+</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r">
+<math id="SS5.p2.m5" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> SQL.cursor</span>
+</th>
+<td class="ltx_td ltx_align_left ltx_border_r">a cursor to access to a table of type <math id="SS5.p2.m6" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>
+</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">(<math id="SS5.p2.m7" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>,<math id="SS5.p2.m8" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.db</span></th>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">an instance of a database of type <math id="SS5.p2.m9" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="SS5.p3" class="ltx_para">
+<p class="ltx_p">The typical usage of these types are the following:
+</p>
+<ol id="I2" class="ltx_enumerate">
+<li id="I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="I2.i1.p1" class="ltx_para">
+<p class="ltx_p">The <span class="ltx_text ltx_font_typewriter">_sqlserver</span> expression
+generates a connection information of the <math id="I2.i1.p1.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> SQL.server</span> type
+(see also Section <a href="Ch22.S3.html" title="22.3 Database Server Description: The _sqlserver Expression ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.3</span></a>).
+</p>
+</div>
+</li>
+<li id="I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="I2.i2.p1" class="ltx_para">
+<p class="ltx_p">The <span class="ltx_text ltx_font_typewriter">SQL.connect</span> function
+establishes a connection to the server described in the
+connection information of the <math id="I2.i2.p1.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> SQL.server</span> type
+and returns a connection handle of the <math id="I2.i2.p1.m2" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> SQL.conn</span> type
+(see also Section <a href="Ch22.S8.html#SS1" title="22.8.1 Connecting to a database server ‣ 22.8 SQL Library: The SQL Structure ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.8.1</span></a>).
+</p>
+</div>
+</li>
+<li id="I2.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span> 
+<div id="I2.i3.p1" class="ltx_para">
+<p class="ltx_p">SQL queries are constructed as polymorphic functions of type
+<span class="ltx_text ltx_font_typewriter">[’a. (<math id="I2.i3.p1.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>,’a) SQL.db -&gt; (<math id="I2.i3.p1.m2" class="ltx_Math" alttext="\tau^{\prime}" display="inline"><mrow><mi>τ</mi><msup><mi></mi><mo mathvariant="normal">′</mo></msup></mrow></math> SQL.cursor,’a) SQL.command]</span>
+(see also Section <a href="#SS6" title="22.1.6 SML#’s Policy of Typing SQL Expressions ‣ 22.1 SQL Types ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.1.6</span></a>).
+</p>
+</div>
+</li>
+<li id="I2.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">4.</span> 
+<div id="I2.i4.p1" class="ltx_para">
+<p class="ltx_p">The <span class="ltx_text ltx_font_typewriter">_sql</span> syntax
+transforms the SQL query function to an SQL execution function
+of type
+<math id="I2.i4.p1.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> SQL.conn -&gt; <math id="I2.i4.p1.m2" class="ltx_Math" alttext="\tau^{\prime}" display="inline"><mrow><mi>τ</mi><msup><mi></mi><mo mathvariant="normal">′</mo></msup></mrow></math> SQL.cursor</span>
+(see also Section <a href="Ch22.S7.html" title="22.7 SQL execution function expressions ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.7</span></a>).
+</p>
+</div>
+</li>
+<li id="I2.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">5.</span> 
+<div id="I2.i5.p1" class="ltx_para">
+<p class="ltx_p">Calling this function by giving it a connection handle of
+the <math id="I2.i5.p1.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> SQL.conn</span> type as its argument,
+the SQL query is sent to the server and evaluated on the server.
+If the evaluation succeeds,
+the function returns a cursor of the <math id="I2.i5.p1.m2" class="ltx_Math" alttext="\tau^{\prime}" display="inline"><mrow><mi>τ</mi><msup><mi></mi><mo>′</mo></msup></mrow></math><span class="ltx_text ltx_font_typewriter"> SQL.cursor</span> type
+to access to the result
+(see also Section <a href="Ch22.S7.html" title="22.7 SQL execution function expressions ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.7</span></a>).
+</p>
+</div>
+</li>
+<li id="I2.i6" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">6.</span> 
+<div id="I2.i6.p1" class="ltx_para">
+<p class="ltx_p">The <span class="ltx_text ltx_font_typewriter">SQL.fetch</span> or <span class="ltx_text ltx_font_typewriter">SQL.fetchAll</span> function
+retrieves records of type <math id="I2.i6.p1.m1" class="ltx_Math" alttext="\tau^{\prime}" display="inline"><mrow><mi>τ</mi><msup><mi></mi><mo>′</mo></msup></mrow></math>
+from the cursor of the <math id="I2.i6.p1.m2" class="ltx_Math" alttext="\tau^{\prime}" display="inline"><mrow><mi>τ</mi><msup><mi></mi><mo>′</mo></msup></mrow></math><span class="ltx_text ltx_font_typewriter"> SQL.cursor</span> type
+(see also Section <a href="Ch22.S8.html#SS2" title="22.8.2 executing SQL queries and retrieving their results ‣ 22.8 SQL Library: The SQL Structure ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.8.2</span></a>).
+</p>
+</div>
+</li>
+</ol>
+</div>
+</section>
+<section id="SS6" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.1.6 </span>SML#’s Policy of Typing SQL Expressions</h2>
+
+<div id="SS6.p1" class="ltx_para">
+<p class="ltx_p">In SML#, SQL expressions are typed through the correspondence
+between SML# types and the structures of
+SQL data and expressions defined above.
+An SQL query, which operates on tables, has a similar type
+to an SML# expression that does the same thing as
+the query for lists of records.
+</p>
+</div>
+<div id="SS6.p2" class="ltx_para">
+<p class="ltx_p">For example, an SQL query
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SELECT t.name AS employeeName, t.age AS employeeAge
+<br class="ltx_break">
+FROM employeeTable AS t
+<br class="ltx_break">
+WHERE t.age &gt; 20</span></p>
+</blockquote>
+<p class="ltx_p">is written in SML# as follows:
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val Q = fn db =&gt; _sql select #t.name as employeeName, #t.age as employeeAge
+<br class="ltx_break">
+                      from #db.employeeTable as t
+<br class="ltx_break">
+                      where #t.age &gt; 20</span></p>
+</blockquote>
+<p class="ltx_p">where <span class="ltx_text ltx_font_typewriter">db</span> is the bound variable that
+abstracts the database instance on which the query is evaluated.
+</p>
+</div>
+<div id="SS6.p3" class="ltx_para">
+<p class="ltx_p">By the way, this query computes a table
+from the <span class="ltx_text ltx_font_typewriter">employeeTable</span> table specified in its FROM clause
+by filtering its rows according to the condition written in the WHERE
+clause and transforming the rows by expressions in the SELECT clause.
+The SML# expression that performs the same thing for
+lists of records can be written easily as follows:
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val Q’ =
+<br class="ltx_break">
+  fn db =&gt; List.map
+<br class="ltx_break">
+             (fn x =&gt; {employeeName = #name (#t x), employeeAge = #age (#t x)})
+<br class="ltx_break">
+             (List.filter
+<br class="ltx_break">
+                (fn x =&gt; #age (#t x) &gt; 20)
+<br class="ltx_break">
+                (List.map
+<br class="ltx_break">
+                   (fn x =&gt; {t = x})
+<br class="ltx_break">
+                   (#employeeTable db)))</span></p>
+</blockquote>
+<p class="ltx_p">The type of this <span class="ltx_text ltx_font_typewriter">Q’</span> is the following:
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val Q’ : [’a#{employeeTable : ’b list},
+<br class="ltx_break">
+          ’b#{age : int, name : ’c},
+<br class="ltx_break">
+          ’c.
+<br class="ltx_break">
+          ’a -&gt; {employeeAge : ’c, employeeName : int} list]</span></p>
+</blockquote>
+<p class="ltx_p">In what follows,
+we refer to this function <span class="ltx_text ltx_font_typewriter">Q’</span> as a <span class="ltx_text ltx_font_italic">toy program</span> of <span class="ltx_text ltx_font_typewriter">Q</span>.</p>
+</div>
+<div id="SS6.p4" class="ltx_para">
+<p class="ltx_p">Through this correspondence between SQL queries and SML#
+expresions,
+SML# gives the above query <span class="ltx_text ltx_font_typewriter">Q</span> the following type,
+which represents the fact that the query does the same thing for
+tables as the SML# expression for lists of records of the
+similar type:
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val Q : [’a#{employeeTable : ’b list},
+<br class="ltx_break">
+         ’b#{age : int, name : ’c},
+<br class="ltx_break">
+         ’c::{int, ...}, ’d.
+<br class="ltx_break">
+         (’a, ’d) SQL.db -&gt; ({employeeAge : ’c, employeeName : int} list, ’d) SQL.query]</span></p>
+</blockquote>
+<p class="ltx_p">The kinded type variables occuring in the type of <span class="ltx_text ltx_font_typewriter">Q</span>
+represent the following facts:
+</p>
+<ul id="I3" class="ltx_itemize">
+<li id="I3.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">’a</span> represents the fact that
+the database on which this query runs must have at least a table
+named <span class="ltx_text ltx_font_typewriter">employeeTable</span> of type <span class="ltx_text ltx_font_typewriter">’b</span>.
+Any other tables in the database does not affect the
+evaluation of the query.
+</p>
+</div>
+</li>
+<li id="I3.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">’b</span> means that
+the <span class="ltx_text ltx_font_typewriter">employeeTable</span> table must have at least two columns:
+the <span class="ltx_text ltx_font_typewriter">age</span> column of type <span class="ltx_text ltx_font_typewriter">int</span> and
+the <span class="ltx_text ltx_font_typewriter">name</span> column of type <span class="ltx_text ltx_font_typewriter">’c</span>.
+The <span class="ltx_text ltx_font_typewriter">employeeTable</span> table may have other columns.
+</p>
+</div>
+</li>
+<li id="I3.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">’c</span> indicates that
+the <span class="ltx_text ltx_font_typewriter">name</span> column may be of an arbitrary basic type
+(in fact, there is another type variable that the overload kind of
+<span class="ltx_text ltx_font_typewriter">’c</span> refers to, but it is omitted here).
+</p>
+</div>
+</li>
+<li id="I3.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i4.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">’d</span> means that
+this query can be sent to a database server through an arbitrary
+connection handle
+(this type variable is used to make sure that a query is not across more
+than one databases).
+</p>
+</div>
+</li>
+</ul>
+<p class="ltx_p">As seen in the record-polymorphic type of <span class="ltx_text ltx_font_typewriter">Q</span>,
+an SQL query is inherently polymorphic with respect to databases.
+SML# infers the most general polymorphic type of
+SQL queries with a target database abstract.</p>
+</div>
+<div id="SS6.p5" class="ltx_para">
+<p class="ltx_p">Similarly to complete SQL queries,
+several kinds of SQL query fragments
+may have the natural correspondence to SML# expressions dealing with
+lists and records.
+The typing rules introduced in this chapter are
+defined based on this correspondence.
+</p>
+</div>
+</section>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch22.html" title="Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22 </span>SQL Expressions and Commands</span></a><a href="Ch22.S2.html" title="22.2 Extended ML Expressions for SQL Queries ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.2 </span>Extended ML Expressions for SQL Queries</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sun Mar 28 04:50:44 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

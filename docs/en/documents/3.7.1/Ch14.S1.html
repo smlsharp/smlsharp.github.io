@@ -1,0 +1,166 @@
+---
+layout: default
+permalink: /en/documents/3.7.1/Ch14.S1.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Sun Mar 28 04:50:44 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Mar, 2021.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch14.html" title="Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="up up" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="up up up" href="./" title="SML# Document Version 3.7.1">
+ <link rel="start" href="./" title="SML# Document Version 3.7.1">
+ <link rel="prev" href="Ch14.html" title="Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="next" href="Ch14.S2.html" title="14.2 Separate compilation example ‣ Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch14.S2.html" title="14.2 Separate compilation example ‣ Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch14.S3.html" title="14.3 Structure of interface files ‣ Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch14.S4.html" title="14.4 Opaque types ‣ Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch14.S5.html" title="14.5 Treatment of signatures ‣ Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch14.S6.html" title="14.6 Functor support ‣ Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch14.S7.html" title="14.7 Replications ‣ Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch14.S8.html" title="14.8 Top-level execution ‣ Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 Installing SML# ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML# feature: other type system extensions ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 3.7.1">
+title: "14.1 Separate compilation overview‣ Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 3.7.1"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 3.7.1</div>
+<div>
+<a href="Ch14.html" title="Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">14 </span>
+SML# feature: separate compilation</span></a><a href="Ch14.html" title="Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">14 </span>
+SML# feature: separate compilation</span></a><a href="Ch14.S2.html" title="14.2 Separate compilation example ‣ Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">14.2 </span>Separate compilation example</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">14.1 </span>Separate compilation overview</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">A standard step of separate compilation consists of the
+following steps.</p>
+<ol id="I1" class="ltx_enumerate">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">Decompose the system into a set of compilation units.
+Each component cab be of any size and can contain any sequence of
+SML# declarations.
+Here we suppose that we decompose the system into <span class="ltx_text ltx_font_typewriter">part1</span>
+and <span class="ltx_text ltx_font_typewriter">part2</span>.</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">For each decomposed component, define its interface.
+The interface is described in the interface language we shall
+explain in Section <a href="Ch14.S3.html" title="14.3 Structure of interface files ‣ Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">14.3</span></a>.
+In our scenario of decomposing the system into
+<span class="ltx_text ltx_font_typewriter">part1</span> and <span class="ltx_text ltx_font_typewriter">part2</span>, we first define their interface files
+<span class="ltx_text ltx_font_typewriter">part1.smi</span> and <span class="ltx_text ltx_font_typewriter">part2.smi</span>.</p>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p">For each interface file, develop a source file that implements
+it.
+Each source file is independently compiled to an object file.</p>
+</div>
+<div id="I1.i3.p2" class="ltx_para">
+<p class="ltx_p">In the above scenario, develop <span class="ltx_text ltx_font_typewriter">part1.sml</span> and <span class="ltx_text ltx_font_typewriter">part2.sml</span> for <span class="ltx_text ltx_font_typewriter">part1.smi</span> and <span class="ltx_text ltx_font_typewriter">part2.smi</span>, compile them to
+generate <span class="ltx_text ltx_font_typewriter">part1.o</span> and <span class="ltx_text ltx_font_typewriter">part2.o</span>.
+Developing each of the source files and its compilation can be
+done independently of the other source file.
+For example, even if <span class="ltx_text ltx_font_typewriter">part2</span> uses some functions in <span class="ltx_text ltx_font_typewriter">part1</span>, <span class="ltx_text ltx_font_typewriter">part2.sml</span> can be compiled before writing <span class="ltx_text ltx_font_typewriter">part1.sml</span>.
+In ML, type error detection during compilation plays an
+important role in source file development.
+So the ability to separately compiling each source file
+independently of any other source files are important feature in large
+software development.</p>
+</div>
+</li>
+<li id="I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">4.</span> 
+<div id="I1.i4.p1" class="ltx_para">
+<p class="ltx_p">Link the set of object files with necessary libraries and
+external object files to generate an executable file.
+For example, if <span class="ltx_text ltx_font_typewriter">part1</span> and <span class="ltx_text ltx_font_typewriter">part2</span> uses C files
+and libraries, then link <span class="ltx_text ltx_font_typewriter">part1.o</span> and <span class="ltx_text ltx_font_typewriter">part2.o</span> with those
+compiled C files and libraries to generate an executable file.</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">A more advanced scenario can be the following.</p>
+<ol id="I2" class="ltx_enumerate">
+<li id="I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="I2.i1.p1" class="ltx_para">
+<p class="ltx_p">Decompose the system into the part to be written in C and the part
+to be written in SML#.</p>
+</div>
+</li>
+<li id="I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="I2.i2.p1" class="ltx_para">
+<p class="ltx_p">For the C part, develop header files (.h files) and source files
+(.c files).</p>
+</div>
+</li>
+<li id="I2.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span> 
+<div id="I2.i3.p1" class="ltx_para">
+<p class="ltx_p">For the SML# part, develop interface files (.smi files)
+and source files (.sml files).</p>
+</div>
+</li>
+<li id="I2.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">4.</span> 
+<div id="I2.i4.p1" class="ltx_para">
+<p class="ltx_p">Create <span class="ltx_text ltx_font_typewriter">Makefile</span> using the dependency analysis of SML#.</p>
+</div>
+</li>
+<li id="I2.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">5.</span> 
+<div id="I2.i5.p1" class="ltx_para">
+<p class="ltx_p">Do <span class="ltx_text ltx_font_typewriter">make</span> to compile and link the necessary files.</p>
+</div>
+</li>
+</ol>
+<p class="ltx_p">The SML# system itself is a large project including a few
+tools, all of which are written in C and SML#, and developed in
+this scenario.
+</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch14.html" title="Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">14 </span>
+SML# feature: separate compilation</span></a><a href="Ch14.S2.html" title="14.2 Separate compilation example ‣ Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">14.2 </span>Separate compilation example</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sun Mar 28 04:50:44 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

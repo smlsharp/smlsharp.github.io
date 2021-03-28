@@ -1,0 +1,121 @@
+---
+layout: default
+permalink: /en/documents/3.7.1/Ch7.S10.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Sun Mar 28 04:50:44 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Mar, 2021.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="up up" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="up up up" href="./" title="SML# Document Version 3.7.1">
+ <link rel="start" href="./" title="SML# Document Version 3.7.1">
+ <link rel="prev" href="Ch7.S9.html" title="7.9 Function application syntax ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="next" href="Ch7.S11.html" title="7.11 Using higher-order functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S1.html" title="7.1 About the ML language family ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S2.html" title="7.2 Declarative programming ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S3.html" title="7.3 Representing computation by composing expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S4.html" title="7.4 Constants literals and built-in primitives ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S5.html" title="7.5 Type bool and conditional expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S6.html" title="7.6 Compound expressions and function definitions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S7.html" title="7.7 Recursive functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S8.html" title="7.8 Functions with multiple arguments ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S9.html" title="7.9 Function application syntax ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S11.html" title="7.11 Using higher-order functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S12.html" title="7.12 Imperative features of ML ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S13.html" title="7.13 Mutable memory reference types ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S14.html" title="7.14 Left-to-right applicative order evaluation ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S15.html" title="7.15 Procedural control ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S16.html" title="7.16 Loop and tail recursion ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S17.html" title="7.17 let expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S18.html" title="7.18 List data type ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S19.html" title="7.19 Principle in composing expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S20.html" title="7.20 Polymorphic functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 Installing SML# ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML# feature: other type system extensions ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 3.7.1">
+title: "7.10 Higher-order functions‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 3.7.1</div>
+<div>
+<a href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7 </span>Introduction to ML programming</span></a><a href="Ch7.S9.html" title="7.9 Function application syntax ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.9 </span>Function application syntax</span></a><a href="Ch7.S11.html" title="7.11 Using higher-order functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.11 </span>Using higher-order functions</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">7.10 </span>Higher-order functions</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">As we learned that <span class="ltx_text ltx_font_typewriter">powerCurry 2 3</span> is interpreted as <span class="ltx_text ltx_font_typewriter">((powerCurry 2) 3)</span>.
+This implies:</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">(powerCurry 2)</span> is a function.</p>
+</blockquote>
+<p class="ltx_p">In ML, functions can be generated by a program.
+<span class="ltx_text ltx_font_typewriter">powerCurry</span> is a program that takes an integer and return a
+function.
+Generated functions can be named and passed to other functions.
+For example, one can write the following code.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># val square = powerCurry 2;
+<br class="ltx_break">
+val square = fn : int -&gt; int
+<br class="ltx_break">
+# square 3;
+<br class="ltx_break">
+val it = 9 : int
+<br class="ltx_break">
+# fun apply f = f 3;
+<br class="ltx_break">
+val apply = fn : [’a. (int -&gt; ’a) -&gt; ’a]
+<br class="ltx_break">
+# apply square;
+<br class="ltx_break">
+val it = 9 : int</span></p>
+</blockquote>
+<p class="ltx_p">The type of <span class="ltx_text ltx_font_typewriter">apply</span> means that this is a function that takes
+a function on integers and return an integer.</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">In summary, ML has the following power.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p">Just like integers, functions are values that can be returned
+from a function or passed to a function.
+In particular, a function can take a function as a parameter.
+</p>
+</blockquote>
+<p class="ltx_p">This is the important principle of ML under the fundamental
+principle of ML programming saying that programs are expressions.
+A function that takes a function as a parameter or return a
+function is called a <span class="ltx_text ltx_font_bold">higher-order function</span>.
+</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch7.S9.html" title="7.9 Function application syntax ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.9 </span>Function application syntax</span></a><a href="Ch7.S11.html" title="7.11 Using higher-order functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.11 </span>Using higher-order functions</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sun Mar 28 04:50:44 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

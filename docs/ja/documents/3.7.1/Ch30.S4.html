@@ -1,0 +1,173 @@
+---
+layout: default
+permalink: /ja/documents/3.7.1/Ch30.S4.html
+translated: true
+lang: ja
+head: |
+ <!--Generated on Sun Mar 28 04:49:23 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on 令和3年3月.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch30.html" title="Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="up up" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="up up up" href="./" title="プログラミング言語SML#解説 3.7.1版">
+ <link rel="start" href="./" title="プログラミング言語SML#解説 3.7.1版">
+ <link rel="prev" href="Ch30.S3.html" title="30.3 smlyacc出力ファイルの構造とインタフェイスファイル記述 ‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="next" href="Ch30.S5.html" title="30.5 smllex出力ファイルのインタフェイスファイル記述 ‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch30.S1.html" title="30.1 生成されるソースファイル ‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch30.S2.html" title="30.2 smlyacc入力ファイルの構造 ‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch30.S3.html" title="30.3 smlyacc出力ファイルの構造とインタフェイスファイル記述 ‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch30.S5.html" title="30.5 smllex出力ファイルのインタフェイスファイル記述 ‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch30.html" title="Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 3.7.1版">
+title: "30.4 smllex入力ファイルの構造‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 3.7.1版"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 3.7.1版</div>
+<div>
+<a href="Ch30.html" title="Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">30 </span>構文解析器生成ツール smlyaccとsmllex</span></a><a href="Ch30.S3.html" title="30.3 smlyacc出力ファイルの構造とインタフェイスファイル記述 ‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">30.3 </span>smlyacc出力ファイルの構造とインタフェイスファイル記述</span></a><a href="Ch30.S5.html" title="30.5 smllex出力ファイルのインタフェイスファイル記述 ‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">30.5 </span>smllex出力ファイルのインタフェイスファイル記述</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">30.4 </span>smllex入力ファイルの構造</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">smllex</span>の入力ファイルは以下の形式で記述する．
+</p>
+</div>
+<div id="p2" class="ltx_para">
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"><math id="p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">ユーザ定義<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">
+
+<br class="ltx_break">
+%%
+
+<br class="ltx_break">
+<math id="p2.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">字句解析のためのLEX宣言<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p2.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">
+
+<br class="ltx_break">
+%%
+
+<br class="ltx_break">
+<math id="p2.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">正規表現とその属性の定義<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p2.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"></span></p>
+</blockquote>
+</div>
+<div id="p3" class="ltx_para">
+<ol id="I1" class="ltx_enumerate">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">ユーザ定義セクション
+字句解析処理が使用する型の定義，正規表現の属性定義等で使用する補
+助関数などのユーザコードを指定する．</p>
+</div>
+<div id="I1.i1.p2" class="ltx_para">
+<p class="ltx_p">以下の２つは必ず指定しなければならない．</p>
+<pre class="ltx_verbatim ltx_font_typewriter">
+   type lexresult = ...
+   fun eof () = ...
+</pre>
+</div>
+<div id="I1.i1.p3" class="ltx_para">
+<ul id="I1.i1.I1" class="ltx_itemize">
+<li id="I1.i1.I0.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.I0.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">lexresult</span> 型．
+字句解析器が正規言語を受理した時に返す値の型を指定する．
+<span class="ltx_text ltx_font_typewriter">smlyacc</span>と共に使用する場合は，通常，
+<span class="ltx_text ltx_font_typewriter"><math id="I1.i1.I0.i1.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">YaccInputFile<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i1.I0.i1.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">.grm</span>ファイルで定義する<span class="ltx_text ltx_font_typewriter">token</span>型である．</p>
+</div>
+</li>
+<li id="I1.i1.I0.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.I0.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">eof</span> 関数．
+構文解析器がファイル終了を検出した時に呼び出される関数．
+<span class="ltx_text ltx_font_typewriter">lexresult</span>型の値でend of fileを表現する値を返す．</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">LEX宣言セクション</p>
+</div>
+<div id="I1.i2.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">smllex</span>の動作に関する指示や，正規言語を定義するための補助定義などを宣言する．
+正規言語を定義するための補助定義は，通常のLEXシステムと同様である．</p>
+</div>
+<div id="I1.i2.p3" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">smllex</span>の動作に関する指示には以下のものがある．
+</p>
+</div>
+<div id="I1.i2.p4" class="ltx_para">
+<ul id="I1.i2.I1" class="ltx_itemize">
+<li id="I1.i2.I0.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.I0.i1.p1" class="ltx_para">
+<p class="ltx_p"><code class="ltx_verbatim ltx_font_typewriter">%structure</code> declareation．
+<span class="ltx_text ltx_font_typewriter">smllex</span>は，字句解析プログラムを一つのストラクチャとして生成する．
+本宣言では，そのストラクチャの名前を以下のように指定する．
+</p>
+<pre class="ltx_verbatim ltx_font_typewriter">
+    %structure MLLex
+</pre>
+</div>
+</li>
+<li id="I1.i2.I0.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.I0.i2.p1" class="ltx_para">
+<p class="ltx_p"><code class="ltx_verbatim ltx_font_typewriter">%arg</code> declareation．
+<span class="ltx_text ltx_font_typewriter">smllex</span>が生成する字句改正プログラムに与えるユーザ引数の型を指定する．
+ユーザ引数が必要ない場合は省略可能である．
+</p>
+</div>
+</li>
+<li id="I1.i2.I0.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.I0.i3.p1" class="ltx_para">
+<p class="ltx_p"><code class="ltx_verbatim ltx_font_typewriter">%full</code> declareation．
+8bit文字を使用することを宣言する．
+日本語を扱う場合はこの指定をする必要がある．
+</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p">正規言語セクション
+認識すべき字句の集合を正規表現で指定する．
+</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">指定の詳細は，<span class="ltx_text ltx_font_typewriter">src/ml-lex/doc/mllex.pdf</span>を参照．
+</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch30.S3.html" title="30.3 smlyacc出力ファイルの構造とインタフェイスファイル記述 ‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">30.3 </span>smlyacc出力ファイルの構造とインタフェイスファイル記述</span></a><a href="Ch30.S5.html" title="30.5 smllex出力ファイルのインタフェイスファイル記述 ‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">30.5 </span>smllex出力ファイルのインタフェイスファイル記述</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sun Mar 28 04:49:23 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

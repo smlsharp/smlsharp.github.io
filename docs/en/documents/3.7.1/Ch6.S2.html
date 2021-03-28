@@ -1,0 +1,318 @@
+---
+layout: default
+permalink: /en/documents/3.7.1/Ch6.S2.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Sun Mar 28 04:50:44 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Mar, 2021.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch6.html" title="Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="up up" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="up up up" href="./" title="SML# Document Version 3.7.1">
+ <link rel="start" href="./" title="SML# Document Version 3.7.1">
+ <link rel="prev" href="Ch6.S1.html" title="6.1 Unix-family OS，Emacs，and other tools ‣ Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="next" href="Ch6.S3.html" title="6.3 Let’s try SML# interactive mode ‣ Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch6.S1.html" title="6.1 Unix-family OS，Emacs，and other tools ‣ Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch6.S3.html" title="6.3 Let’s try SML# interactive mode ‣ Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch6.S4.html" title="6.4 Let’s try SML# compile mode ‣ Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch6.S5.html" title="6.5 smlsharp command modes ‣ Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 Installing SML# ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML# feature: other type system extensions ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 3.7.1">
+title: "6.2  Bootstrapping the SML# compiler ‣ Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 3.7.1"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 3.7.1</div>
+<div>
+<a href="Ch6.html" title="Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">6 </span>Setting up SML# programming environment</span></a><a href="Ch6.S1.html" title="6.1 Unix-family OS，Emacs，and other tools ‣ Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">6.1 </span>
+Unix-family OS，Emacs，and other tools</span></a><a href="Ch6.S3.html" title="6.3 Let’s try SML# interactive mode ‣ Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">6.3 </span>
+Let’s try SML# interactive mode</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">6.2 </span>
+Bootstrapping the SML# compiler
+</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">This section outlines the structure of SML# compiler and
+the method to building (bootstrapping) it.
+You do not have to understand this section for installing and
+using SML# compiler, but you may find this section informative in
+understanding various messages during compilation of SML# and also
+a structure of a compiler in general.</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">SML# system consists of a single compiler that performs
+separate compilation.
+Its interactive mode is realized by the top-level-loop
+performing the following steps:</p>
+<ol id="I1" class="ltx_enumerate">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">compile the user input using the current static environment as its
+interface,</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">link the object file with the current system to generate a shared
+executable file,</p>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p">dynamically load the shared executable in the current system, and
+call its entry point.</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">SML# is written in SML#, C, and C++.
+In addition, it uses the following tools during compiling the
+SML# compiler.</p>
+<ul id="I2" class="ltx_itemize">
+<li id="I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i1.p1" class="ltx_para">
+<p class="ltx_p">ml-lex，ml-yacc: a lexical analyzer generator and a parser generator.</p>
+</div>
+</li>
+<li id="I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i2.p1" class="ltx_para">
+<p class="ltx_p">SMLFormat: a printer generator.</p>
+</div>
+</li>
+<li id="I2.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i3.p1" class="ltx_para">
+<p class="ltx_p">The Standard ML Basis Library.</p>
+</div>
+</li>
+</ul>
+<p class="ltx_p">All of them are written in Standard ML.</p>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">SML# compiler compiles each SML# (which is a super
+set of Standard ML) source file (<span class="ltx_text ltx_font_typewriter">source.sml</span>) into a system standard
+object file (<span class="ltx_text ltx_font_typewriter">sample.o</span>).
+To generate an executable file, the compiled files are then linked
+by the standard linker (<span class="ltx_text ltx_font_typewriter">ld</span> in Unix-family OS) invoked through
+C/C++ compiler driver command (<span class="ltx_text ltx_font_typewriter">gcc</span> or <span class="ltx_text ltx_font_typewriter">clang</span>).
+So, in order to build the SML# compiler, it is sufficient
+to have a C/C++ compiler and an SML# compiler.
+But of course, at the time when the SML# compiler is
+first built, an SML# compiler is not available.
+The standard step of solving this bootstrap problem is the
+following.</p>
+</div>
+<div id="p5" class="ltx_para">
+<ol id="I3" class="ltx_enumerate">
+<li id="I3.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="I3.i1.p1" class="ltx_para">
+<p class="ltx_p">Compile SML# runtime library written in C/C++ and archive it
+as a static link library.</p>
+</div>
+</li>
+<li id="I3.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="I3.i2.p1" class="ltx_para">
+<p class="ltx_p">Obtain a pre-compiled LLVM IR source file of a minimal SML#
+compiler
+<span class="ltx_text ltx_font_typewriter">minismlsharp</span> that is sufficient for compiling all the source files
+used in the SML# compiler.
+The pre-compiled files are typically generated by an older version
+of SML# compiler.</p>
+</div>
+</li>
+<li id="I3.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span> 
+<div id="I3.i3.p1" class="ltx_para">
+<p class="ltx_p">In the system where the target SML# compiler is
+installed, assemble the <span class="ltx_text ltx_font_typewriter">minismlsharp</span> LLVM IR file, link them
+with the runtime library, and create a <span class="ltx_text ltx_font_typewriter">minismlsharp</span> command.</p>
+</div>
+</li>
+<li id="I3.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">4.</span> 
+<div id="I3.i4.p1" class="ltx_para">
+<p class="ltx_p">By using this <span class="ltx_text ltx_font_typewriter">minismlsharp</span> command, compile all of the tools
+and libraries, and the full-featured SML# compiler.
+This procedure is roughly performed as follows.</p>
+<ol id="I3.i4.I1" class="ltx_enumerate">
+<li id="I3.i4.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">(a)</span> 
+<div id="I3.i4.I1.i1.p1" class="ltx_para">
+<p class="ltx_p">Compile the Basis Library.</p>
+</div>
+</li>
+<li id="I3.i4.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">(b)</span> 
+<div id="I3.i4.I1.i2.p1" class="ltx_para">
+<p class="ltx_p">Compile and link <span class="ltx_text ltx_font_typewriter">smllex</span> command.</p>
+</div>
+</li>
+<li id="I3.i4.I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">(c)</span> 
+<div id="I3.i4.I1.i3.p1" class="ltx_para">
+<p class="ltx_p">Compile and link ML-yacc library and <span class="ltx_text ltx_font_typewriter">smlyacc</span> command.</p>
+</div>
+</li>
+<li id="I3.i4.I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">(d)</span> 
+<div id="I3.i4.I1.i4.p1" class="ltx_para">
+<p class="ltx_p">Generate parser source code by <span class="ltx_text ltx_font_typewriter">smllex</span> and <span class="ltx_text ltx_font_typewriter">smlyacc</span> command.</p>
+</div>
+</li>
+<li id="I3.i4.I1.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">(e)</span> 
+<div id="I3.i4.I1.i5.p1" class="ltx_para">
+<p class="ltx_p">Compile and link <span class="ltx_text ltx_font_typewriter">smlformat</span> command.</p>
+</div>
+</li>
+<li id="I3.i4.I1.i6" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">(f)</span> 
+<div id="I3.i4.I1.i6.p1" class="ltx_para">
+<p class="ltx_p">Generate printer source code by <span class="ltx_text ltx_font_typewriter">smlformat</span> command.</p>
+</div>
+</li>
+<li id="I3.i4.I1.i7" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">(g)</span> 
+<div id="I3.i4.I1.i7.p1" class="ltx_para">
+<p class="ltx_p">Compile all of the libraries bundled to the SML# distribution.</p>
+</div>
+</li>
+<li id="I3.i4.I1.i8" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">(h)</span> 
+<div id="I3.i4.I1.i8.p1" class="ltx_para">
+<p class="ltx_p">Compile and link <span class="ltx_text ltx_font_typewriter">smlsharp</span> command.
+</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li id="I3.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">5.</span> 
+<div id="I3.i5.p1" class="ltx_para">
+<p class="ltx_p">The following files are installed to specified destination directories.</p>
+<ul id="I3.i5.I1" class="ltx_itemize">
+<li id="I3.i5.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i5.I1.i1.p1" class="ltx_para">
+<p class="ltx_p">The static link library of the runtime library.</p>
+</div>
+</li>
+<li id="I3.i5.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i5.I1.i2.p1" class="ltx_para">
+<p class="ltx_p">Interface files, object files, and signature files of the libraries
+bundled to the SML# distribution.</p>
+</div>
+</li>
+<li id="I3.i5.I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i5.I1.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">smllex</span>, <span class="ltx_text ltx_font_typewriter">smlyacc</span>, <span class="ltx_text ltx_font_typewriter">smlformat</span>, <span class="ltx_text ltx_font_typewriter">smlsharp</span> command.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div id="p6" class="ltx_para">
+<p class="ltx_p">As outlined above, there are complex dependencies among source
+files and commands.
+Furthermore, processing some of these files depend on the
+underlying OS.
+This is a typical situation in a large system development.
+One well established method to solve these dependency problems is
+to use <span class="ltx_text ltx_font_typewriter">configure</span> script generated by GNU Autoconf and
+<span class="ltx_text ltx_font_typewriter">make</span> command.</p>
+</div>
+<div id="p7" class="ltx_para">
+<p class="ltx_p">SML# compiler compiles each source file according to its
+interface file, which describes the set of files require by the source
+file.
+SML# compiler can also generate a list of files on which
+each source file depends in the <span class="ltx_text ltx_font_typewriter">Makefile</span> format that can be
+processed by <span class="ltx_text ltx_font_typewriter">make</span> command.
+SML# compiler does this task, when it is given one of the
+following switch.</p>
+</div>
+<div id="p8" class="ltx_para">
+<ol id="I4" class="ltx_enumerate">
+<li id="I4.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="I4.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">smlsharp -MM <math id="I4.i1.p1.m1" class="ltx_Math" alttext="\mathit{smlFile}" display="inline"><mrow><mi>s</mi><mi>m</mi><mi>l</mi><mi>F</mi><mi>i</mi><mi>l</mi><mi>e</mi></mrow></math></span>.
+The compiler generates the dependency for the source file
+<math id="I4.i1.p1.m2" class="ltx_Math" alttext="\mathit{smlFile}" display="inline"><mrow><mi>s</mi><mi>m</mi><mi>l</mi><mi>F</mi><mi>i</mi><mi>l</mi><mi>e</mi></mrow></math> to be compiled in the Makefile format.</p>
+</div>
+</li>
+<li id="I4.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="I4.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">smlsharp -MMl <math id="I4.i2.p1.m1" class="ltx_Math" alttext="\mathit{smiFile}" display="inline"><mrow><mi>s</mi><mi>m</mi><mi>i</mi><mi>F</mi><mi>i</mi><mi>l</mi><mi>e</mi></mrow></math></span>.
+The compiler assumes that the file <math id="I4.i2.p1.m2" class="ltx_Math" alttext="\mathit{smiFile}" display="inline"><mrow><mi>s</mi><mi>m</mi><mi>i</mi><mi>F</mi><mi>i</mi><mi>l</mi><mi>e</mi></mrow></math> specifies the
+top level system, and generates the list of necessary object files in the
+Makefile format.</p>
+</div>
+</li>
+<li id="I4.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span> 
+<div id="I4.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">smlsharp -MMm <math id="I4.i3.p1.m1" class="ltx_Math" alttext="\mathit{smiFile}" display="inline"><mrow><mi>s</mi><mi>m</mi><mi>i</mi><mi>F</mi><mi>i</mi><mi>l</mi><mi>e</mi></mrow></math></span>.
+The compiler assumes that the file <math id="I4.i3.p1.m2" class="ltx_Math" alttext="\mathit{smiFile}" display="inline"><mrow><mi>s</mi><mi>m</mi><mi>i</mi><mi>F</mi><mi>i</mi><mi>l</mi><mi>e</mi></mrow></math> specifies the
+top level system, and generates a Makefile that builds the executable file
+of the entire program.</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="p9" class="ltx_para">
+<p class="ltx_p">In the SML# project, we make a <span class="ltx_text ltx_font_typewriter">Makefile</span> that
+performs the above described complicated sequence of compilation and
+linking steps using the above functionality of SML#.
+Invoking <span class="ltx_text ltx_font_typewriter">make</span> command on <span class="ltx_text ltx_font_typewriter">Makefile</span> re-compiles only
+the necessary files to build SML# compiler.
+</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch6.S1.html" title="6.1 Unix-family OS，Emacs，and other tools ‣ Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">6.1 </span>
+Unix-family OS，Emacs，and other tools</span></a><a href="Ch6.S3.html" title="6.3 Let’s try SML# interactive mode ‣ Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">6.3 </span>
+Let’s try SML# interactive mode</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sun Mar 28 04:50:44 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

@@ -1,0 +1,268 @@
+---
+layout: default
+permalink: /ja/documents/3.7.1/Ch32.S2.html
+translated: true
+lang: ja
+head: |
+ <!--Generated on Sun Mar 28 04:49:23 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on 令和3年3月.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch32.html" title="Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="up up" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="up up up" href="./" title="プログラミング言語SML#解説 3.7.1版">
+ <link rel="start" href="./" title="プログラミング言語SML#解説 3.7.1版">
+ <link rel="prev" href="Ch32.S1.html" title="32.1 ソースパッケージの構成 ‣ Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="next" href="Ch32.S3.html" title="32.3 compilerディレクトリ ‣ Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch32.S1.html" title="32.1 ソースパッケージの構成 ‣ Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch32.S3.html" title="32.3 compilerディレクトリ ‣ Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch32.S4.html" title="32.4 basisディレクトリ ‣ Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch31.html" title="Chapter 31 序文 ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch32.html" title="Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch33.html" title="Chapter 33 コンパイラの制御構造 ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 3.7.1版">
+title: "32.2 SML# ソースツリー ‣ Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 3.7.1版"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 3.7.1版</div>
+<div>
+<a href="Ch32.html" title="Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">32 </span>SML#ソースパッケージ</span></a><a href="Ch32.S1.html" title="32.1 ソースパッケージの構成 ‣ Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">32.1 </span>ソースパッケージの構成</span></a><a href="Ch32.S3.html" title="32.3 compilerディレクトリ ‣ Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">32.3 </span>
+<span class="ltx_text ltx_font_typewriter">compiler</span>ディレクトリ</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">32.2 </span>SML# ソースツリー
+</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">SML#のソースディレクトリは，以下のディスディレクトリとファ
+イルが含まれる．
+</p>
+</div>
+<div id="p2" class="ltx_para">
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">デイレクトリ</p>
+<ul id="I1.i1.I1" class="ltx_itemize">
+<li id="I1.i1.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="I1.i1.I1.i1.p1" class="ltx_para">
+<p class="ltx_p">SML#コンパイラソースコード
+</p>
+</div>
+<div id="I1.i1.I1.i1.p2" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row"><span class="ltx_text ltx_font_typewriter">basis/</span></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column">Standard ML基本ライブラリ</th>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row"><span class="ltx_text ltx_font_typewriter">compiler/</span></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column">SML#コンパイラ</th>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row"><span class="ltx_text ltx_font_typewriter">config/</span></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column">
+<span class="ltx_text ltx_font_typewriter">configure</span>が設定するシステムパラメタアクセスライブラリ</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">ffi/</span></th>
+<td class="ltx_td ltx_align_left">Ｃ言語直接連携サポートライブラリ</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">llvm/</span></th>
+<td class="ltx_td ltx_align_left">LLVMコード生成ライブラリ</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">runtime/</span></th>
+<td class="ltx_td ltx_align_left">実行時処理系</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">sql/</span></th>
+<td class="ltx_td ltx_align_left">SQL統合サポートライブラリ</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">thread/</span></th>
+<td class="ltx_td ltx_align_left">スレッドサポートライブラリ</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">unix-utils/</span></th>
+<td class="ltx_td ltx_align_left">UNIX基本コマンドライブラリ</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li id="I1.i1.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="I1.i1.I1.i2.p1" class="ltx_para">
+<p class="ltx_p">SML#ツール</p>
+</div>
+<div id="I1.i1.I1.i2.p2" class="ltx_para">
+<table class="ltx_tabular ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">smlformat/</span></td>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">smlformat</span>清書プログラム生成器</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">smlunit/</span></td>
+<td class="ltx_td ltx_align_left">単体テストライブラリ</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="I1.i1.I1.i2.p3" class="ltx_para">
+<p class="ltx_p">これらは，SML#のために開発した汎用性あるツールである．
+これらは，比較的小規模な独立したシステムであり，本解説ではこれら
+の記述は省略する．
+</p>
+</div>
+</li>
+<li id="I1.i1.I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="I1.i1.I1.i3.p1" class="ltx_para">
+<p class="ltx_p">サードパーテイのコード</p>
+</div>
+<div id="I1.i1.I1.i3.p2" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">ml-lex/</span></th>
+<td class="ltx_td ltx_align_left">字句解析器生成ツール</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">ml-yacc/</span></th>
+<td class="ltx_td ltx_align_left">構文解析器生成ツール</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">smlnj/</span></th>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">basis/</span>で使用するsmlnjソースファイル</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">smlnj-lib/</span></th>
+<td class="ltx_td ltx_align_left">smlnjユーテティリティライブラリ</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="I1.i1.I1.i3.p3" class="ltx_para">
+<p class="ltx_p">これらサードパーテイのコードはSML#をビルドするために，SML#用に
+移植されたものである．
+<span class="ltx_text ltx_font_typewriter">make</span>システムによってSML#ビルド時にコンパイルされ使用されるため，
+それぞれのライセンスとともにソースコードがここに置かれている．
+これらコードは本解説の対象としない．
+</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">ファイル</p>
+</div>
+<div id="I1.i2.p2" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">basis.smi</span></th>
+<td class="ltx_td ltx_align_left">Standard ML基本ライブラリのインタフェイスファイル</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">builtin.smi</span></th>
+<td class="ltx_td ltx_align_left">組込みデータを束縛するインタフェイスファイル</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">config.mk</span></th>
+<td class="ltx_td ltx_align_left">コンパイラコマンドが使用する環境変数定義</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">config.mk.in</span></th>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">config.mk</span>のテンプレート</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">config.sed</span></th>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">config.mk</span>生成のためのsedスクリプト</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">ffi.smi</span></th>
+<td class="ltx_td ltx_align_left">Cとの直接連携ライブラリのインタフェイスファイル</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">foreach.smi</span></th>
+<td class="ltx_td ltx_align_left">並列機能のインタフェイスファイル</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">json.smi</span></th>
+<td class="ltx_td ltx_align_left">JSONサポート機能のインタフェイスファイル</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">ml-yacc-lib.smi</span></th>
+<td class="ltx_td ltx_align_left">smlyaccライブラリのインタフェイスファイル</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">prelude.smi</span></th>
+<td class="ltx_td ltx_align_left">対話型環境のインタフェイスファイル</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">reifyTy.smi</span></th>
+<td class="ltx_td ltx_align_left">自己反映計算機能のインタフェイスファイル</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">smlformat-lib.smi</span></th>
+<td class="ltx_td ltx_align_left">smlformatライブラリのインタフェイスファイル</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">smlnj-lib.smi</span></th>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">smlnj-lib</span>のインタフェイスファイル</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">smlunit-lib.smi</span></th>
+<td class="ltx_td ltx_align_left">smlunitのインタフェイスファイル</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">sql.smi</span></th>
+<td class="ltx_td ltx_align_left">SQL統合サポートライブラリのインタフェイスファイル</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">thread.smi</span></th>
+<td class="ltx_td ltx_align_left">スレッドサポートライブラリのインタフェイスファイル</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch32.S1.html" title="32.1 ソースパッケージの構成 ‣ Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">32.1 </span>ソースパッケージの構成</span></a><a href="Ch32.S3.html" title="32.3 compilerディレクトリ ‣ Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">32.3 </span>
+<span class="ltx_text ltx_font_typewriter">compiler</span>ディレクトリ</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sun Mar 28 04:49:23 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

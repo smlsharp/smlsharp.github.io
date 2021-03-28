@@ -1,0 +1,722 @@
+---
+layout: default
+permalink: /en/documents/3.7.1/Ch17.S2.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Sun Mar 28 04:50:44 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Mar, 2021.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch17.html" title="Chapter 17 Lexical structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="up up" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="up up up" href="./" title="SML# Document Version 3.7.1">
+ <link rel="start" href="./" title="SML# Document Version 3.7.1">
+ <link rel="prev" href="Ch17.S1.html" title="17.1 Character set ‣ Chapter 17 Lexical structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="next" href="Ch18.html" title="Chapter 18 Types ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch17.S1.html" title="17.1 Character set ‣ Chapter 17 Lexical structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch15.html" title="Chapter 15 Introduction ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch16.html" title="Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch17.html" title="Chapter 17 Lexical structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch18.html" title="Chapter 18 Types ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch19.html" title="Chapter 19 Expressions ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch20.html" title="Chapter 20 Patterns and Pattern Matching ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch21.html" title="Chapter 21 Scope rules for identifier ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch22.html" title="Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch23.html" title="Chapter 23 Declarations of the core language and their interfaces ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch24.html" title="Chapter 24 Module language declarations and interface ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch25.html" title="Chapter 25 Overview of SML# Libraries ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch26.html" title="Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch27.html" title="Chapter 27 SML# System Library ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch28.html" title="Chapter 28 The smlsharp command ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch29.html" title="Chapter 29 SML# Run-time data management ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 3.7.1">
+title: "17.2 Lexical items‣ Chapter 17 Lexical structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 3.7.1</div>
+<div>
+<a href="Ch17.html" title="Chapter 17 Lexical structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">17 </span>Lexical structure</span></a><a href="Ch17.S1.html" title="17.1 Character set ‣ Chapter 17 Lexical structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">17.1 </span>Character set</span></a><a href="Ch18.html" title="Chapter 18 Types ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">18 </span>Types</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">17.2 </span>Lexical items</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">SML# lexical items consist of the following.
+</p>
+</div>
+<div id="p2" class="ltx_para">
+<dl id="I1" class="ltx_description">
+<dt id="I1.ix1" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">keywords</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix1.p1" class="ltx_para">
+<p class="ltx_p">The following are SML# keywords and they cannot be used
+as identifiers.
+</p>
+</div>
+<div id="I1.ix1.p2" class="ltx_para">
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">abstype
+and
+andalso
+as
+case
+datatype
+do
+else
+end
+eqtype
+exception
+fn
+fun
+functor
+handle
+if
+in
+include
+infix
+infixr
+let
+local
+nonfix
+of
+op
+open
+orelse
+raise
+rec
+set
+sharing
+sig
+signature
+struct
+structure
+then
+type
+val
+where
+while
+with
+withtype
+(
+)
+[
+]
+{
+}
+,
+:
+:&gt;
+;
+...
+_
+=
+=&gt;
+-&gt;
+#</span></p>
+</blockquote>
+</div>
+<div id="I1.ix1.p3" class="ltx_para">
+<p class="ltx_p"><math id="I1.ix1.p3.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix1.p3.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> defined in the identifier section does not contain
+these keywords.
+</p>
+</div>
+</dd>
+<dt id="I1.ix2" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">SQL keywords</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix2.p1" class="ltx_para">
+<p class="ltx_p">The following are keywords used in SQL expressions and cannot be
+used as identifiers within SQL expressions.
+</p>
+</div>
+<div id="I1.ix2.p2" class="ltx_para">
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">asc all begin by commit cross default delete desc distinct
+fetch first from group inner insert into is join limit
+natural next not null offset only on or order rollback row
+rows select set update values where</span></p>
+</blockquote>
+</div>
+<div id="I1.ix2.p3" class="ltx_para">
+<p class="ltx_p">These strings are not among the <math id="I1.ix2.p3.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix2.p3.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> in
+the SQL expression that begins with the <span class="ltx_text ltx_font_typewriter">_sql</span> keyword
+introduced in Section <a href="Ch19.html" title="Chapter 19 Expressions ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">19</span></a> and
+defined in Chapter <a href="Ch22.html" title="Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22</span></a>.
+SQL expressions are not expressions in the definition of
+Standard ML, this restriction preserves the backward compatibility.
+</p>
+</div>
+</dd>
+<dt id="I1.ix3" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Extended keywords</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix3.p1" class="ltx_para">
+<p class="ltx_p">The following names started with <span class="ltx_text ltx_font_typewriter">_</span> are keywords used to
+represent SML# special features.
+Since they are not lexical items in the definition of Standard ML,
+introducing them preserves the backward compatibility.
+</p>
+</div>
+<div id="I1.ix3.p2" class="ltx_para">
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">__attribute__
+_builtin
+_foreach
+_import
+_interface
+_join
+_dynamic
+_dynamiccase
+_polyrec
+_require
+_sizeof
+_sql
+_sqlserver
+_typeof
+_use</span></p>
+</blockquote>
+</div>
+</dd>
+<dt id="I1.ix4" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Identifiers</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix4.p1" class="ltx_para">
+<p class="ltx_p">Identifiers are names used in programs.
+SML# has the following 7 classes of identifiers defined
+below.
+Their classes are determined from their occurring context, so
+the same name can be used in different identifiers.
+</p>
+</div>
+<div id="I1.ix4.p2" class="ltx_para ltx_align_center">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_l ltx_border_r ltx_border_t">name</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">usage</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">
+<math id="I1.ix4.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">variables, data constructors</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">
+<math id="I1.ix4.p2.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">lab<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p2.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_r">record labels</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">
+<math id="I1.ix4.p2.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strid<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p2.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_r">structure names</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">
+<math id="I1.ix4.p2.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sigid<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p2.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_r">signature names</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">
+<math id="I1.ix4.p2.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">funid<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p2.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_r">functor names</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">
+<math id="I1.ix4.p2.m11" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">tycon<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p2.m12" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_r">type constructors</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_l ltx_border_r">
+<math id="I1.ix4.p2.m13" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">tyvar<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p2.m14" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">type variables</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="I1.ix4.p3" class="ltx_para">
+<p class="ltx_p">これら識別子の構造は以下の通りである．</p>
+</div>
+<div id="I1.ix4.p4" class="ltx_para ltx_align_center">
+<table class="ltx_tabular ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p4.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p4.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>  <math id="I1.ix4.p4.m5" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <math id="I1.ix4.p4.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">symbolId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p4.m8" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">lab<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m9" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p4.m10" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m11" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+ <math id="I1.ix4.p4.m12" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <math id="I1.ix4.p4.m13" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">string<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m14" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+ <math id="I1.ix4.p4.m15" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <math id="I1.ix4.p4.m16" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">decimal<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m17" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+ <math id="I1.ix4.p4.m18" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <math id="I1.ix4.p4.m19" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">decimal<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m20" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <span class="ltx_text ltx_font_typewriter">_</span> <math id="I1.ix4.p4.m21" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m22" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">(note *1)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p4.m23" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strid<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m24" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p4.m25" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m26" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p4.m27" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sigid<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m28" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p4.m29" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m30" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p4.m31" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">funid<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m32" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p4.m33" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m34" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p4.m35" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">tyvar<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m36" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">’</span> <math id="I1.ix4.p4.m37" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m38" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>  <math id="I1.ix4.p4.m39" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <span class="ltx_text ltx_font_typewriter">’’</span><math id="I1.ix4.p4.m40" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m41" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p4.m42" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">tycon<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m43" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p4.m44" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m45" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>  <math id="I1.ix4.p4.m46" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <math id="I1.ix4.p4.m47" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">symbolId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m48" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="I1.ix4.p5" class="ltx_para">
+<p class="ltx_p">Note.</p>
+<ol id="I1.ix4.I1" class="ltx_enumerate">
+<li id="I1.ix4.I0.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">1.</span></span> 
+<div id="I1.ix4.I0.i1.p1" class="ltx_para">
+<p class="ltx_p">There are the following three kinds of record labels:
+character string labels（<math id="I1.ix4.I0.i1.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.I0.i1.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> or <math id="I1.ix4.I0.i1.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">string<span class="ltx_text ltx_font_upright"><math id="I1.ix4.I0.i1.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>），
+integer labels(<math id="I1.ix4.I0.i1.p1.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">decimal<span class="ltx_text ltx_font_upright"><math id="I1.ix4.I0.i1.p1.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>),
+ordered character string labels(<span class="ltx_text ltx_font_typewriter">[1-9][0-9]</span>* <span class="ltx_text ltx_font_typewriter">_</span> <math id="I1.ix4.I0.i1.p1.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.I0.i1.p1.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>).
+In SML#, record fields are sorted according to the
+ordering of their labels.
+Character string labels are ordered by <span class="ltx_text ltx_font_typewriter">String.compare</span>.
+Integer labels are ordered according to the integer they represents.
+Ordered character string labels are order by the lexicographical
+pairing of integer labels and character string labels.</p>
+</div>
+</li>
+</ol>
+<p class="ltx_p">The definition of these character classes are given below.
+</p>
+</div>
+<div id="I1.ix4.p6" class="ltx_para ltx_align_center">
+<table class="ltx_tabular ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p6.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alpha<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p6.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">[A-Za-z<code class="ltx_verbatim ltx_font_typewriter">\</code>127-<code class="ltx_verbatim ltx_font_typewriter">\</code>255]</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p6.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">symbol<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p6.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">!</span> <math id="I1.ix4.p6.m5" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">%</span> <math id="I1.ix4.p6.m6" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">&amp;</span> <math id="I1.ix4.p6.m7" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">$</span> <math id="I1.ix4.p6.m8" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">+</span> <math id="I1.ix4.p6.m9" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">/</span> <math id="I1.ix4.p6.m10" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">:</span> <math id="I1.ix4.p6.m11" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">&lt;</span> <math id="I1.ix4.p6.m12" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">=</span> <math id="I1.ix4.p6.m13" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">&gt;</span> <math id="I1.ix4.p6.m14" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">?</span> <math id="I1.ix4.p6.m15" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">@</span> <math id="I1.ix4.p6.m16" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter"> </span> <math id="I1.ix4.p6.m17" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">‘</span> <math id="I1.ix4.p6.m18" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">|</span> <math id="I1.ix4.p6.m19" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">#</span> <math id="I1.ix4.p6.m20" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">-</span> <math id="I1.ix4.p6.m21" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">^</span> <math id="I1.ix4.p6.m22" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">\</span>
+</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p6.m23" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p6.m24" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p6.m25" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alpha<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p6.m26" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> (<math id="I1.ix4.p6.m27" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alpha<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p6.m28" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>  <math id="I1.ix4.p6.m29" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> [<span class="ltx_text ltx_font_typewriter">0</span>-<span class="ltx_text ltx_font_typewriter">9</span>]  <math id="I1.ix4.p6.m30" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <span class="ltx_text ltx_font_typewriter">’</span>  <math id="I1.ix4.p6.m31" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <span class="ltx_text ltx_font_typewriter">_</span> )*</td>
+<td class="ltx_td ltx_align_left">(Note 1)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p6.m32" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">decimal<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p6.m33" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">[<span class="ltx_text ltx_font_typewriter">1</span>-<span class="ltx_text ltx_font_typewriter">9</span>] [<span class="ltx_text ltx_font_typewriter">0</span>-<span class="ltx_text ltx_font_typewriter">9</span>]*</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p6.m34" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">symbolId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p6.m35" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p6.m36" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">symbol<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p6.m37" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>*</td>
+<td class="ltx_td ltx_align_left">(Note 2)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="I1.ix4.p7" class="ltx_para">
+<p class="ltx_p">Note.
+</p>
+<ol id="I1.ix4.I1a" class="ltx_enumerate">
+<li id="I1.ix4.I0.i1a" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">1.</span></span> 
+<div id="I1.ix4.I0.i1a.p1" class="ltx_para">
+<p class="ltx_p">The character class <math id="I1.ix4.I0.i1a.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.I0.i1a.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> does not contain keywords.
+Furthermore, in SQL expressions that begins with <span class="ltx_text ltx_font_typewriter">_sql</span>,
+<math id="I1.ix4.I0.i1a.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.I0.i1a.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> does not contain SQL keywords.</p>
+</div>
+</li>
+<li id="I1.ix4.I0.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">2.</span></span> 
+<div id="I1.ix4.I0.i2.p1" class="ltx_para">
+<p class="ltx_p"><math id="I1.ix4.I0.i2.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">symbolId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.I0.i2.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> does not contain keywords.
+Therefore <span class="ltx_text ltx_font_typewriter">==&gt;</span> is an instance of <math id="I1.ix4.I0.i2.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">symbolId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.I0.i2.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> but
+<span class="ltx_text ltx_font_typewriter">=&gt;</span> is not.</p>
+</div>
+</li>
+</ol>
+</div>
+</dd>
+<dt id="I1.ix5" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Long identifiers</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix5.p1" class="ltx_para">
+<p class="ltx_p">For <math id="I1.ix5.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_upright"><math id="I1.ix5.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> (variable names and constructor names) and
+<math id="I1.ix5.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strid<span class="ltx_text ltx_font_upright"><math id="I1.ix5.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> (structure names),
+the following long identifiers are defined.</p>
+</div>
+<div id="I1.ix5.p2" class="ltx_para ltx_align_center">
+<table class="ltx_tabular ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix5.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">longVid<span class="ltx_text ltx_font_upright"><math id="I1.ix5.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">(<math id="I1.ix5.p2.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strid<span class="ltx_text ltx_font_upright"><math id="I1.ix5.p2.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <span class="ltx_text ltx_font_typewriter">.</span>)* <math id="I1.ix5.p2.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_upright"><math id="I1.ix5.p2.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix5.p2.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">longTycon<span class="ltx_text ltx_font_upright"><math id="I1.ix5.p2.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">(<math id="I1.ix5.p2.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strid<span class="ltx_text ltx_font_upright"><math id="I1.ix5.p2.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <span class="ltx_text ltx_font_typewriter">.</span>)* <math id="I1.ix5.p2.m11" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">tycon<span class="ltx_text ltx_font_upright"><math id="I1.ix5.p2.m12" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix5.p2.m13" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">longStrid<span class="ltx_text ltx_font_upright"><math id="I1.ix5.p2.m14" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">(<math id="I1.ix5.p2.m15" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strid<span class="ltx_text ltx_font_upright"><math id="I1.ix5.p2.m16" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <span class="ltx_text ltx_font_typewriter">.</span>)* <math id="I1.ix5.p2.m17" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strid<span class="ltx_text ltx_font_upright"><math id="I1.ix5.p2.m18" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt id="I1.ix6" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">constant literals <math id="I1.ix6.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">scon<span class="ltx_text ltx_font_bold ltx_font_upright"><math id="I1.ix6.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix6.p1" class="ltx_para">
+<p class="ltx_p">Syntax for constant literals are given below.</p>
+</div>
+<div id="I1.ix6.p2" class="ltx_para ltx_align_center">
+<table class="ltx_tabular ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix6.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">scon<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix6.p2.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">int<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+ <math id="I1.ix6.p2.m5" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <math id="I1.ix6.p2.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">word<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+ <math id="I1.ix6.p2.m8" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <math id="I1.ix6.p2.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">real<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+ <math id="I1.ix6.p2.m11" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <math id="I1.ix6.p2.m12" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">string<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m13" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+ <math id="I1.ix6.p2.m14" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <math id="I1.ix6.p2.m15" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">char<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m16" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">Constant literals</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix6.p2.m17" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">int<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m18" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix6.p2.m19" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><code class="ltx_verbatim ltx_font_typewriter">~</code><math id="I1.ix6.p2.m20" class="ltx_Math" alttext=")?" display="inline"><mrow><mo stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math>[<span class="ltx_text ltx_font_typewriter">0</span>-<span class="ltx_text ltx_font_typewriter">9</span>]<math id="I1.ix6.p2.m21" class="ltx_Math" alttext="+" display="inline"><mo>+</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">Decimal integers</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m22" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix6.p2.m23" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><code class="ltx_verbatim ltx_font_typewriter">~</code><math id="I1.ix6.p2.m24" class="ltx_Math" alttext=")?" display="inline"><mrow><mo stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math><code class="ltx_verbatim ltx_font_typewriter">0x</code>[<span class="ltx_text ltx_font_typewriter">0</span>-<span class="ltx_text ltx_font_typewriter">9</span><span class="ltx_text ltx_font_typewriter">a</span>-<span class="ltx_text ltx_font_typewriter">f</span><span class="ltx_text ltx_font_typewriter">A</span>-<span class="ltx_text ltx_font_typewriter">F</span>]<math id="I1.ix6.p2.m25" class="ltx_Math" alttext="+" display="inline"><mo>+</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">Hexadecimal integers</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix6.p2.m26" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">word<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m27" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<code class="ltx_verbatim ltx_font_typewriter">0w</code>[<span class="ltx_text ltx_font_typewriter">0</span>-<span class="ltx_text ltx_font_typewriter">9</span>]<math id="I1.ix6.p2.m28" class="ltx_Math" alttext="+" display="inline"><mo>+</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">unsigned decimal integers</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m29" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<code class="ltx_verbatim ltx_font_typewriter">0wx</code>[<span class="ltx_text ltx_font_typewriter">0</span>-<span class="ltx_text ltx_font_typewriter">9</span><span class="ltx_text ltx_font_typewriter">a</span>-<span class="ltx_text ltx_font_typewriter">f</span><span class="ltx_text ltx_font_typewriter">A</span>-<span class="ltx_text ltx_font_typewriter">F</span>]<math id="I1.ix6.p2.m30" class="ltx_Math" alttext="+" display="inline"><mo>+</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">unsigned hexadecimal integers</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix6.p2.m31" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">real<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m32" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix6.p2.m33" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><code class="ltx_verbatim ltx_font_typewriter">~</code><math id="I1.ix6.p2.m34" class="ltx_Math" alttext=")?" display="inline"><mrow><mo stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math>[<span class="ltx_text ltx_font_typewriter">0</span>-<span class="ltx_text ltx_font_typewriter">9</span>]<math id="I1.ix6.p2.m35" class="ltx_Math" alttext="+" display="inline"><mo>+</mo></math>
+<span class="ltx_text ltx_font_typewriter">.</span> [<span class="ltx_text ltx_font_typewriter">0</span>-<span class="ltx_text ltx_font_typewriter">9</span>]<math id="I1.ix6.p2.m36" class="ltx_Math" alttext="+" display="inline"><mo>+</mo></math>
+[<span class="ltx_text ltx_font_typewriter">E</span><span class="ltx_text ltx_font_typewriter">e</span>]<math id="I1.ix6.p2.m37" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><code class="ltx_verbatim ltx_font_typewriter">~</code><math id="I1.ix6.p2.m38" class="ltx_Math" alttext=")?" display="inline"><mrow><mo stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math>[<span class="ltx_text ltx_font_typewriter">0</span>-<span class="ltx_text ltx_font_typewriter">9</span>]+</td>
+<td class="ltx_td ltx_align_left">Floating-point numbers</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m39" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix6.p2.m40" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><code class="ltx_verbatim ltx_font_typewriter">~</code><math id="I1.ix6.p2.m41" class="ltx_Math" alttext=")?" display="inline"><mrow><mo stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math>[<span class="ltx_text ltx_font_typewriter">0</span>-<span class="ltx_text ltx_font_typewriter">9</span>]<math id="I1.ix6.p2.m42" class="ltx_Math" alttext="+" display="inline"><mo>+</mo></math>
+<span class="ltx_text ltx_font_typewriter">.</span> [<span class="ltx_text ltx_font_typewriter">0</span>-<span class="ltx_text ltx_font_typewriter">9</span>]+</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m43" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix6.p2.m44" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><code class="ltx_verbatim ltx_font_typewriter">~</code><math id="I1.ix6.p2.m45" class="ltx_Math" alttext=")?" display="inline"><mrow><mo stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math>[<span class="ltx_text ltx_font_typewriter">0</span>-<span class="ltx_text ltx_font_typewriter">9</span>]<math id="I1.ix6.p2.m46" class="ltx_Math" alttext="+" display="inline"><mo>+</mo></math>
+[<span class="ltx_text ltx_font_typewriter">E</span><span class="ltx_text ltx_font_typewriter">e</span>]<math id="I1.ix6.p2.m47" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><code class="ltx_verbatim ltx_font_typewriter">~</code><math id="I1.ix6.p2.m48" class="ltx_Math" alttext=")?" display="inline"><mrow><mo stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math>[<span class="ltx_text ltx_font_typewriter">0</span>-<span class="ltx_text ltx_font_typewriter">9</span>]+</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix6.p2.m49" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">char<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m50" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<code class="ltx_verbatim ltx_font_typewriter">#"</code> (<math id="I1.ix6.p2.m51" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">printable<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m52" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"> <math id="I1.ix6.p2.m53" class="ltx_Math" alttext="|" display="inline"><mo mathvariant="normal" stretchy="false">|</mo></math> </span><span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m54" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span>escape<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m55" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>) <code class="ltx_verbatim ltx_font_typewriter">"</code>
+</td>
+<td class="ltx_td ltx_align_left">Character</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix6.p2.m56" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">string<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m57" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<code class="ltx_verbatim ltx_font_typewriter">"</code> (<math id="I1.ix6.p2.m58" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">printable<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m59" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"> <math id="I1.ix6.p2.m60" class="ltx_Math" alttext="|" display="inline"><mo mathvariant="normal" stretchy="false">|</mo></math> </span><span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m61" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span>escape<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m62" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>)<math id="I1.ix6.p2.m63" class="ltx_Math" alttext="*" display="inline"><mo>*</mo></math> <code class="ltx_verbatim ltx_font_typewriter">"</code>
+</td>
+<td class="ltx_td ltx_align_left">String</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix6.p2.m64" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">printable<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m65" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">characters except for <span class="ltx_text ltx_font_typewriter">\</span> and <span class="ltx_text ltx_font_typewriter">"</span>
+</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix6.p2.m66" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">escape<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m67" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left"><code class="ltx_verbatim ltx_font_typewriter">\a</code></td>
+<td class="ltx_td ltx_align_left">The warning character (ASCII 7)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m68" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left"><code class="ltx_verbatim ltx_font_typewriter">\b</code></td>
+<td class="ltx_td ltx_align_left">Backspace (ASCII 8)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m69" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left"><code class="ltx_verbatim ltx_font_typewriter">\t</code></td>
+<td class="ltx_td ltx_align_left">Horizontal tab (ASCII 9)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m70" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left"><code class="ltx_verbatim ltx_font_typewriter">\n</code></td>
+<td class="ltx_td ltx_align_left">New line character (ASCII 10)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m71" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left"><code class="ltx_verbatim ltx_font_typewriter">\v</code></td>
+<td class="ltx_td ltx_align_left">Vertical tab (ASCII 11)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m72" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left"><code class="ltx_verbatim ltx_font_typewriter">\f</code></td>
+<td class="ltx_td ltx_align_left">Home feed (ASCII 12)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m73" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left"><code class="ltx_verbatim ltx_font_typewriter">\r</code></td>
+<td class="ltx_td ltx_align_left">Carriage return (ASCII 13)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m74" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<code class="ltx_verbatim ltx_font_typewriter">\^</code>[<code class="ltx_verbatim ltx_font_typewriter">\</code>064-<code class="ltx_verbatim ltx_font_typewriter">\</code>095]</td>
+<td class="ltx_td ltx_align_left">Control character represented by [<span class="ltx_text ltx_font_typewriter">\</span>064-<span class="ltx_text ltx_font_typewriter">\</span>095]</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m75" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left"><code class="ltx_verbatim ltx_font_typewriter">\\</code></td>
+<td class="ltx_td ltx_align_left">The <span class="ltx_text ltx_font_typewriter">\</span> character</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m76" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left"><code class="ltx_verbatim ltx_font_typewriter">\"</code></td>
+<td class="ltx_td ltx_align_left">The <span class="ltx_text ltx_font_typewriter">"</span> character</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m77" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<code class="ltx_verbatim ltx_font_typewriter">\</code><math id="I1.ix6.p2.m78" class="ltx_Math" alttext="ddd" display="inline"><mrow><mi>d</mi><mi>d</mi><mi>d</mi></mrow></math>
+</td>
+<td class="ltx_td ltx_align_left">The character of decimal code <math id="I1.ix6.p2.m79" class="ltx_Math" alttext="ddd" display="inline"><mrow><mi>d</mi><mi>d</mi><mi>d</mi></mrow></math>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m80" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<code class="ltx_verbatim ltx_font_typewriter">\</code><math id="I1.ix6.p2.m81" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math>
+<math id="I1.ix6.p2.m82" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math> <math id="I1.ix6.p2.m83" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math><code class="ltx_verbatim ltx_font_typewriter">\</code>
+</td>
+<td class="ltx_td ltx_align_left">ignoring whitespace characters <math id="I1.ix6.p2.m84" class="ltx_Math" alttext="f\cdots f" display="inline"><mrow><mi>f</mi><mi mathvariant="normal">⋯</mi><mi>f</mi></mrow></math>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m85" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<code class="ltx_verbatim ltx_font_typewriter">\u</code><math id="I1.ix6.p2.m86" class="ltx_Math" alttext="xxxx" display="inline"><mrow><mi>x</mi><mi>x</mi><mi>x</mi><mi>x</mi></mrow></math>
+</td>
+<td class="ltx_td ltx_align_left">The string of the UTF-8 character of hexadecimal code <math id="I1.ix6.p2.m87" class="ltx_Math" alttext="xxxx" display="inline"><mrow><mi>x</mi><mi>x</mi><mi>x</mi><mi>x</mi></mrow></math>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+</dl>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch17.S1.html" title="17.1 Character set ‣ Chapter 17 Lexical structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">17.1 </span>Character set</span></a><a href="Ch18.html" title="Chapter 18 Types ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">18 </span>Types</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sun Mar 28 04:50:44 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

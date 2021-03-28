@@ -1,0 +1,179 @@
+---
+layout: default
+permalink: /ja/documents/3.7.1/Ch28.S3.html
+translated: true
+lang: ja
+head: |
+ <!--Generated on Sun Mar 28 04:49:23 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on 令和3年3月.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch28.html" title="Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="up up" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="up up up" href="./" title="プログラミング言語SML#解説 3.7.1版">
+ <link rel="start" href="./" title="プログラミング言語SML#解説 3.7.1版">
+ <link rel="prev" href="Ch28.S2.html" title="28.2 モード共通のオプション ‣ Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="next" href="Ch28.S4.html" title="28.4 リンクオプション ‣ Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch28.S1.html" title="28.1 モード選択オプション ‣ Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch28.S2.html" title="28.2 モード共通のオプション ‣ Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch28.S4.html" title="28.4 リンクオプション ‣ Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch28.S5.html" title="28.5 対話モードのオプション ‣ Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch28.S6.html" title="28.6 コンパイラ開発者向けオプション ‣ Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch28.S7.html" title="28.7 環境変数 ‣ Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch28.S8.html" title="28.8 典型的な使用例 ‣ Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch15.html" title="Chapter 15 序論 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch16.html" title="Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch17.html" title="Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch18.html" title="Chapter 18 型 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch19.html" title="Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch20.html" title="Chapter 20 パターンとパターンマッチング ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch21.html" title="Chapter 21 識別子のスコープ規則 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch22.html" title="Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch23.html" title="Chapter 23 核言語の宣言とインターフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch24.html" title="Chapter 24 モジュール言語の宣言とインタフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch25.html" title="Chapter 25 SML#のライブラリ概要 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch26.html" title="Chapter 26 Standard ML標準ライブラリ ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch27.html" title="Chapter 27 SML#システムライブラリ ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch28.html" title="Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch29.html" title="Chapter 29 SML#実行時データ管理 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 3.7.1版">
+title: "28.3 コンパイルオプション‣ Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 3.7.1版</div>
+<div>
+<a href="Ch28.html" title="Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">28 </span>SML#コンパイラの起動</span></a><a href="Ch28.S2.html" title="28.2 モード共通のオプション ‣ Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">28.2 </span>モード共通のオプション</span></a><a href="Ch28.S4.html" title="28.4 リンクオプション ‣ Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">28.4 </span>リンクオプション</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">28.3 </span>コンパイルオプション</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">以下のオプションはSML#コンパイラによるファイル検索
+およびコード生成を制御する．
+このカテゴリに属するオプションは
+対話環境やリンクモードにも作用する．
+</p>
+</div>
+<div id="p2" class="ltx_para">
+<dl id="I1" class="ltx_description">
+<dt id="I1.ix1" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_typewriter">-I<math id="I1.ix1.m1" class="ltx_Math" alttext="\mathit{dir}" display="inline"><mrow><mi>d</mi><mi>i</mi><mi>r</mi></mrow></math></span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">.smi</span>ファイルの検索パスにディレクトリ<math id="I1.ix1.p1.m1" class="ltx_Math" alttext="\mathit{dir}" display="inline"><mrow><mi>d</mi><mi>i</mi><mi>r</mi></mrow></math>を追加する．
+複数の<span class="ltx_text ltx_font_typewriter">-I</span>オプションがコマンドラインに指定されている場合，
+指定された順番で各ディレクトリを検索する．
+なお，このオプションは，リンク時の<span class="ltx_text ltx_font_typewriter">.smi</span>ファイルの検索にも
+使用される．
+</p>
+</div>
+</dd>
+<dt id="I1.ix2" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_typewriter">-nostdpath</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">.smi</span>ファイルの検索パスを<span class="ltx_text ltx_font_typewriter">-I</span>で指定したディレクトリのみ
+に限定する．
+</p>
+</div>
+</dd>
+<dt id="I1.ix3" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_typewriter">-O</span><span class="ltx_text ltx_font_bold">,
+</span><span class="ltx_text ltx_font_typewriter">-O0</span><span class="ltx_text ltx_font_bold">,
+</span><span class="ltx_text ltx_font_typewriter">-O1</span><span class="ltx_text ltx_font_bold">,
+</span><span class="ltx_text ltx_font_typewriter">-O2</span><span class="ltx_text ltx_font_bold">,
+</span><span class="ltx_text ltx_font_typewriter">-O3</span><span class="ltx_text ltx_font_bold">,
+</span><span class="ltx_text ltx_font_typewriter">-Os</span><span class="ltx_text ltx_font_bold">,
+</span><span class="ltx_text ltx_font_typewriter">-Oz</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix3.p1" class="ltx_para">
+<p class="ltx_p">最適化レベルを指定する．
+<span class="ltx_text ltx_font_typewriter">-O0</span>は全ての最適化を無効にする．
+<span class="ltx_text ltx_font_typewriter">-O1</span>から<span class="ltx_text ltx_font_typewriter">-O3</span>は数字が大きいほどより高度な最適化を有効にする．
+<span class="ltx_text ltx_font_typewriter">-O</span>は<span class="ltx_text ltx_font_typewriter">-O2</span>の別名である．
+<span class="ltx_text ltx_font_typewriter">-Os</span>および<span class="ltx_text ltx_font_typewriter">-Oz</span>はコードサイズを小さくする最適化を有効にする．
+これらのオプションがコマンドラインに複数指定された場合は，
+最後のひとつのみが有効となる．
+</p>
+</div>
+</dd>
+<dt id="I1.ix4" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_typewriter">--target=<math id="I1.ix4.m1" class="ltx_Math" alttext="\mathit{target}" display="inline"><mrow><mi>t</mi><mi>a</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>t</mi></mrow></math></span><span class="ltx_text ltx_font_bold">,
+</span><span class="ltx_text ltx_font_typewriter">-mcmodel <math id="I1.ix4.m2" class="ltx_Math" alttext="\mathit{model}" display="inline"><mrow><mi>m</mi><mi>o</mi><mi>d</mi><mi>e</mi><mi>l</mi></mrow></math></span><span class="ltx_text ltx_font_bold">,
+</span><span class="ltx_text ltx_font_typewriter">-march <math id="I1.ix4.m3" class="ltx_Math" alttext="\mathit{arch}" display="inline"><mrow><mi>a</mi><mi>r</mi><mi>c</mi><mi>h</mi></mrow></math></span><span class="ltx_text ltx_font_bold">,
+</span><span class="ltx_text ltx_font_typewriter">-mcpu <math id="I1.ix4.m4" class="ltx_Math" alttext="\mathit{cpu}" display="inline"><mrow><mi>c</mi><mi>p</mi><mi>u</mi></mrow></math></span><span class="ltx_text ltx_font_bold">,
+</span><span class="ltx_text ltx_font_typewriter">-mattr <math id="I1.ix4.m5" class="ltx_Math" alttext="\mathit{attrs}" display="inline"><mrow><mi>a</mi><mi>t</mi><mi>t</mi><mi>r</mi><mi>s</mi></mrow></math></span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix4.p1" class="ltx_para">
+<p class="ltx_p">LLVMのコード生成器に対して指定するターゲット，コードモデル，
+アーキテクチャ，CPU，およびコード生成属性を指定する．
+<math id="I1.ix4.p1.m1" class="ltx_Math" alttext="\mathit{model}" display="inline"><mrow><mi>m</mi><mi>o</mi><mi>d</mi><mi>e</mi><mi>l</mi></mrow></math>は<span class="ltx_text ltx_font_typewriter">small</span>, <span class="ltx_text ltx_font_typewriter">medium</span>, <span class="ltx_text ltx_font_typewriter">large</span>, <span class="ltx_text ltx_font_typewriter">kernel</span>の
+いずれかである．
+<math id="I1.ix4.p1.m2" class="ltx_Math" alttext="\mathit{attrs}" display="inline"><mrow><mi>a</mi><mi>t</mi><mi>t</mi><mi>r</mi><mi>s</mi></mrow></math>には属性のリストをコンマ区切りで指定する．
+<math id="I1.ix4.p1.m3" class="ltx_Math" alttext="\mathit{target}" display="inline"><mrow><mi>t</mi><mi>a</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>t</mi></mrow></math>, <math id="I1.ix4.p1.m4" class="ltx_Math" alttext="\mathit{arch}" display="inline"><mrow><mi>a</mi><mi>r</mi><mi>c</mi><mi>h</mi></mrow></math>, <math id="I1.ix4.p1.m5" class="ltx_Math" alttext="\mathit{cpu}" display="inline"><mrow><mi>c</mi><mi>p</mi><mi>u</mi></mrow></math>, <math id="I1.ix4.p1.m6" class="ltx_Math" alttext="\mathit{attrs}" display="inline"><mrow><mi>a</mi><mi>t</mi><mi>t</mi><mi>r</mi><mi>s</mi></mrow></math>に対して有効な
+指定はLLVMマニュアルあるいはLLVM付属の<span class="ltx_text ltx_font_typewriter">llc</span>コマンドのヘルプを参照せよ．
+</p>
+</div>
+</dd>
+<dt id="I1.ix5" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_typewriter">-fpic</span><span class="ltx_text ltx_font_bold">,
+</span><span class="ltx_text ltx_font_typewriter">-fPIC</span><span class="ltx_text ltx_font_bold">,
+</span><span class="ltx_text ltx_font_typewriter">-fno-pic</span><span class="ltx_text ltx_font_bold">,
+</span><span class="ltx_text ltx_font_typewriter">-mdynamic-no-pic</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix5.p1" class="ltx_para">
+<p class="ltx_p">コードの再配置モデルを指定する．
+<span class="ltx_text ltx_font_typewriter">-fpic</span>は<span class="ltx_text ltx_font_typewriter">-fPIC</span>の別名である．
+<span class="ltx_text ltx_font_typewriter">-fPIC</span>は再配置可能なコードを生成する．
+<span class="ltx_text ltx_font_typewriter">-fno-pic</span>は再配置しない（non-relocatableな）コードを生成する．
+<span class="ltx_text ltx_font_typewriter">-mdynamic-no-pic</span>は再配置可能な外部参照を含む再配置しない
+コードを生成する．
+これらのオプションが指定されていないときは，システム依存のデフォル
+トの再配置モデルが選択される．
+</p>
+</div>
+</dd>
+<dt id="I1.ix6" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_typewriter">-Xllc <math id="I1.ix6.m1" class="ltx_Math" alttext="\mathit{arg}" display="inline"><mrow><mi>a</mi><mi>r</mi><mi>g</mi></mrow></math></span><span class="ltx_text ltx_font_bold">,
+</span><span class="ltx_text ltx_font_typewriter">-Xopt <math id="I1.ix6.m2" class="ltx_Math" alttext="\mathit{arg}" display="inline"><mrow><mi>a</mi><mi>r</mi><mi>g</mi></mrow></math></span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix6.p1" class="ltx_para">
+<p class="ltx_p">コード生成の際に実行されるLLVMの<span class="ltx_text ltx_font_typewriter">llc</span>および<span class="ltx_text ltx_font_typewriter">opt</span>コマンドに
+渡す追加の引数を指定する．
+複数の<span class="ltx_text ltx_font_typewriter">-Xllc</span>や<span class="ltx_text ltx_font_typewriter">-Xopt</span>がコマンドラインに指定された
+場合，全ての追加引数が指定された順にコマンドに渡される．
+</p>
+</div>
+</dd>
+<dt id="I1.ix7" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_typewriter">-emit-llvm</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix7.p1" class="ltx_para">
+<p class="ltx_p">コンパイル結果をファイルに書き出すとき，
+ネイティブコードの代わりに LLVM IR を出力する．
+<span class="ltx_text ltx_font_typewriter">-emit-llvm</span>が<span class="ltx_text ltx_font_typewriter">-S</span>と共に指定されているとき，
+アセンブリコードの代わりにテキスト形式の LLVM IR コードを出力する．
+デフォルトの出力ファイル名の拡張子は
+<span class="ltx_text ltx_font_typewriter">.s</span>から<span class="ltx_text ltx_font_typewriter">.ll</span>に変わる．
+<span class="ltx_text ltx_font_typewriter">-c</span>と共に指定されているとき，
+オブジェクトファイルの代わりに LLVM bitcode ファイルを出力する．
+デフォルトの出力ファイル名の拡張子は
+<span class="ltx_text ltx_font_typewriter">.o</span>から<span class="ltx_text ltx_font_typewriter">.bc</span>に変わる．
+</p>
+</div>
+</dd>
+</dl>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch28.S2.html" title="28.2 モード共通のオプション ‣ Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">28.2 </span>モード共通のオプション</span></a><a href="Ch28.S4.html" title="28.4 リンクオプション ‣ Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">28.4 </span>リンクオプション</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sun Mar 28 04:49:23 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

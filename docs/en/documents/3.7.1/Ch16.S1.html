@@ -1,0 +1,1021 @@
+---
+layout: default
+permalink: /en/documents/3.7.1/Ch16.S1.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Sun Mar 28 04:50:44 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Mar, 2021.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch16.html" title="Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="up up" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="up up up" href="./" title="SML# Document Version 3.7.1">
+ <link rel="start" href="./" title="SML# Document Version 3.7.1">
+ <link rel="prev" href="Ch16.html" title="Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="next" href="Ch16.S2.html" title="16.2 Programs in the separate compilation mode ‣ Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch16.S2.html" title="16.2 Programs in the separate compilation mode ‣ Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch16.S3.html" title="16.3 Major Components of SML# Programs ‣ Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch15.html" title="Chapter 15 Introduction ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch16.html" title="Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch17.html" title="Chapter 17 Lexical structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch18.html" title="Chapter 18 Types ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch19.html" title="Chapter 19 Expressions ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch20.html" title="Chapter 20 Patterns and Pattern Matching ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch21.html" title="Chapter 21 Scope rules for identifier ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch22.html" title="Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch23.html" title="Chapter 23 Declarations of the core language and their interfaces ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch24.html" title="Chapter 24 Module language declarations and interface ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch25.html" title="Chapter 25 Overview of SML# Libraries ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch26.html" title="Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch27.html" title="Chapter 27 SML# System Library ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch28.html" title="Chapter 28 The smlsharp command ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch29.html" title="Chapter 29 SML# Run-time data management ‣ Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 3.7.1">
+title: "16.1 Programs in the interactive mode‣ Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 3.7.1</div>
+<div>
+<a href="Ch16.html" title="Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">16 </span>The SML# Structure</span></a><a href="Ch16.html" title="Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">16 </span>The SML# Structure</span></a><a href="Ch16.S2.html" title="16.2 Programs in the separate compilation mode ‣ Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">16.2 </span>Programs in the separate compilation mode</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">16.1 </span>Programs in the interactive mode</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">An interactive mode program of SML# is a sequence of
+declarations, terminated by semicolon (<span class="ltx_text ltx_font_typewriter">;</span>).
+The following shows a simple interactive program session of SML#
+</p>
+</div>
+<div id="p2" class="ltx_para">
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ smlsharp
+<br class="ltx_break">
+SML# 3.7.1 ...
+<br class="ltx_break">
+# fun fact 0 = 1
+<br class="ltx_break">
+&gt;    | fact n = n * fact (n - 1);
+<br class="ltx_break">
+&gt; val x = fact 10;
+<br class="ltx_break">
+val fact = fn : int -&gt; int
+<br class="ltx_break">
+val x = 3628800 : int</span></p>
+</blockquote>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">#</span> and <span class="ltx_text ltx_font_typewriter">&gt;</span> are the first-line prompt character and
+the second-line prompt character, respectively.
+As shown in this example, the SML# interactive compiler
+print the result of evaluation of the input program.
+</p>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">Declarations are divided into the core language declarations
+<math id="p4.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">decl<span class="ltx_text ltx_font_upright"><math id="p4.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>, which generates values such as functions and records,
+and the module language declarations <math id="p4.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strDecl<span class="ltx_text ltx_font_upright"><math id="p4.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>, which are named
+collections of core language declarations.
+</p>
+</div>
+<div id="p5" class="ltx_para ltx_align_center">
+<table class="ltx_tabular ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="p5.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">interactiveProgram<span class="ltx_text ltx_font_upright"><math id="p5.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">;</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="p5.m3" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<math id="p5.m4" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">decl<span class="ltx_text ltx_font_upright"><math id="p5.m5" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <math id="p5.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">interactiveProgram<span class="ltx_text ltx_font_upright"><math id="p5.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="p5.m8" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<math id="p5.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">topdecl<span class="ltx_text ltx_font_upright"><math id="p5.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <math id="p5.m11" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">interactiveProgram<span class="ltx_text ltx_font_upright"><math id="p5.m12" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="p6" class="ltx_para">
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">Core language declarations</p>
+</div>
+<div id="I1.i1.p2" class="ltx_para">
+<p class="ltx_p">The following shows core language declarations (<math id="I1.i1.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">decl<span class="ltx_text ltx_font_upright"><math id="I1.i1.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>) and
+simple examples.
+</p>
+</div>
+<div id="I1.i1.p3" class="ltx_para">
+<blockquote class="ltx_quote">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_top">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row">
+<math id="I1.i1.p3.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">decl<span class="ltx_text ltx_font_upright"><math id="I1.i1.p3.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row">::=</th>
+<td class="ltx_td ltx_align_left">
+<math id="I1.i1.p3.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">infixDecl<span class="ltx_text ltx_font_upright"><math id="I1.i1.p3.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">infix declaration</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="I1.i1.p3.m5" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="I1.i1.p3.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">valDecl<span class="ltx_text ltx_font_upright"><math id="I1.i1.p3.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">val delaration</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="I1.i1.p3.m8" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="I1.i1.p3.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">valRecDecl<span class="ltx_text ltx_font_upright"><math id="I1.i1.p3.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">val rec delaration</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="I1.i1.p3.m11" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="I1.i1.p3.m12" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">funDecl<span class="ltx_text ltx_font_upright"><math id="I1.i1.p3.m13" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">function delaration</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="I1.i1.p3.m14" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="I1.i1.p3.m15" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">datatypeDecl<span class="ltx_text ltx_font_upright"><math id="I1.i1.p3.m16" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">data type delaration</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="I1.i1.p3.m17" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="I1.i1.p3.m18" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">typeDecl<span class="ltx_text ltx_font_upright"><math id="I1.i1.p3.m19" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">type alias delaration</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="I1.i1.p3.m20" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="I1.i1.p3.m21" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exceptionDecl<span class="ltx_text ltx_font_upright"><math id="I1.i1.p3.m22" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">exception delaration</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="I1.i1.p3.m23" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="I1.i1.p3.m24" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">localDecl<span class="ltx_text ltx_font_upright"><math id="I1.i1.p3.m25" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">local declaration</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<div id="I1.i1.p4" class="ltx_para">
+<blockquote class="ltx_quote">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_l ltx_border_r ltx_border_t">Declaration kind</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">Simple example</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">infix declaration</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">infix 4 =</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">val declaration</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">val x = 1</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">val rec declaration</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">val rec f = fn x =&gt; if x = 0 then 1 else x * f (x - 1)</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">function declaration</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">fun f x = if x = 0 then 1 else x * f (x - 1)</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">datatye declaration</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">datatype foo = A | B</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">type declaration</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">type person = {name:string, age:int}</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">exception declaration</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">exception Fail of string</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_l ltx_border_r ltx_border_t">local declaration</td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">local val x = 2 in val y = x + x end</span></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">Module language declarations</p>
+</div>
+<div id="I1.i2.p2" class="ltx_para">
+<p class="ltx_p">The following shows module language declarations (<math id="I1.i2.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strDecl<span class="ltx_text ltx_font_upright"><math id="I1.i2.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>) and
+simple examples.
+</p>
+</div>
+<div id="I1.i2.p3" class="ltx_para">
+<blockquote class="ltx_quote">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_top">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row">
+<math id="I1.i2.p3.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">topdecl<span class="ltx_text ltx_font_upright"><math id="I1.i2.p3.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row">::=</th>
+<td class="ltx_td ltx_align_left">
+<math id="I1.i2.p3.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strDecl<span class="ltx_text ltx_font_upright"><math id="I1.i2.p3.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">structure delaration</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="I1.i2.p3.m5" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="I1.i2.p3.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sigDecl<span class="ltx_text ltx_font_upright"><math id="I1.i2.p3.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">signature delaration</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="I1.i2.p3.m8" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="I1.i2.p3.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">functorDecl<span class="ltx_text ltx_font_upright"><math id="I1.i2.p3.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">functor delaration</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="I1.i2.p3.m11" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="I1.i2.p3.m12" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">localTopdecl<span class="ltx_text ltx_font_upright"><math id="I1.i2.p3.m13" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">local declaration</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<div id="I1.i2.p4" class="ltx_para">
+<blockquote class="ltx_quote">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row ltx_border_l ltx_border_r ltx_border_t">structure declaration</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t"><span class="ltx_inline-para ltx_minipage ltx_align_middle" style="width:226.2pt;">
+<span id="I1.i2.p4.p1" class="ltx_para">
+<span class="ltx_quote">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter">structure Version =
+<br class="ltx_break">
+  struct
+<br class="ltx_break">
+    val version = "2.0.0"
+<br class="ltx_break">
+  end</span></span>
+</span>
+</span></span></th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t">signature declaration</th>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_inline-para ltx_minipage ltx_align_middle" style="width:226.2pt;">
+<span id="I1.i2.p4.p2" class="ltx_para">
+<span class="ltx_quote">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter">signature VERSION =
+<br class="ltx_break">
+  sig
+<br class="ltx_break">
+    val version :string
+<br class="ltx_break">
+  end</span></span>
+</span>
+</span></span></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t">functor declaration</th>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_inline-para ltx_minipage ltx_align_middle" style="width:226.2pt;">
+<span id="I1.i2.p4.p3" class="ltx_para">
+<span class="ltx_quote">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter">functor System(V:VERSION) =
+<br class="ltx_break">
+  struct
+<br class="ltx_break">
+    val name = "SML#"
+<br class="ltx_break">
+    val version = V.version
+<br class="ltx_break">
+  end</span></span>
+</span>
+</span></span></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_l ltx_border_r ltx_border_t">local declaration</th>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r ltx_border_t"><span class="ltx_inline-para ltx_minipage ltx_align_middle" style="width:226.2pt;">
+<span id="I1.i2.p4.p4" class="ltx_para">
+<span class="ltx_quote">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter">local
+<br class="ltx_break">
+  structure V = Version
+<br class="ltx_break">
+in
+<br class="ltx_break">
+  structure Release = struct
+<br class="ltx_break">
+    val version = V.version
+<br class="ltx_break">
+    val date = "2021-03-15"
+<br class="ltx_break">
+  end
+<br class="ltx_break">
+end</span></span>
+</span>
+</span></span></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</li>
+</ul>
+</div>
+<section id="SS1" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">16.1.1 </span>Evaluation of core language declarations</h2>
+
+<div id="SS1.p1" class="ltx_para">
+<p class="ltx_p">Execution of an interactive program is done by evaluating a
+list of declaration sequentially.
+Evaluation of a core language declaration has the effect of
+evaluating the components, such as expressions, contained in the
+declaration, and binding the identifiers defined in the declaration to
+the values generated by the evaluation of the components.
+Generated values are either static or dynamic.</p>
+</div>
+<div id="SS1.p2" class="ltx_para">
+<p class="ltx_p">Static values are compile-time value generated by the compiler.
+They are one of the following.
+</p>
+</div>
+<div id="SS1.p3" class="ltx_para">
+<dl id="I2" class="ltx_description">
+<dt id="I2.ix1" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">infix operator status</span></span></dt>
+<dd class="ltx_item">
+<div id="I2.ix1.p1" class="ltx_para">
+<p class="ltx_p">This indicates that an identifier is parsed as an infix
+operator.
+It also has the associatibity (right associative or left associative)
+and association strength (from 0 to 9).
+</p>
+</div>
+</dd>
+<dt id="I2.ix2" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">constructor status</span></span></dt>
+<dd class="ltx_item">
+<div id="I2.ix2.p1" class="ltx_para">
+<p class="ltx_p">This indicates that an identifier status is a data constructor.
+An identifier with the constructor status only matches with
+the corresponding constructor in pattern marching.
+</p>
+</div>
+</dd>
+<dt id="I2.ix3" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">type constructor</span></span></dt>
+<dd class="ltx_item">
+<div id="I2.ix3.p1" class="ltx_para">
+<p class="ltx_p">Type constructors are newly defined types generated by datatype
+declarations.
+Parametric types with type parameters can be defined.
+</p>
+</div>
+</dd>
+<dt id="I2.ix4" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">type</span></span></dt>
+<dd class="ltx_item">
+<div id="I2.ix4.p1" class="ltx_para">
+<p class="ltx_p">Types specify a static property of a dynamic values produced by
+executing the corresponding program fragment.
+</p>
+</div>
+</dd>
+</dl>
+</div>
+<div id="SS1.p4" class="ltx_para">
+<p class="ltx_p">The SML# compiler statically evaluates declarations and
+generates static values, and bind names defined in the declarations
+to those static values.
+For declarations such as <math id="SS1.p4.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">valDecl<span class="ltx_text ltx_font_upright"><math id="SS1.p4.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> that implies program
+execution, the compiler generates executable code, which when executed,
+constructs dynamic values at runtime and binds names to those dynamic
+values.</p>
+</div>
+<div id="SS1.p5" class="ltx_para">
+<p class="ltx_p">Dynamic values are one of the following.
+</p>
+</div>
+<div id="SS1.p6" class="ltx_para">
+<dl id="I3" class="ltx_description">
+<dt id="I3.ix1" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Built-in values</span></span></dt>
+<dd class="ltx_item">
+<div id="I3.ix1.p1" class="ltx_para">
+<p class="ltx_p">Runtime data of built-in types defined in Chapter <a href="Ch18.html" title="Chapter 18 Types ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">18</span></a>.
+They include atomic values, lists, arrays, and vectors.
+For example, values of type <span class="ltx_text ltx_font_typewriter">int32</span> are 32-bit signed
+integers whose representation is defined by the underlying machine
+architecture.</p>
+</div>
+</dd>
+<dt id="I3.ix2" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Function closures</span></span></dt>
+<dd class="ltx_item">
+<div id="I3.ix2.p1" class="ltx_para">
+<p class="ltx_p">They are runtime representations of values of function types.
+</p>
+</div>
+</dd>
+<dt id="I3.ix3" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Data constructors</span></span></dt>
+<dd class="ltx_item">
+<div id="I3.ix3.p1" class="ltx_para">
+<p class="ltx_p">They are built-in functions to construct datatype representations.
+</p>
+</div>
+</dd>
+<dt id="I3.ix4" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Exception closures</span></span></dt>
+<dd class="ltx_item">
+<div id="I3.ix4.p1" class="ltx_para">
+<p class="ltx_p">They are built-in functions to construct exception values.
+</p>
+</div>
+</dd>
+<dt id="I3.ix5" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Records</span></span></dt>
+<dd class="ltx_item">
+<div id="I3.ix5.p1" class="ltx_para">
+<p class="ltx_p">They are values of record and tuple types.
+</p>
+</div>
+</dd>
+<dt id="I3.ix6" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Datatype representation</span></span></dt>
+<dd class="ltx_item">
+<div id="I3.ix6.p1" class="ltx_para">
+<p class="ltx_p">They are generated by data constructors defined in datatype declarations.
+</p>
+</div>
+</dd>
+<dt id="I3.ix7" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">Exception values</span></span></dt>
+<dd class="ltx_item">
+<div id="I3.ix7.p1" class="ltx_para">
+<p class="ltx_p">They are generated by exception constructors.
+</p>
+</div>
+</dd>
+</dl>
+</div>
+<div id="SS1.p7" class="ltx_para">
+<p class="ltx_p">The following show a summary of the generated static and dynamic
+values for each of declarations.
+</p>
+</div>
+<div id="SS1.p8" class="ltx_para">
+<blockquote class="ltx_quote">
+<table class="ltx_tabular ltx_align_top">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">declaration class</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">static values bindings</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">dynamic values bindings</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">assigned to</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">infix declaration</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">infix status</td>
+<td class="ltx_td ltx_border_r ltx_border_t"></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">variables, constructor names</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">val delaration</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">types</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">dynamic values corresponding to types</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">variables</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">val rec delaration</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">types</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">function closures</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">variables</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">function delaration</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">types</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">function closures</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">variables</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">data type delaration</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">type constructors</td>
+<td class="ltx_td ltx_border_r ltx_border_t"></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">type constructor names</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_border_l ltx_border_r"></td>
+<td class="ltx_td ltx_align_left ltx_border_r">constructor status</td>
+<td class="ltx_td ltx_align_left ltx_border_r">data constructors</td>
+<td class="ltx_td ltx_align_left ltx_border_r">data constructor names</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">type alias delaration</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">type function</td>
+<td class="ltx_td ltx_border_r ltx_border_t"></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">type constructor names</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">exception delaration</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">constructor status</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">exception constructors</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">exception constructor names</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_l ltx_border_r ltx_border_t">exception delaration</td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r ltx_border_t">depending on the contents</td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r ltx_border_t">depending on the contents</td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r ltx_border_t">depending on the contents</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<div id="SS1.p9" class="ltx_para">
+<p class="ltx_p">We outline declaration evaluation and the resulting value
+bindings below.
+The detailed syntax and semantics of each of these declaration
+classes are given in Chapter <a href="Ch23.html" title="Chapter 23 Declarations of the core language and their interfaces ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">23</span></a>.
+</p>
+</div>
+<div id="SS1.p10" class="ltx_para">
+<dl id="I4" class="ltx_description">
+<dt id="I4.ix1" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold"><math id="I4.ix1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">infixDecl<span class="ltx_text ltx_font_bold ltx_font_upright"><math id="I4.ix1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></dt>
+<dd class="ltx_item">
+<div id="I4.ix1.p1" class="ltx_para">
+<p class="ltx_p">This is a declaration of the form <span class="ltx_text ltx_font_typewriter">infix <math id="I4.ix1.p1.m1" class="ltx_Math" alttext="id" display="inline"><mrow><mi>i</mi><mi>d</mi></mrow></math></span>.
+The identifier <math id="I4.ix1.p1.m2" class="ltx_Math" alttext="id" display="inline"><mrow><mi>i</mi><mi>d</mi></mrow></math> is given infix operator property.
+<math id="I4.ix1.p1.m3" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math> is optional.
+The following shows a simple example.
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># infix 7 *;
+<br class="ltx_break">
+# infix 8 ^;
+<br class="ltx_break">
+# fun x ^ y = if y = 0 then 1 else x * x ^ (y - 1);
+<br class="ltx_break">
+val ^ = fn : int * int -&gt; int
+<br class="ltx_break">
+# val a = 4 * 3 ^ 2
+<br class="ltx_break">
+val a = 36 : int</span></p>
+</blockquote>
+<p class="ltx_p">Since <span class="ltx_text ltx_font_typewriter">*</span> and <span class="ltx_text ltx_font_typewriter">^</span> has infix precedence <math id="I4.ix1.p1.m4" class="ltx_Math" alttext="7" display="inline"><mn>7</mn></math> and <math id="I4.ix1.p1.m5" class="ltx_Math" alttext="8" display="inline"><mn>8</mn></math>,
+respectively,
+<span class="ltx_text ltx_font_typewriter">4 * 3 ^ 2</span> is elaborated to
+<span class="ltx_text ltx_font_typewriter">*(4, ^ (3,2))</span>.
+</p>
+</div>
+</dd>
+<dt id="I4.ix2" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold"><math id="I4.ix2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">valDecl<span class="ltx_text ltx_font_bold ltx_font_upright"><math id="I4.ix2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></dt>
+<dd class="ltx_item">
+<div id="I4.ix2.p1" class="ltx_para">
+<p class="ltx_p">This is a declaration of the form <span class="ltx_text ltx_font_typewriter">val <math id="I4.ix2.p1.m1" class="ltx_Math" alttext="pat" display="inline"><mrow><mi>p</mi><mi>a</mi><mi>t</mi></mrow></math> = <math id="I4.ix2.p1.m2" class="ltx_Math" alttext="exp" display="inline"><mrow><mi>e</mi><mi>x</mi><mi>p</mi></mrow></math></span>.
+Evaluation is done by evaluating <math id="I4.ix2.p1.m3" class="ltx_Math" alttext="exp" display="inline"><mrow><mi>e</mi><mi>x</mi><mi>p</mi></mrow></math> and checking whether the
+resulting dynamic value matches <math id="I4.ix2.p1.m4" class="ltx_Math" alttext="pat" display="inline"><mrow><mi>p</mi><mi>a</mi><mi>t</mi></mrow></math>.
+If it matches then variables in <math id="I4.ix2.p1.m5" class="ltx_Math" alttext="pat" display="inline"><mrow><mi>p</mi><mi>a</mi><mi>t</mi></mrow></math> are bound to the
+corresponding values of the result.
+The simplest example is the following variable binding.
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># val x = 1;
+<br class="ltx_break">
+val x = 1 : int</span></p>
+</blockquote>
+<p class="ltx_p">In this example, variable <span class="ltx_text ltx_font_typewriter">x</span> is bound to the result of
+evaluating expression <span class="ltx_text ltx_font_typewriter">1</span>, namely static type <span class="ltx_text ltx_font_typewriter">int</span> and
+dynamic value <math id="I4.ix2.p1.m6" class="ltx_Math" alttext="1" display="inline"><mn>1</mn></math>.
+</p>
+</div>
+<div id="I4.ix2.p2" class="ltx_para">
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># val (x, y) = (1, 2);
+<br class="ltx_break">
+val x = 1 : int
+<br class="ltx_break">
+val y = 2 : int</span></p>
+</blockquote>
+</div>
+<div id="I4.ix2.p3" class="ltx_para">
+<p class="ltx_p">The details of expressions <math id="I4.ix2.p3.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_upright"><math id="I4.ix2.p3.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> and patterns are given
+in Chapter <a href="Ch19.html" title="Chapter 19 Expressions ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">19</span></a> and
+<a href="Ch20.html" title="Chapter 20 Patterns and Pattern Matching ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">20</span></a>.
+．</p>
+</div>
+</dd>
+<dt id="I4.ix3" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold"><math id="I4.ix3.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">valRecDecl<span class="ltx_text ltx_font_bold ltx_font_upright"><math id="I4.ix3.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></dt>
+<dd class="ltx_item">
+<div id="I4.ix3.p1" class="ltx_para">
+<p class="ltx_p">Val declarations restricted to (mutually recursive) functions.
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># val rec even = fn x =&gt; if x = 0 then true else odd (x - 1)
+<br class="ltx_break">
+&gt; and odd = fn x =&gt; if x = 1 then true else odd (x - 1);
+<br class="ltx_break">
+val even = fn : int -&gt; bool
+<br class="ltx_break">
+val odd = fn : int -&gt; bool
+<br class="ltx_break"></span></p>
+</blockquote>
+<p class="ltx_p">In this declaration, each identifier is bound to the
+corresponding type and function value.
+</p>
+</div>
+</dd>
+<dt id="I4.ix4" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold"><math id="I4.ix4.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">funDecl<span class="ltx_text ltx_font_bold ltx_font_upright"><math id="I4.ix4.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></dt>
+<dd class="ltx_item">
+<div id="I4.ix4.p1" class="ltx_para">
+<p class="ltx_p">This is for mutually recursive function definitions.
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># fun even x = if x = 0 then true else odd (x - 1)
+<br class="ltx_break">
+&gt; and odd x = if x = 1 then true else odd (x - 1);
+<br class="ltx_break">
+val even = fn : int -&gt; bool
+<br class="ltx_break">
+val odd = fn : int -&gt; bool
+<br class="ltx_break">
+</span></p>
+</blockquote>
+<p class="ltx_p">In this declaration, each identifier is bound to the
+corresponding type and function value.
+</p>
+</div>
+</dd>
+<dt id="I4.ix5" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold"><math id="I4.ix5.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">datatypeDecl<span class="ltx_text ltx_font_bold ltx_font_upright"><math id="I4.ix5.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></dt>
+<dd class="ltx_item">
+<div id="I4.ix5.p1" class="ltx_para">
+<p class="ltx_p">This defines new mutually recursive type constructors.
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># datatype foo = A of int | B of bar and bar = C of bool | D of foo; 
+<br class="ltx_break">
+datatype bar = C of bool | D of foo
+<br class="ltx_break">
+datatype foo = A of int | B of bar
+<br class="ltx_break">
+# D (A 3);
+<br class="ltx_break">
+val it = D (A 3) : bar
+<br class="ltx_break"></span></p>
+</blockquote>
+<p class="ltx_p">Evaluation of this declaration generates two new type constructors
+(with no type parameter) <span class="ltx_text ltx_font_typewriter">foo</span> and <span class="ltx_text ltx_font_typewriter">bar</span> and the identifiers
+<span class="ltx_text ltx_font_typewriter">foo</span> and <span class="ltx_text ltx_font_typewriter">bar</span> are bound to them.
+It also generate data constructors <span class="ltx_text ltx_font_typewriter">A</span>, <span class="ltx_text ltx_font_typewriter">B</span> and
+<span class="ltx_text ltx_font_typewriter">C</span>, <span class="ltx_text ltx_font_typewriter">D</span> for <span class="ltx_text ltx_font_typewriter">foo</span> and <span class="ltx_text ltx_font_typewriter">bar</span>, respectively,
+and the identifiers to them.
+These identifiers are given the constructor status.</p>
+</div>
+<div id="I4.ix5.p2" class="ltx_para">
+<p class="ltx_p">As in the above explanation, in this manual, we generally
+identify type constructors such as <span class="ltx_text ltx_font_typewriter">foo</span> and data constructors
+such as <span class="ltx_text ltx_font_typewriter">A</span> with their names <span class="ltx_text ltx_font_typewriter">foo</span> and <span class="ltx_text ltx_font_typewriter">A</span>.
+</p>
+</div>
+</dd>
+<dt id="I4.ix6" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold"><math id="I4.ix6.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">typeDecl<span class="ltx_text ltx_font_bold ltx_font_upright"><math id="I4.ix6.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></dt>
+<dd class="ltx_item">
+<div id="I4.ix6.p1" class="ltx_para">
+<p class="ltx_p">This bind an identifier to a type or a type function.
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># type ’a foo = ’a * ’a;
+<br class="ltx_break">
+type ’a foo = ’a * ’a
+<br class="ltx_break">
+# fun f (x:int foo) = x;
+<br class="ltx_break">
+val f = fn : int * int -&gt; int * int</span></p>
+</blockquote>
+<p class="ltx_p">Evaluation of this generates a type function that takes a type
+parameter represented by <span class="ltx_text ltx_font_typewriter">’a</span> and returns a type <span class="ltx_text ltx_font_typewriter">’a * ’a</span>,
+and binds identifier <span class="ltx_text ltx_font_typewriter">foo</span> to this type function.
+In the scope of this declaration, <math id="I4.ix6.p1.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> foo</span> is used as
+an alias of <math id="I4.ix6.p1.m2" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> * <math id="I4.ix6.p1.m3" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math></span>.
+</p>
+</div>
+</dd>
+<dt id="I4.ix7" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold"><math id="I4.ix7.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exceptionDecl<span class="ltx_text ltx_font_bold ltx_font_upright"><math id="I4.ix7.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></dt>
+<dd class="ltx_item">
+<div id="I4.ix7.p1" class="ltx_para">
+<p class="ltx_p">This defines exception constructors.
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># exception Foo of int;
+<br class="ltx_break">
+exception Foo of int</span></p>
+</blockquote>
+<p class="ltx_p">Evaluation of this declaration generates a new exception
+constructor with a parameter of type <span class="ltx_text ltx_font_typewriter">int</span>.
+In the scope of this declaration, the identifier <span class="ltx_text ltx_font_typewriter">foo</span> is
+given the constructor status and is bound to the exception constructor.
+</p>
+</div>
+</dd>
+<dt id="I4.ix8" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold"><math id="I4.ix8.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">localDecl<span class="ltx_text ltx_font_bold ltx_font_upright"><math id="I4.ix8.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></dt>
+<dd class="ltx_item">
+<div id="I4.ix8.p1" class="ltx_para">
+<p class="ltx_p">Declarations between <span class="ltx_text ltx_font_typewriter">local</span> and <span class="ltx_text ltx_font_typewriter">in</span> are local until
+<span class="ltx_text ltx_font_typewriter">end</span>.
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># local
+<br class="ltx_break">
+&gt;   val x = 2
+<br class="ltx_break">
+&gt; in
+<br class="ltx_break">
+&gt;   val y = x + x
+<br class="ltx_break">
+&gt; end;
+<br class="ltx_break">
+val y = 4 : int</span></p>
+</blockquote>
+<p class="ltx_p">The scope of the declaration <span class="ltx_text ltx_font_typewriter">val x = 2</span> is until <span class="ltx_text ltx_font_typewriter">end</span>.
+The variable <span class="ltx_text ltx_font_typewriter">x</span> is not visible from outside of this local
+declaration and therefore only <span class="ltx_text ltx_font_typewriter">y</span> is printed in the interactive
+session.
+</p>
+</div>
+</dd>
+</dl>
+</div>
+</section>
+<section id="SS2" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">16.1.2 </span>Evaluation of module language declarations</h2>
+
+<div id="SS2.p1" class="ltx_para">
+<p class="ltx_p">A structure declaration, the main component of the module
+language, is a mechanism to bundle a list of declarations and gives it a
+name.
+Evaluation of a structure expression yields a static type
+environment representing the static binding of the declarations, and a
+dynamic value environment representing the dynamic binding of the
+declarations.
+The effect of evaluation of a structure declaration is to extend
+the current type environment and the current value environment with the
+static and dynamic environment obtained from the generated environments
+by prefixing the bound names in the environments with the structure name.
+</p>
+</div>
+<div id="SS2.p2" class="ltx_para">
+<p class="ltx_p">For example，the structure expression</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">struct
+<br class="ltx_break">
+  val version = "3.7.1"
+<br class="ltx_break">
+end
+</span></p>
+</blockquote>
+<p class="ltx_p">generates the type environment
+<math id="SS2.p2.m1" class="ltx_Math" alttext="\{\mbox{\tt\frenchspacing version}:\mbox{\tt\frenchspacing string}\}" display="inline"><mrow><mo stretchy="false">{</mo><mtext>𝚟𝚎𝚛𝚜𝚒𝚘𝚗</mtext><mo>:</mo><mtext>𝚜𝚝𝚛𝚒𝚗𝚐</mtext><mo stretchy="false">}</mo></mrow></math>
+and the runtime environment
+<math id="SS2.p2.m2" class="ltx_Math" alttext='\{\mbox{\tt\frenchspacing version}:\mbox{\tt\frenchspacing"3.4.0"}\}' display="inline"><mrow><mo stretchy="false">{</mo><mtext>𝚟𝚎𝚛𝚜𝚒𝚘𝚗</mtext><mo>:</mo><mtext mathvariant="monospace">"3.4.0"</mtext><mo stretchy="false">}</mo></mrow></math>.
+Therefore the structure declaration</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">structure Version =
+<br class="ltx_break">
+  struct
+<br class="ltx_break">
+    val version = "3.7.1"
+<br class="ltx_break">
+  end</span></p>
+</blockquote>
+<p class="ltx_p">has the effect of extending the current type environment and the current
+runtime-environment with the following binding of long names:
+<math id="SS2.p2.m3" class="ltx_Math" alttext="\{\mbox{\tt\frenchspacing Version.version}:\mbox{\tt\frenchspacing string}\}" display="inline"><mrow><mo stretchy="false">{</mo><mtext mathvariant="monospace">Version.version</mtext><mo>:</mo><mtext>𝚜𝚝𝚛𝚒𝚗𝚐</mtext><mo stretchy="false">}</mo></mrow></math>,
+and
+<math id="SS2.p2.m4" class="ltx_Math" alttext='\{\mbox{\tt\frenchspacing Version.version}:\mbox{\tt\frenchspacing"3.4.0"}\}' display="inline"><mrow><mo stretchy="false">{</mo><mtext mathvariant="monospace">Version.version</mtext><mo>:</mo><mtext mathvariant="monospace">"3.4.0"</mtext><mo stretchy="false">}</mo></mrow></math>.
+</p>
+</div>
+<div id="SS2.p3" class="ltx_para">
+<p class="ltx_p">A signature constraint can be specified to a structure expression.
+A signature statically constrains the type environment generated
+by the structure.
+In addition to type constraints to variables, constraints of
+type declarations can be specified.
+A structure expression with a signature constraint generates a
+type environment that only contains those names that are specified in
+the signature.</p>
+</div>
+<div id="SS2.p4" class="ltx_para">
+<p class="ltx_p">A functor is a function that takes a structure and returns a structure.
+Different from functions in the core language functor
+definitions are restricted to first-order and top-level.
+</p>
+</div>
+<div id="SS2.p5" class="ltx_para">
+<p class="ltx_p">We show evaluation of module language declarations in the
+interactive mode below.
+The detailed syntax and semantics of each of these declaration
+classes are given in Chapter <a href="Ch24.html" title="Chapter 24 Module language declarations and interface ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">24</span></a>.
+</p>
+</div>
+<div id="SS2.p6" class="ltx_para">
+<dl id="I5" class="ltx_description">
+<dt id="I5.ix1" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold"><math id="I5.ix1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">strDecl<span class="ltx_text ltx_font_bold ltx_font_upright"><math id="I5.ix1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></dt>
+<dd class="ltx_item">
+<div id="I5.ix1.p1" class="ltx_para">
+<p class="ltx_p">This declaration defines a structure.
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># structure Version =
+<br class="ltx_break">
+&gt;   struct
+<br class="ltx_break">
+&gt;     val version = "3.7.1"
+<br class="ltx_break">
+&gt;   end;
+<br class="ltx_break">
+structure Version =
+<br class="ltx_break">
+struct
+<br class="ltx_break">
+  val version = "3.7.1" : string
+<br class="ltx_break">
+end</span></p>
+</blockquote>
+<p class="ltx_p">Evaluation of this declaration binds <span class="ltx_text ltx_font_typewriter">Version</span> to a
+type environment representing the structure containing <span class="ltx_text ltx_font_typewriter">version</span> component,
+and long identifier <span class="ltx_text ltx_font_typewriter">Version.version</span> to <span class="ltx_text ltx_font_typewriter">string</span> type and the
+dynamic value <span class="ltx_text ltx_font_typewriter">"3.7.1"</span>.
+</p>
+</div>
+</dd>
+<dt id="I5.ix2" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold"><math id="I5.ix2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sigDecl<span class="ltx_text ltx_font_bold ltx_font_upright"><math id="I5.ix2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></dt>
+<dd class="ltx_item">
+<div id="I5.ix2.p1" class="ltx_para">
+<p class="ltx_p">This declaration binds an identifier to a signature.
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># signature VERSION =
+<br class="ltx_break">
+&gt;  sig
+<br class="ltx_break">
+&gt;    val version : string
+<br class="ltx_break">
+&gt;  end;
+<br class="ltx_break">
+signature VERSION =
+<br class="ltx_break">
+struct
+<br class="ltx_break">
+  val version : string
+<br class="ltx_break">
+end</span></p>
+</blockquote>
+<p class="ltx_p">Evaluation of this declaration binds <span class="ltx_text ltx_font_typewriter">VERSION</span> to the
+specified signature.
+Signatures describes types of components of SML# structures.
+</p>
+</div>
+</dd>
+<dt id="I5.ix3" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold"><math id="I5.ix3.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">functorDecl<span class="ltx_text ltx_font_bold ltx_font_upright"><math id="I5.ix3.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></dt>
+<dd class="ltx_item">
+<div id="I5.ix3.p1" class="ltx_para">
+<p class="ltx_p">This declaration defines a functor, which is a function taking a
+structure and returning a structure.
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">functor System(V:VERSION) =
+<br class="ltx_break">
+  struct
+<br class="ltx_break">
+    val name = "SML#"
+<br class="ltx_break">
+    val version = V.version
+<br class="ltx_break">
+  end;</span></p>
+</blockquote>
+<p class="ltx_p">Evaluation of this declaration binds the identifier
+<span class="ltx_text ltx_font_typewriter">System</span> to a functor that takes a structure of <span class="ltx_text ltx_font_typewriter">VERSION</span>
+signature and returns a structure containing <span class="ltx_text ltx_font_typewriter">name</span> and
+<span class="ltx_text ltx_font_typewriter">version</span> components.
+</p>
+</div>
+</dd>
+<dt id="I5.ix4" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold"><math id="I5.ix4.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">localTopdecl<span class="ltx_text ltx_font_bold ltx_font_upright"><math id="I5.ix4.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></dt>
+<dd class="ltx_item">
+<div id="I5.ix4.p1" class="ltx_para">
+<p class="ltx_p">Declarations between <span class="ltx_text ltx_font_typewriter">local</span> and <span class="ltx_text ltx_font_typewriter">in</span> are local until
+<span class="ltx_text ltx_font_typewriter">end</span>.
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># local
+<br class="ltx_break">
+&gt;   structure V = Version
+<br class="ltx_break">
+&gt; in
+<br class="ltx_break">
+&gt;   structure Release = struct
+<br class="ltx_break">
+&gt;     val date = "2021-03-15"
+<br class="ltx_break">
+&gt;     val version = V.version
+<br class="ltx_break">
+&gt;   end
+<br class="ltx_break">
+&gt; end;
+<br class="ltx_break">
+val Release =
+<br class="ltx_break">
+struct
+<br class="ltx_break">
+  val date = "2021-03-15" : string
+<br class="ltx_break">
+  val version = "3.7.1" : string
+<br class="ltx_break">
+end</span></p>
+</blockquote>
+<p class="ltx_p">The scope of the declaration <span class="ltx_text ltx_font_typewriter">structure V = Version</span>
+is until <span class="ltx_text ltx_font_typewriter">end</span>.
+The structure <span class="ltx_text ltx_font_typewriter">V</span> is not visible from outside of this local
+declaration and therefore only <span class="ltx_text ltx_font_typewriter">Release</span> is printed in the interactive
+session.
+</p>
+</div>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch16.html" title="Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">16 </span>The SML# Structure</span></a><a href="Ch16.S2.html" title="16.2 Programs in the separate compilation mode ‣ Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">16.2 </span>Programs in the separate compilation mode</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sun Mar 28 04:50:44 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

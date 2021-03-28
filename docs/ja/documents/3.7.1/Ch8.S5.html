@@ -1,0 +1,154 @@
+---
+layout: default
+permalink: /ja/documents/3.7.1/Ch8.S5.html
+translated: true
+lang: ja
+head: |
+ <!--Generated on Sun Mar 28 04:49:23 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on 令和3年3月.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch8.html" title="Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="up up" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="up up up" href="./" title="プログラミング言語SML#解説 3.7.1版">
+ <link rel="start" href="./" title="プログラミング言語SML#解説 3.7.1版">
+ <link rel="prev" href="Ch8.S4.html" title="8.4 フィールドの変更 ‣ Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="next" href="Ch8.S6.html" title="8.6 オブジェクトの表現 ‣ Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch8.S1.html" title="8.1 レコード構文 ‣ Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch8.S2.html" title="8.2 フィールド取り出し演算 ‣ Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch8.S3.html" title="8.3 レコードパターン ‣ Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch8.S4.html" title="8.4 フィールドの変更 ‣ Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch8.S6.html" title="8.6 オブジェクトの表現 ‣ Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch8.S7.html" title="8.7 多相バリアントの表現 ‣ Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML#の拡張機能：マルチスレッドプログラミング ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 3.7.1版">
+title: "8.5 レコードプログラミング例‣ Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 3.7.1版</div>
+<div>
+<a href="Ch8.html" title="Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8 </span>SML#の拡張機能：レコード多相性</span></a><a href="Ch8.S4.html" title="8.4 フィールドの変更 ‣ Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8.4 </span>フィールドの変更</span></a><a href="Ch8.S6.html" title="8.6 オブジェクトの表現 ‣ Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8.6 </span>オブジェクトの表現</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">8.5 </span>レコードプログラミング例</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">多相レコード演算機能をもった言語（現在のところSML#しか
+ありませんが）では，レコード構造は，種々の属性に着目したモジュール性の高
+いプログラムを型安全に構築していく上で大きな武器となります．
+これによって，多相関数による汎用性あるプログラムが，大規模なプロ
+グラム開発にスケールするようになります．</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">そのような例として，放物線を描いて落下する物体をプロットする場合
+を考えてみましょう．
+物体の位置は直交座標で表現するとします．
+そして，物体は，現在位置を表す<span class="ltx_text ltx_font_typewriter">X:real</span>と<span class="ltx_text ltx_font_typewriter">Y:real</span>のフィー
+ルドと現在の速度を表すを含むレコード<span class="ltx_text ltx_font_typewriter">Vx:real</span>と<span class="ltx_text ltx_font_typewriter">Vy:real</span>のフィー
+ルドを含むレコードで表現することにします．
+これだけを決めておけば，物体のその他の属性や構造とは独立に，放物
+線上を移動する関数を設計できます．
+物体の運動は，物体を単位時間経過後の位置に移動させる関数<span class="ltx_text ltx_font_typewriter">tic</span>を書き，この関数をくり返し呼び続ければ実現できます．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val tic : [’a#{X:real, Y:real, Vx:real, Vy:real}. ’a * real -&gt; ’a]</span></p>
+</blockquote>
+<p class="ltx_p">簡単のために単位時間を１とします．
+直行座標系での物体の移動ベクトルは，それぞれの座標のベクトルの合
+成ですから，<span class="ltx_text ltx_font_typewriter">X</span>軸と<span class="ltx_text ltx_font_typewriter">Y</span>軸について独立に関数を書きそれを合成すれば
+よいはずです．
+位置は，それぞれ現在の位置に，単位時間あたりの移動距離，つまり速
+度を加えればよいので，<span class="ltx_text ltx_font_typewriter">X</span>軸方向は<span class="ltx_text ltx_font_typewriter">Y</span>軸方向それぞれ，独立に以下の
+ようにコードできます．
+（対話型セッションで型と共に示します．）</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># fun moveX (p as {X:real, Vx:real,...}, t:real) = p # {X = X + Vx};
+<br class="ltx_break">
+val moveX = fn : [’a#{Vx: real, X: real}. ’a * real -&gt; ’a]
+<br class="ltx_break">
+# fun moveY (p as {Y:real, Vy:real,...}, t:real) = p # {Y = Y + Vy};
+<br class="ltx_break">
+val moveY = fn : [’a#{Vy: real, Y: real}. ’a * real -&gt; ’a]</span></p>
+</blockquote>
+<p class="ltx_p">次に，それぞれの軸方向の速度を変更する関数を書きます．
+<span class="ltx_text ltx_font_typewriter">X</span>軸方向は等速運動をし，<span class="ltx_text ltx_font_typewriter">Y</span>軸方向は重力加速度による等加
+速度運動をする場合の関数は，位置の変更と同様，以下のように簡単にコードで
+きます．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># fun accelerateX (p as {Vx:real,...}, t:real) = p;
+<br class="ltx_break">
+val accelerateX = fn : [’a#{Vx: real}. ’a * real -&gt; ’a]
+<br class="ltx_break">
+# fun accelerateY (p as {Vy:real,...}, t:real) = p # {Vy = Vy + 9.8};
+<br class="ltx_break">
+val accelerateY = fn : [’a#{Vy: real}. ’a * real -&gt; ’a]</span></p>
+</blockquote>
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">accelerateX</span>は変化がないので，不要ですが，雛形として記述し
+ておくと将来の変更に便利です．</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">単位時間後の物体を求める関数<span class="ltx_text ltx_font_typewriter">tic</span>は，以上の関数を合成するこ
+とによって得られます．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">fun tic (p, t) =
+<br class="ltx_break">
+    let
+<br class="ltx_break">
+      val p = accelerateX (p, t)
+<br class="ltx_break">
+      val p = accelerateY (p, t)
+<br class="ltx_break">
+      val p = moveX (p, t)
+<br class="ltx_break">
+      val p = moveY (p, t)
+<br class="ltx_break">
+    in
+<br class="ltx_break">
+      p
+<br class="ltx_break">
+    end</span></p>
+</blockquote>
+<p class="ltx_p">このようにして得られたプログラムはモジュール性に富みかつ型安全で
+堅牢なシステムとなります．
+たとえば，水平方向の速度は風の抵抗に現在の速度に対して10%減少
+していく運動なども，<span class="ltx_text ltx_font_typewriter">accelerateY</span>を</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># fun accelerateX (p as {Vx:real,...}, t:real) = p # {Vx = Vx * 0.90};
+<br class="ltx_break">
+val accelerateX = fn : [’a#{Vx: real}. ’a * real -&gt; ’a]</span></p>
+</blockquote>
+<p class="ltx_p">と変更するだけで実現できます．</p>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">この<span class="ltx_text ltx_font_typewriter">tic</span>関数に対しては，本節の冒頭で書いた型が推論され，位
+置と速度属性をもつ任意の物体に適用可能です．
+</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch8.S4.html" title="8.4 フィールドの変更 ‣ Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8.4 </span>フィールドの変更</span></a><a href="Ch8.S6.html" title="8.6 オブジェクトの表現 ‣ Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8.6 </span>オブジェクトの表現</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sun Mar 28 04:49:23 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

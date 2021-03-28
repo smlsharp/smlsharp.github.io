@@ -1,0 +1,999 @@
+---
+layout: default
+permalink: /ja/documents/3.7.1/Ch16.S1.html
+translated: true
+lang: ja
+head: |
+ <!--Generated on Sun Mar 28 04:49:23 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on 令和3年3月.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch16.html" title="Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="up up" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="up up up" href="./" title="プログラミング言語SML#解説 3.7.1版">
+ <link rel="start" href="./" title="プログラミング言語SML#解説 3.7.1版">
+ <link rel="prev" href="Ch16.html" title="Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="next" href="Ch16.S2.html" title="16.2 分割コンパイルモードのプログラム ‣ Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch16.S2.html" title="16.2 分割コンパイルモードのプログラム ‣ Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch16.S3.html" title="16.3 プログラムの主な構成要素 ‣ Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch15.html" title="Chapter 15 序論 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch16.html" title="Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch17.html" title="Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch18.html" title="Chapter 18 型 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch19.html" title="Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch20.html" title="Chapter 20 パターンとパターンマッチング ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch21.html" title="Chapter 21 識別子のスコープ規則 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch22.html" title="Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch23.html" title="Chapter 23 核言語の宣言とインターフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch24.html" title="Chapter 24 モジュール言語の宣言とインタフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch25.html" title="Chapter 25 SML#のライブラリ概要 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch26.html" title="Chapter 26 Standard ML標準ライブラリ ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch27.html" title="Chapter 27 SML#システムライブラリ ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch28.html" title="Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch29.html" title="Chapter 29 SML#実行時データ管理 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 3.7.1版">
+title: "16.1 対話型モードのプログラム‣ Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 3.7.1版</div>
+<div>
+<a href="Ch16.html" title="Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">16 </span>SML#の構造</span></a><a href="Ch16.html" title="Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">16 </span>SML#の構造</span></a><a href="Ch16.S2.html" title="16.2 分割コンパイルモードのプログラム ‣ Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">16.2 </span>分割コンパイルモードのプログラム</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">16.1 </span>対話型モードのプログラム</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">対話型モードのSML#プログラムは，セミコロン(<span class="ltx_text ltx_font_typewriter">;</span>)で終
+了する宣言の列である．
+以下はインタラクティブセッションの例である．
+</p>
+</div>
+<div id="p2" class="ltx_para">
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ smlsharp
+<br class="ltx_break">
+SML# 3.7.1 ...
+<br class="ltx_break">
+# fun fact 0 = 1
+<br class="ltx_break">
+&gt;    | fact n = n * fact (n - 1);
+<br class="ltx_break">
+&gt; val x = fact 10;
+<br class="ltx_break">
+val fact = fn : int -&gt; int
+<br class="ltx_break">
+val x = 3628800 : int</span></p>
+</blockquote>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">ここで，<span class="ltx_text ltx_font_typewriter">#</span>と<span class="ltx_text ltx_font_typewriter">&gt;</span>は，対話型SML#コンパイラが印字
+する先頭行及び継続業のプロンプト文字である．
+この例のように，対話型コンパイラは，入力された宣言の評価結果を表示する．
+</p>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">宣言には，関数やレコードなどの値を生成するプログラムである核言語の
+宣言<math id="p4.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">decl<span class="ltx_text ltx_font_upright"><math id="p4.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>と，それら宣言をひとまとまりにして名前をつけるモジュー
+ル言語の宣言<math id="p4.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">topDecl<span class="ltx_text ltx_font_upright"><math id="p4.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>に大別される．
+</p>
+</div>
+<div id="p5" class="ltx_para ltx_align_center">
+<table class="ltx_tabular ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="p5.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">interactiveProgram<span class="ltx_text ltx_font_upright"><math id="p5.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">;</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="p5.m3" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<math id="p5.m4" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">decl<span class="ltx_text ltx_font_upright"><math id="p5.m5" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <math id="p5.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">interactiveProgram<span class="ltx_text ltx_font_upright"><math id="p5.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="p5.m8" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<math id="p5.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">topdecl<span class="ltx_text ltx_font_upright"><math id="p5.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <math id="p5.m11" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">interactiveProgram<span class="ltx_text ltx_font_upright"><math id="p5.m12" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="p6" class="ltx_para">
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">核言語の宣言</p>
+</div>
+<div id="I1.i1.p2" class="ltx_para">
+<p class="ltx_p">以下に核宣言 (<math id="I1.i1.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">decl<span class="ltx_text ltx_font_upright"><math id="I1.i1.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>) の構造と簡単な例を示す．
+</p>
+</div>
+<div id="I1.i1.p3" class="ltx_para">
+<blockquote class="ltx_quote">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_top">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row">
+<math id="I1.i1.p3.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">decl<span class="ltx_text ltx_font_upright"><math id="I1.i1.p3.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row">::=</th>
+<td class="ltx_td ltx_align_left">
+<math id="I1.i1.p3.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">infixDecl<span class="ltx_text ltx_font_upright"><math id="I1.i1.p3.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">infix 宣言</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="I1.i1.p3.m5" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="I1.i1.p3.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">valDecl<span class="ltx_text ltx_font_upright"><math id="I1.i1.p3.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">val 宣言</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="I1.i1.p3.m8" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="I1.i1.p3.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">valRecDecl<span class="ltx_text ltx_font_upright"><math id="I1.i1.p3.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">val rec宣言</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="I1.i1.p3.m11" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="I1.i1.p3.m12" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">funDecl<span class="ltx_text ltx_font_upright"><math id="I1.i1.p3.m13" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">関数宣言</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="I1.i1.p3.m14" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="I1.i1.p3.m15" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">datatypeDecl<span class="ltx_text ltx_font_upright"><math id="I1.i1.p3.m16" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">データ型宣言</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="I1.i1.p3.m17" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="I1.i1.p3.m18" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">typeDecl<span class="ltx_text ltx_font_upright"><math id="I1.i1.p3.m19" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">型の別名宣言</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="I1.i1.p3.m20" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="I1.i1.p3.m21" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exceptionDecl<span class="ltx_text ltx_font_upright"><math id="I1.i1.p3.m22" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">例外宣言</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="I1.i1.p3.m23" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="I1.i1.p3.m24" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">localDecl<span class="ltx_text ltx_font_upright"><math id="I1.i1.p3.m25" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">局所宣言</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<div id="I1.i1.p4" class="ltx_para">
+<blockquote class="ltx_quote">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_l ltx_border_r ltx_border_t">宣言の種類</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">簡単な例</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">infix 宣言</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">infix 4 =</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">val 宣言</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">val x = 1</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">val rec 宣言</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">val rec f = fn x =&gt; if x = 0 then 1 else x * f (x - 1)</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">関数宣言</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">fun f x = if x = 0 then 1 else x * f (x - 1)</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">データ型宣言</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">datatype foo = A | B</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">型宣言</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">type person = {name:string, age:int}</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">例外宣言</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">exception Fail of string</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_l ltx_border_r ltx_border_t">局所宣言</td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">local val x = 2 in val y = x + x end</span></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">モジュール言語の宣言</p>
+</div>
+<div id="I1.i2.p2" class="ltx_para">
+<p class="ltx_p">以下にモジュール宣言 (<math id="I1.i2.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">moduleDecl<span class="ltx_text ltx_font_upright"><math id="I1.i2.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>) の構造と簡単な例を示す．
+</p>
+</div>
+<div id="I1.i2.p3" class="ltx_para">
+<blockquote class="ltx_quote">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_top">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row">
+<math id="I1.i2.p3.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">topdecl<span class="ltx_text ltx_font_upright"><math id="I1.i2.p3.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row">::=</th>
+<td class="ltx_td ltx_align_left">
+<math id="I1.i2.p3.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strDecl<span class="ltx_text ltx_font_upright"><math id="I1.i2.p3.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">ストラクチャ宣言</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="I1.i2.p3.m5" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="I1.i2.p3.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sigDecl<span class="ltx_text ltx_font_upright"><math id="I1.i2.p3.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">シグネチャ宣言</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="I1.i2.p3.m8" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="I1.i2.p3.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">functorDecl<span class="ltx_text ltx_font_upright"><math id="I1.i2.p3.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">ファンクタ宣言</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="I1.i2.p3.m11" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="I1.i2.p3.m12" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">localTopdecl<span class="ltx_text ltx_font_upright"><math id="I1.i2.p3.m13" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">局所宣言</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<div id="I1.i2.p4" class="ltx_para">
+<blockquote class="ltx_quote">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row ltx_border_l ltx_border_r ltx_border_t">ストラクチャ宣言</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t"><span class="ltx_inline-para ltx_minipage ltx_align_middle" style="width:226.2pt;">
+<span id="I1.i2.p4.p1" class="ltx_para">
+<span class="ltx_quote">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter">structure Version =
+<br class="ltx_break">
+  struct
+<br class="ltx_break">
+    val version = "3.7.1"
+<br class="ltx_break">
+  end</span></span>
+</span>
+</span></span></th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t">シグネチャ宣言</th>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_inline-para ltx_minipage ltx_align_middle" style="width:226.2pt;">
+<span id="I1.i2.p4.p2" class="ltx_para">
+<span class="ltx_quote">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter">signature VERSION =
+<br class="ltx_break">
+  sig
+<br class="ltx_break">
+    val version :string
+<br class="ltx_break">
+  end</span></span>
+</span>
+</span></span></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t">ファンクタ宣言</th>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_inline-para ltx_minipage ltx_align_middle" style="width:226.2pt;">
+<span id="I1.i2.p4.p3" class="ltx_para">
+<span class="ltx_quote">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter">functor System(V:VERSION) =
+<br class="ltx_break">
+  struct
+<br class="ltx_break">
+    val name = "SML#"
+<br class="ltx_break">
+    val version = V.version
+<br class="ltx_break">
+  end</span></span>
+</span>
+</span></span></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_l ltx_border_r ltx_border_t">局所宣言</th>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r ltx_border_t"><span class="ltx_inline-para ltx_minipage ltx_align_middle" style="width:226.2pt;">
+<span id="I1.i2.p4.p4" class="ltx_para">
+<span class="ltx_quote">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter">local
+<br class="ltx_break">
+  structure V = Version
+<br class="ltx_break">
+in
+<br class="ltx_break">
+  structure Release = struct
+<br class="ltx_break">
+    val version = V.version
+<br class="ltx_break">
+    val date = "2021-03-15"
+<br class="ltx_break">
+  end
+<br class="ltx_break">
+end</span></span>
+</span>
+</span></span></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</li>
+</ul>
+</div>
+<section id="SS1" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">16.1.1 </span>核言語の宣言の評価</h2>
+
+<div id="SS1.p1" class="ltx_para">
+<p class="ltx_p">対話型プログラムの実行は，宣言列を順次評価することによって行われる．
+核言語の宣言の評価は，宣言に含まれる式などの要素を評価し，値を生
+成し，宣言で定義される名前をそれら値に束縛する効果を持つ．
+生成される値には，静的な値と，実行時に生成される動的な値がある．</p>
+</div>
+<div id="SS1.p2" class="ltx_para">
+<p class="ltx_p">静的な値は，コンパイラがコンパイル時に作り出す値であり，以下の種類がある．
+</p>
+</div>
+<div id="SS1.p3" class="ltx_para">
+<dl id="I2" class="ltx_description">
+<dt id="I2.ix1" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">中置演算子属性</span></span></dt>
+<dd class="ltx_item">
+<div id="I2.ix1.p1" class="ltx_para">
+<p class="ltx_p">識別子が，中置演算子として構文解析されることを表す．
+結合の向き（右結合，左結合）と強さ（０から９）をもつ．
+</p>
+</div>
+</dd>
+<dt id="I2.ix2" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">コンストラクタ属性</span></span></dt>
+<dd class="ltx_item">
+<div id="I2.ix2.p1" class="ltx_para">
+<p class="ltx_p">識別子がデータコンストラクタであることを表す．
+コンストラクタ属性を持つ識別子は，パターンマッチングにおいて，対
+応するコンストラクタとのみマッチする．
+</p>
+</div>
+</dd>
+<dt id="I2.ix3" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">型構成子</span></span></dt>
+<dd class="ltx_item">
+<div id="I2.ix3.p1" class="ltx_para">
+<p class="ltx_p">型構成子は，datatype宣言で生成される新しい型の定義である．
+型引数を持つパラメタ型を定義できる．
+</p>
+</div>
+</dd>
+<dt id="I2.ix4" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">型</span></span></dt>
+<dd class="ltx_item">
+<div id="I2.ix4.p1" class="ltx_para">
+<p class="ltx_p">型は，対応するプログラム部分が実行時に生成する動的な値の性質
+を表現する．
+</p>
+</div>
+</dd>
+</dl>
+</div>
+<div id="SS1.p4" class="ltx_para">
+<p class="ltx_p">コンパイラは，コンパイル時に宣言に含まれる構成要素が持つ静的な値
+を生成し，これら静的な値を使って型整合性をチェックしたのち，宣言で定義さ
+れる識別子を，対応する静的な値に束縛する．
+さらに，<math id="SS1.p4.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">valDecl<span class="ltx_text ltx_font_upright"><math id="SS1.p4.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>など実行を伴うプログラムに対して，実行コードを生成する．
+生成された実行コードは，宣言に含まれる構成要素に対する動的な値を
+生成し，定義される識別子をそれら動的な値に束縛する．</p>
+</div>
+<div id="SS1.p5" class="ltx_para">
+<p class="ltx_p">動的な値には以下の種類がある．
+</p>
+</div>
+<div id="SS1.p6" class="ltx_para">
+<dl id="I3" class="ltx_description">
+<dt id="I3.ix1" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">組み込みデータ</span></span></dt>
+<dd class="ltx_item">
+<div id="I3.ix1.p1" class="ltx_para">
+<p class="ltx_p">第<a href="Ch18.html" title="Chapter 18 型 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">18</span></a>章で定義する組み込み型の実行時表現である．
+原子型データ，リスト，配列，ベクタを含む．
+例えば，<span class="ltx_text ltx_font_typewriter">int32</span>は，計算機アーキテクチャが定める32ビット符号付き整数データ
+である．
+</p>
+</div>
+</dd>
+<dt id="I3.ix2" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">関数クロージャ</span></span></dt>
+<dd class="ltx_item">
+<div id="I3.ix2.p1" class="ltx_para">
+<p class="ltx_p">関数型の実行時表現である．
+</p>
+</div>
+</dd>
+<dt id="I3.ix3" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">データ構成子</span></span></dt>
+<dd class="ltx_item">
+<div id="I3.ix3.p1" class="ltx_para">
+<p class="ltx_p">データ構造を構成する組み込み関数である．
+</p>
+</div>
+</dd>
+<dt id="I3.ix4" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">例外構成子</span></span></dt>
+<dd class="ltx_item">
+<div id="I3.ix4.p1" class="ltx_para">
+<p class="ltx_p">例外表現を構成する組み込み関数である．
+</p>
+</div>
+</dd>
+<dt id="I3.ix5" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">レコード</span></span></dt>
+<dd class="ltx_item">
+<div id="I3.ix5.p1" class="ltx_para">
+<p class="ltx_p">レコードやタプル型の実行時表現である．
+</p>
+</div>
+</dd>
+<dt id="I3.ix6" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">データ型表現</span></span></dt>
+<dd class="ltx_item">
+<div id="I3.ix6.p1" class="ltx_para">
+<p class="ltx_p">データ構成子によって生成されるユーザ定義のdatatype型のデータである．
+</p>
+</div>
+</dd>
+<dt id="I3.ix7" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">例外データ</span></span></dt>
+<dd class="ltx_item">
+<div id="I3.ix7.p1" class="ltx_para">
+<p class="ltx_p">例外構成子で生成される例外を表す実行時表現である．
+</p>
+</div>
+</dd>
+</dl>
+</div>
+<div id="SS1.p7" class="ltx_para">
+<p class="ltx_p">各宣言が生成する静的な値と動的な値のサマリを以下に示す．
+</p>
+</div>
+<div id="SS1.p8" class="ltx_para">
+<blockquote class="ltx_quote">
+<table class="ltx_tabular ltx_align_top">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">宣言クラス</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">生成される静的値</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">生成される動的値</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">束縛対象</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">infix 宣言</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">演算子属性</td>
+<td class="ltx_td ltx_border_r ltx_border_t"></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">変数，コンストラクタ名</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">val 宣言</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">型</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">型に応じた動的な値</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">変数</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">val rec宣言</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">型</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">関数クロージャ</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">変数</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">関数宣言</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">型</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">関数クロージャ</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">変数</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">データ型宣言</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">型構成子</td>
+<td class="ltx_td ltx_border_r ltx_border_t"></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">型構成子名</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_border_l ltx_border_r"></td>
+<td class="ltx_td ltx_align_left ltx_border_r">コンストラクタ属性</td>
+<td class="ltx_td ltx_align_left ltx_border_r">データ構成子</td>
+<td class="ltx_td ltx_align_left ltx_border_r">データ構成子名</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">型の別名宣言</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">型関数</td>
+<td class="ltx_td ltx_border_r ltx_border_t"></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">型構成子名</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">例外宣言</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">コンストラクタ属性</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">例外構成子</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">例外構成子名</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_l ltx_border_r ltx_border_t">局所宣言</td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r ltx_border_t">内容に依存</td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r ltx_border_t">内容に依存</td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r ltx_border_t">内容に依存</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<div id="SS1.p9" class="ltx_para">
+<p class="ltx_p">コンパイラは，静的な値の束縛の集合を表現する静的な型環境<math id="SS1.p9.m1" class="ltx_Math" alttext="\Gamma" display="inline"><mi mathvariant="normal">Γ</mi></math>を
+状態として持ち，実行コードは，動的な値の束縛を表現する環境<math id="SS1.p9.m2" class="ltx_Math" alttext="E" display="inline"><mi>E</mi></math>を状態とし
+て持つ．
+宣言の評価はこの環境の下で行われる．
+式などに含まれる名前は，その名前が現在の環境の中で束縛されている
+値に評価される．
+コンパイラによる宣言の評価は，コンパイラの現在の型環境を宣言が生
+成する静的な束縛で拡張する効果をもつ．
+宣言の動的な評価，すなわちコンパラが宣言に対して生成したコードの実行は，
+現在の動的な環境を，宣言が生成する動的な束縛で拡張する効果をもつ．</p>
+</div>
+<div id="SS1.p10" class="ltx_para">
+<p class="ltx_p">実行結果の表示等は，各宣言に対する動的な値の生成に伴う副作用によっ
+て行われる．
+さらに，対話型モードでは，静的な値と動的な値を表示する特殊なコー
+ドがコンパイラによって付加され，ユーザに表示される．</p>
+</div>
+<div id="SS1.p11" class="ltx_para">
+<p class="ltx_p">各宣言の概要と，対話型モードでの評価の例を示す．
+それぞれの宣言の構文の詳細定義は第<a href="Ch23.html" title="Chapter 23 核言語の宣言とインターフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">23</span></a>章で与える．
+</p>
+</div>
+<div id="SS1.p12" class="ltx_para">
+<dl id="I4" class="ltx_description">
+<dt id="I4.ix1" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold"><math id="I4.ix1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">infixDecl<span class="ltx_text ltx_font_bold ltx_font_upright"><math id="I4.ix1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></dt>
+<dd class="ltx_item">
+<div id="I4.ix1.p1" class="ltx_para">
+<p class="ltx_p">指定された識別子<math id="I4.ix1.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">id<span class="ltx_text ltx_font_upright"><math id="I4.ix1.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>（のリスト）に演算子属性（インフィッ
+クス属性）を与える宣言である．
+この宣言のスコープでは，<math id="I4.ix1.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">id<span class="ltx_text ltx_font_upright"><math id="I4.ix1.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は，中置演算子として使用
+される．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># infix 7 *;
+<br class="ltx_break">
+# infix 8 ^;
+<br class="ltx_break">
+# fun x ^ y = if y = 0 then 1 else x * x ^ (y - 1);
+<br class="ltx_break">
+val ^ = fn : int * int -&gt; int
+<br class="ltx_break">
+# val a = 4 * 3 ^ 2
+<br class="ltx_break">
+val a = 36 : int</span></p>
+</blockquote>
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">*</span>と<span class="ltx_text ltx_font_typewriter">^</span>がそれぞれ結合力<math id="I4.ix1.p1.m5" class="ltx_Math" alttext="7" display="inline"><mn>7</mn></math>と<math id="I4.ix1.p1.m6" class="ltx_Math" alttext="8" display="inline"><mn>8</mn></math>の演算子属性を持つので，
+<span class="ltx_text ltx_font_typewriter">4 * 3 ^ 2</span>は，<span class="ltx_text ltx_font_typewriter">*(4, ^ (3,2))</span>と展開される．
+この宣言で動的な値は生成されない．
+</p>
+</div>
+</dd>
+<dt id="I4.ix2" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold"><math id="I4.ix2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">valDecl<span class="ltx_text ltx_font_bold ltx_font_upright"><math id="I4.ix2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></dt>
+<dd class="ltx_item">
+<div id="I4.ix2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val <math id="I4.ix2.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I4.ix2.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> = <math id="I4.ix2.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I4.ix2.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の形の宣言である．
+式<math id="I4.ix2.p1.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_upright"><math id="I4.ix2.p1.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>を評価えられた値（型および動的な値）とパターン
+<math id="I4.ix2.p1.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">pat<span class="ltx_text ltx_font_upright"><math id="I4.ix2.p1.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>とのパターンマッチングを行い，マッチした値を識別子に束縛す
+る．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># val x = 1;
+<br class="ltx_break">
+val x = 1 : int</span></p>
+</blockquote>
+<p class="ltx_p">この例では，変数<span class="ltx_text ltx_font_typewriter">x</span>に，式<span class="ltx_text ltx_font_typewriter">1</span>を評価した結果の型
+<span class="ltx_text ltx_font_typewriter">int</span>と値<span class="ltx_text ltx_font_typewriter">1</span>が束縛される．
+変数以外にも種々の構造を表すパターンを記述できる．
+</p>
+</div>
+<div id="I4.ix2.p2" class="ltx_para">
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># val (x, y) = (1, 2);
+<br class="ltx_break">
+val x = 1 : int
+<br class="ltx_break">
+val y = 2 : int</span></p>
+</blockquote>
+</div>
+<div id="I4.ix2.p3" class="ltx_para">
+<p class="ltx_p">式<math id="I4.ix2.p3.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_upright"><math id="I4.ix2.p3.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の詳細は第<a href="Ch19.html" title="Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">19</span></a>章で,
+パターンの詳細は第<a href="Ch20.html" title="Chapter 20 パターンとパターンマッチング ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">20</span></a>章で定義する
+．</p>
+</div>
+</dd>
+<dt id="I4.ix3" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold"><math id="I4.ix3.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">valRecDecl<span class="ltx_text ltx_font_bold ltx_font_upright"><math id="I4.ix3.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></dt>
+<dd class="ltx_item">
+<div id="I4.ix3.p1" class="ltx_para">
+<p class="ltx_p">一般に相互再帰的な関数定義に限定したval宣言である．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># val rec even = fn x =&gt; if x = 0 then true else odd (x - 1)
+<br class="ltx_break">
+&gt; and odd = fn x =&gt; if x = 1 then true else odd (x - 1);
+<br class="ltx_break">
+val even = fn : int -&gt; bool
+<br class="ltx_break">
+val odd = fn : int -&gt; bool
+<br class="ltx_break"></span></p>
+</blockquote>
+<p class="ltx_p">この宣言により，各識別子が対応する関数型および関数の値に束縛される．
+</p>
+</div>
+</dd>
+<dt id="I4.ix4" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold"><math id="I4.ix4.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">funDecl<span class="ltx_text ltx_font_bold ltx_font_upright"><math id="I4.ix4.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></dt>
+<dd class="ltx_item">
+<div id="I4.ix4.p1" class="ltx_para">
+<p class="ltx_p">一般に相互再帰的な関数定義宣言である．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># fun even x = if x = 0 then true else odd (x - 1)
+<br class="ltx_break">
+&gt; and odd x = if x = 1 then true else odd (x - 1);
+<br class="ltx_break">
+val even = fn : int -&gt; bool
+<br class="ltx_break">
+val odd = fn : int -&gt; bool
+<br class="ltx_break">
+</span></p>
+</blockquote>
+<p class="ltx_p">この宣言により，各識別子が対応する関数型および関数の値に束縛される．
+</p>
+</div>
+</dd>
+<dt id="I4.ix5" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold"><math id="I4.ix5.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">datatypeDecl<span class="ltx_text ltx_font_bold ltx_font_upright"><math id="I4.ix5.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></dt>
+<dd class="ltx_item">
+<div id="I4.ix5.p1" class="ltx_para">
+<p class="ltx_p">相互再帰的な新しい型構成子を定義する．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># datatype foo = A of int | B of bar and bar = C of bool | D of foo; 
+<br class="ltx_break">
+datatype bar = C of bool | D of foo
+<br class="ltx_break">
+datatype foo = A of int | B of bar
+<br class="ltx_break">
+# D (A 3);
+<br class="ltx_break">
+val it = D (A 3) : bar
+<br class="ltx_break"></span></p>
+</blockquote>
+<p class="ltx_p">この宣言が評価されると，新しい型（パラメタを持たない型構成子）
+<span class="ltx_text ltx_font_typewriter">foo</span>及び<span class="ltx_text ltx_font_typewriter">bar</span>が作られ，識別子<span class="ltx_text ltx_font_typewriter">foo</span>および<span class="ltx_text ltx_font_typewriter">bar</span>がそれ
+ぞれ新しい型構成子に束縛される．
+さらに，識別子<span class="ltx_text ltx_font_typewriter">A</span>, <span class="ltx_text ltx_font_typewriter">B</span>および<span class="ltx_text ltx_font_typewriter">C</span>, <span class="ltx_text ltx_font_typewriter">D</span>
+にはデータ構成子属性が与えられ，れぞれ<span class="ltx_text ltx_font_typewriter">foo</span>および<span class="ltx_text ltx_font_typewriter">bar</span>型の値を
+作るデータ構成子に束縛される．</p>
+</div>
+<div id="I4.ix5.p2" class="ltx_para">
+<p class="ltx_p">本文書では，特に混乱を引き起こさない限り上記の説明のように，型構
+成子やデータ構成子を，それらが束縛される名前と同一視する．</p>
+</div>
+</dd>
+<dt id="I4.ix6" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold"><math id="I4.ix6.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">typeDecl<span class="ltx_text ltx_font_bold ltx_font_upright"><math id="I4.ix6.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></dt>
+<dd class="ltx_item">
+<div id="I4.ix6.p1" class="ltx_para">
+<p class="ltx_p">識別子を型関数に束縛する宣言である．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># type ’a foo = ’a * ’a;
+<br class="ltx_break">
+type ’a foo = ’a * ’a
+<br class="ltx_break">
+# fun f (x:int foo) = x;
+<br class="ltx_break">
+val f = fn : int * int -&gt; int * int</span></p>
+</blockquote>
+<p class="ltx_p">この宣言により，
+<span class="ltx_text ltx_font_typewriter">’a</span>で表される型を受け取って<span class="ltx_text ltx_font_typewriter">’a * ’a</span>を返す型関数
+が生成され，識別子<span class="ltx_text ltx_font_typewriter">foo</span>に束縛される．
+これ以降<math id="I4.ix6.p1.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> foo</span>は，<math id="I4.ix6.p1.m2" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> * <math id="I4.ix6.p1.m3" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math></span>の別名として使用される．
+</p>
+</div>
+</dd>
+<dt id="I4.ix7" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold"><math id="I4.ix7.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exceptionDecl<span class="ltx_text ltx_font_bold ltx_font_upright"><math id="I4.ix7.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></dt>
+<dd class="ltx_item">
+<div id="I4.ix7.p1" class="ltx_para">
+<p class="ltx_p">例外構成子の宣言である．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># exception Foo of int;
+<br class="ltx_break">
+exception Foo of int</span></p>
+</blockquote>
+<p class="ltx_p">この宣言が評価されると，型<span class="ltx_text ltx_font_typewriter">int</span>を引数とする新しい例外構成子
+が作られる．
+この宣言のスコープでは，識別子<span class="ltx_text ltx_font_typewriter">Foo</span>にコンストラクタ属性が与
+えられ，例外構成子に束縛される．
+</p>
+</div>
+</dd>
+<dt id="I4.ix8" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold"><math id="I4.ix8.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">localDecl<span class="ltx_text ltx_font_bold ltx_font_upright"><math id="I4.ix8.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></dt>
+<dd class="ltx_item">
+<div id="I4.ix8.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">local</span>および<span class="ltx_text ltx_font_typewriter">in</span>で囲われた宣言は<span class="ltx_text ltx_font_typewriter">end</span>まででのみ
+有効な局所的な宣言である．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># local
+<br class="ltx_break">
+&gt;   val x = 2
+<br class="ltx_break">
+&gt; in
+<br class="ltx_break">
+&gt;   val y = x + x
+<br class="ltx_break">
+&gt; end;
+<br class="ltx_break">
+val y = 4 : int</span></p>
+</blockquote>
+<p class="ltx_p">宣言<span class="ltx_text ltx_font_typewriter">val x = 2</span>のスコープは<span class="ltx_text ltx_font_typewriter">end</span>までである．
+従って<span class="ltx_text ltx_font_typewriter">x</span>はこの局所宣言の外では可視ではなく，
+対話セッションでも<span class="ltx_text ltx_font_typewriter">y</span>の値のみが表示される．
+</p>
+</div>
+</dd>
+</dl>
+</div>
+</section>
+<section id="SS2" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">16.1.2 </span>モジュール言語の宣言の評価</h2>
+
+<div id="SS2.p1" class="ltx_para">
+<p class="ltx_p">モジュール言語の構成要素であるストラクチャ宣言は，宣言のリストをひ
+とまとまりにして名前をつける機構である．
+ストラクチャ式が評価されると，名前の静的な束縛の集合である型環境と
+動的な束縛の集合である実行時環境が生成される．
+ストラクチャ宣言は，これら環境で束縛されるそれぞれの名前をストラ
+クチャ名でプリフィックスして得られる型環境と実行時環境を，現在の型環境と
+実行時環境に追加する効果を持つ．
+</p>
+</div>
+<div id="SS2.p2" class="ltx_para">
+<p class="ltx_p">例えば，ストラクチャ式</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">struct
+<br class="ltx_break">
+  val version = "3.7.1"
+<br class="ltx_break">
+end</span></p>
+</blockquote>
+<p class="ltx_p">は，型環境
+<math id="SS2.p2.m1" class="ltx_Math" alttext="\{\mbox{\tt\frenchspacing version}:\mbox{\tt\frenchspacing string}\}" display="inline"><mrow><mo stretchy="false">{</mo><mtext>𝚟𝚎𝚛𝚜𝚒𝚘𝚗</mtext><mo>:</mo><mtext>𝚜𝚝𝚛𝚒𝚗𝚐</mtext><mo stretchy="false">}</mo></mrow></math>
+と実行時環境
+<math id="SS2.p2.m2" class="ltx_Math" alttext='\{\mbox{\tt\frenchspacing version}:\mbox{\tt\frenchspacing"3.7.1{}"}\}' display="inline"><mrow><mo stretchy="false">{</mo><mtext>𝚟𝚎𝚛𝚜𝚒𝚘𝚗</mtext><mo>:</mo><mtext mathvariant="monospace">"3.7.1"</mtext><mo stretchy="false">}</mo></mrow></math>
+を生成するので，ストラクチャ宣言</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">structure Version =
+<br class="ltx_break">
+  struct
+<br class="ltx_break">
+    val version = "3.7.1"
+<br class="ltx_break">
+  end</span></p>
+</blockquote>
+<p class="ltx_p">は，現在の型環境と実行時環境にそれぞれ，ロング名束縛
+<math id="SS2.p2.m3" class="ltx_Math" alttext="\{\mbox{\tt\frenchspacing Version.version}:\mbox{\tt\frenchspacing string}\}" display="inline"><mrow><mo stretchy="false">{</mo><mtext mathvariant="monospace">Version.version</mtext><mo>:</mo><mtext>𝚜𝚝𝚛𝚒𝚗𝚐</mtext><mo stretchy="false">}</mo></mrow></math>
+と
+<math id="SS2.p2.m4" class="ltx_Math" alttext='\{\mbox{\tt\frenchspacing Version.version}:\mbox{\tt\frenchspacing"3.7.1{}"}\}' display="inline"><mrow><mo stretchy="false">{</mo><mtext mathvariant="monospace">Version.version</mtext><mo>:</mo><mtext mathvariant="monospace">"3.7.1"</mtext><mo stretchy="false">}</mo></mrow></math>
+を追加する効果を持つ．
+</p>
+</div>
+<div id="SS2.p3" class="ltx_para">
+<p class="ltx_p">ストラクチャ式にはシグネチャ制約を付加することができる．
+シグネチャ制約は，ストラクチャが生成する型環境の静的制約である．
+変数の値の型の制約以外に，型宣言の制約なども指定できる．
+シグネチャ制約を持つストラクチャは，シグネチャ制約に指定された名前のみを
+もつ環境が生成される．
+</p>
+</div>
+<div id="SS2.p4" class="ltx_para">
+<p class="ltx_p">ファンクタは，ストラクチャを受け取りストラクチャを返す関数である．
+ただし，核言語の関数と異なり，ファンクタ定義はトップレベルに制約され，かつ，
+ファンクタを受け取るファンクタ等は定義できない．
+</p>
+</div>
+<div id="SS2.p5" class="ltx_para">
+<p class="ltx_p">各宣言の対話型モードでの評価の例を示す．
+それぞれの宣言の構文の詳細定義は第
+<a href="Ch24.html" title="Chapter 24 モジュール言語の宣言とインタフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">24</span></a>章で与える．
+</p>
+</div>
+<div id="SS2.p6" class="ltx_para">
+<dl id="I5" class="ltx_description">
+<dt id="I5.ix1" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold"><math id="I5.ix1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">strDecl<span class="ltx_text ltx_font_bold ltx_font_upright"><math id="I5.ix1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></dt>
+<dd class="ltx_item">
+<div id="I5.ix1.p1" class="ltx_para">
+<p class="ltx_p">ストラクチャを定義する宣言である．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># structure Version =
+<br class="ltx_break">
+&gt;   struct
+<br class="ltx_break">
+&gt;     val version = "3.7.1"
+<br class="ltx_break">
+&gt;   end;
+<br class="ltx_break">
+structure Version =
+<br class="ltx_break">
+struct
+<br class="ltx_break">
+  val version = "3.7.1" : string
+<br class="ltx_break">
+end</span></p>
+</blockquote>
+<p class="ltx_p">この宣言により，識別子<span class="ltx_text ltx_font_typewriter">Version</span>がストラクチャを表す型環境に束縛され，
+ロング識別子<span class="ltx_text ltx_font_typewriter">Version.version</span>が，<span class="ltx_text ltx_font_typewriter">string</span>型と動的値
+<span class="ltx_text ltx_font_typewriter">"3.7.1"</span>に束縛される．
+</p>
+</div>
+</dd>
+<dt id="I5.ix2" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold"><math id="I5.ix2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sigDecl<span class="ltx_text ltx_font_bold ltx_font_upright"><math id="I5.ix2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></dt>
+<dd class="ltx_item">
+<div id="I5.ix2.p1" class="ltx_para">
+<p class="ltx_p">識別子をシグネチャに束縛する宣言である．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># signature VERSION =
+<br class="ltx_break">
+&gt;  sig
+<br class="ltx_break">
+&gt;    val version : string
+<br class="ltx_break">
+&gt;  end;
+<br class="ltx_break">
+signature VERSION =
+<br class="ltx_break">
+struct
+<br class="ltx_break">
+  val version : string
+<br class="ltx_break">
+end</span></p>
+</blockquote>
+<p class="ltx_p">この宣言により，<span class="ltx_text ltx_font_typewriter">VERSION</span>がシグネチャに束縛される．
+シグネチャは，ストラクチャで定義される各名前が持つ型などの属性を
+表現である．
+</p>
+</div>
+</dd>
+<dt id="I5.ix3" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold"><math id="I5.ix3.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">functorDecl<span class="ltx_text ltx_font_bold ltx_font_upright"><math id="I5.ix3.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></dt>
+<dd class="ltx_item">
+<div id="I5.ix3.p1" class="ltx_para">
+<p class="ltx_p">ストラクチャからストラクチャを生成する関数であるファンクタを定義する宣言である．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">functor System(V:VERSION) =
+<br class="ltx_break">
+  struct
+<br class="ltx_break">
+    val name = "SML#"
+<br class="ltx_break">
+    val version = V.version
+<br class="ltx_break">
+  end;</span></p>
+</blockquote>
+<p class="ltx_p">この宣言によって，<span class="ltx_text ltx_font_typewriter">System</span>が，<span class="ltx_text ltx_font_typewriter">VERSION</span>シグネチャをもつストラクチャを
+うけとり，<span class="ltx_text ltx_font_typewriter">name</span>と<span class="ltx_text ltx_font_typewriter">version</span>を要素とするストラクチャを返すファンクタに束縛される．
+</p>
+</div>
+</dd>
+<dt id="I5.ix4" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold"><math id="I5.ix4.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">localTopdecl<span class="ltx_text ltx_font_bold ltx_font_upright"><math id="I5.ix4.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></dt>
+<dd class="ltx_item">
+<div id="I5.ix4.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">local</span>および<span class="ltx_text ltx_font_typewriter">in</span>で囲われた宣言は<span class="ltx_text ltx_font_typewriter">end</span>まででのみ
+有効な局所的な宣言である．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># local
+<br class="ltx_break">
+&gt;   structure V = Version
+<br class="ltx_break">
+&gt; in
+<br class="ltx_break">
+&gt;   structure Release = struct
+<br class="ltx_break">
+&gt;     val date = "2021-03-15"
+<br class="ltx_break">
+&gt;     val version = V.version
+<br class="ltx_break">
+&gt;   end
+<br class="ltx_break">
+&gt; end;
+<br class="ltx_break">
+val Release =
+<br class="ltx_break">
+struct
+<br class="ltx_break">
+  val date = "2021-03-15" : string
+<br class="ltx_break">
+  val version = "3.7.1" : string
+<br class="ltx_break">
+end</span></p>
+</blockquote>
+<p class="ltx_p">宣言<span class="ltx_text ltx_font_typewriter">structure V = Version</span>のスコープは<span class="ltx_text ltx_font_typewriter">end</span>までである．
+従って<span class="ltx_text ltx_font_typewriter">V</span>はこの局所宣言の外では可視ではなく，
+対話セッションでも<span class="ltx_text ltx_font_typewriter">Release</span>のみが表示される．
+</p>
+</div>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch16.html" title="Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">16 </span>SML#の構造</span></a><a href="Ch16.S2.html" title="16.2 分割コンパイルモードのプログラム ‣ Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">16.2 </span>分割コンパイルモードのプログラム</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sun Mar 28 04:49:23 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

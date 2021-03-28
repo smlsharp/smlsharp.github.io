@@ -1,0 +1,389 @@
+---
+layout: default
+permalink: /en/documents/3.7.1/Ch7.S4.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Sun Mar 28 04:50:44 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Mar, 2021.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="up up" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="up up up" href="./" title="SML# Document Version 3.7.1">
+ <link rel="start" href="./" title="SML# Document Version 3.7.1">
+ <link rel="prev" href="Ch7.S3.html" title="7.3 Representing computation by composing expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="next" href="Ch7.S5.html" title="7.5 Type bool and conditional expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S1.html" title="7.1 About the ML language family ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S2.html" title="7.2 Declarative programming ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S3.html" title="7.3 Representing computation by composing expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S5.html" title="7.5 Type bool and conditional expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S6.html" title="7.6 Compound expressions and function definitions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S7.html" title="7.7 Recursive functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S8.html" title="7.8 Functions with multiple arguments ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S9.html" title="7.9 Function application syntax ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S10.html" title="7.10 Higher-order functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S11.html" title="7.11 Using higher-order functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S12.html" title="7.12 Imperative features of ML ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S13.html" title="7.13 Mutable memory reference types ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S14.html" title="7.14 Left-to-right applicative order evaluation ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S15.html" title="7.15 Procedural control ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S16.html" title="7.16 Loop and tail recursion ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S17.html" title="7.17 let expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S18.html" title="7.18 List data type ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S19.html" title="7.19 Principle in composing expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch7.S20.html" title="7.20 Polymorphic functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 Installing SML# ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML# feature: other type system extensions ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 3.7.1">
+title: "7.4  Constants literals and built-in primitives ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 3.7.1</div>
+<div>
+<a href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7 </span>Introduction to ML programming</span></a><a href="Ch7.S3.html" title="7.3 Representing computation by composing expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.3 </span>
+Representing computation by composing expressions</span></a><a href="Ch7.S5.html" title="7.5 Type bool and conditional expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.5 </span>
+Type <span class="ltx_text ltx_font_typewriter">bool</span> and conditional expressions</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">7.4 </span>
+Constants literals and built-in primitives
+</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">SML# contains the following atomic types, with the
+associated literal constants.</p>
+</div>
+<div id="p2" class="ltx_para ltx_align_center">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_l ltx_border_r ltx_border_t">type</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">its values</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">int</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">signed integers (of one machine word size)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">real</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">double precision floating point numbers</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">char</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">characters</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">string</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">character strings</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">word</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">unsigned integers (of one machine word size)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_l ltx_border_r ltx_border_t">bool</td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r ltx_border_t">boolean values</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">We review basis expressions for these atomic types, except for
+<span class="ltx_text ltx_font_typewriter">bool</span> which will be treated in the next section.</p>
+</div>
+<section id="SS1" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">7.4.1 </span>int type</h2>
+
+<div id="SS1.p1" class="ltx_para">
+<p class="ltx_p">This is a standard type of integers.
+In SML#, a value of <span class="ltx_text ltx_font_typewriter">int</span> is a two’s compliment
+integer and is the same as <span class="ltx_text ltx_font_typewriter">long</span> in C.
+Constants of <span class="ltx_text ltx_font_typewriter">int</span> are written either the usual decimal
+notation or hexadecimal notation of the form <span class="ltx_text ltx_font_typewriter">0x<math id="SS1.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">h<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS1.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+where <math id="SS1.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">h<span class="ltx_text ltx_font_upright"><math id="SS1.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> is a sequence of digits from <span class="ltx_text ltx_font_typewriter">0</span> to <span class="ltx_text ltx_font_typewriter">9</span> and
+letters from <span class="ltx_text ltx_font_typewriter">a</span>(or <span class="ltx_text ltx_font_typewriter">A</span>) to <span class="ltx_text ltx_font_typewriter">f</span>(or <span class="ltx_text ltx_font_typewriter">F</span>).
+A negative constant is written with <code class="ltx_verbatim ltx_font_typewriter">~</code>.
+SML# prints <span class="ltx_text ltx_font_typewriter">int</span> values in decimal notation.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># 10;
+<br class="ltx_break">
+val it = 10 : int
+<br class="ltx_break">
+# 0xA;
+<br class="ltx_break">
+val it = 10 : int
+<br class="ltx_break">
+# ~0xFF;
+<br class="ltx_break">
+val it = ~255 : int</span></p>
+</blockquote>
+<p class="ltx_p">Binary arithmetic operations <span class="ltx_text ltx_font_typewriter">+, -, *, div</span> are defined on
+<span class="ltx_text ltx_font_typewriter">int</span>.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># 10 + 0xA;
+<br class="ltx_break">
+val it = 20 : int
+<br class="ltx_break">
+# 0 - 0xA;
+<br class="ltx_break">
+val it = ~10 : int
+<br class="ltx_break">
+# 10 div 2;
+<br class="ltx_break">
+val it = 5 : int
+<br class="ltx_break">
+# 10 * 2;
+<br class="ltx_break">
+val it = 20 : int</span></p>
+</blockquote>
+<p class="ltx_p">As in arithmetic expressions in mathematics, <span class="ltx_text ltx_font_typewriter">*,div</span>
+associate stronger than <span class="ltx_text ltx_font_typewriter">+, -</span>, and operators of the same strength
+are computed from left to right.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># 1 + 2 * 3;
+<br class="ltx_break">
+val it = 7 : int
+<br class="ltx_break">
+# 4 - 3 - 2;
+<br class="ltx_break">
+val it = ~1 : int</span></p>
+</blockquote>
+</div>
+</section>
+<section id="SS2" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">7.4.2 </span>real type</h2>
+
+<div id="SS2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">real</span> is a type of floating point data.
+In SML#, a value of <span class="ltx_text ltx_font_typewriter">real</span> is a 64 bit double
+precision floating point numbers and is the same as <span class="ltx_text ltx_font_typewriter">double</span> in C.
+<span class="ltx_text ltx_font_typewriter">real</span> constants are written in the notation <span class="ltx_text ltx_font_typewriter"><math id="SS2.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">s<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS2.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">.<math id="SS2.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">d<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS2.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">E<math id="SS2.p1.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">s<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS2.p1.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>, where <math id="SS2.p1.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">s<span class="ltx_text ltx_font_upright"><math id="SS2.p1.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> is a decimal
+string possibly with the negation symbol and <math id="SS2.p1.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">d<span class="ltx_text ltx_font_upright"><math id="SS2.p1.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> is a decimal
+string.
+Each of the three parts can be omitted, but decimal string is
+interpreted as a value of <span class="ltx_text ltx_font_typewriter">int</span>.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># 10.0;
+<br class="ltx_break">
+val it = 10.0 : real
+<br class="ltx_break">
+# 1E2;
+<br class="ltx_break">
+val it = 100.0 : real
+<br class="ltx_break">
+# 0.001;
+<br class="ltx_break">
+val it = 0.001 : real
+<br class="ltx_break">
+# ~1E~2;
+<br class="ltx_break">
+val it = ~0.01 : real
+<br class="ltx_break">
+# 10;
+<br class="ltx_break">
+val it = 10 : int</span></p>
+</blockquote>
+<p class="ltx_p">Binary arithmetic operators <span class="ltx_text ltx_font_typewriter">+, -, *, /</span> are defined for <span class="ltx_text ltx_font_typewriter">real</span>.
+Note that the division operator on <span class="ltx_text ltx_font_typewriter">real</span> is <span class="ltx_text ltx_font_typewriter">/</span> and not
+<span class="ltx_text ltx_font_typewriter">div</span>.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># 10.0 + 1E1;
+<br class="ltx_break">
+val it = 20.0 : real
+<br class="ltx_break">
+# 0.0 - 10.0;
+<br class="ltx_break">
+val it = ~10.0 : real
+<br class="ltx_break">
+# 10.0 / 2.0;
+<br class="ltx_break">
+val it = 5.0 : real
+<br class="ltx_break">
+# 10.0 * 2.0;
+<br class="ltx_break">
+val it = 20.0 : real</span></p>
+</blockquote>
+</div>
+</section>
+<section id="SS3" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">7.4.3 </span>char type</h2>
+
+<div id="SS3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">char</span> is a type for one character data.
+A constant for a character <math id="SS3.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">c<span class="ltx_text ltx_font_upright"><math id="SS3.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> is written as <span class="ltx_text ltx_font_typewriter">#"<math id="SS3.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">c<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS3.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">"</span>.
+<math id="SS3.p1.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">c<span class="ltx_text ltx_font_upright"><math id="SS3.p1.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> may be any printable character or one of the
+following special escape sequences.
+</p>
+<table class="ltx_tabular ltx_centering ltx_guessed_headers ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t"><code class="ltx_verbatim ltx_font_typewriter">\a</code></th>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">warning (ASCII 7)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><code class="ltx_verbatim ltx_font_typewriter">\b</code></th>
+<td class="ltx_td ltx_align_left ltx_border_r">backspace (ASCII 8)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><code class="ltx_verbatim ltx_font_typewriter">\t</code></th>
+<td class="ltx_td ltx_align_left ltx_border_r">horizontal tab(ASCII 9)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><code class="ltx_verbatim ltx_font_typewriter">\n</code></th>
+<td class="ltx_td ltx_align_left ltx_border_r">new line (ASCII 10)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><code class="ltx_verbatim ltx_font_typewriter">\v</code></th>
+<td class="ltx_td ltx_align_left ltx_border_r">vertical tab (ASCII 11)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><code class="ltx_verbatim ltx_font_typewriter">\f</code></th>
+<td class="ltx_td ltx_align_left ltx_border_r">home feed (ASCII 12)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><code class="ltx_verbatim ltx_font_typewriter">\r</code></th>
+<td class="ltx_td ltx_align_left ltx_border_r">carriage return(ASCII 13)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r">
+<code class="ltx_verbatim ltx_font_typewriter">\^</code><math id="SS3.p1.m7" class="ltx_Math" alttext="C" display="inline"><mi>C</mi></math>
+</th>
+<td class="ltx_td ltx_align_left ltx_border_r">control character <math id="SS3.p1.m8" class="ltx_Math" alttext="C" display="inline"><mi>C</mi></math>
+</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><code class="ltx_verbatim ltx_font_typewriter">\"</code></th>
+<td class="ltx_td ltx_align_left ltx_border_r">character <code class="ltx_verbatim ltx_font_typewriter">"</code>
+</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><code class="ltx_verbatim ltx_font_typewriter">\\</code></th>
+<td class="ltx_td ltx_align_left ltx_border_r">character <code class="ltx_verbatim ltx_font_typewriter">\</code>
+</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_l ltx_border_r">
+<code class="ltx_verbatim ltx_font_typewriter">\</code><math id="SS3.p1.m9" class="ltx_Math" alttext="ddd" display="inline"><mrow><mi>d</mi><mi>d</mi><mi>d</mi></mrow></math>
+</th>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">the character whose code is <math id="SS3.p1.m10" class="ltx_Math" alttext="ddd" display="inline"><mrow><mi>d</mi><mi>d</mi><mi>d</mi></mrow></math> in decimal</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># #"a";
+<br class="ltx_break">
+val it = #"a" : char
+<br class="ltx_break">
+# #"\n";
+<br class="ltx_break">
+val it = #"\n" : char</span></p>
+</blockquote>
+<p class="ltx_p">The following primitive functions are defined on <span class="ltx_text ltx_font_typewriter">char</span>.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val chr : int -&gt; char
+<br class="ltx_break">
+val ord : char -&gt; int</span></p>
+</blockquote>
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">chr <math id="SS3.p1.m11" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math></span> assumes that <math id="SS3.p1.m12" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math> is an ASCII code and returns the
+character of that code.
+<span class="ltx_text ltx_font_typewriter">ord <math id="SS3.p1.m13" class="ltx_Math" alttext="c" display="inline"><mi>c</mi></math></span> returns the ASCII code of <math id="SS3.p1.m14" class="ltx_Math" alttext="c" display="inline"><mi>c</mi></math>.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># ord #"a";
+<br class="ltx_break">
+val it = 97 : int
+<br class="ltx_break">
+# chr(97 + 7);
+<br class="ltx_break">
+val it = #"h" : char
+<br class="ltx_break">
+# ord #"a" - ord #"A";
+<br class="ltx_break">
+val it = 32 : int
+<br class="ltx_break">
+# chr(ord #"H" + 32);
+<br class="ltx_break">
+val it = #"h" : char</span></p>
+</blockquote>
+</div>
+</section>
+<section id="SS4" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">7.4.4 </span>string type</h2>
+
+<div id="SS4.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">string</span> is a type for character strings.
+<span class="ltx_text ltx_font_typewriter">string</span> constants are written with <span class="ltx_text ltx_font_typewriter">"</span> and <span class="ltx_text ltx_font_typewriter">"</span>.
+A <span class="ltx_text ltx_font_typewriter">string</span> constant may contain escape sequences shown
+above.
+For <span class="ltx_text ltx_font_typewriter">string</span> data, a print function <span class="ltx_text ltx_font_typewriter">print</span> and a
+concatenation binary operator <code class="ltx_verbatim ltx_font_typewriter">^</code> are defined.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># "SML#" ^ "\n";
+<br class="ltx_break">
+val it = "SML#\n" : string
+<br class="ltx_break">
+# print it;
+<br class="ltx_break">
+SML#
+<br class="ltx_break">
+val it = () : unit</span></p>
+</blockquote>
+</div>
+</section>
+<section id="SS5" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">7.4.5 </span>word type</h2>
+
+<div id="SS5.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">word</span> is a type for unsigned integers.
+<span class="ltx_text ltx_font_typewriter">word</span> constants are written as <span class="ltx_text ltx_font_typewriter">0w<math id="SS5.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">d<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS5.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> or
+<span class="ltx_text ltx_font_typewriter">0wx<math id="SS5.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">h<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS5.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> where <math id="SS5.p1.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">d<span class="ltx_text ltx_font_upright"><math id="SS5.p1.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> is a decimal digit sequence and
+<math id="SS5.p1.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">h<span class="ltx_text ltx_font_upright"><math id="SS5.p1.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> is a hexadecimal digit sequence.
+SML# prints <span class="ltx_text ltx_font_typewriter">word</span> data in a hexadecimal notation.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># 0w10;
+<br class="ltx_break">
+val it = 0wxa : word
+<br class="ltx_break">
+# 0wxA;
+<br class="ltx_break">
+val it = 0wxa : word</span></p>
+</blockquote>
+</div>
+</section>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch7.S3.html" title="7.3 Representing computation by composing expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.3 </span>
+Representing computation by composing expressions</span></a><a href="Ch7.S5.html" title="7.5 Type bool and conditional expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.5 </span>
+Type <span class="ltx_text ltx_font_typewriter">bool</span> and conditional expressions</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sun Mar 28 04:50:44 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

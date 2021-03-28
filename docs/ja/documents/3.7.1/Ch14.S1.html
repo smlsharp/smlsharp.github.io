@@ -1,0 +1,171 @@
+---
+layout: default
+permalink: /ja/documents/3.7.1/Ch14.S1.html
+translated: true
+lang: ja
+head: |
+ <!--Generated on Sun Mar 28 04:49:23 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on 令和3年3月.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch14.html" title="Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="up up" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="up up up" href="./" title="プログラミング言語SML#解説 3.7.1版">
+ <link rel="start" href="./" title="プログラミング言語SML#解説 3.7.1版">
+ <link rel="prev" href="Ch14.html" title="Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="next" href="Ch14.S2.html" title="14.2 分割コンパイル例 ‣ Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch14.S2.html" title="14.2 分割コンパイル例 ‣ Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch14.S3.html" title="14.3 インターフェイスファイルの構造 ‣ Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch14.S4.html" title="14.4 型の隠蔽 ‣ Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch14.S5.html" title="14.5 シグネチャの扱い ‣ Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch14.S6.html" title="14.6 ファンクタのサポート ‣ Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch14.S7.html" title="14.7 レプリケーション宣言 ‣ Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch14.S8.html" title="14.8 トップレベルの実行 ‣ Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML#の拡張機能：マルチスレッドプログラミング ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 3.7.1版">
+title: "14.1 分割コンパイルの概要‣ Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 3.7.1版</div>
+<div>
+<a href="Ch14.html" title="Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">14 </span>
+SML#の拡張機能：SML#分割コンパイルシステム</span></a><a href="Ch14.html" title="Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">14 </span>
+SML#の拡張機能：SML#分割コンパイルシステム</span></a><a href="Ch14.S2.html" title="14.2 分割コンパイル例 ‣ Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">14.2 </span>分割コンパイル例</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">14.1 </span>分割コンパイルの概要</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">分割コンパイルシステムは以下の手順で使用します．</p>
+<ol id="I1" class="ltx_enumerate">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">システムを構成するソースをコンパイル単位に分割する．
+この分割は，どのような大きさでもよく，分割された各々の機能は，
+SML#で記述可能な宣言で実現できるものであれば，特に制約はありませ
+ん．
+ここでは，システムを<span class="ltx_text ltx_font_typewriter">part1</span>と<span class="ltx_text ltx_font_typewriter">part2</span>に分割したとします．</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">分割した各要素のインターフェイスを定義する．
+このインターフェイスは，第<a href="Ch14.S3.html" title="14.3 インターフェイスファイルの構造 ‣ Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">14.3</span></a>節で
+説明するインターフェイス言語で記述します．
+システムを<span class="ltx_text ltx_font_typewriter">part1</span>と<span class="ltx_text ltx_font_typewriter">part2</span>に分割するシナリオでは，まず，
+インターフェイスファイル<span class="ltx_text ltx_font_typewriter">part1.smi</span>と<span class="ltx_text ltx_font_typewriter">part2.smi</span>を用意します．</p>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p">各インターフェイスファイルに対して，それを実現するソースファイルを
+開発し，それぞれのソースファイルをコンパイルしオブジェクトファイルを作成
+する．
+</p>
+</div>
+<div id="I1.i3.p2" class="ltx_para">
+<p class="ltx_p">上記シナリオの場合，<span class="ltx_text ltx_font_typewriter">part1.smi</span>と<span class="ltx_text ltx_font_typewriter">part2.smi</span>を実現するソー
+スファイル<span class="ltx_text ltx_font_typewriter">part1.sml</span>と<span class="ltx_text ltx_font_typewriter">part2.sml</span>を開発し，コンパイルし
+オブジェクトファイル<span class="ltx_text ltx_font_typewriter">part1.o</span>と<span class="ltx_text ltx_font_typewriter">part2.o</span>を作成します．</p>
+</div>
+<div id="I1.i3.p3" class="ltx_para">
+<p class="ltx_p">この開発は，それぞれ完全に独立に行うことができます．
+ML系言語の場合，ソースファイルの開発では，コンパイラによる型推論
+が威力を発揮します．
+分割コンパイルシステムは，その名のとおりそれぞれ独立にコンパイル
+できます．
+例えば，<span class="ltx_text ltx_font_typewriter">part2</span>が<span class="ltx_text ltx_font_typewriter">part1</span>の関数などを使用する場合でも，
+<span class="ltx_text ltx_font_typewriter">part1.sml</span>を開発する以前に，<span class="ltx_text ltx_font_typewriter">part2.sml</span>をコンパイルできます．
+この機能により，システムのどの部分でも，MLの型推論の機能をフルに
+活用し，開発を行うことができます．</p>
+</div>
+</li>
+<li id="I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">4.</span> 
+<div id="I1.i4.p1" class="ltx_para">
+<p class="ltx_p">オブジェクトファイル集合を必要なライブラリと共にリンクし，実行形式
+ファイルを作成する．</p>
+</div>
+<div id="I1.i4.p2" class="ltx_para">
+<p class="ltx_p">例えば，<span class="ltx_text ltx_font_typewriter">part1</span>と<span class="ltx_text ltx_font_typewriter">part2</span>以外に，それらから参照されるC関
+数のファイルやC言語で書いた独自のライブラリを使用する場合，それらの場所
+をコンパイラに指示することによって，それらとともにをリンクしOS標準の実行
+形式ファイルを生成できます．
+なお，SML#コンパイラは，SML#ランタイムの実行に必要
+なC言語の標準ライブラリを常にリンクするため，標準ライブラリは指定なしに
+使用することができます．</p>
+</div>
+</li>
+</ol>
+<p class="ltx_p">より本格的かつ高度なシナリオは以下のようなものが考えられます．</p>
+<ol id="I2" class="ltx_enumerate">
+<li id="I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="I2.i1.p1" class="ltx_para">
+<p class="ltx_p">システムをC言語で書く部分とSML#言語で書く部分に分割する．</p>
+</div>
+</li>
+<li id="I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="I2.i2.p1" class="ltx_para">
+<p class="ltx_p">C言語の部分は，ヘッダファイル（.hファイル）とソースファイル（.cファイル）を開発する．</p>
+</div>
+</li>
+<li id="I2.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span> 
+<div id="I2.i3.p1" class="ltx_para">
+<p class="ltx_p">SML#言語の部分は，インターフェイスファイル（.smiファイル）
+とソースファイル（.smlファイル）を開発する．</p>
+</div>
+</li>
+<li id="I2.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">4.</span> 
+<div id="I2.i4.p1" class="ltx_para">
+<p class="ltx_p">SML#コンパイラの依存性出力機能を利用し，Makefileを作成する．</p>
+</div>
+</li>
+<li id="I2.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">5.</span> 
+<div id="I2.i5.p1" class="ltx_para">
+<p class="ltx_p">システムを<span class="ltx_text ltx_font_typewriter">make</span>コマンドを用いて，コンパイルとリンクを行う．</p>
+</div>
+</li>
+</ol>
+<p class="ltx_p">SML#コンパイラ自身，C言語とSML#で書かれていて，こ
+の手順で種々のツールを含むシステムがコンパイルリンクされ，SML#コ
+ンパイラが作成されます．
+</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch14.html" title="Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">14 </span>
+SML#の拡張機能：SML#分割コンパイルシステム</span></a><a href="Ch14.S2.html" title="14.2 分割コンパイル例 ‣ Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">14.2 </span>分割コンパイル例</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sun Mar 28 04:49:23 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

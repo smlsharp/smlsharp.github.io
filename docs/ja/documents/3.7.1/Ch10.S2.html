@@ -1,0 +1,249 @@
+---
+layout: default
+permalink: /ja/documents/3.7.1/Ch10.S2.html
+translated: true
+lang: ja
+head: |
+ <!--Generated on Sun Mar 28 04:49:23 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on 令和3年3月.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch10.html" title="Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="up up" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="up up up" href="./" title="プログラミング言語SML#解説 3.7.1版">
+ <link rel="start" href="./" title="プログラミング言語SML#解説 3.7.1版">
+ <link rel="prev" href="Ch10.S1.html" title="10.1 C関数の使用の宣言 ‣ Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="next" href="Ch10.S3.html" title="10.3 基本的なC関数のインポート例 ‣ Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch10.S1.html" title="10.1 C関数の使用の宣言 ‣ Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch10.S3.html" title="10.3 基本的なC関数のインポート例 ‣ Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="section" href="Ch10.S4.html" title="10.4 動的リンクライブラリの使用 ‣ Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML#の拡張機能：マルチスレッドプログラミング ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 3.7.1版">
+ <link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 3.7.1版">
+title: "10.2 C関数の型‣ Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 3.7.1版</div>
+<div>
+<a href="Ch10.html" title="Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">10 </span>
+SML#の拡張機能：Cとの直接連携</span></a><a href="Ch10.S1.html" title="10.1 C関数の使用の宣言 ‣ Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">10.1 </span>C関数の使用の宣言</span></a><a href="Ch10.S3.html" title="10.3 基本的なC関数のインポート例 ‣ Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">10.3 </span>基本的なC関数のインポート例</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">10.2 </span>C関数の型</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">SML#から利用可能なC関数は，SML#の型システムで表現
+できる型を持つ関数です．
+<span class="ltx_text ltx_font_typewriter">_import</span>宣言には，インポートするC関数の名前に加え，そのC関数の
+型をMLライクな記法で記述します．
+<span class="ltx_text ltx_font_typewriter">val</span>宣言で与えられた変数にはC関数が束縛されます．
+この変数の型は，C関数の型から生成されたSML#の関数型です．
+以下，<span class="ltx_text ltx_font_typewriter">_import</span>宣言に書くCの関数型の構文と，それに対応する
+MLの型のサマリを示します．</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">_import</span>宣言には以下の形でC言語の関数の型を書きます．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">(<math id="p2.m1" class="ltx_Math" alttext="\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math>, <math id="p2.m2" class="ltx_Math" alttext="\tau_{2}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">2</mn></msub></mrow></math>, <math id="p2.m3" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math>, <math id="p2.m4" class="ltx_Math" alttext="\tau_{n}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mi>n</mi></msub></mrow></math>) -&gt; <math id="p2.m5" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math></span></p>
+</blockquote>
+<p class="ltx_p">これは<math id="p2.m6" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>個の<math id="p2.m7" class="ltx_Math" alttext="\tau_{1},\tau_{2},\ldots,\tau_{n}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn>1</mn></msub><mo>,</mo><mi>τ</mi><msub><mi></mi><mn>2</mn></msub><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mi>τ</mi><msub><mi></mi><mi>n</mi></msub></mrow></math>型の引数を受け取り，
+<math id="p2.m8" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>型の値を返す関数を表します．
+引数が1つの場合は引数リストの括弧を省略できます．
+引数と返り値の型に何が書けるかは後述します．
+関数が引数を何も受け取らない場合，引数リストの括弧だけを書きます．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">() -&gt; <math id="p2.m9" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math></span></p>
+</blockquote>
+<p class="ltx_p">関数が返り値を返さない場合（返り値の型が<span class="ltx_text ltx_font_typewriter">void</span>型の場合），
+返り値の型として<span class="ltx_text ltx_font_typewriter">()</span>を指定します．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">(<math id="p2.m10" class="ltx_Math" alttext="\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math>, <math id="p2.m11" class="ltx_Math" alttext="\tau_{2}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">2</mn></msub></mrow></math>, <math id="p2.m12" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math>, <math id="p2.m13" class="ltx_Math" alttext="\tau_{n}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mi>n</mi></msub></mrow></math>) -&gt; ()</span></p>
+</blockquote>
+<p class="ltx_p">C関数が可変長の引数リストを持つ場合は以下の記法を使います．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">(<math id="p2.m14" class="ltx_Math" alttext="\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math>, <math id="p2.m15" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math>, <math id="p2.m16" class="ltx_Math" alttext="\tau_{m}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mi>m</mi></msub></mrow></math>, ...(<math id="p2.m17" class="ltx_Math" alttext="\tau_{m+1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mrow><mi>m</mi><mo mathvariant="normal">+</mo><mn mathvariant="normal">1</mn></mrow></msub></mrow></math>, <math id="p2.m18" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math>, <math id="p2.m19" class="ltx_Math" alttext="\tau_{n}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mi>n</mi></msub></mrow></math>)) -&gt; <math id="p2.m20" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math></span></p>
+</blockquote>
+<p class="ltx_p">これは，<math id="p2.m21" class="ltx_Math" alttext="m" display="inline"><mi>m</mi></math>個の固定の引数とそれに続く0個以上の可変個の引数を取る関数の
+型です．
+SML#は可変個の関数引数をサポートしていないため，
+可変部分に与える引数のリストも指定する必要があります．
+この記法は，可変引数リストに<math id="p2.m22" class="ltx_Math" alttext="\tau_{m+1},\ldots,\tau_{n}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mrow><mi>m</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mi>τ</mi><msub><mi></mi><mi>n</mi></msub></mrow></math>型の引数を
+与えることを表します．</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">C関数の引数および返り値の型には，Cの型に対応するSML#の型を
+指定します．
+以下，C関数の引数および返り値に書けるSML#の型を，
+相互運用型と呼びます．
+相互運用型には以下の型を含みます．</p>
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">IntInf</span>を除く全ての整数型．<span class="ltx_text ltx_font_typewriter">int</span>，<span class="ltx_text ltx_font_typewriter">word</span>，<span class="ltx_text ltx_font_typewriter">char</span>など．</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">全ての浮動小数点数型．<span class="ltx_text ltx_font_typewriter">real</span>，<span class="ltx_text ltx_font_typewriter">Real32.real</span>など．</p>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p">要素の型が全て相互運用型であるような組型．
+<span class="ltx_text ltx_font_typewriter">int * real</span> など．</p>
+</div>
+</li>
+<li id="I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i4.p1" class="ltx_para">
+<p class="ltx_p">要素の型が相互運用型であるようなベクタ型，配列型，および<span class="ltx_text ltx_font_typewriter">ref</span>型．
+<span class="ltx_text ltx_font_typewriter">string</span>，<span class="ltx_text ltx_font_typewriter">Word8Array.array</span>，<span class="ltx_text ltx_font_typewriter">int ref</span>など．</p>
+</div>
+</li>
+</ul>
+<p class="ltx_p">これら相互運用型とCの型の対応はおおよそ以下の通りです．</p>
+<ul id="I2" class="ltx_itemize">
+<li id="I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i1.p1" class="ltx_para">
+<p class="ltx_p">整数型および浮動小数点数型の対応は以下の通りです．</p>
+<table class="ltx_tabular ltx_centering ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_l ltx_border_r ltx_border_t">SML#の相互運用型</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_r ltx_border_t">対応するCの型</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_r ltx_border_t">備考</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">char</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">char</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t">Cの<span class="ltx_text ltx_font_typewriter">char</span>同様，符号は処理系に依存します</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">word8</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r"><span class="ltx_text ltx_font_typewriter">unsigned char</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r">1バイトは8ビットであることを仮定します</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">int</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r"><span class="ltx_text ltx_font_typewriter">int</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r">処理系定義の自然な大きさの整数</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">word</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r"><span class="ltx_text ltx_font_typewriter">unsigned int</span></td>
+<td class="ltx_td ltx_border_r"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">Real32.real</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r"><span class="ltx_text ltx_font_typewriter">float</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r">IEEE754形式の32ビット浮動小数点数を仮定します</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_b ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">real</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b ltx_border_r"><span class="ltx_text ltx_font_typewriter">double</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b ltx_border_r">IEEE754形式の64ビット浮動小数点数を仮定します</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li id="I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i2.p1" class="ltx_para">
+<p class="ltx_p"><math id="I2.i2.p1.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> vector</span>型および<math id="I2.i2.p1.m2" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> array</span>型は，
+<math id="I2.i2.p1.m3" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>型に対応するCの型を要素型とする配列へのポインタ型に対応します．
+<span class="ltx_text ltx_font_typewriter">array</span>型のポインタが指す先の配列はCから書き換えることができます．
+一方，<span class="ltx_text ltx_font_typewriter">vector</span>型のポインタが指す配列は書き換えることはできません．
+すなわち，<span class="ltx_text ltx_font_typewriter">vector</span>型に対応するCのポインタ型には，
+ポインタが指す先のデータの型に<span class="ltx_text ltx_font_typewriter">const</span>修飾子が付きます．</p>
+</div>
+</li>
+<li id="I2.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">string</span>型は<span class="ltx_text ltx_font_typewriter">const char</span>型を要素型とする配列へのポインタ型に
+対応します．
+このポインタが指す先の配列の最後には必ずヌル文字が入っています．
+従って，SML#の<span class="ltx_text ltx_font_typewriter">string</span>型の値をCのヌル終端文字列への
+ポインタとして使用することができます．
+</p>
+</div>
+</li>
+<li id="I2.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i4.p1" class="ltx_para">
+<p class="ltx_p"><math id="I2.i4.p1.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> ref</span>型は，<math id="I2.i4.p1.m2" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>型に対応するCの型へのポインタ型に
+対応します．
+ポインタが指す先には書き換え可能な要素数1の配列があります．</p>
+</div>
+</li>
+<li id="I2.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i5.p1" class="ltx_para">
+<p class="ltx_p">組型<math id="I2.i5.p1.m1" class="ltx_Math" alttext="\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn>1</mn></msub></mrow></math><span class="ltx_text ltx_font_typewriter"> * <math id="I2.i5.p1.m2" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math> * <math id="I2.i5.p1.m3" class="ltx_Math" alttext="\tau_{n}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mi>n</mi></msub></mrow></math></span>は，
+<math id="I2.i5.p1.m4" class="ltx_Math" alttext="\tau_{1},\ldots,\tau_{n}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn>1</mn></msub><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mi>τ</mi><msub><mi></mi><mi>n</mi></msub></mrow></math>に対応する型のメンバーをこの順番で持つ
+構造体へのポインタ型に対応します．
+このポインタが指す先の構造体はCから書き換えることはできません．
+<math id="I2.i5.p1.m5" class="ltx_Math" alttext="\tau_{1},\ldots,\tau_{n}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn>1</mn></msub><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mi>τ</mi><msub><mi></mi><mi>n</mi></msub></mrow></math>が全て同じ型ならば，
+その型を要素型とする配列へのポインタにも対応します．</p>
+</div>
+</li>
+</ul>
+<p class="ltx_p">C関数には，SML#の値がそのままの形で渡されます．
+C関数の呼び出しの際にデータ変換が行われることはありません．
+従って，SML#で作った配列をC関数に渡し，C関数で変更し，
+その変更をSML#側で取り出すことができます．</p>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">C関数全体の型は，引数リストを組型とするMLの関数型に対応付けられます．
+ただし，C関数の引数や返り値に書ける相互運用型には，以下の制約があり
+ます．</p>
+<ul id="I3" class="ltx_itemize">
+<li id="I3.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i1.p1" class="ltx_para">
+<p class="ltx_p">配列型や組型など，Cのポインタ型に対応する相互運用型を，C関数の返り値の
+型として指定することはできません．</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="p5" class="ltx_para">
+<p class="ltx_p">インポートできるC関数の型や，SML#とCの型の関係の詳細は，
+第<a href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">III</span></a>部の
+第<a href="Ch29.html" title="Chapter 29 SML#実行時データ管理 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">29</span></a>章を参照ください．</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch10.S1.html" title="10.1 C関数の使用の宣言 ‣ Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">10.1 </span>C関数の使用の宣言</span></a><a href="Ch10.S3.html" title="10.3 基本的なC関数のインポート例 ‣ Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 3.7.1版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">10.3 </span>基本的なC関数のインポート例</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sun Mar 28 04:49:23 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

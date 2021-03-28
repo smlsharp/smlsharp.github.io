@@ -1,0 +1,138 @@
+---
+layout: default
+permalink: /en/documents/3.7.1/Ch31.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Sun Mar 28 04:50:44 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Mar, 2021.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 3.7.1">
+ <link rel="up up" href="./" title="SML# Document Version 3.7.1">
+ <link rel="start" href="./" title="SML# Document Version 3.7.1">
+ <link rel="prev" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 3.7.1">
+ <link rel="next" href="Ch32.html" title="Chapter 32 The SML# Source Distribution Package ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch32.html" title="Chapter 32 The SML# Source Distribution Package ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch33.html" title="Chapter 33 Control structure of the compiler ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 3.7.1">
+title: "31 Preface‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 3.7.1"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 3.7.1</div>
+<div>
+<a href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">V </span>SML# Internals and Data Structures</span></a><a href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">V </span>SML# Internals and Data Structures</span></a><a href="Ch32.html" title="Chapter 32 The SML# Source Distribution Package ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">32 </span>The SML# Source Distribution Package</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_chapter ltx_authors_1line">
+<h1 class="ltx_title ltx_title_chapter">
+<span class="ltx_tag ltx_tag_chapter">Chapter 31 </span>Preface</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">This part presents internals and data structures of the
+SML# compiler.
+The objective of this part is provide the readers who have
+appropriate backgrounds on functional programming languages to
+understand the details of the SML# compiler.</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">Although the main intended audience are compiler developers and
+researchers, who are interested in extending SML# or developing
+new compilers, efforts have been made to make this document should a
+reference document for general readers who are interested in high level
+programming language compilers.</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">There are excellent codes in open-source software, many of which
+we truly respect.
+One of the problems we often feels against open-source culture
+is the lack of effort and enthusiasm to document the structures and
+functions of these excellent codes.
+The contention that code written in a declarative language is
+itself self-documenting is a vain argument for large and complicated
+systems containing hundreds of thousands of lines.
+A large and complicated software system inevitably contains
+implicit assumptions and various meta-level data that control behavior
+of multiple components of the system.
+To understand the system, it is therefore necessary to understand
+the encoded semantics of those control data and the flow of
+control of the multiple related components.
+Currently, the only way to solve this problem is to document the
+system.
+We further believe that a detailed document of a large software
+system could itself be a valuable asset for open-source community.</p>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">In this part, we attempt to provide such a document on the
+SML# system, taking “VAX/VMS internals and data structures”
+<cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib4" title="" class="ltx_ref">4</a>]</cite> as a model.
+In addition to descriptions of the code, we try to provide
+the design rationale, relevant theory, algorithm, and implementation
+techniques underlying the code.
+</p>
+</div>
+<div id="p5" class="ltx_para">
+<p class="ltx_p">Part <a href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">V</span></a> contains the following.
+</p>
+<ol id="S0.I1" class="ltx_enumerate">
+<li id="S0.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="S0.I1.i1.p1" class="ltx_para">
+<p class="ltx_p">Chapter <a href="Ch32.html" title="Chapter 32 The SML# Source Distribution Package ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">32</span></a> describes the SML# distribution package.
+</p>
+</div>
+</li>
+<li id="S0.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="S0.I1.i2.p1" class="ltx_para">
+<p class="ltx_p">Chapter <a href="Ch33.html" title="Chapter 33 Control structure of the compiler ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">33</span></a> outline the control flow of the SML# compiler.
+</p>
+</div>
+</li>
+<li id="S0.I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span> 
+<div id="S0.I1.i3.p1" class="ltx_para">
+<p class="ltx_p">Each of the following chapters describes the structure and
+function of each of the modules in the order of compilation flow
+described in Chapter <a href="Ch33.html" title="Chapter 33 Control structure of the compiler ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">33</span></a>.
+Chapter <a href="Ch33.html" title="Chapter 33 Control structure of the compiler ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">33</span></a> describes <span class="ltx_text ltx_font_typewriter">main</span> module.
+</p>
+</div>
+</li>
+<li id="S0.I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">4.</span> 
+<div id="S0.I1.i4.p1" class="ltx_para">
+<p class="ltx_p">Chapter <a href="Ch33.html" title="Chapter 33 Control structure of the compiler ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 3.7.1" class="ltx_ref"><span class="ltx_text ltx_ref_tag">33</span></a> describes <span class="ltx_text ltx_font_typewriter">toplebel</span> module.
+</p>
+</div>
+</li>
+<li id="S0.I1.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">5.</span> 
+<div id="S0.I1.i5.p1" class="ltx_para">
+<p class="ltx_p">we shall continue writing the entire internals, and shall uploaded them
+as they become ready …
+</p>
+</div>
+</li>
+<li id="S0.I1.i6" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">6.</span> </li>
+</ol>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">V </span>SML# Internals and Data Structures</span></a><a href="Ch32.html" title="Chapter 32 The SML# Source Distribution Package ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">32 </span>The SML# Source Distribution Package</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sun Mar 28 04:50:44 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

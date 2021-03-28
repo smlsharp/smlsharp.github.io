@@ -1,0 +1,251 @@
+---
+layout: default
+permalink: /en/documents/3.7.1/Ch10.S2.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Sun Mar 28 04:50:44 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Mar, 2021.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="up up" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="up up up" href="./" title="SML# Document Version 3.7.1">
+ <link rel="start" href="./" title="SML# Document Version 3.7.1">
+ <link rel="prev" href="Ch10.S1.html" title="10.1 Declaring and using C functions ‣ Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="next" href="Ch10.S3.html" title="10.3 Basic examples of importing C functions ‣ Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch10.S1.html" title="10.1 Declaring and using C functions ‣ Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch10.S3.html" title="10.3 Basic examples of importing C functions ‣ Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch10.S4.html" title="10.4 Using dynamically linked libraries ‣ Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 Installing SML# ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML# feature: other type system extensions ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 3.7.1">
+title: "10.2 Declaring types of C functions‣ Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 3.7.1</div>
+<div>
+<a href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">10 </span>
+SML# feature: direct interface to C</span></a><a href="Ch10.S1.html" title="10.1 Declaring and using C functions ‣ Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">10.1 </span>Declaring and using C functions</span></a><a href="Ch10.S3.html" title="10.3 Basic examples of importing C functions ‣ Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">10.3 </span>Basic examples of importing C functions</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">10.2 </span>Declaring types of C functions</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">C functions that can be imported to SML# are those whose
+types are representable in SML#.
+The type in <span class="ltx_text ltx_font_typewriter">_import</span> declaration is the type of C function
+written in SML# notation.
+The variable specified in the <span class="ltx_text ltx_font_typewriter">val</span> declaration is bound
+to the imported C function.
+The type of this variable is an SML# function type
+that is corresponding to the type of the C function.</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">A C function type in <span class="ltx_text ltx_font_typewriter">_import</span> declaration is of the form:</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">(<math id="p2.m1" class="ltx_Math" alttext="\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math>, <math id="p2.m2" class="ltx_Math" alttext="\tau_{2}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">2</mn></msub></mrow></math>, <math id="p2.m3" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math>, <math id="p2.m4" class="ltx_Math" alttext="\tau_{n}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mi>n</mi></msub></mrow></math>) -&gt; <math id="p2.m5" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math></span></p>
+</blockquote>
+<p class="ltx_p">This notation represents a C function that takes <math id="p2.m6" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math> arguments
+of type <math id="p2.m7" class="ltx_Math" alttext="\tau_{1},\tau_{2},\ldots,\tau_{n}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn>1</mn></msub><mo>,</mo><mi>τ</mi><msub><mi></mi><mn>2</mn></msub><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mi>τ</mi><msub><mi></mi><mi>n</mi></msub></mrow></math> and returns a value of <math id="p2.m8" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math> type.
+Parentheses can be omitted if there is just one argument.
+What <math id="p2.m9" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math> is is described below.
+If there is no argument, write as follows:</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">() -&gt; <math id="p2.m10" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math></span></p>
+</blockquote>
+<p class="ltx_p">If the return type is <span class="ltx_text ltx_font_typewriter">void</span> in C, write as follows:</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">(<math id="p2.m11" class="ltx_Math" alttext="\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math>, <math id="p2.m12" class="ltx_Math" alttext="\tau_{2}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">2</mn></msub></mrow></math>, <math id="p2.m13" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math>, <math id="p2.m14" class="ltx_Math" alttext="\tau_{n}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mi>n</mi></msub></mrow></math>) -&gt; ()</span></p>
+</blockquote>
+<p class="ltx_p">If the C function has a variable length argument list, use the
+following notation:</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">(<math id="p2.m15" class="ltx_Math" alttext="\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math>, <math id="p2.m16" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math>, <math id="p2.m17" class="ltx_Math" alttext="\tau_{m}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mi>m</mi></msub></mrow></math>, ...(<math id="p2.m18" class="ltx_Math" alttext="\tau_{m+1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mrow><mi>m</mi><mo mathvariant="normal">+</mo><mn mathvariant="normal">1</mn></mrow></msub></mrow></math>, <math id="p2.m19" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math>, <math id="p2.m20" class="ltx_Math" alttext="\tau_{n}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mi>n</mi></msub></mrow></math>)) -&gt; <math id="p2.m21" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math></span></p>
+</blockquote>
+<p class="ltx_p">This is the type of a C function that takes at least <math id="p2.m22" class="ltx_Math" alttext="m" display="inline"><mi>m</mi></math> arguments
+followed by variable number of arguments.
+Since SML# does not support variable length argument lists,
+user need to specify the number and types of arguments in the variable
+length part of the argument list.
+This notation means that arguments of <math id="p2.m23" class="ltx_Math" alttext="\tau_{m+1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mrow><mi>m</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow></math>, <math id="p2.m24" class="ltx_Math" alttext="\ldots" display="inline"><mi mathvariant="normal">…</mi></math>, <math id="p2.m25" class="ltx_Math" alttext="\tau_{n}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mi>n</mi></msub></mrow></math>
+type are passed to the function.</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">In the argument list and the return type of the above C function type
+notation, you can specify any SML# type that is corresponding to a C type.
+In what follows, we refer to such SML# types as <span class="ltx_text ltx_font_italic">interoperable types</span>.
+The set of interoperable types include the following:</p>
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">Any integer type except <span class="ltx_text ltx_font_typewriter">IntInf</span>, such as <span class="ltx_text ltx_font_typewriter">int</span>, <span class="ltx_text ltx_font_typewriter">word</span>,
+and <span class="ltx_text ltx_font_typewriter">char</span>.</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">Any floating-point number type, such as <span class="ltx_text ltx_font_typewriter">real</span> and <span class="ltx_text ltx_font_typewriter">Real32.real</span>.</p>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p">Any tuple type whose any field type is an interoperable type, such as
+<span class="ltx_text ltx_font_typewriter">int * real</span>.</p>
+</div>
+</li>
+<li id="I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i4.p1" class="ltx_para">
+<p class="ltx_p">Any vector, array and ref type whose element type is an interoperable
+type, such as <span class="ltx_text ltx_font_typewriter">string</span>, <span class="ltx_text ltx_font_typewriter">Word8Array.array</span>, <span class="ltx_text ltx_font_typewriter">int ref</span>.
+</p>
+</div>
+</li>
+</ul>
+<p class="ltx_p">The correspondence between these interoperable types and
+C types are given as follows:</p>
+<ul id="I2" class="ltx_itemize">
+<li id="I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i1.p1" class="ltx_para">
+<p class="ltx_p">The following table shows the correspondence on integer types and
+floating-point number types.</p>
+<table class="ltx_tabular ltx_centering ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t">SML#’s interoperable type</td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t">corresponding C type</td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t">note</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">char</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r"><span class="ltx_text ltx_font_typewriter">char</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r">Signedness is not specified, similar to C.</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">word8</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r"><span class="ltx_text ltx_font_typewriter">unsigned char</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r">We assume a byte is 8 bit.</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">int</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r"><span class="ltx_text ltx_font_typewriter">int</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r">Natural size of integers</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">word</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r"><span class="ltx_text ltx_font_typewriter">unsigned int</span></td>
+<td class="ltx_td ltx_border_r"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">Real32.real</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r"><span class="ltx_text ltx_font_typewriter">float</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r">IEEE754 32-bit floating-point numbers</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_b ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">real</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b ltx_border_r"><span class="ltx_text ltx_font_typewriter">double</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b ltx_border_r">IEEE754 64-bit floating-point numbers</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li id="I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i2.p1" class="ltx_para">
+<p class="ltx_p">Any <math id="I2.i2.p1.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> vector</span> and <math id="I2.i2.p1.m2" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> array</span> type is
+corresponding to the type of a pointer to an array whose element type is
+the C type corresponding to <math id="I2.i2.p1.m3" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math> type.
+The array pointed by an <span class="ltx_text ltx_font_typewriter">array</span> pointer is mutable.
+In contrast, that of an <span class="ltx_text ltx_font_typewriter">vector</span> pointer is immutable.
+In other words,
+the element type of an array pointed by an <span class="ltx_text ltx_font_typewriter">vector</span> pointer is qualified
+by <span class="ltx_text ltx_font_typewriter">const</span> qualifier.</p>
+</div>
+</li>
+<li id="I2.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">string</span> type is corresponding to the type of a pointer to an
+array of <span class="ltx_text ltx_font_typewriter">const char</span>.
+The last element of the array pointed by a <span class="ltx_text ltx_font_typewriter">string</span> pointer is
+always terminated by a null character.
+So a <span class="ltx_text ltx_font_typewriter">string</span> pointer can be regarded as a pointer to a
+null-terminated string.</p>
+</div>
+</li>
+<li id="I2.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i4.p1" class="ltx_para">
+<p class="ltx_p">Any <math id="I2.i4.p1.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> ref</span> type is corresponding to the type of a pointer to
+the C type corresponding to <math id="I2.i4.p1.m2" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>.
+A <span class="ltx_text ltx_font_typewriter">ref</span> pointer points to a mutable array of just one element.</p>
+</div>
+</li>
+<li id="I2.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i5.p1" class="ltx_para">
+<p class="ltx_p">Any tuple type <math id="I2.i5.p1.m1" class="ltx_Math" alttext="\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn>1</mn></msub></mrow></math><span class="ltx_text ltx_font_typewriter"> * <math id="I2.i5.p1.m2" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math> * <math id="I2.i5.p1.m3" class="ltx_Math" alttext="\tau_{n}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mi>n</mi></msub></mrow></math></span> is corresponding to
+the type of a pointer to a immutable structure
+whose members are <math id="I2.i5.p1.m4" class="ltx_Math" alttext="\tau_{1},\ldots,\tau_{n}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn>1</mn></msub><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mi>τ</mi><msub><mi></mi><mi>n</mi></msub></mrow></math> type in this order.
+If all of <math id="I2.i5.p1.m5" class="ltx_Math" alttext="\tau_{1},\ldots,\tau_{n}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn>1</mn></msub><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mi>τ</mi><msub><mi></mi><mi>n</mi></msub></mrow></math> are same type,
+this tuple type is also corresponding to the type of a pointer to an array.</p>
+</div>
+</li>
+</ul>
+<p class="ltx_p">Values constructed by SML# are passed transparently to
+C functions without any modification and conversion.
+So, user can pass an array allocated in SML# program to
+a C function that modifies the given array, and obtain the modification
+by the C function in SML# program.</p>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">The entire type of a C function is converted to an SML#
+function type whose argument type is a tuple type of the argument list types
+of the C function.
+There is the following limitation in usage of interoperable types
+in the C function notation:</p>
+<ul id="I3" class="ltx_itemize">
+<li id="I3.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i1.p1" class="ltx_para">
+<p class="ltx_p">Interoperable types that corresponds to a C pointer type, such as
+array type and tuple type, cannot be specified as a return type of
+a C function.</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch10.S1.html" title="10.1 Declaring and using C functions ‣ Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">10.1 </span>Declaring and using C functions</span></a><a href="Ch10.S3.html" title="10.3 Basic examples of importing C functions ‣ Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">10.3 </span>Basic examples of importing C functions</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sun Mar 28 04:50:44 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

@@ -1,0 +1,148 @@
+---
+layout: default
+permalink: /en/documents/3.7.1/Ch10.S1.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Sun Mar 28 04:50:44 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Mar, 2021.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="up up" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="up up up" href="./" title="SML# Document Version 3.7.1">
+ <link rel="start" href="./" title="SML# Document Version 3.7.1">
+ <link rel="prev" href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="next" href="Ch10.S2.html" title="10.2 Declaring types of C functions ‣ Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch10.S2.html" title="10.2 Declaring types of C functions ‣ Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch10.S3.html" title="10.3 Basic examples of importing C functions ‣ Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="section" href="Ch10.S4.html" title="10.4 Using dynamically linked libraries ‣ Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 Installing SML# ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML# feature: other type system extensions ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 3.7.1">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 3.7.1">
+title: "10.1 Declaring and using C functions‣ Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 3.7.1</div>
+<div>
+<a href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">10 </span>
+SML# feature: direct interface to C</span></a><a href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">10 </span>
+SML# feature: direct interface to C</span></a><a href="Ch10.S2.html" title="10.2 Declaring types of C functions ‣ Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">10.2 </span>Declaring types of C functions</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">10.1 </span>Declaring and using C functions</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">In order to use C function, you only have to declare it in
+SML# in the following syntax.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val <math id="p1.m1" class="ltx_Math" alttext="\mathit{id}" display="inline"><mrow><mi>i</mi><mi>d</mi></mrow></math> = _import "<math id="p1.m2" class="ltx_Math" alttext="\mathit{symbol}" display="inline"><mrow><mi>s</mi><mi>y</mi><mi>m</mi><mi>b</mi><mi>o</mi><mi>l</mi></mrow></math>" : <math id="p1.m3" class="ltx_Math" alttext="\mathit{type}" display="inline"><mrow><mi>t</mi><mi>y</mi><mi>p</mi><mi>e</mi></mrow></math></span></p>
+</blockquote>
+<p class="ltx_p"><math id="p1.m4" class="ltx_Math" alttext="\mathit{symbol}" display="inline"><mrow><mi>s</mi><mi>y</mi><mi>m</mi><mi>b</mi><mi>o</mi><mi>l</mi></mrow></math> is the name of the C function.
+<math id="p1.m5" class="ltx_Math" alttext="\mathit{type}" display="inline"><mrow><mi>t</mi><mi>y</mi><mi>p</mi><mi>e</mi></mrow></math> is its type.
+Next section explain how to write the type of a C function.</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">This declaration instructs SML# compiler to link the
+named function and bind the SML# variable <math id="p2.m1" class="ltx_Math" alttext="\mathit{id}" display="inline"><mrow><mi>i</mi><mi>d</mi></mrow></math> to
+that function.
+A target function linked by this declaration can be any code
+as far as it is in a standard calling convention of the OS in which
+SML# runs.
+The linking to the function is performed at linking time.
+So, to produce an executable file of SML# program containing
+this <span class="ltx_text ltx_font_typewriter">_import</span> declaration, it is required to specify either
+a library or an object file to the command line of SML# command to
+link it with the SML# program.
+Some of standard C libraries (including libc and libm in Unix
+family OS) are linked by default.</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">This declaration can appear whenever <span class="ltx_text ltx_font_typewriter">val</span> declaration is
+allied.
+After this declaration, variable <math id="p3.m1" class="ltx_Math" alttext="\mathit{id}" display="inline"><mrow><mi>i</mi><mi>d</mi></mrow></math> can be used as an ordinary
+variable defined in SML#.</p>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">As an example, consider the standard C library function.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">int puts(char *);</span></p>
+</blockquote>
+<p class="ltx_p">This function takes a string, appends a newline code and outputs
+it to the standard output, and returns the number of characters actually
+printed.
+If printing fails, then it returns the integer representing
+<span class="ltx_text ltx_font_typewriter">EOF</span> (which is <math id="p4.m1" class="ltx_Math" alttext="-1" display="inline"><mrow><mo>-</mo><mn>1</mn></mrow></math> in Linux).
+This function can be used by writing the following declarations.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val puts = _import "puts" : string -&gt; int</span></p>
+</blockquote>
+<p class="ltx_p">As seen in this example, C function can bound and used just by
+writing <span class="ltx_text ltx_font_typewriter">_import</span> keyword followed by the name and the type of the
+desired function.
+The following is interactive session using <span class="ltx_text ltx_font_typewriter">puts</span>.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># val puts = _import "puts" : string -&gt; int;
+<br class="ltx_break">
+val puts = _ : string -&gt; int
+<br class="ltx_break">
+# puts "My first call to a C library";
+<br class="ltx_break">
+My first call to a C library
+<br class="ltx_break">
+val it = 29 : int
+<br class="ltx_break">
+# map puts ["I","became","fully","operational","in","April","6th","2012."];
+<br class="ltx_break">
+I
+<br class="ltx_break">
+became
+<br class="ltx_break">
+fully
+<br class="ltx_break">
+operational
+<br class="ltx_break">
+in
+<br class="ltx_break">
+April
+<br class="ltx_break">
+2nd
+<br class="ltx_break">
+2012.
+<br class="ltx_break">
+val it = [2, 7, 6, 12, 3, 6, 4, 5] : int list</span></p>
+</blockquote>
+<p class="ltx_p">The imported C functions can be freely used according to the
+ML’s programming principle – “expressions are freely
+composed as far as they are type consistent”.
+</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">10 </span>
+SML# feature: direct interface to C</span></a><a href="Ch10.S2.html" title="10.2 Declaring types of C functions ‣ Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 3.7.1" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">10.2 </span>Declaring types of C functions</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sun Mar 28 04:50:44 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}
