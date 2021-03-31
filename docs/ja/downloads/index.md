@@ -3,7 +3,8 @@ title: "ダウンロード"
 translated: true
 ---
 
-SML#コンパイラおよびSML#用プログラム開発ツールは、BSDスタイルのSML#ライセンスの下で配布されているオープンソースソフトウェアです。[SML#ライセンス](https://github.com/smlsharp/smlsharp/blob/master/LICENSE)を必ずお読みください。
+SML#コンパイラおよびSML#用プログラム開発ツールは、MITライセンスの下で配布されているオープンソースソフトウェアです。
+[ライセンスページ](../about/license/)および[LICENSE](https://github.com/smlsharp/smlsharp/blob/master/LICENSE)ファイルをお読みください。
 
 SML#の最新版は3.7.1です。セットアップ方法については[ドキュメント](../documents/index.md)をご覧ください。リリースごとの主な変更点は[Changes](https://github.com/smlsharp/smlsharp/blob/master/Changes)ファイルをご覧ください。
 

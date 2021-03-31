@@ -2,4 +2,15 @@
 title: "About SML#"
 translated: true
 ---
-About SML#
+SML# is a functional language in the ML family being developed by 
+the SML# Delelopment Team.
+
+* [features](./features/)
+* [licence](./license/)
+* [Theory and implementation methods underlying SML#](./references/)
+* [history](./history/)
+* [acknowledgments](./acknowledgments/)
+
+#### SML# Development Team
+
+Atsushi Ohori and Katsuhiro Ueno, Tohoku University

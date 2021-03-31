@@ -1,0 +1,36 @@
+---
+title: "Theory and implementation methods underlying SML#"
+translated: true
+---
+- **Type theory for database objects, generalized natural join**
+   - [Atsushi Ohori, Semantics of types for database objects,  International Conference on Database Theory 1988 (ICDT'88), pp 239-251](https://link.springer.com/chapter/10.1007/3-540-50171-1_15)
+   - [Peter Buneman, Achim Jung, Atsushi Ohori, Using powerdomains to generalize relational databases, Theoretical Computer Science Volume 91, Issue 1, 9 December 1991, Pages 23-55](https://www.sciencedirect.com/science/article/pii/0304397591902665)
+   - Tomohiro Sasaki, Katsuhiro Ueno, and Atsushi Ohori, SML# with Natural Join, [ACM SIGPLAN ML Family Workshop, September 22, 2016, Nara, Japan](https://sites.google.com/site/mlworkshoppe/workshops/ml2016)
+
+- **Type inference in database languages**
+   - [A. Ohori and P. Buneman. Type inference in a database programming language. In Proc. ACM Conference on LISP and Functional Programming, pages 174–183, Snowbird, Utah, July 1988](https://dl.acm.org/doi/10.1145/62678.62700)
+- **ML and Database Integration, Machiavelli**
+   - [P. Buneman and A. Ohori. Polymorphism and type inference in database programming. ACM Transactions on Database Systems, 21(1):30–74, 1996.](https://dl.acm.org/doi/10.1145/227604.227609)
+   - [A. Ohori, P. Buneman, and V. Breazu-Tannen. Database programming in Machiavelli – a polymorphic language with static type inference. In Proc. the ACM SIGMOD conference, pages 46–57, Portland, Oregon, May – June 1989.](https://dl.acm.org/doi/10.1145/67544.66931)
+   - [A. Ohori, K. Ueno, Making Standard ML a practical database programming language, In roc. ACM ICFP Conference, pp:307-319, 2011.](https://dl.acm.org/doi/10.1145/2034773.2034815)
+- **Record Polymorphism** 
+   - [A Ohori. A compilation method for ML-style polymorphic record calculi. In Proceedings of ACM Symposium on Principles of Programming Languages, pages 154–165, 1992.](https://dl.acm.org/doi/10.1145/143165.143200)
+   - [A. Ohori. A polymorphic record calculus and its compilation. ACM Transactions on Programming Languages and Systems, 17(6):844–895, 1995.](https://dl.acm.org/doi/10.1145/218570.218572)
+- **Rank-1 Plolymorphism**
+   - [A. Ohori and N. Yoshida. Type inference with rank 1 polymorphism for type-directed compilation of ML. In Proc. ACM International Conference on Functional Programming, pages 160–171, 1999.](https://dl.acm.org/doi/abs/10.1145/317636.317796)
+- **Unboxed semantics for ML**
+   - [Atsushi Ohori,Tomonobu Takamizawa, An Unboxed Operational Semantics for ML Polymorphism, LISP and Symbolic Computation volume 10, pages61–91(1997)](https://link.springer.com/article/10.1023/A:1007730624053)
+- **Natural Data representation for ML** 
+   - [H-D. Nguyen and A. Ohori. Compiling ml polymporphism with explicit layout bitmap. In Proceedings of ACM Conference on Principles and Practice of Declarative Programming, pages 237–248, 2006.](https://dl.acm.org/doi/abs/10.1145/1140335.1140364)
+- **Lightweight Futions for ML**
+   - [A Ohori and I. Sasano. Lightweight fusion by fixed point promotion. In Proceedings of ACM Symposium on Principles of Programming Languages, pages 143–154, 2007.](https://dl.acm.org/doi/10.1145/1190215.1190241)
+- **Non-moving GC**
+   - [K. Ueno, A Ohori, and T. Otomo. An efficient non-moving garbage collector for functional languages. In Proceedings of the ACM International Conference on Functional Programming, 2011.](https://dl.acm.org/doi/abs/10.1145/2034773.2034802)
+- **Fully Concurrent GC**
+   - [Katsuhiro Ueno, Atsushi Ohori. A fully concurrent garbage collector for functional programs on multicore processors. In Proceedings of the ACM International Conference on Functional Programming, pages 421-433, 2016.](https://dl.acm.org/doi/10.1145/3022670.2951944)
+- **SML# JSON Support**
+   - [Atsushi Ohori, Katsuhiro Ueno, Tomohiro Sasaki, Daisuke Kikuchi. A Calculus with Partially Dynamic Records for Typeful Manipulation of JSON Objects. In Proceedings of the European Concerence on Object-Oriented Programming, pages 421-433, 2016. In Proc. ECOOP Conference, pages 18:1-18:25, 2016.](https://drops.dagstuhl.de/opus/volltexte/2016/6112/)
+- **Lightweight Thread Programming on Multicore Processors**
+   - [Atsushi Ohori, Kenjiro Taura, Katsuhiro Ueno, Making SML# a General-purpose High-performance Language, ML family workshop 2017.](https://icfp17.sigplan.org/details/mlfamilyworkshop-2017-papers/3/Making-SML-a-general-purpose-high-performance-language)
+- **Finitary polymorphism** 
+   - [Atsushi Ohori, Katsuhiro Ueno, Hisayuki Mima, Finitary polymorphism for optimizing type-directed compilation, Proceedings of the ACM on Programming Languages, July 2018 Article No.: 81](https://dl.acm.org/doi/10.1145/3236776)
