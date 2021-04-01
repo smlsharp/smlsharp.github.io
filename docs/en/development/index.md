@@ -52,7 +52,7 @@ If you wonder whether what you find is an issue or not, please ask us on the for
 
 We always welcome contributions from the community. Please let us know your contribution by a pull request on GitHub. SML# development team reviews the request and decides its acceptance. Before sending a pull request, please agree on the following:
 
-* When your pull request is merged, [SML# License](https://github.com/smlsharp/smlsharp/blob/master/LICENSE) is applied to everything you send.  This means that your effort is donated to the SML# project.
+* When your pull request is merged, [The license of SML#](https://github.com/smlsharp/smlsharp/blob/master/LICENSE) is applied to everything you send.  This means that your effort is donated to the SML# project.
 
 For very small and/or streightforward changes and improvements, such as fixing typos, you can send pull requests without any prior discussion. If you have some questions, or the changes are relatively large, please discuss on the forum or issue tracking system before sending pull requests.
 
