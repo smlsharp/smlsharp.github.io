@@ -1,8 +1,7 @@
 ---
-title: ""
+title: "Practical ML Programming with SML#"
 translated: true
 ---
-## Practical ML Programming with SML#
 Atsushi Ohori and Katsuhiro Ueno,
 Kyoritu Publishing, April 2021 (ISBN: 978-4-320-12471-4)
 
