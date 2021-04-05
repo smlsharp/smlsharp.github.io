@@ -7,7 +7,7 @@ The SML# compiler and its relevant tools are open source software distributed
 under the MIT license copyrighted by the SML# development team.
 (The [License page](../about/license/) and the [LICENSE](https://github.com/smlsharp/smlsharp/blob/master/LICENSE) file in the distribution.)
 
-The latest version of SML# is 3.7.1.
+The latest version of SML# is 3.7.1 distributed under the 3-clause BSD license copyrighted by Tohoku University.
 See the [document](../documents/index.md) page for details on how to set up SML#.
 See the [Changes](https://github.com/smlsharp/smlsharp/blob/master/Changes) file for major changes in each release.
 
