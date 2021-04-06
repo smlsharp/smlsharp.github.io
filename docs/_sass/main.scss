@@ -34,12 +34,15 @@ header#page_header {
 }
 header#page_header h1 {
   display: block;
-  margin: 30px 24px 0 24px;
+  margin: 30px 0 0 24px;
   padding: 0;
+  @media screen and (max-width:480px) {
+    margin: 20px 0 0 4px;
+  }
 }
 header#page_header h1 a {
   display: inline-block;
-  background: url(/assets/image/header-togetoge.png) no-repeat top left;
+  background: url(/assets/image/header-togetoge.png) no-repeat left;
   background-size: 100px 100px;
   margin: 0;
   padding: 20px 0 (100px - 20px - 32px) (100px + 12px);
@@ -49,12 +52,22 @@ header#page_header h1 a {
   line-height: 1.0;
   color: #333;
   white-space: nowrap;
+  @media screen and (max-width:480px) {
+    margin: 0;
+    padding: 6px 0 (60px - 6px - 27px) (60px + 4px);
+    font-size: 27px;
+    background-size: 60px 60px;
+  }
 }
 header#page_header nav ul {
   display: block;
   background-color: $headerBgColor;
   margin: -34px 0 0 0;
-  padding: 8px 0 8px (24px + 100px);
+  padding: 8px 0 8px (24px + 100px + 8px - 2px - 8px);
+  @media screen and (max-width:480px) {
+    margin: -20px 0 0 0;
+    padding: 8px 0 8px (4px + 60px + 4px - 2px - 8px);
+  }
 }
 header#page_header nav ul li {
   display: inline-block;
@@ -81,6 +94,9 @@ header#page_header nav ul li a:hover {
 
 div#main {
   margin: 0 48px;
+  @media screen and (max-width:480px) {
+    margin: 0 24px;
+  }
 }
 
 footer#page_footer {
@@ -136,11 +152,15 @@ footer#page_footer p {
 div#main div#intro {
   margin: 1em 0 2em 0;
   border: #888 solid 1px;
-  padding: 0 210px 0 1em;
   box-shadow: 0 2px 5px #888;
+  padding: 0 (200px + 10px) 0 1em;
   background: url(/assets/image/togetoge-007.png) no-repeat right 10px;
   background-size: 200px 200px;
-  min-height: 220px;
+  min-height: (200px + 10px + 10px);
+  @media screen and (max-width:660px) {
+    padding: 0 1em (200px + 10px) 1em;
+    background-position: bottom 10px right 10px;
+  }
 }
 
 div#main pre {
