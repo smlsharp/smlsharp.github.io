@@ -1,0 +1,129 @@
+---
+layout: default
+permalink: /ja/documents/4.0.0/Ch7.S12.html
+translated: true
+lang: ja
+head: |
+ <!--Generated on Tue Apr  6 18:18:13 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on 令和3年4月.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch7.html" title="Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="up up" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="up up up" href="./" title="プログラミング言語SML#解説 4.0.0版">
+ <link rel="start" href="./" title="プログラミング言語SML#解説 4.0.0版">
+ <link rel="prev" href="Ch7.S11.html" title="7.11 高階の関数の利用 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="next" href="Ch7.S13.html" title="7.13 変更可能なメモリーセルを表す参照型 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch7.S1.html" title="7.1 ML言語について ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch7.S2.html" title="7.2 宣言的プログラミング ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch7.S3.html" title="7.3 式の組み合わせによる計算の表現 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch7.S4.html" title="7.4 定数式と組込み関数 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch7.S5.html" title="7.5 bool型と条件式 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch7.S6.html" title="7.6 複雑な式と関数 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch7.S7.html" title="7.7 再帰的な関数 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch7.S8.html" title="7.8 複数の引数を取る関数 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch7.S9.html" title="7.9 関数適用の文法 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch7.S10.html" title="7.10 高階の関数 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch7.S11.html" title="7.11 高階の関数の利用 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch7.S13.html" title="7.13 変更可能なメモリーセルを表す参照型 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch7.S14.html" title="7.14 作用順，左から右への評価戦略 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch7.S15.html" title="7.15 手続き的制御 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch7.S16.html" title="7.16 ループと末尾再帰関数 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch7.S17.html" title="7.17 let式 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch7.S18.html" title="7.18 リストデータ型 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch7.S19.html" title="7.19 式の組み合わせの原則 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch7.S20.html" title="7.20 多相型を持つ関数 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML#の拡張機能：マルチスレッドプログラミング ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.0.0版">
+title: "7.12 MLにおける手続き的機能‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.0.0版</div>
+<div>
+<a href="Ch7.html" title="Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7 </span>MLプログラミング入門</span></a><a href="Ch7.S11.html" title="7.11 高階の関数の利用 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.11 </span>高階の関数の利用</span></a><a href="Ch7.S13.html" title="7.13 変更可能なメモリーセルを表す参照型 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.13 </span>
+変更可能なメモリーセルを表す参照型</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">7.12 </span>MLにおける手続き的機能</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">これまで学んできた通り，式の組み合わせでプログラムを構築していく
+ML言語はプログラムを宣言的に書く上で最も適した言語の一つです．
+これまでに，<math id="p1.m1" class="ltx_Math" alttext="\sum" display="inline"><mo largeop="true" symmetric="true">∑</mo></math>関数などの算術演算を行う関数を例に説明しました
+が，第<a href="Ch7.S2.html" title="7.2 宣言的プログラミング ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">7.2</span></a>節で説明した通り，宣言的とは，意図す
+る意味をできるだけそのまま表明するということであり，決して数学的な関数と
+してプログラムを書いていくことが望ましい，との表明ではありません．</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">もし，実現しようとしている機能が，手続き的な操作によって最も簡潔
+に表現し理解できるなら，その手続きをそのまま表現するのが望ましいはずです．
+例えば，みなさんが今ご覧のディスプレイに文字を表示する操作は，こ
+れまでに書かれている内容を別な情報で上書きする操作であり，具体的には，
+ディスプレイのバッファを書き換える手続き的な操作です．
+ディスプレイに限らず，外部との入出力処理は，外部の状態に依存する
+本質的に手続き的な操作です．
+そのほか，例えば新しい名前や識別子の生成などの処理，さらに，
+サイクルのあるグラフの変換なども，手続き的なモデルで理解しプログラムした
+ほが，より宣言的な記述になる場合が多いと言えます．</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">このような操作をプログラムで簡潔で分かりやすく表現するには，
+手続き的な処理が記述できたほうが便利です．
+式の組み合わせでコードを書いていくことが基本である関数型言語にこ
+のような手続き的な処理を導入するために必要なことは，以下の２つです．</p>
+<ol id="I1" class="ltx_enumerate">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">状態を変更する機能の導入．
+例にあげたディスプレイの表示内容は，抽象的にはディスプレイの状態
+と捉えることができます．
+手続き的なプログラムの基本は，この状態を変更することをくり返し目
+的とする状態を作りだすことです．
+そのためには，変更可能なデータが必要となります．</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">評価順序の確定．
+ディスプレイの表示内容の変更操作が複数あった場合，それらの適用順
+序によって，どのような像が見えるかが決まります．
+従って，手続き的なプログラムを書くためには，変更操作がどの順に行
+われるかに関する知識と制御が必要となります．</p>
+</div>
+</li>
+</ol>
+<p class="ltx_p">MLには，これら２つが関数型言語の枠組みの中に導入されています．
+</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch7.S11.html" title="7.11 高階の関数の利用 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.11 </span>高階の関数の利用</span></a><a href="Ch7.S13.html" title="7.13 変更可能なメモリーセルを表す参照型 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.13 </span>
+変更可能なメモリーセルを表す参照型</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Apr  6 18:18:13 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

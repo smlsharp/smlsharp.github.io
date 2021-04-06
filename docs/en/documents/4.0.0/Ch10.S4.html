@@ -1,0 +1,191 @@
+---
+layout: default
+permalink: /en/documents/4.0.0/Ch10.S4.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Tue Apr  6 18:19:31 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Apr, 2021.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="up up" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="up up up" href="./" title="SML# Document Version 4.0.0">
+ <link rel="start" href="./" title="SML# Document Version 4.0.0">
+ <link rel="prev" href="Ch10.S3.html" title="10.3 Basic examples of importing C functions ‣ Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="next" href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch10.S1.html" title="10.1 Declaring and using C functions ‣ Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch10.S2.html" title="10.2 Declaring types of C functions ‣ Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch10.S3.html" title="10.3 Basic examples of importing C functions ‣ Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 Installing SML# ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML# feature: other type system extensions ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 4.0.0">
+title: "10.4 Using dynamically linked libraries‣ Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 4.0.0"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 4.0.0</div>
+<div>
+<a href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">10 </span>
+SML# feature: direct interface to C</span></a><a href="Ch10.S3.html" title="10.3 Basic examples of importing C functions ‣ Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">10.3 </span>Basic examples of importing C functions</span></a><a href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">11 </span>
+SML# feature: Multithread programming</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">10.4 </span>Using dynamically linked libraries</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">The declaration</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val <math id="p1.m1" class="ltx_Math" alttext="\mathit{id}" display="inline"><mrow><mi>i</mi><mi>d</mi></mrow></math> = _import "<math id="p1.m2" class="ltx_Math" alttext="\mathit{symbol}" display="inline"><mrow><mi>s</mi><mi>y</mi><mi>m</mi><mi>b</mi><mi>o</mi><mi>l</mi></mrow></math>" : <math id="p1.m3" class="ltx_Math" alttext="\mathit{type}" display="inline"><mrow><mi>t</mi><mi>y</mi><mi>p</mi><mi>e</mi></mrow></math></span></p>
+</blockquote>
+<p class="ltx_p">is statically resolved to a C function having the name <math id="p1.m4" class="ltx_Math" alttext="\mathit{symbol}" display="inline"><mrow><mi>s</mi><mi>y</mi><mi>m</mi><mi>b</mi><mi>o</mi><mi>l</mi></mrow></math>.
+When SML# compiles a source file containing this
+declaration, the compiler generates an object file containing <math id="p1.m5" class="ltx_Math" alttext="\mathit{symbol}" display="inline"><mrow><mi>s</mi><mi>y</mi><mi>m</mi><mi>b</mi><mi>o</mi><mi>l</mi></mrow></math>
+as an external name.
+When an executable program is build from these objects files,
+the system linker links these object files with C functions.
+This is also true in interactive mode, which is implemented by
+a simple iteration that performs separate compilation, linking and
+loading.</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">However for a library that is only available at runtime, such
+static resolution is impossible.
+To cope with those situation, SML# provide dynamic
+linking through the following module.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">structure DynamicLink : sig
+<br class="ltx_break">
+  type lib
+<br class="ltx_break">
+  type codeptr
+<br class="ltx_break">
+  datatype scope = LOCAL | GLOBAL
+<br class="ltx_break">
+  datatype mode = LAZY | NOW
+<br class="ltx_break">
+  val dlopen : string -&gt; lib
+<br class="ltx_break">
+  val dlopen’ : string * scope * mode -&gt; lib
+<br class="ltx_break">
+  val dlsym : lib * string -&gt; codeptr
+<br class="ltx_break">
+  val dlclose : lib -&gt; unit
+<br class="ltx_break">
+end</span></p>
+</blockquote>
+<p class="ltx_p">These functions provide the system services of the same names
+provide in a Unix-family OS.</p>
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">dlopen</span> opens a shared library.</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">dlopen’</span> takes one of those parameters to control <span class="ltx_text ltx_font_typewriter">dlopen</span>.
+<span class="ltx_text ltx_font_typewriter">RTLD_LOCAL</span>, <span class="ltx_text ltx_font_typewriter">RTLD_GLOBAL</span> and
+<span class="ltx_text ltx_font_typewriter">RTLD_LAZY</span>, <span class="ltx_text ltx_font_typewriter">RTLD_NOW</span>.
+For its details, consult OS manual on <span class="ltx_text ltx_font_typewriter">dlopen</span>.</p>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">dlsym</span> takes a library handle obtained by <span class="ltx_text ltx_font_typewriter">dlopen</span>
+and a function name, and returns a C pointer to the function.</p>
+</div>
+</li>
+<li id="I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i4.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">dlclose</span> closes the shared library.</p>
+</div>
+</li>
+</ul>
+<p class="ltx_p">The C pointer returned by <span class="ltx_text ltx_font_typewriter">dlsym</span> can be converted to
+SML# function by the following expression.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><math id="p2.m1" class="ltx_Math" alttext="\mathit{exp}" display="inline"><mrow><mi>e</mi><mi>x</mi><mi>p</mi></mrow></math><span class="ltx_text ltx_font_typewriter"> : _import <math id="p2.m2" class="ltx_Math" alttext="\mathit{type}" display="inline"><mrow><mi>t</mi><mi>y</mi><mi>p</mi><mi>e</mi></mrow></math></span></p>
+</blockquote>
+<p class="ltx_p"><math id="p2.m3" class="ltx_Math" alttext="\mathit{exp}" display="inline"><mrow><mi>e</mi><mi>x</mi><mi>p</mi></mrow></math> is a SML# expression of type <span class="ltx_text ltx_font_typewriter">codeptr</span>.
+<math id="p2.m4" class="ltx_Math" alttext="\mathit{type}" display="inline"><mrow><mi>t</mi><mi>y</mi><mi>p</mi><mi>e</mi></mrow></math> specifies the type of C function as in <span class="ltx_text ltx_font_typewriter">_import</span> declaration.</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">Figure <a href="#Ch10.F2" title="Figure 10.2 ‣ 10.4 Using dynamically linked libraries ‣ Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref"><span class="ltx_text ltx_ref_tag">10.2</span></a> shows an example.</p>
+</div>
+<figure id="Ch10.F2" class="ltx_figure">
+<table class="ltx_tabular ltx_centering ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_inline-para ltx_minipage ltx_align_middle" style="width:407.2pt;">
+<span id="Ch10.F2.p1" class="ltx_para">
+<span class="ltx_p">samle.c file：</span>
+<span class="ltx_quote">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter">int f(int s) {
+<br class="ltx_break">
+  return(s * 2);
+<br class="ltx_break">
+}</span></span>
+</span>
+<span class="ltx_p">Execution:</span>
+<span class="ltx_quote">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ gcc -shared -o sample.so sample.c
+<br class="ltx_break">
+$ smlsharp
+<br class="ltx_break">
+SML# version 1.00 (2012-04-02 JST) for x86-linux
+<br class="ltx_break">
+# val lib = DynamicLink.dlopen "sample.so";
+<br class="ltx_break">
+val lib = _ : lib
+<br class="ltx_break">
+# val fptr = DynamicLink.dlsym(lib, "f");
+<br class="ltx_break">
+val fptr = ptr : unit ptr
+<br class="ltx_break">
+# val f = fptr : _import int -&gt; int;
+<br class="ltx_break">
+val f = _ : int -&gt; int
+<br class="ltx_break">
+# f 3;
+<br class="ltx_break">
+val it = 6 : int</span></span>
+</span>
+</span></span></td>
+</tr>
+</tbody>
+</table>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 10.2: </span>Using dynamic link library</figcaption>
+</figure>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch10.S3.html" title="10.3 Basic examples of importing C functions ‣ Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">10.3 </span>Basic examples of importing C functions</span></a><a href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">11 </span>
+SML# feature: Multithread programming</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Apr  6 18:19:31 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

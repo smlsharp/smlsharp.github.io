@@ -1,0 +1,284 @@
+---
+layout: default
+permalink: /ja/documents/4.0.0/Ch12.S1.html
+translated: true
+lang: ja
+head: |
+ <!--Generated on Tue Apr  6 18:18:13 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on 令和3年4月.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="up up" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="up up up" href="./" title="プログラミング言語SML#解説 4.0.0版">
+ <link rel="start" href="./" title="プログラミング言語SML#解説 4.0.0版">
+ <link rel="prev" href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="next" href="Ch12.S2.html" title="12.2 SML#へのSQL式の導入 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch12.S2.html" title="12.2 SML#へのSQL式の導入 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch12.S3.html" title="12.3 問い合わせの実行 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch12.S4.html" title="12.4 データベース問い合わせ実行例 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch12.S5.html" title="12.5 その他のSQL文 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML#の拡張機能：マルチスレッドプログラミング ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.0.0版">
+title: "12.1 関係データベースとSQL‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.0.0版</div>
+<div>
+<a href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">12 </span>
+SML#の拡張機能：SQLの統合</span></a><a href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">12 </span>
+SML#の拡張機能：SQLの統合</span></a><a href="Ch12.S2.html" title="12.2 SML#へのSQL式の導入 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">12.2 </span>SML#へのSQL式の導入</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">12.1 </span>関係データベースとSQL</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">現在の本格的なデータベースは，関係データモデルを基礎として実装さ
+れた関係データベースです．
+SML#のデータベース連携を理解し使いこなすための準備として，
+まず本節で，関係データベースとSQLの基本を復習しましょう．</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">関係データモデルでは，データを関係の集まりとして表します．
+関係は，人の名前，年齢，給与などの複数の属性の関連を表し，通
+常以下のような属性名をラベルとして持つテーブルで表現します．</p>
+</div>
+<div id="p3" class="ltx_para ltx_align_center">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_th_row ltx_border_l ltx_border_r ltx_border_t">name</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_r ltx_border_t">age</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_r ltx_border_t">salary</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t">”Joe”</th>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t">21</td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t">10000</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t">”Sue”</th>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t">31</td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t">20000</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_b ltx_border_l ltx_border_r ltx_border_t">”Bob”</th>
+<td class="ltx_td ltx_align_center ltx_border_b ltx_border_r ltx_border_t">41</td>
+<td class="ltx_td ltx_align_center ltx_border_b ltx_border_r ltx_border_t">20000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">関係データベースは，これら関係の集まりを操作するシステムです．
+関係<math id="p4.m1" class="ltx_Math" alttext="R" display="inline"><mi>R</mi></math>は，数学的には与えられた領域<math id="p4.m2" class="ltx_Math" alttext="A_{1},A_{2},\cdots,A_{n}" display="inline"><mrow><mi>A</mi><msub><mi></mi><mn>1</mn></msub><mo>,</mo><mi>A</mi><msub><mi></mi><mn>2</mn></msub><mo>,</mo><mi mathvariant="normal">⋯</mi><mo>,</mo><mi>A</mi><msub><mi></mi><mi>n</mi></msub></mrow></math>の
+積集合<math id="p4.m3" class="ltx_Math" alttext="A_{1}\times A_{2}\cdots\times A_{n}" display="inline"><mrow><mi>A</mi><msub><mi></mi><mn>1</mn></msub><mo>×</mo><mi>A</mi><msub><mi></mi><mn>2</mn></msub><mi mathvariant="normal">⋯</mi><mo>×</mo><mi>A</mi><msub><mi></mi><mi>n</mi></msub></mrow></math>の部分集合です．
+関係<math id="p4.m4" class="ltx_Math" alttext="R" display="inline"><mi>R</mi></math>の要素<math id="p4.m5" class="ltx_Math" alttext="t" display="inline"><mi>t</mi></math>は，<math id="p4.m6" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>個のタプル<math id="p4.m7" class="ltx_Math" alttext="(a_{1},\ldots,a_{n})" display="inline"><mrow><mo stretchy="false">(</mo><mi>a</mi><msub><mi></mi><mn>1</mn></msub><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mi>a</mi><msub><mi></mi><mi>n</mi></msub><mo stretchy="false">)</mo></mrow></math>です．
+実際のデータベースでは，タプルのそれぞれの要素にラベルを付け，レコー
+ドとして表現します．
+例えば上のテーブルの１行目の要素は，レコード
+<span class="ltx_text ltx_font_typewriter">{name="Joe", age=21, salary=1000}</span>に対応します．
+これら関係に対して，和集合演算，射影（<math id="p4.m8" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>項関係を<math id="p4.m9" class="ltx_Math" alttext="m(\leq n)" display="inline"><mrow><mi>m</mi><mo stretchy="false">(</mo><mo>≤</mo><mi>n</mi><mo stretchy="false">)</mo></mrow></math>項関
+係に射影），選択（集合の特定の要素の選び出し），デカルト積 <math id="p4.m10" class="ltx_Math" alttext="R\times S" display="inline"><mrow><mi>R</mi><mo>×</mo><mi>S</mi></mrow></math>な
+どの演算が定義されています．
+これら演算系を関係代数と呼びます．
+ここで留意すべき点は，関係モデルはレコードの集合に対する代数的な
+言語である点です．
+代数的な言語は，関数定義を含まない関数型言語です．</p>
+</div>
+<div id="p5" class="ltx_para">
+<p class="ltx_p">関係データベースでは，この関係代数をSQLと呼ばれる集合操作言語で
+表現します．
+SQLの中心は，以下のSELECT式です．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SELECT <math id="p5.m1" class="ltx_Math" alttext="t^{1}.l_{1}" display="inline"><mrow><mi>t</mi><msup><mi></mi><mn mathvariant="normal">1</mn></msup><mo mathvariant="normal">.</mo><mi>l</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math> as <math id="p5.m2" class="ltx_Math" alttext="l_{1}^{\prime}" display="inline"><mrow><mi>l</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub><msup><mi></mi><mo mathvariant="normal">′</mo></msup></mrow></math>,<math id="p5.m3" class="ltx_Math" alttext="\ldots" display="inline"><mi mathvariant="normal">…</mi></math>, <math id="p5.m4" class="ltx_Math" alttext="t^{m}.l_{m}" display="inline"><mrow><mi>t</mi><msup><mi></mi><mi>m</mi></msup><mo mathvariant="normal">.</mo><mi>l</mi><msub><mi></mi><mi>m</mi></msub></mrow></math> as <math id="p5.m5" class="ltx_Math" alttext="l_{m}^{\prime}" display="inline"><mrow><mi>l</mi><msub><mi></mi><mi>m</mi></msub><msup><mi></mi><mo mathvariant="normal">′</mo></msup></mrow></math>
+<br class="ltx_break">
+FROM <math id="p5.m6" class="ltx_Math" alttext="R_{1}" display="inline"><mrow><mi>R</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math> as <math id="p5.m7" class="ltx_Math" alttext="t_{1}" display="inline"><mrow><mi>t</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math>, <math id="p5.m8" class="ltx_Math" alttext="\ldots" display="inline"><mi mathvariant="normal">…</mi></math>, <math id="p5.m9" class="ltx_Math" alttext="R_{n}" display="inline"><mrow><mi>R</mi><msub><mi></mi><mi>n</mi></msub></mrow></math> as <math id="p5.m10" class="ltx_Math" alttext="t_{n}" display="inline"><mrow><mi>t</mi><msub><mi></mi><mi>n</mi></msub></mrow></math>
+<br class="ltx_break">
+WHERE <math id="p5.m11" class="ltx_Math" alttext="P(t_{1},\ldots,t_{n})" display="inline"><mrow><mi>P</mi><mo mathvariant="normal" stretchy="false">(</mo><mi>t</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub><mo mathvariant="normal">,</mo><mi mathvariant="normal">…</mi><mo mathvariant="normal">,</mo><mi>t</mi><msub><mi></mi><mi>n</mi></msub><mo mathvariant="normal" stretchy="false">)</mo></mrow></math></span></p>
+</blockquote>
+<p class="ltx_p">ここでは，以下の約束に従ってメタ変数を使用しています．</p>
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><math id="I1.i1.p1.m1" class="ltx_Math" alttext="R" display="inline"><mi>R</mi></math>：関係を表す式．</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><math id="I1.i2.p1.m1" class="ltx_Math" alttext="t" display="inline"><mi>t</mi></math>：関係の中の一つのレコード要素を代表する変数</p>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p"><math id="I1.i3.p1.m1" class="ltx_Math" alttext="l" display="inline"><mi>l</mi></math>：属性名</p>
+</div>
+</li>
+<li id="I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i4.p1" class="ltx_para">
+<p class="ltx_p"><math id="I1.i4.p1.m1" class="ltx_Math" alttext="t.l" display="inline"><mrow><mi>t</mi><mo>.</mo><mi>l</mi></mrow></math>：<math id="I1.i4.p1.m2" class="ltx_Math" alttext="t" display="inline"><mi>t</mi></math>の中の属性<math id="I1.i4.p1.m3" class="ltx_Math" alttext="l" display="inline"><mi>l</mi></math>の値を表す式．</p>
+</div>
+</li>
+</ul>
+<p class="ltx_p">SELECT式の意味は以下の操作と理解できます．</p>
+<ol id="I2" class="ltx_enumerate">
+<li id="I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="I2.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">FROM</span>節で列挙された関係式<math id="I2.i1.p1.m1" class="ltx_Math" alttext="R_{i}" display="inline"><mrow><mi>R</mi><msub><mi></mi><mi>i</mi></msub></mrow></math>を評価し，デカルト積
+<math id="I2.i1.p1.m2" class="ltx_Math" alttext="R_{1}\times\cdots\times R_{n}" display="inline"><mrow><mi>R</mi><msub><mi></mi><mn>1</mn></msub><mo>×</mo><mi mathvariant="normal">⋯</mi><mo>×</mo><mi>R</mi><msub><mi></mi><mi>n</mi></msub></mrow></math>
+を作る．</p>
+</div>
+</li>
+<li id="I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="I2.i2.p1" class="ltx_para">
+<p class="ltx_p">デカルト積の任意の要素のタプルを<math id="I2.i2.p1.m1" class="ltx_Math" alttext="(t_{1},\ldots,t_{n})" display="inline"><mrow><mo stretchy="false">(</mo><mi>t</mi><msub><mi></mi><mn>1</mn></msub><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mi>t</mi><msub><mi></mi><mi>n</mi></msub><mo stretchy="false">)</mo></mrow></math>とする．</p>
+</div>
+</li>
+<li id="I2.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span> 
+<div id="I2.i3.p1" class="ltx_para">
+<p class="ltx_p">デカルト積から，<span class="ltx_text ltx_font_typewriter">WHERE</span>節で指定された述語<math id="I2.i3.p1.m1" class="ltx_Math" alttext="P(t_{1},\ldots,t_{n})" display="inline"><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>t</mi><msub><mi></mi><mn>1</mn></msub><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mi>t</mi><msub><mi></mi><mi>n</mi></msub><mo stretchy="false">)</mo></mrow></math>を
+満たす要素のみを選び出す．</p>
+</div>
+</li>
+<li id="I2.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">4.</span> 
+<div id="I2.i4.p1" class="ltx_para">
+<p class="ltx_p">上記の結果得られた集合の各要素<math id="I2.i4.p1.m1" class="ltx_Math" alttext="(t_{1},\ldots,t_{n})" display="inline"><mrow><mo stretchy="false">(</mo><mi>t</mi><msub><mi></mi><mn>1</mn></msub><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mi>t</mi><msub><mi></mi><mi>n</mi></msub><mo stretchy="false">)</mo></mrow></math>に対して，
+レコード
+<span class="ltx_text ltx_font_typewriter">{<math id="I2.i4.p1.m2" class="ltx_Math" alttext="l_{1}^{\prime}" display="inline"><mrow><mi>l</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub><msup><mi></mi><mo mathvariant="normal">′</mo></msup></mrow></math>=<math id="I2.i4.p1.m3" class="ltx_Math" alttext="t^{1}.l_{1}" display="inline"><mrow><mi>t</mi><msup><mi></mi><mn mathvariant="normal">1</mn></msup><mo mathvariant="normal">.</mo><mi>l</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math>, <math id="I2.i4.p1.m4" class="ltx_Math" alttext="\ldots" display="inline"><mi mathvariant="normal">…</mi></math>, <math id="I2.i4.p1.m5" class="ltx_Math" alttext="l_{m}^{\prime}" display="inline"><mrow><mi>l</mi><msub><mi></mi><mi>m</mi></msub><msup><mi></mi><mo mathvariant="normal">′</mo></msup></mrow></math>=<math id="I2.i4.p1.m6" class="ltx_Math" alttext="t^{m}.l_{m}" display="inline"><mrow><mi>t</mi><msup><mi></mi><mi>m</mi></msup><mo mathvariant="normal">.</mo><mi>l</mi><msub><mi></mi><mi>m</mi></msub></mrow></math>}</span>
+を構築する．</p>
+</div>
+</li>
+<li id="I2.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">5.</span> 
+<div id="I2.i5.p1" class="ltx_para">
+<p class="ltx_p">それらレコードをすべて集めた集合を，この式全体の結果とする．</p>
+</div>
+</li>
+</ol>
+<p class="ltx_p">例えば，上の例のテーブルを<span class="ltx_text ltx_font_typewriter">Persons</span>とし，以下のSQL式を考えて
+みましょう．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SELECT P.name as name, P.age as age
+<br class="ltx_break">
+FROM Persons as P
+<br class="ltx_break">
+WHERE P.salary &gt; 10000</span></p>
+</blockquote>
+<p class="ltx_p">この問い合わせ式は以下のように評価されます．</p>
+<ul id="I3" class="ltx_itemize">
+<li id="I3.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i1.p1" class="ltx_para">
+<p class="ltx_p">関係<span class="ltx_text ltx_font_typewriter">Persons</span>のみのデカルト積は関係<span class="ltx_text ltx_font_typewriter">Persons</span>それ自身である．</p>
+</div>
+</li>
+<li id="I3.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i2.p1" class="ltx_para">
+<p class="ltx_p">関係<span class="ltx_text ltx_font_typewriter">Persons</span>の任意のタプルを<span class="ltx_text ltx_font_typewriter">P</span>とする．</p>
+</div>
+</li>
+<li id="I3.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">P.Salary &gt; 10000</span>の条件を満たすタプルを選び出し，以下の集合を得
+る．</p>
+</div>
+<div id="I3.i3.p2" class="ltx_para ltx_align_center">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_th_row ltx_border_l ltx_border_r ltx_border_t">name</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_r ltx_border_t">age</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_r ltx_border_t">salary</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t">”Sue”</th>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t">31</td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t">20000</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_b ltx_border_l ltx_border_r ltx_border_t">”Bob”</th>
+<td class="ltx_td ltx_align_center ltx_border_b ltx_border_r ltx_border_t">41</td>
+<td class="ltx_td ltx_align_center ltx_border_b ltx_border_r ltx_border_t">20000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li id="I3.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i4.p1" class="ltx_para">
+<p class="ltx_p">この集合の各要素<span class="ltx_text ltx_font_typewriter">P</span>に対して<span class="ltx_text ltx_font_typewriter">{name=P.name, age=P.age}</span>を
+計算し，以下の集合を得る．</p>
+</div>
+<div id="I3.i4.p2" class="ltx_para ltx_align_center">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_th_row ltx_border_l ltx_border_r ltx_border_t">name</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_r ltx_border_t">age</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t">”Sue”</th>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t">31</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_b ltx_border_l ltx_border_r ltx_border_t">”Bob”</th>
+<td class="ltx_td ltx_align_center ltx_border_b ltx_border_r ltx_border_t">41</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="I3.i4.p3" class="ltx_para">
+<p class="ltx_p">このテーブルは，
+<span class="ltx_text ltx_font_typewriter">{{name="Sue", age=31}, {name="Bob", age=31}}</span>
+のようなレコードのリストの表現と理解できる．</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">12 </span>
+SML#の拡張機能：SQLの統合</span></a><a href="Ch12.S2.html" title="12.2 SML#へのSQL式の導入 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">12.2 </span>SML#へのSQL式の導入</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Apr  6 18:18:13 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

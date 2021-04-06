@@ -1,0 +1,120 @@
+---
+layout: default
+permalink: /en/documents/4.0.0/Ch8.S1.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Tue Apr  6 18:19:31 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Apr, 2021.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="up up" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="up up up" href="./" title="SML# Document Version 4.0.0">
+ <link rel="start" href="./" title="SML# Document Version 4.0.0">
+ <link rel="prev" href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="next" href="Ch8.S2.html" title="8.2 Field selection operation ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch8.S2.html" title="8.2 Field selection operation ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch8.S3.html" title="8.3 Record patterns ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch8.S4.html" title="8.4 Functional record update ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch8.S5.html" title="8.5 Record programming examples ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch8.S6.html" title="8.6 Representing objects ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch8.S7.html" title="8.7 Polymorphic variants ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 Installing SML# ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML# feature: other type system extensions ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 4.0.0">
+title: "8.1 Record expressions‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.0.0"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 4.0.0</div>
+<div>
+<a href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8 </span>SML# feature: record polymorphism</span></a><a href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8 </span>SML# feature: record polymorphism</span></a><a href="Ch8.S2.html" title="8.2 Field selection operation ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8.2 </span>Field selection operation</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">8.1 </span>Record expressions</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">The syntax of record expressions is given below.</p>
+<table id="Ch33.S3.EGx6" class="ltx_equationgroup ltx_eqn_eqnarray ltx_eqn_table">
+
+<tbody id="Ch8.Ex2">
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="Ch8.Ex1.m1" class="ltx_Math" alttext="\displaystyle expr" display="inline"><mrow><mi>e</mi><mi>x</mi><mi>p</mi><mi>r</mi></mrow></math></td>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><math id="Ch8.Ex1.m2" class="ltx_Math" alttext="\displaystyle\mbox{\ \ }::=" display="inline"><mrow><mtext> </mtext><mo>:</mo><mo>:</mo><mo>=</mo></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="Ch8.Ex1.m3" class="ltx_Math" alttext="\displaystyle\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr class="ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><span class="ltx_text ltx_markedasmath"> <math id="Ch8.Ex2.m2.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><span class="ltx_text ltx_markedasmath ltx_font_typewriter">{<math id="Ch8.Ex2.m3.m1" class="ltx_Math" alttext="l_{1}" display="inline"><mrow><mi>l</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math>=<math id="Ch8.Ex2.m3.m2" class="ltx_Math" alttext="expr_{1}" display="inline"><mrow><mi>e</mi><mi>x</mi><mi>p</mi><mi>r</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math>,<math id="Ch8.Ex2.m3.m3" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math>, <math id="Ch8.Ex2.m3.m4" class="ltx_Math" alttext="l_{n}" display="inline"><mrow><mi>l</mi><msub><mi></mi><mi>n</mi></msub></mrow></math>=<math id="Ch8.Ex2.m3.m5" class="ltx_Math" alttext="expr_{n}" display="inline"><mrow><mi>e</mi><mi>x</mi><mi>p</mi><mi>r</mi><msub><mi></mi><mi>n</mi></msub></mrow></math>}</span></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</tbody>
+</table>
+<p class="ltx_p"><math id="p1.m1" class="ltx_Math" alttext="l" display="inline"><mi>l</mi></math> denotes a string called <span class="ltx_text ltx_font_italic">labels</span>.
+Below is a simple record expression.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># val point = {X =0.0, Y=0.0};
+<br class="ltx_break">
+val point = {X = 0.0, Y = 0.0} : {X: real, Y: real}</span></p>
+</blockquote>
+<p class="ltx_p">A record whose labels are consecutive numbers starting with <span class="ltx_text ltx_font_typewriter">1</span> is interpreted as a tuple and printed specially.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># {1 = 1.1, 2 = fn x =&gt; x + 1, 3 = "SML#"};
+<br class="ltx_break">
+val it = (1.1,fn,"SML#") : real * (int -&gt; int) * string
+<br class="ltx_break">
+# (1,2);
+<br class="ltx_break">
+val it = (1,2) : int * int</span></p>
+</blockquote>
+<p class="ltx_p">In Section <a href="Ch7.S8.html" title="7.8 Functions with multiple arguments ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref"><span class="ltx_text ltx_ref_tag">7.8</span></a>, we defined a
+multiple-argument function, namely <span class="ltx_text ltx_font_typewriter">powerUncurry (n,C)</span>.
+This is a function that takes a tuple.</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">Just like lists, record elements can contain values of any
+types.
+A record forming function is therefore polymorphic, as seen in
+the following example.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># fun f x y = {X = x, Y = y};
+<br class="ltx_break">
+val f = fn : [’a. ’a -&gt; [’b. ’b -&gt; {X: ’a, Y: ’b}]]
+<br class="ltx_break">
+# fun g x y = (x, y);
+<br class="ltx_break">
+val g = fn : [’a. ’a -&gt; [’b. ’b -&gt; ’a * ’b]]</span></p>
+</blockquote>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8 </span>SML# feature: record polymorphism</span></a><a href="Ch8.S2.html" title="8.2 Field selection operation ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8.2 </span>Field selection operation</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Apr  6 18:19:31 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

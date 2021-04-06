@@ -1,0 +1,195 @@
+---
+layout: default
+permalink: /en/documents/4.0.0/Ch11.S1.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Tue Apr  6 18:19:31 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Apr, 2021.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="up up" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="up up up" href="./" title="SML# Document Version 4.0.0">
+ <link rel="start" href="./" title="SML# Document Version 4.0.0">
+ <link rel="prev" href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="next" href="Ch11.S2.html" title="11.2 Fine-grain multithread programming with MassiveThreads ‣ Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch11.S2.html" title="11.2 Fine-grain multithread programming with MassiveThreads ‣ Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 Installing SML# ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML# feature: other type system extensions ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 4.0.0">
+title: "11.1 Programming with Pthreads‣ Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 4.0.0</div>
+<div>
+<a href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">11 </span>
+SML# feature: Multithread programming</span></a><a href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">11 </span>
+SML# feature: Multithread programming</span></a><a href="Ch11.S2.html" title="11.2 Fine-grain multithread programming with MassiveThreads ‣ Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">11.2 </span>Fine-grain multithread programming with MassiveThreads</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">11.1 </span>Programming with Pthreads</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">SML# provides the <span class="ltx_text ltx_font_typewriter">Pthread</span> structure that is a direct
+binding of the Pthread library in SML#.
+The <span class="ltx_text ltx_font_typewriter">pthread_create</span> and <span class="ltx_text ltx_font_typewriter">pthread_join</span> functions,
+which creates and join a thread, respectively, are provided as the
+following SML# functions:</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">Pthread.Thread.create : (unit -&gt; int) -&gt; Pthread.thread
+<br class="ltx_break">
+Pthread.Thread.join : Pthread.thread -&gt; int</span></p>
+</blockquote>
+<p class="ltx_p">The following is a simple example that computes
+<span class="ltx_text ltx_font_typewriter">fib 42</span> in a different thread.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># fun fib 0 = 0 | fib 1 = 1 | fib n = fib (n - 1) + fib (n - 2);
+<br class="ltx_break">
+val fib = fn : int -&gt; int
+<br class="ltx_break">
+# val t = Pthread.Thread.create (fn _ =&gt; fib 42);
+<br class="ltx_break">
+val t = ptr : Pthread.thread
+<br class="ltx_break">
+# Pthread.Thread.join t;
+<br class="ltx_break">
+val it = 267914296 : int</span></p>
+</blockquote>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">The SML# runtime system for direct C interface is
+carefully designed so that SML# functions can be passed to a C
+function as call-back functions and can be called back from a C function
+running in a thread that is different from the one that originally calls
+the C function.
+Using this features, the programmer can enjoy multi-thread
+programming simply by importing the Pthread library.
+To do this, we define the type</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">type pthread_t = unit ptr</span></p>
+</blockquote>
+<p class="ltx_p">for Pthread handles.
+<math id="p2.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> ptr</span> is a built-in type for C pointers;
+<span class="ltx_text ltx_font_typewriter">unit ptr</span> corresponds to <span class="ltx_text ltx_font_typewriter">void*</span> type in C.
+</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">The thread creation function, <span class="ltx_text ltx_font_typewriter">pthread_create</span>, is then
+imported by the following declaration.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val pthread_create =
+<br class="ltx_break">
+    _import "pthread_create"
+<br class="ltx_break">
+    : (pthread_t ref, unit ptr, unit ptr -&gt; unit ptr, unit ptr) -&gt; int</span></p>
+</blockquote>
+<p class="ltx_p">Using this, we can write a function <span class="ltx_text ltx_font_typewriter">spawn</span> that creates a
+thread as follows.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">fun spawn f =
+<br class="ltx_break">
+    let
+<br class="ltx_break">
+      val r = ref (Pointer.NULL ())
+<br class="ltx_break">
+    in
+<br class="ltx_break">
+      pthread_create (r,
+<br class="ltx_break">
+                      Pointer.NULL (),
+<br class="ltx_break">
+                      fn _ =&gt; (f () : unit; Pointer.NULL ()),
+<br class="ltx_break">
+                      Pointer.NULL ());
+<br class="ltx_break">
+      !r
+<br class="ltx_break">
+    end</span></p>
+</blockquote>
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">Pointer.NULL ()</span> return s the <span class="ltx_text ltx_font_typewriter">NULL</span> pointer in C.</p>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">Similarly, <span class="ltx_text ltx_font_typewriter">pthread_join</span> is imported and used to define a
+function <span class="ltx_text ltx_font_typewriter">join</span> that waits for the termination of a created thread.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val pthread_join =
+<br class="ltx_break">
+    _import "pthread_join"
+<br class="ltx_break">
+    : (pthread_t, unit ptr ref) -&gt; int
+<br class="ltx_break">
+fun join t =
+<br class="ltx_break">
+    (pthread_join (t, ref (Pointer.NULL ())); ())</span></p>
+</blockquote>
+</div>
+<div id="p5" class="ltx_para">
+<p class="ltx_p">Using these functions, we can write the same program as
+shown at the beginning of this section.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># fun fib 0 = 0 | fib 1 = 1 | fib n = fib (n - 1) + fib (n - 2);
+<br class="ltx_break">
+val fib = fn : int -&gt; int
+<br class="ltx_break">
+# val r = ref 0;
+<br class="ltx_break">
+val r = ref 0 : int ref
+<br class="ltx_break">
+# fun g () = r := fib 42;
+<br class="ltx_break">
+val g = unit -&gt; unit
+<br class="ltx_break">
+# val t = spawn g;
+<br class="ltx_break">
+val t = ptr : unit ptr
+<br class="ltx_break">
+# join t;
+<br class="ltx_break">
+val it = () : unit
+<br class="ltx_break">
+# !r;
+<br class="ltx_break">
+val it = 267914296 : int</span></p>
+</blockquote>
+<p class="ltx_p">Note that it is dengerous to replace the line</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># val t = spawn g;</span></p>
+</blockquote>
+<p class="ltx_p">with</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># val t = spawn (fn () =&gt; r := fib 42);</span></p>
+</blockquote>
+<p class="ltx_p">because the garbage collector may collect the closure generated by
+the function expression before the function is called in another thread.
+See Section <a href="Ch29.S2.html" title="29.2 Effect of garbage collection ‣ Chapter 29 SML# Run-time data management ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref"><span class="ltx_text ltx_ref_tag">29.2</span></a> for details.</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">11 </span>
+SML# feature: Multithread programming</span></a><a href="Ch11.S2.html" title="11.2 Fine-grain multithread programming with MassiveThreads ‣ Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">11.2 </span>Fine-grain multithread programming with MassiveThreads</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Apr  6 18:19:31 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

@@ -1,0 +1,140 @@
+---
+layout: default
+permalink: /ja/documents/4.0.0/Ch9.S2.html
+translated: true
+lang: ja
+head: |
+ <!--Generated on Tue Apr  6 18:18:13 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on 令和3年4月.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch9.html" title="Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="up up" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="up up up" href="./" title="プログラミング言語SML#解説 4.0.0版">
+ <link rel="start" href="./" title="プログラミング言語SML#解説 4.0.0版">
+ <link rel="prev" href="Ch9.S1.html" title="9.1 ランク１多相性 ‣ Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="next" href="Ch9.S3.html" title="9.3 第一級オーバーローディング ‣ Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch9.S1.html" title="9.1 ランク１多相性 ‣ Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch9.S3.html" title="9.3 第一級オーバーローディング ‣ Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML#の拡張機能：マルチスレッドプログラミング ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.0.0版">
+title: "9.2 ランク１多相性による値多相性制約の緩和 ‣ Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.0.0版</div>
+<div>
+<a href="Ch9.html" title="Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">9 </span>SML#の拡張機能：その他の型の拡張</span></a><a href="Ch9.S1.html" title="9.1 ランク１多相性 ‣ Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">9.1 </span>ランク１多相性</span></a><a href="Ch9.S3.html" title="9.3 第一級オーバーローディング ‣ Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">9.3 </span>
+第一級オーバーローディング</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">9.2 </span>ランク１多相性による値多相性制約の緩和
+</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">MLの多相型システムは，第<a href="Ch7.S13.html" title="7.13 変更可能なメモリーセルを表す参照型 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">7.13</span></a>節で学んだ手続き的
+機能を導入すると，整合性が崩れることが知られています．
+例えば参照型構成子<span class="ltx_text ltx_font_typewriter">ref</span>は，任意に型の参照を作ることができる
+ので，MLの型システムの原則に従いナイーブに導入すると，以下のような多相
+型を持つように思います．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val ref : [’a. ’a -&gt; ’a ref]
+<br class="ltx_break">
+val := : [’a. ’a ref * ’a -&gt; unit]</span></p>
+</blockquote>
+<p class="ltx_p">しかし，この型付けのもとでMLの型推論を実行すると，以下のようなコー
+ドが書けてしまい，型システムが破壊されていまいます．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val idref = ref (fn x =&gt; x);
+<br class="ltx_break">
+val _ = idref := (fn x =&gt; x + 1);
+<br class="ltx_break">
+val _ = !idref "wrong"</span></p>
+</blockquote>
+<p class="ltx_p">まず１行目で<span class="ltx_text ltx_font_typewriter">idref</span>の型が<span class="ltx_text ltx_font_typewriter">[’a.?(’a -&gt; ’a) ref]</span>と推理さ
+れます．
+この型は<span class="ltx_text ltx_font_typewriter">(int -&gt; int) ref</span>としても使用できる型です．
+また，代入演算子<span class="ltx_text ltx_font_typewriter">:=</span>も多相型を持ちますから
+<span class="ltx_text ltx_font_typewriter">(int -&gt; int) ref</span>型と<span class="ltx_text ltx_font_typewriter">int -&gt; int</span>型を受け取ることができます．
+従って２行目の型が正しく受け付けられ実行されます．
+この時<span class="ltx_text ltx_font_typewriter">idref</span>の値は<span class="ltx_text ltx_font_typewriter">int -&gt; int</span>の値への参照に変更されて
+いますが，その型は以前のまま<span class="ltx_text ltx_font_typewriter">[’a. (’a -&gt; ’a) ref]</span>です．
+従って３行目の型が正しく，実行されてしまいますが，その結果は，算
+術演算が文字列に適用され実行時型エラーとなります．</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">この問題を避けるために，MLでは，</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p">多相型を持ち得る式は値式に限る</p>
+</blockquote>
+<p class="ltx_p">という値多相性制約が導入されています．
+値式とは，計算が実行されない式のことであり，定数や変数，関数式
+<span class="ltx_text ltx_font_typewriter">fn x =&gt; x</span>，それらの組などです．
+関数呼び出しを行う式は値式ではありません．
+たとえば，<span class="ltx_text ltx_font_typewriter">ref (fn x =&gt; x)</span>はプリミティブ<span class="ltx_text ltx_font_typewriter">ref</span>が呼び
+出されますから値式ではありません．
+この制約によって，関数呼び出しの結果に多相型を与えることが禁止さ
+れます．
+これによって，参照を作り内部に参照を含む<span class="ltx_text ltx_font_typewriter">ref (fn x =&gt; x)</span>の
+ような式は多相型を持てなくなり，上記の不整合が避けられます．</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">SML#もこの制約に従っています．
+しかし，SML#では，多相型が組の要素や関数の結果などの部分式
+にも与えることができるため，この値式制約が限定されたものとなり，ユーザに
+とって大幅にその制約が緩和される効果があります．
+例えば以下の関数定義と関数適用をみてみましょう．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val f = fn x =&gt; fn y =&gt; (x, ref y)
+<br class="ltx_break">
+val g = f 1</span></p>
+</blockquote>
+<p class="ltx_p">Standard MLの型システムでは，関数<span class="ltx_text ltx_font_typewriter">f</span>には</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val f = _ : [’a, ’b. ’a -&gt; ’b -&gt; ’a * ’b ref]</span></p>
+</blockquote>
+<p class="ltx_p">のような多相型があたえられますが，この関数の適用<span class="ltx_text ltx_font_typewriter">f 1</span>の結果に現れる
+型変数を再び束縛することは値多相性制約に反しますので，<span class="ltx_text ltx_font_typewriter">g</span>には多相型
+を与えることができません．
+これに対してSML#では，ランク１多相性により，この関数に以
+下の型が推論されます．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val f = _ : [’a. ’a -&gt; [’b. ’b -&gt; ’a * ’b ref]]</span></p>
+</blockquote>
+<p class="ltx_p">この結果の型に対して推論された多相型は，関数適用の前に推論された
+ものであり，関数適用の結果に対して推論されたものではありません．
+従って，関数適用の結果はその多相型に<span class="ltx_text ltx_font_typewriter">’a</span>の実際の値が代入され
+た以下のような多相型となります．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val g = _ : [’a. ’b -&gt; int * ’b ref]</span></p>
+</blockquote>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch9.S1.html" title="9.1 ランク１多相性 ‣ Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">9.1 </span>ランク１多相性</span></a><a href="Ch9.S3.html" title="9.3 第一級オーバーローディング ‣ Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">9.3 </span>
+第一級オーバーローディング</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Apr  6 18:18:13 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

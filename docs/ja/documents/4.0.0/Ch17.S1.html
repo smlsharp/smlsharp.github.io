@@ -1,0 +1,109 @@
+---
+layout: default
+permalink: /ja/documents/4.0.0/Ch17.S1.html
+translated: true
+lang: ja
+head: |
+ <!--Generated on Tue Apr  6 18:18:13 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on 令和3年4月.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch17.html" title="Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="up up" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="up up up" href="./" title="プログラミング言語SML#解説 4.0.0版">
+ <link rel="start" href="./" title="プログラミング言語SML#解説 4.0.0版">
+ <link rel="prev" href="Ch17.html" title="Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="next" href="Ch17.S2.html" title="17.2 字句集合 ‣ Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch17.S2.html" title="17.2 字句集合 ‣ Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch15.html" title="Chapter 15 序論 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch16.html" title="Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch17.html" title="Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch18.html" title="Chapter 18 型 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch19.html" title="Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch20.html" title="Chapter 20 パターンとパターンマッチング ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch21.html" title="Chapter 21 識別子のスコープ規則 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch22.html" title="Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch23.html" title="Chapter 23 核言語の宣言とインターフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch24.html" title="Chapter 24 モジュール言語の宣言とインタフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch25.html" title="Chapter 25 SML#のライブラリ概要 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch26.html" title="Chapter 26 Standard ML標準ライブラリ ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch27.html" title="Chapter 27 SML#システムライブラリ ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch28.html" title="Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch29.html" title="Chapter 29 SML#実行時データ管理 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.0.0版">
+title: "17.1 文字集合‣ Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.0.0版</div>
+<div>
+<a href="Ch17.html" title="Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">17 </span>字句構造</span></a><a href="Ch17.html" title="Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">17 </span>字句構造</span></a><a href="Ch17.S2.html" title="17.2 字句集合 ‣ Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">17.2 </span>字句集合</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">17.1 </span>文字集合</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">SML#言語で使用できる文字は，十進数で<math id="p1.m1" class="ltx_Math" alttext="0" display="inline"><mn>0</mn></math>から<math id="p1.m2" class="ltx_Math" alttext="255" display="inline"><mrow><mn>2</mn><mn>5</mn><mn>5</mn></mrow></math>までの拡
+張ASCII文字である．
+文字の中で，十進数で<math id="p1.m3" class="ltx_Math" alttext="0" display="inline"><mn>0</mn></math>から<math id="p1.m4" class="ltx_Math" alttext="127" display="inline"><mrow><mn>1</mn><mn>2</mn><mn>7</mn></mrow></math>までのASCII文字は，SML#言
+語の予約語や区切り記号として使用される．
+これら予約語や区切り記号と重ならない限り，十進数で<math id="p1.m5" class="ltx_Math" alttext="128" display="inline"><mrow><mn>1</mn><mn>2</mn><mn>8</mn></mrow></math>から<math id="p1.m6" class="ltx_Math" alttext="255" display="inline"><mrow><mn>2</mn><mn>5</mn><mn>5</mn></mrow></math>
+までの８ビットバイトを含む文字を識別子として使用できる．
+この機能により，UTF-8でエンコードされた日本語を識別子とし
+使用できる．
+以下の対話型セッションは，日本語を使用したプログラム例である．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ smlsharp
+<br class="ltx_break">
+SML# 4.0.0 ...
+<br class="ltx_break">
+# datatype メンバー =
+
+<br class="ltx_break">
+&gt;    研究員 of {氏名:string, 年齢:int, 学位:string}
+
+<br class="ltx_break">
+&gt; | 職員 of {氏名:string, 年齢:int};
+
+<br class="ltx_break">
+datatype メンバー =
+
+<br class="ltx_break">
+    研究員 of {学位:string, 年齢:int, 氏名:string}
+
+<br class="ltx_break">
+  | 職員 of {年齢:int, 氏名:string}
+
+<br class="ltx_break">
+# 研究員 {学位="Ph.D.", 年齢=21, 氏名="大堀"};
+
+<br class="ltx_break">
+val it =
+
+<br class="ltx_break">
+  研究員 {学位 = "Ph.D.",年齢 = 21,氏名 = "大堀"} : メンバー</span></p>
+</blockquote>
+<p class="ltx_p">日本語のShift_JISコードなどのような，十進数<math id="p1.m7" class="ltx_Math" alttext="0" display="inline"><mn>0</mn></math>から<math id="p1.m8" class="ltx_Math" alttext="127" display="inline"><mrow><mn>1</mn><mn>2</mn><mn>7</mn></mrow></math>までのバ
+イトが現れるエンコーディングを使用した場合の動作は未定義である．
+</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch17.html" title="Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">17 </span>字句構造</span></a><a href="Ch17.S2.html" title="17.2 字句集合 ‣ Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">17.2 </span>字句集合</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Apr  6 18:18:13 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

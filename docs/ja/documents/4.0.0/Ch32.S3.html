@@ -1,0 +1,433 @@
+---
+layout: default
+permalink: /ja/documents/4.0.0/Ch32.S3.html
+translated: true
+lang: ja
+head: |
+ <!--Generated on Tue Apr  6 18:18:13 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on 令和3年4月.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch32.html" title="Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="up up" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="up up up" href="./" title="プログラミング言語SML#解説 4.0.0版">
+ <link rel="start" href="./" title="プログラミング言語SML#解説 4.0.0版">
+ <link rel="prev" href="Ch32.S2.html" title="32.2 SML# ソースツリー ‣ Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="next" href="Ch32.S4.html" title="32.4 basisディレクトリ ‣ Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch32.S1.html" title="32.1 ソースパッケージの構成 ‣ Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch32.S2.html" title="32.2 SML# ソースツリー ‣ Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch32.S4.html" title="32.4 basisディレクトリ ‣ Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch31.html" title="Chapter 31 序文 ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch32.html" title="Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch33.html" title="Chapter 33 コンパイラの制御構造 ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.0.0版">
+title: "32.3   compilerディレクトリ ‣ Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.0.0版"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.0.0版</div>
+<div>
+<a href="Ch32.html" title="Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">32 </span>SML#ソースパッケージ</span></a><a href="Ch32.S2.html" title="32.2 SML# ソースツリー ‣ Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">32.2 </span>SML# ソースツリー</span></a><a href="Ch32.S4.html" title="32.4 basisディレクトリ ‣ Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">32.4 </span>
+<span class="ltx_text ltx_font_typewriter">basis</span>ディレクトリ</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">32.3 </span>
+<span class="ltx_text ltx_font_typewriter">compiler</span>ディレクトリ
+</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">これらの中で<span class="ltx_text ltx_font_typewriter">compiler</span>ディレクトリはさらに階層化されている．
+</p>
+</div>
+<div id="p2" class="ltx_para">
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">ディレクトリ</p>
+<ul id="I1.i1.I1" class="ltx_itemize">
+<li id="I1.i1.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="I1.i1.I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">compilePhases/</span> : コンパイルフェーズ</p>
+</div>
+<div id="I1.i1.I1.i1.p2" class="ltx_para">
+<table class="ltx_tabular ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">bitmapcompilation/</span></td>
+<td class="ltx_td ltx_align_left">ビットマップ生成</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">cconvcompile/</span></td>
+<td class="ltx_td ltx_align_left">コーリングコンベンションコンパイル</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">closureconversion/</span></td>
+<td class="ltx_td ltx_align_left">クロージャ変換</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">datatypecompilation/</span></td>
+<td class="ltx_td ltx_align_left">データ型コンパイル</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">elaborate/</span></td>
+<td class="ltx_td ltx_align_left">構文論的評価</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">fficompilation/</span></td>
+<td class="ltx_td ltx_align_left">Ｃ言語連携コンパイル</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">llvmemit/</span></td>
+<td class="ltx_td ltx_align_left">LLVMコードエミッション</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">llvmgen/</span></td>
+<td class="ltx_td ltx_align_left">LLVMコード生成</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">loadfile/</span></td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">machinecodegen/</span></td>
+<td class="ltx_td ltx_align_left">低レベルコード生成</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">main/</span></td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">matchcompilation/</span></td>
+<td class="ltx_td ltx_align_left">パターンマッチングコンパイル</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">nameevaluation/</span></td>
+<td class="ltx_td ltx_align_left">名前評価とモジュールコンパイル</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">parser/</span></td>
+<td class="ltx_td ltx_align_left">構文解析</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">recordcalcoptimization/</span></td>
+<td class="ltx_td ltx_align_left">型付きレコード計算最適化処理</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">recordcompilation/</span></td>
+<td class="ltx_td ltx_align_left">型主導レコードコンパイル</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">stackallocation/</span></td>
+<td class="ltx_td ltx_align_left">スタックフレーム割り当て</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">toplevel/</span></td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">typedcalcoptimization/</span></td>
+<td class="ltx_td ltx_align_left">型付き中間言語最適化</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">typedelaboration/</span></td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">typeinference/</span></td>
+<td class="ltx_td ltx_align_left">型推論，カリー関数最適化</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">valrecoptimization/</span></td>
+<td class="ltx_td ltx_align_left">相互再帰的関数最適化処理</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li id="I1.i1.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="I1.i1.I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">compilerIRs/</span> : コンパイラ中間表現</p>
+</div>
+<div id="I1.i1.I1.i2.p2" class="ltx_para">
+<table class="ltx_tabular ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">absyn/</span></td>
+<td class="ltx_td ltx_align_left">抽象構文木</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">anormal/</span></td>
+<td class="ltx_td ltx_align_left">A-normal中間言語</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">bitmapcalc/</span></td>
+<td class="ltx_td ltx_align_left">ビットマップを明示した中間言語</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">closurecalc/</span></td>
+<td class="ltx_td ltx_align_left">クロージャ生成を明示した中間言語</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">idcalc/</span></td>
+<td class="ltx_td ltx_align_left">スコープ規則を持たない中間言語</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">llvmir/</span></td>
+<td class="ltx_td ltx_align_left">LLVM 中間表現</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">machinecode/</span></td>
+<td class="ltx_td ltx_align_left">レジスタトランスファ言語</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">patterncalc/</span></td>
+<td class="ltx_td ltx_align_left">型無し中間表現</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">recordcalc/</span></td>
+<td class="ltx_td ltx_align_left">多相型レコード計算</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">runtimecalc/</span></td>
+<td class="ltx_td ltx_align_left">低レベル中間言語</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">typedcalc/</span></td>
+<td class="ltx_td ltx_align_left">型付き中間言語</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">typedlambda/</span></td>
+<td class="ltx_td ltx_align_left">型付きラムダ計算</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li id="I1.i1.I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="I1.i1.I1.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">data/</span> : 型や定数などのデータ</p>
+</div>
+<div id="I1.i1.I1.i3.p2" class="ltx_para">
+<table class="ltx_tabular ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">builtin/</span></td>
+<td class="ltx_td ltx_align_left">コンパイラ組込みデータ</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">constantterm/</span></td>
+<td class="ltx_td ltx_align_left">定数定義</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">control/</span></td>
+<td class="ltx_td ltx_align_left">コンパイラの動作パラメタ</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">name/</span></td>
+<td class="ltx_td ltx_align_left">実行コードラベル</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">runtimetypes/</span></td>
+<td class="ltx_td ltx_align_left">実行時型</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">symbols/</span></td>
+<td class="ltx_td ltx_align_left">変数，ラベル等の表現</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">types/</span></td>
+<td class="ltx_td ltx_align_left">型表現</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li id="I1.i1.I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="I1.i1.I1.i4.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">extensions/</span> : 種々のコンパイル機能</p>
+</div>
+<div id="I1.i1.I1.i4.p2" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">concurrencysupport/</span></th>
+<td class="ltx_td ltx_align_left">並列スレッドサポート</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">debug/</span></th>
+<td class="ltx_td ltx_align_left">デバッグ機能</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">foreach/</span></th>
+<td class="ltx_td ltx_align_left">超並列<span class="ltx_text ltx_font_typewriter">_foreach</span>構文サポート</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">format-utils/</span></th>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">smlforma</span>用フォーマッタライブラリ</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">json/</span></th>
+<td class="ltx_td ltx_align_left">JSONサポート</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">reflection/</span></th>
+<td class="ltx_td ltx_align_left">コンパイル時のレフレクションサポート</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">usererror/</span></th>
+<td class="ltx_td ltx_align_left">コンパイラエラー処理</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">userlevelprimitive/</span></th>
+<td class="ltx_td ltx_align_left">ユーザコードによるコンパイラ拡張機能</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li id="I1.i1.I1.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="I1.i1.I1.i5.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">libs/</span> : コンパイラが使用するライブラリ</p>
+</div>
+<div id="I1.i1.I1.i5.p2" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row">
+<span class="ltx_text ltx_font_typewriter">digest/</span>&amp;
+SHAハッシュライブラリ</th>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">env/</span></th>
+<td class="ltx_td ltx_align_left">辞書ユーテリティ</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">heapdump/</span></th>
+<td class="ltx_td ltx_align_left">実行時ヒープイメージダンプ関数</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">ids/</span></th>
+<td class="ltx_td ltx_align_left">カウンタユーテリティ</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">interactivePrinter/</span></th>
+<td class="ltx_td ltx_align_left">対話型プリンタ</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">list-utils/</span></th>
+<td class="ltx_td ltx_align_left">リストユーティリティ</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">toolchain/</span></th>
+<td class="ltx_td ltx_align_left">UNIX toolchain コマンド</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">util/</span></th>
+<td class="ltx_td ltx_align_left">各種ユーティリティ関数</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">ファイル</p>
+</div>
+<div id="I1.i2.p2" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">minismlsharp.smi</span></th>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">minismlsharp</span>のインタフェイスファイル</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">minismlsharp.sml</span></th>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">smlsharp</span>のコンパイル用コンパイラトップレベル</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">smlsharp.smi</span></th>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">smlsharp</span>のインタフェイスファイル</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">smlsharp.sml</span></th>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">smlsharp</span>トップレベル</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">compiler</span>のサブディレクトリを含む各ディレクトリは，
+<span class="ltx_text ltx_font_typewriter">main</span>サブディレクトリを含み，このディレクトリ以下にソースファイル
+が置かれている．
+従って，例えば抽象構文木のソースファイルは
+<span class="ltx_text ltx_font_typewriter">compilerIRs/absyn/main/</span>下に置かれている．
+ソースファイルには，拡張子<span class="ltx_text ltx_font_typewriter">.sml</span>を持つプログラムファイルと
+拡張子<span class="ltx_text ltx_font_typewriter">.smi</span>を持つ同名のインターフェイスファイルが含まれる．</p>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">これに加えて，以下の拡張子を持つファイルは，ソースファイルを生成
+ツールの入力ファイルである．
+</p>
+</div>
+<div id="p5" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">.ppg</span></th>
+<td class="ltx_td ltx_align_left">プリンターコード自動生成器<span class="ltx_text ltx_font_typewriter">smlformat</span>の入力ファイル．</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">.grm</span></th>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">smlyacc</span>の入力ファイル．</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">.lex</span></th>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">smllex</span>の入力ファイル．</td>
+</tr>
+</tbody>
+</table>
+<p class="ltx_p">これらファイル名に<span class="ltx_text ltx_font_typewriter">.smi</span>が付加したインターフェイスファイル
+は，自動生成されたソースファイルのインタフェイス記述である．
+</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch32.S2.html" title="32.2 SML# ソースツリー ‣ Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">32.2 </span>SML# ソースツリー</span></a><a href="Ch32.S4.html" title="32.4 basisディレクトリ ‣ Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">32.4 </span>
+<span class="ltx_text ltx_font_typewriter">basis</span>ディレクトリ</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Apr  6 18:18:13 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

@@ -1,0 +1,178 @@
+---
+layout: default
+permalink: /ja/documents/4.0.0/Ch8.S6.html
+translated: true
+lang: ja
+head: |
+ <!--Generated on Tue Apr  6 18:18:13 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on 令和3年4月.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch8.html" title="Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="up up" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="up up up" href="./" title="プログラミング言語SML#解説 4.0.0版">
+ <link rel="start" href="./" title="プログラミング言語SML#解説 4.0.0版">
+ <link rel="prev" href="Ch8.S5.html" title="8.5 レコードプログラミング例 ‣ Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="next" href="Ch8.S7.html" title="8.7 多相バリアントの表現 ‣ Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch8.S1.html" title="8.1 レコード構文 ‣ Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch8.S2.html" title="8.2 フィールド取り出し演算 ‣ Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch8.S3.html" title="8.3 レコードパターン ‣ Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch8.S4.html" title="8.4 フィールドの変更 ‣ Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch8.S5.html" title="8.5 レコードプログラミング例 ‣ Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch8.S7.html" title="8.7 多相バリアントの表現 ‣ Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML#の拡張機能：マルチスレッドプログラミング ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.0.0版">
+title: "8.6 オブジェクトの表現‣ Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.0.0版</div>
+<div>
+<a href="Ch8.html" title="Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8 </span>SML#の拡張機能：レコード多相性</span></a><a href="Ch8.S5.html" title="8.5 レコードプログラミング例 ‣ Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8.5 </span>レコードプログラミング例</span></a><a href="Ch8.S7.html" title="8.7 多相バリアントの表現 ‣ Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8.7 </span>多相バリアントの表現</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">8.6 </span>オブジェクトの表現</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">レコードは種々のデータ構造の定義の基本であり，データベースや
+オブジェクト指向プログラミングなどで使われています．
+第<a href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12</span></a>章で詳しく説明する通り，多相レコー
+ド操作を基本に，データベースの問い合わせ言語SQLを完全な形でML言語内にシー
+ムレスに取り込むことができます．
+オブジェクト指向プログラミングに関しては，計算モデルが異なるため，
+その機能を完全に表現することはできませんが，オブジェクトの操作に関しては，
+多相型レコードで表現できます．</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">オブジェクトは，状態を持ち，メソッドセレクタをメッセージとして受
+け取り，オブジェクトの属するクラスの対応するメソッドを起動し状態を更新し
+ます．
+クラスは，メッセージによって選び出されるメソッド集合ですから，関
+数のレコードで表現できます．
+各メソッド関数は，オブジェクト状態を受け取りそれを更新するコード
+です．
+例えば，
+<span class="ltx_text ltx_font_typewriter">X</span>座標，
+<span class="ltx_text ltx_font_typewriter">Y</span>座標，
+<span class="ltx_text ltx_font_typewriter">Color</span>属性
+を持ち得る
+<span class="ltx_text ltx_font_typewriter">pointClass</span>
+のオブジェクト表現を考えてみましょう．
+オブジェクトは，例えば<span class="ltx_text ltx_font_typewriter">{X = 1.1, Y = 2.2}</span>のようなレコード
+への参照を内部に持つとします．
+すると，各メソッドはこのオブジェクトを<span class="ltx_text ltx_font_typewriter">self</span>として受け取り更
+新する関数と表現できます．
+例えば<span class="ltx_text ltx_font_typewriter">X</span>座標に新しい値をセットするメソッドは，以下のように
+コードできます．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># fn self =&gt; fn x =&gt; self := (!self # {X = x});
+<br class="ltx_break">
+val it = fn : [’a#{X: ’b}, ’b. ’a ref -&gt; ’b -&gt; unit]</span></p>
+</blockquote>
+<p class="ltx_p">このメソッドは，<span class="ltx_text ltx_font_typewriter">X</span>を含む任意のオブジェクトに適用できます．
+これらメソッドにメソッド名を付けてレコードにしたものをクラスと考
+えます．
+例えば，<span class="ltx_text ltx_font_typewriter">pointClass</span>は以下のように定義できます．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val pointClass =
+<br class="ltx_break">
+    {
+<br class="ltx_break">
+      getX = fn self =&gt; #X (!self),
+<br class="ltx_break">
+      setX = fn self =&gt; fn x =&gt; self := (!self # {X = x}),
+<br class="ltx_break">
+      getY = fn self =&gt; #Y (!self),
+<br class="ltx_break">
+      setY = fn self =&gt; fn x =&gt; self := (!self # {Y = x}),
+<br class="ltx_break">
+      getColor = fn self =&gt; #Color (!self),
+<br class="ltx_break">
+      setColor = fn self =&gt; fn x =&gt; self := (!self # {Color = x})
+<br class="ltx_break">
+    }</span></p>
+</blockquote>
+<p class="ltx_p">オブジェクトは，メッセージを受け取り，このクラスの中からメソッド
+スイートの中から，対応する関数を選択し自分の状態に適用する関数です．
+関数を値として使用できるMLでは，以下のようにコードできます．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">local
+<br class="ltx_break">
+  val state = ref {X = 0.0, Y = 0.0}
+<br class="ltx_break">
+in 
+<br class="ltx_break">
+  val myPoint = fn method =&gt; method pointClass state
+<br class="ltx_break">
+end</span></p>
+</blockquote>
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">Color</span>属性をもつオブジェクトも同様です．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">local
+<br class="ltx_break">
+  val state = ref {X = 0.0, Y = 0.0, Color = "Red"}
+<br class="ltx_break">
+in 
+<br class="ltx_break">
+  val myColorPoint = fn method =&gt; method pointClass state
+<br class="ltx_break">
+end</span></p>
+</blockquote>
+<p class="ltx_p">この定義の下で，以下のようなオブジェクト指向スタイルのコーディン
+グが可能です．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># myPoint # setX 1.0;
+<br class="ltx_break">
+val it = () : unit
+<br class="ltx_break">
+# myPoint # getX;
+<br class="ltx_break">
+val it = 1.0 : real
+<br class="ltx_break">
+# myColorPoint # getX;
+<br class="ltx_break">
+val it = 0.0 : real
+<br class="ltx_break">
+# myColorPoint # getColor;
+<br class="ltx_break">
+val it = "Red" : string
+<br class="ltx_break">
+# myPoint # getColor;
+<br class="ltx_break">
+(interactive):15.1-15.12 Error:
+<br class="ltx_break">
+  (type inference 007) operator and operand don’t agree
+<br class="ltx_break">
+  ...</span></p>
+</blockquote>
+<p class="ltx_p">最後の例のように，完全な静的な型チェックも保証されています．
+</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch8.S5.html" title="8.5 レコードプログラミング例 ‣ Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8.5 </span>レコードプログラミング例</span></a><a href="Ch8.S7.html" title="8.7 多相バリアントの表現 ‣ Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8.7 </span>多相バリアントの表現</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Apr  6 18:18:13 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

@@ -1,0 +1,159 @@
+---
+layout: default
+permalink: /en/documents/4.0.0/Ch6.S4.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Tue Apr  6 18:19:31 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Apr, 2021.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch6.html" title="Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="up up" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="up up up" href="./" title="SML# Document Version 4.0.0">
+ <link rel="start" href="./" title="SML# Document Version 4.0.0">
+ <link rel="prev" href="Ch6.S3.html" title="6.3 Let’s try SML# interactive mode ‣ Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="next" href="Ch6.S5.html" title="6.5 smlsharp command modes ‣ Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch6.S1.html" title="6.1 Unix-family OS，Emacs，and other tools ‣ Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch6.S2.html" title="6.2 Bootstrapping the SML# compiler ‣ Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch6.S3.html" title="6.3 Let’s try SML# interactive mode ‣ Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch6.S5.html" title="6.5 smlsharp command modes ‣ Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 Installing SML# ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML# feature: other type system extensions ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 4.0.0">
+title: "6.4  Let’s try SML# compile mode ‣ Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 4.0.0"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 4.0.0</div>
+<div>
+<a href="Ch6.html" title="Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">6 </span>Setting up SML# programming environment</span></a><a href="Ch6.S3.html" title="6.3 Let’s try SML# interactive mode ‣ Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">6.3 </span>
+Let’s try SML# interactive mode</span></a><a href="Ch6.S5.html" title="6.5 smlsharp command modes ‣ Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">6.5 </span>
+<span class="ltx_text ltx_font_typewriter">smlsharp</span> command modes</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">6.4 </span>
+Let’s try SML# compile mode
+</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">The main function of SML# compiler is to compile a file
+and to create an executable program, just like <span class="ltx_text ltx_font_typewriter">gcc</span>.</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">As a simple example, let us write the previous user input
+<span class="ltx_text ltx_font_typewriter"># "Hello world";</span> into a file <span class="ltx_text ltx_font_typewriter">hello1.sml</span>:</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">"Hello world";</span></p>
+</blockquote>
+<p class="ltx_p">The trailing semicolon does not have any effect in a file.
+This file can be compiled as follows.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ smlsharp hello1.sml
+<br class="ltx_break">
+$ file a.out
+<br class="ltx_break">
+a.out: ELF 64-bit LSB executable, x86-64,
+version 1 (SYSV), dynamically linked,
+interpreter /lib64/ld-linux-x86-64.so.2,
+for GNU/Linux 2.6.32,
+BuildID[sha1]=43a2c24d3728ad6a35262f6f386317a2fda1ba78,
+not stripped
+<br class="ltx_break">
+$</span></p>
+</blockquote>
+<p class="ltx_p">When only a file name is given, SML# compiles the file,
+link it and creates an executable file, whose default name is <span class="ltx_text ltx_font_typewriter">a.out</span>.
+As shown by the Linux <span class="ltx_text ltx_font_typewriter">file</span> command, it is an ordinary
+executable file.
+The output file name can be specified by a <span class="ltx_text ltx_font_typewriter">-o</span> switch.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ smlsharp -o hello1 hello1.sml
+<br class="ltx_break">
+$ ls hello1*
+<br class="ltx_break">
+hello1 hello1.sml
+<br class="ltx_break">
+$</span></p>
+</blockquote>
+<p class="ltx_p">The generated executable file can then be executed.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ ./hello1
+<br class="ltx_break">
+$</span></p>
+</blockquote>
+<p class="ltx_p">Nothing is printed by this program.
+This is what you expect.
+SML# compiles the source code itself; it does not attach
+code to print the result value and its type.
+If you want to see something printed, you need to write code
+to print it explicitly.
+Now let’s create a file <span class="ltx_text ltx_font_typewriter">hello2.sml</span> to print this message.
+The contents can be the following.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">print "hello world!\n"</span></p>
+</blockquote>
+<p class="ltx_p">This file contains a function <span class="ltx_text ltx_font_typewriter">print</span> which is not defined
+in this file.
+Our intention is that <span class="ltx_text ltx_font_typewriter">print</span> denotes the function
+<span class="ltx_text ltx_font_typewriter">print : string -&gt; unit</span> in Standard ML Basis Library.
+However, since name <span class="ltx_text ltx_font_typewriter">print</span> can be freely re-defined,
+for SML# compiler, it does not necessarily mean the library
+function.
+In order to compile <span class="ltx_text ltx_font_typewriter">hello2.sml</span>, you need to notify the
+compiler where the name <span class="ltx_text ltx_font_typewriter">print</span> is defined.
+For this purpose, an <span class="ltx_text ltx_font_bold">interface file</span> must be created.</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">When compiling <span class="ltx_text ltx_font_typewriter">hello2.sml</span>, SML# searches for
+its interface file by its default name <span class="ltx_text ltx_font_typewriter">hello2.smi</span>.
+So to compile <span class="ltx_text ltx_font_typewriter">hello2.sml</span>, you need to create file <span class="ltx_text ltx_font_typewriter">hello2.smi</span>.
+Its contents can be the following.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">_require "basis.smi"</span></p>
+</blockquote>
+<p class="ltx_p">This declares that <span class="ltx_text ltx_font_typewriter">hello2.sml</span> uses names that are defined
+in the interface file <span class="ltx_text ltx_font_typewriter">"basis.smi"</span>, which is the system supplied
+file containing the declarations of all the names defined in the
+Standard ML Basis Library.</p>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">With this preparation, <span class="ltx_text ltx_font_typewriter">hello2.sml</span> is compiled as follows.
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ smlsharp hello.sml -o hello
+<br class="ltx_break">
+$ ./hello
+<br class="ltx_break">
+hello world!</span></p>
+</blockquote>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch6.S3.html" title="6.3 Let’s try SML# interactive mode ‣ Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">6.3 </span>
+Let’s try SML# interactive mode</span></a><a href="Ch6.S5.html" title="6.5 smlsharp command modes ‣ Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">6.5 </span>
+<span class="ltx_text ltx_font_typewriter">smlsharp</span> command modes</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Apr  6 18:19:31 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

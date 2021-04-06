@@ -1,0 +1,201 @@
+---
+layout: default
+permalink: /ja/documents/4.0.0/Ch10.S3.html
+translated: true
+lang: ja
+head: |
+ <!--Generated on Tue Apr  6 18:18:13 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on 令和3年4月.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch10.html" title="Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="up up" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="up up up" href="./" title="プログラミング言語SML#解説 4.0.0版">
+ <link rel="start" href="./" title="プログラミング言語SML#解説 4.0.0版">
+ <link rel="prev" href="Ch10.S2.html" title="10.2 C関数の型 ‣ Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="next" href="Ch10.S4.html" title="10.4 動的リンクライブラリの使用 ‣ Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch10.S1.html" title="10.1 C関数の使用の宣言 ‣ Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch10.S2.html" title="10.2 C関数の型 ‣ Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch10.S4.html" title="10.4 動的リンクライブラリの使用 ‣ Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML#の拡張機能：マルチスレッドプログラミング ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.0.0版">
+title: "10.3 基本的なC関数のインポート例‣ Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.0.0版</div>
+<div>
+<a href="Ch10.html" title="Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">10 </span>
+SML#の拡張機能：Cとの直接連携</span></a><a href="Ch10.S2.html" title="10.2 C関数の型 ‣ Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">10.2 </span>C関数の型</span></a><a href="Ch10.S4.html" title="10.4 動的リンクライブラリの使用 ‣ Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">10.4 </span>動的リンクライブラリの使用</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">10.3 </span>基本的なC関数のインポート例</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">いくつかのCの標準ライブラリ関数をインポートしてみましょう．
+まず，インポートするC関数のプロトタイプ宣言を探します．
+ここでは以下のC関数をインポートすることにします．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">double pow(double, double);
+<br class="ltx_break">
+void srand(unsigned);
+<br class="ltx_break">
+int rand(void);</span></p>
+</blockquote>
+<p class="ltx_p">次に，引数および返り値の型に対応するSML#の相互運用型を
+用いて，SML#プログラム中に<span class="ltx_text ltx_font_typewriter">_import</span>宣言を書きます．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val pow = _import "pow" : (real, real) -&gt; real
+<br class="ltx_break">
+val srand = _import "srand" : word -&gt; ()
+<br class="ltx_break">
+val rand = _import "rand" : () -&gt; int</span></p>
+</blockquote>
+<p class="ltx_p">これらのC関数は以下の型の関数としてSML#にインポートされます．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val pow : real * real -&gt; real
+<br class="ltx_break">
+val srand : word -&gt; unit
+<br class="ltx_break">
+val rand : unit -&gt; int</span></p>
+</blockquote>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">可変長引数リストの記法を用いれば，<span class="ltx_text ltx_font_typewriter">printf</span>(3)関数をインポート
+することも可能です．
+<span class="ltx_text ltx_font_typewriter">printf</span>関数のプロトタイプ宣言は以下の通りです．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">int printf(const char *, ...);</span></p>
+</blockquote>
+<p class="ltx_p">このプロトタイプ宣言に対応付けて，以下の<span class="ltx_text ltx_font_typewriter">_import</span>宣言で
+<span class="ltx_text ltx_font_typewriter">printf</span>関数をインポートします．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val printfIntReal = _import "printf" : (string, ...(int, real)) -&gt; int</span></p>
+</blockquote>
+<p class="ltx_p">この<span class="ltx_text ltx_font_typewriter">printfIntReal</span>関数の型は以下の通りです．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val printfIntReal : string * int * real -&gt; int</span></p>
+</blockquote>
+<p class="ltx_p">ただし，このようにしてインポートした<span class="ltx_text ltx_font_typewriter">printfIntReal</span>関数を呼び出す
+際は，その第一引数は，追加の引数として整数と浮動小数点数をこの順番で要求する
+ような出力フォーマットである必要があります．</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">ポインタ型と対応する相互運用型の取り扱いには注意が必要です．
+C言語ではポインタ引数を，巨大なデータ構造を参照渡しする場合と，
+関数の結果をストアするためのメモリ領域を指す場合の両方に用います．
+ポインタ引数の使い方の違いによって，対応する相互運用型は異なります．
+従って，ポインタ型の引数を持つC関数をインポートする場合は，
+そのプロトタイプ宣言を見るだけでなく，そのポインタ引数の意味をマニュアル
+等で調べ，その使われ方に正しく対応する相互運用型を選択する必要があります．</p>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">ポインタを引数に取るC関数をいくつかインポートしてみましょう．
+例えば，C標準ライブラリ関数<span class="ltx_text ltx_font_typewriter">modf</span>をインポートすることを
+考えます．
+この関数のプロトタイプ宣言は以下の通りです．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">double modf(double, double *);</span></p>
+</blockquote>
+<p class="ltx_p">この関数の場合，第二引数のポインタは，計算結果の出力先を表します．
+従って，この関数をインポートするときは，
+書き換え可能な値を持つ相互運用型を第二引数の型として指定します．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val modf = _import "modf" : (real, real ref) -&gt; real</span></p>
+</blockquote>
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">char</span>へのポインタ型には特に注意が必要です．
+C言語ではこの型を，ヌル終端文字列を表す型として使ったり，
+最も汎用的なバッファの型として使ったりします．
+例えば，C標準ライブラリ関数<span class="ltx_text ltx_font_typewriter">sprintf</span>を考えます．
+そのプロトタイプ宣言は以下の通りです．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">int sprintf(char *, const char *, ...);</span></p>
+</blockquote>
+<p class="ltx_p">2つ現れる<span class="ltx_text ltx_font_typewriter">char</span>へのポインタは，第一引数は出力先バッファ，
+第二引数はヌル終端文字列を表します．
+このポインタの使われ方の違いに従って，これら2つのポインタ型に
+異なる相互運用型を当てはめ，以下のようにインポートします．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val sprintfInt = _import "sprintf" : (char array, string, ...(int)) -&gt; int</span></p>
+</blockquote>
+</div>
+<div id="p5" class="ltx_para">
+<p class="ltx_p">ここまでは，C標準ライブラリ関数を例に，C関数をインポートする
+方法を説明してきました．
+しかし，SML#は，ユーザーが書いたC関数を含む，任意のC関数を
+インポートすることができます．
+SML#からユーザー定義のC関数に構造体の受け渡す簡単な例を
+図<a href="#Ch10.F1" title="Figure 10.1 ‣ 10.3 基本的なC関数のインポート例 ‣ Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">10.1</span></a>に示します．</p>
+</div>
+<figure id="Ch10.F1" class="ltx_figure">
+<table class="ltx_tabular ltx_centering ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_inline-para ltx_minipage ltx_align_middle" style="width:407.2pt;">
+<span id="Ch10.F1.p1" class="ltx_para">
+<span class="ltx_p">sample.cファイル：</span>
+<span class="ltx_quote">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter">#include &lt;math.h&gt;
+<br class="ltx_break">
+double f(const struct {double x; double y;} *s) {
+<br class="ltx_break">
+  return sqrt(s-&gt;x * s-&gt;x + s-&gt;y * s-&gt;y);
+<br class="ltx_break">
+}</span></span>
+</span>
+<span class="ltx_p">sample.smlファイル:</span>
+<span class="ltx_quote">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter">val f = _import "f" : real * real -&gt; real
+<br class="ltx_break">
+val x = (1.1, 2.2);
+<br class="ltx_break">
+val y = f x;
+<br class="ltx_break">
+print ("result : " ^ Real.toString y ^ "\n");
+<br class="ltx_break"></span></span>
+</span>
+<span class="ltx_p">実行例:</span>
+<span class="ltx_quote">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter"># gcc -c sample.c
+<br class="ltx_break">
+# smlsharp sample.sml sample.o
+<br class="ltx_break">
+# a.out
+<br class="ltx_break">
+result : 2.459675
+<br class="ltx_break"></span></span>
+</span>
+</span></span></td>
+</tr>
+</tbody>
+</table>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 10.1: </span>構造体引数を持つユーザー定義C関数の呼び出し例</figcaption>
+</figure>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch10.S2.html" title="10.2 C関数の型 ‣ Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">10.2 </span>C関数の型</span></a><a href="Ch10.S4.html" title="10.4 動的リンクライブラリの使用 ‣ Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">10.4 </span>動的リンクライブラリの使用</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Apr  6 18:18:13 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

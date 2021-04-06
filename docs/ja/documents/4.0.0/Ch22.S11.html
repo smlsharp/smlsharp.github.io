@@ -1,0 +1,179 @@
+---
+layout: default
+permalink: /ja/documents/4.0.0/Ch22.S11.html
+translated: true
+lang: ja
+head: |
+ <!--Generated on Tue Apr  6 18:18:13 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on 令和3年4月.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch22.html" title="Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="up up" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="up up up" href="./" title="プログラミング言語SML#解説 4.0.0版">
+ <link rel="start" href="./" title="プログラミング言語SML#解説 4.0.0版">
+ <link rel="prev" href="Ch22.S10.html" title="22.10 SQLライブラリ：SQL.Numericストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="next" href="Ch23.html" title="Chapter 23 核言語の宣言とインターフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch22.S1.html" title="22.1 SQLの型 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch22.S2.html" title="22.2 SQLクエリのためのML式の拡張構文 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch22.S3.html" title="22.3 接続先データベース宣言式：_sqlserver ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch22.S4.html" title="22.4 SQL評価式 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch22.S5.html" title="22.5 SELECTクエリ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch22.S6.html" title="22.6 SQLコマンド ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch22.S7.html" title="22.7 SQL実行関数式 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch22.S8.html" title="22.8 SQLライブラリ：SQLストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch22.S9.html" title="22.9 SQLライブラリ：SQL.Opストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch22.S10.html" title="22.10 SQLライブラリ：SQL.Numericストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch15.html" title="Chapter 15 序論 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch16.html" title="Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch17.html" title="Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch18.html" title="Chapter 18 型 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch19.html" title="Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch20.html" title="Chapter 20 パターンとパターンマッチング ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch21.html" title="Chapter 21 識別子のスコープ規則 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch22.html" title="Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch23.html" title="Chapter 23 核言語の宣言とインターフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch24.html" title="Chapter 24 モジュール言語の宣言とインタフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch25.html" title="Chapter 25 SML#のライブラリ概要 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch26.html" title="Chapter 26 Standard ML標準ライブラリ ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch27.html" title="Chapter 27 SML#システムライブラリ ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch28.html" title="Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch29.html" title="Chapter 29 SML#実行時データ管理 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.0.0版">
+title: "22.11 標準SQL文法との差異（参考）‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.0.0版</div>
+<div>
+<a href="Ch22.html" title="Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22 </span>SQL式とコマンド</span></a><a href="Ch22.S10.html" title="22.10 SQLライブラリ：SQL.Numericストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.10 </span>SQLライブラリ：SQL.Numericストラクチャ</span></a><a href="Ch23.html" title="Chapter 23 核言語の宣言とインターフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">23 </span>核言語の宣言とインターフェイス</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">22.11 </span>標準SQL文法との差異（参考）</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">SML#のSQL演算子式の構文は，
+可能な限り標準SQLの構文に似せている．
+そうすることによって，
+SML#のSQL機能のために
+新しい埋め込み言語を覚えなくてもよいようにしている．
+しかし，埋め込み言語の性質上，
+ホスト言語の文法の影響を受けて，
+標準SQLの文法を実現できない場合がある．
+以下に，
+SML#のSQL構文が
+標準SQLと異なっている箇所をまとめる．
+以下の点に気をつければ，
+標準SQLほぼそのままの書き方で
+SML#のSQL機能を使いこなせるはずである．
+</p>
+</div>
+<div id="p2" class="ltx_para">
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">定数リテラルの書き方（特に文字列）はSML#に準じる．
+</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">標準SQLではキーワードの大文字小文字は無視される一方，
+SML#では全てのSQLキーワードは小文字でなければならない．
+</p>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p">テーブル名やカラム名の大文字小文字はSML#の型システム上では
+区別される．
+ただし，<span class="ltx_text ltx_font_typewriter">SQL.connect</span>がスキーマの一致を検査するときのみ，
+名前の大文字小文字は区別されない．
+</p>
+</div>
+</li>
+<li id="I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i4.p1" class="ltx_para">
+<p class="ltx_p">標準SQLでは関数適用構文で引数を囲む必要であるが，
+SML#ではSML#の関数適用式と同様に括弧を書かなくてよい．
+</p>
+</div>
+</li>
+<li id="I1.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i5.p1" class="ltx_para">
+<p class="ltx_p">負符号演算子にはSML#式と同様に<span class="ltx_text ltx_font_typewriter">~</span>を用いる．
+</p>
+</div>
+</li>
+<li id="I1.i6" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i6.p1" class="ltx_para">
+<p class="ltx_p">二項演算子の結合順位はSML#のinfix宣言によって決まる．
+</p>
+</div>
+</li>
+<li id="I1.i7" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i7.p1" class="ltx_para">
+<p class="ltx_p">and論理演算子は括弧に囲まれた式の中でしか使えない．
+</p>
+</div>
+</li>
+<li id="I1.i8" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i8.p1" class="ltx_para">
+<p class="ltx_p">カラムやテーブルの参照には<span class="ltx_text ltx_font_typewriter">#</span>を前置する．
+</p>
+</div>
+</li>
+<li id="I1.i9" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i9.p1" class="ltx_para">
+<p class="ltx_p">カラムの参照には必ずテーブル名を明示しなければならない．
+</p>
+</div>
+</li>
+<li id="I1.i10" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i10.p1" class="ltx_para">
+<p class="ltx_p">ORDER BY句からSELECT句のカラム名を参照する場合は，
+カラム名に<span class="ltx_text ltx_font_typewriter">#.</span>を前置する．
+</p>
+</div>
+</li>
+<li id="I1.i11" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i11.p1" class="ltx_para">
+<p class="ltx_p">FROM句やINSERT，UPDATE，DELETEコマンドのテーブル参照には，
+<span class="ltx_text ltx_font_typewriter">#</span>と，
+テーブルが属するデータベースを指すSML#の識別子（一般に
+<span class="ltx_text ltx_font_typewriter">_sql</span>や<span class="ltx_text ltx_font_typewriter">fn</span>構文で束縛される）を前置する．
+</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch22.S10.html" title="22.10 SQLライブラリ：SQL.Numericストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.10 </span>SQLライブラリ：SQL.Numericストラクチャ</span></a><a href="Ch23.html" title="Chapter 23 核言語の宣言とインターフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">23 </span>核言語の宣言とインターフェイス</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Apr  6 18:18:13 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

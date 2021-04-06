@@ -1,0 +1,834 @@
+---
+layout: default
+permalink: /en/documents/4.0.0/Ch22.S8.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Tue Apr  6 18:19:31 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Apr, 2021.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch22.html" title="Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="up up" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="up up up" href="./" title="SML# Document Version 4.0.0">
+ <link rel="start" href="./" title="SML# Document Version 4.0.0">
+ <link rel="prev" href="Ch22.S7.html" title="22.7 SQL execution function expressions ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="next" href="Ch22.S9.html" title="22.9 SQL Library: The SQL.Op structure ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch22.S1.html" title="22.1 SQL Types ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch22.S2.html" title="22.2 Extended ML Expressions for SQL Queries ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch22.S3.html" title="22.3 Database Server Description: The _sqlserver Expression ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch22.S4.html" title="22.4 SQL Value Expressions ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch22.S5.html" title="22.5 SELECT queries ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch22.S6.html" title="22.6 SQL commands ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch22.S7.html" title="22.7 SQL execution function expressions ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch22.S9.html" title="22.9 SQL Library: The SQL.Op structure ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch22.S10.html" title="22.10 SQL Library: The SQL.Numeric Structure ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch22.S11.html" title="22.11 Difference from the standard SQL (Informative) ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch15.html" title="Chapter 15 Introduction ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch16.html" title="Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch17.html" title="Chapter 17 Lexical structure ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch18.html" title="Chapter 18 Types ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch19.html" title="Chapter 19 Expressions ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch20.html" title="Chapter 20 Patterns and Pattern Matching ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch21.html" title="Chapter 21 Scope rules for identifier ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch22.html" title="Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch23.html" title="Chapter 23 Declarations of the core language and their interfaces ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch24.html" title="Chapter 24 Module language declarations and interface ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch25.html" title="Chapter 25 Overview of SML# Libraries ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch26.html" title="Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch27.html" title="Chapter 27 SML# System Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch28.html" title="Chapter 28 The smlsharp command ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch29.html" title="Chapter 29 SML# Run-time data management ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 4.0.0">
+title: "22.8 SQL Library: The SQL Structure‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 4.0.0</div>
+<div>
+<a href="Ch22.html" title="Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22 </span>SQL Expressions and Commands</span></a><a href="Ch22.S7.html" title="22.7 SQL execution function expressions ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.7 </span>SQL execution function expressions</span></a><a href="Ch22.S9.html" title="22.9 SQL Library: The SQL.Op structure ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.9 </span>SQL Library: The SQL.Op structure</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">22.8 </span>SQL Library: The SQL Structure</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">SML# provides the types and functions related to SQL
+as a library.
+All of them are included in the <span class="ltx_text ltx_font_typewriter">SQL</span> structure
+provided by the <span class="ltx_text ltx_font_typewriter">sql.smi</span> interface file.
+An SML# source file that uses the SQL feature
+must include the following lines in its interface file
+so that it refers to <span class="ltx_text ltx_font_typewriter">sql.smi</span>:
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">_require "sql.smi"</span></p>
+</blockquote>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">The following is the signature of the <span class="ltx_text ltx_font_typewriter">SQL</span> structure:
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">structure SQL : sig
+<br class="ltx_break">
+  type bool3
+<br class="ltx_break">
+  type numeric
+<br class="ltx_break">
+  type decimal = numeric
+<br class="ltx_break">
+  type backend
+<br class="ltx_break">
+  type ’a server
+<br class="ltx_break">
+  type ’a conn
+<br class="ltx_break">
+  type ’a cursor
+<br class="ltx_break">
+  type (’a, ’b) exp
+<br class="ltx_break">
+  type (’a, ’b) whr
+<br class="ltx_break">
+  type (’a, ’b) from
+<br class="ltx_break">
+  type (’a, ’b) orderby
+<br class="ltx_break">
+  type (’a, ’b, ’c) select
+<br class="ltx_break">
+  type (’a, ’b) query
+<br class="ltx_break">
+  type (’a, ’b) command
+<br class="ltx_break">
+  type (’a, ’b) db
+<br class="ltx_break">
+  exception Exec
+<br class="ltx_break">
+  exception Connect
+<br class="ltx_break">
+  exception Link
+<br class="ltx_break">
+  val postgresql : string -&gt; backend
+<br class="ltx_break">
+  val mysql : string -&gt; backend
+<br class="ltx_break">
+  val odbc : string -&gt; backend
+<br class="ltx_break">
+  val sqlite3 : string -&gt; backend
+<br class="ltx_break">
+  structure SQLite3 : </span>(see Section <a href="#SS1" title="22.8.1 Connecting to a database server ‣ 22.8 SQL Library: The SQL Structure ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.8.1</span></a>)
+<br class="ltx_break"><span class="ltx_text ltx_font_typewriter">
+  val connect : ’a server -&gt; ’a conn
+<br class="ltx_break">
+  val connectAndCreate : ’a server -&gt; ’a conn
+<br class="ltx_break">
+  val closeConn : ’a conn -&gt; unit
+<br class="ltx_break">
+  val fetch : ’a cursor -&gt; ’a option
+<br class="ltx_break">
+  val fetchAll : ’a cursor -&gt; ’a list
+<br class="ltx_break">
+  val closeCursor : ’a cursor -&gt; unit
+<br class="ltx_break">
+  val queryCommand : (’a list, ’b) query -&gt; (’a cursor, ’b) command
+<br class="ltx_break">
+  val toy : ((’a, ’c) db -&gt; (’b, ’c) query) -&gt; ’a -&gt; ’b
+<br class="ltx_break">
+  val commandToString : ((’a,’c) db -&gt; (’b,’c) command) -&gt; string
+<br class="ltx_break">
+  val queryToString : ((’a,’c) db -&gt; (’b,’c) query) -&gt; string
+<br class="ltx_break">
+  val expToString : (’a,’c) exp -&gt; string
+<br class="ltx_break">
+  Structure Op : </span>(see Section <a href="Ch22.S9.html" title="22.9 SQL Library: The SQL.Op structure ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.9</span></a>)
+<br class="ltx_break"><span class="ltx_text ltx_font_typewriter">
+  Structure Numeric : </span>see Section <a href="Ch22.S9.html" title="22.9 SQL Library: The SQL.Op structure ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.9</span></a>
+<br class="ltx_break"><span class="ltx_text ltx_font_typewriter">
+  Structure Decimal = Numeric
+<br class="ltx_break">
+end</span></p>
+</blockquote>
+<p class="ltx_p">These definitions are categorized by their purposes.
+Each of the following subsections describes the definitions
+belonging to a category.
+</p>
+</div>
+<section id="SS1" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.8.1 </span>Connecting to a database server</h2>
+
+<div id="SS1.p1" class="ltx_para">
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">exception Connect of string</span></p>
+</div>
+<div id="I1.i1.p2" class="ltx_para">
+<p class="ltx_p">The exception of a database connection error.
+<span class="ltx_text ltx_font_typewriter">string</span> is the error message.
+</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">exception Link of string</span></p>
+</div>
+<div id="I1.i2.p2" class="ltx_para">
+<p class="ltx_p">The exception indicating the mismatch of database schema
+and SML# programs.
+<span class="ltx_text ltx_font_typewriter">string</span> is the error message.
+</p>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">type backend</span></p>
+</div>
+<div id="I1.i3.p2" class="ltx_para">
+<p class="ltx_p">The type of the untyped connection information to a database,
+which is a part of the <span class="ltx_text ltx_font_typewriter">_sqlserver</span> expression.
+One of the following function can be used to write an expression
+of this type.
+</p>
+</div>
+</li>
+<li id="I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i4.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val postgresql : string -&gt; backend</span></p>
+</div>
+<div id="I1.i4.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.postgresql <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">param</span></span> returns an connection information
+to a PostgreSQL server.
+The string <span class="ltx_text ltx_font_italic" style="font-size:120%;">param</span> is the connection string of libpq,
+the PostgreSQL library.
+See the PostgreSQL manual for defails of the connection string.
+If <span class="ltx_text ltx_font_italic" style="font-size:120%;">param</span> is not valid,
+the <span class="ltx_text ltx_font_typewriter">SQL.Connect</span> exception is raised.
+</p>
+</div>
+<div id="I1.i4.p3" class="ltx_para">
+<p class="ltx_p">The correspondence between the PostgreSQL and SML# types
+is the following:
+</p>
+</div>
+<div id="I1.i4.p4" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row ltx_border_l ltx_border_r ltx_border_t">PostgreSQL</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">SML#</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t">
+<span class="ltx_text ltx_font_typewriter">INT</span>, <span class="ltx_text ltx_font_typewriter">INT4</span>
+</th>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">int</span></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">BOOLEAN</span></th>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">bool</span></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r">
+<span class="ltx_text ltx_font_typewriter">TEXT</span>, <span class="ltx_text ltx_font_typewriter">VARCHAR</span>
+</th>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">string</span></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">FLOAT8</span></th>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">real</span></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">FLOAT4</span></th>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r"><span class="ltx_text ltx_font_typewriter">real32</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li id="I1.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i5.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val mysql : string -&gt; backend</span></p>
+</div>
+<div id="I1.i5.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.mysql <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">param</span></span> returns a connection information
+to a MySQL server.
+The string <span class="ltx_text ltx_font_italic" style="font-size:120%;">param</span> consists of the sequences of
+“key=value” separated by whitespaces.
+The keys avaliable and their meanings are the following:
+</p>
+</div>
+<div id="I1.i5.p3" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_l ltx_border_r ltx_border_t">Key</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">Description</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">host</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">The hostname of a MySQL server</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">port</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r">The port number of a MySQL server</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">user</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r">The user name to log in a MySQL server</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">password</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r">The password of the user</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">dbname</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r">The name of the target database</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">unix_socket</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r">The filename of a UNIX socket</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">flags</span></td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">The flags of the communication protocol in decimal</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="I1.i5.p4" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">dbname</span> is mandatory.
+See the MySQL manual for details of these parameters.
+If <span class="ltx_text ltx_font_italic" style="font-size:120%;">param</span> is not valid,
+the <span class="ltx_text ltx_font_typewriter">SQL.Connect</span> exception is raised.
+</p>
+</div>
+<div id="I1.i5.p5" class="ltx_para">
+<p class="ltx_p">The correspondence between the MySQL and SML# types are
+the following:
+</p>
+</div>
+<div id="I1.i5.p6" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row ltx_border_l ltx_border_r ltx_border_t">MySQL</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">SML#</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t">
+<span class="ltx_text ltx_font_typewriter">TINYINT</span>, <span class="ltx_text ltx_font_typewriter">SMALLINT</span>, <span class="ltx_text ltx_font_typewriter">MEDIUMINT</span>, <span class="ltx_text ltx_font_typewriter">INT</span>
+</th>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">int</span></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r">
+<span class="ltx_text ltx_font_typewriter">TINYTEXT</span>, <span class="ltx_text ltx_font_typewriter">TEXT</span>, <span class="ltx_text ltx_font_typewriter">VARCHAR</span>
+</th>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">string</span></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">DOUBLE</span></th>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">real</span></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">FLOAT</span></th>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r"><span class="ltx_text ltx_font_typewriter">real32</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li id="I1.i6" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i6.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val sqlite3 : string -&gt; backend</span>
+<br class="ltx_break"><span class="ltx_text ltx_font_typewriter">val sqlite3’ : SQL.SQLite3.flags * string -&gt; backend</span>
+<br class="ltx_break"></p>
+</div>
+<div id="I1.i6.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.sqlite3 <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">filename</span></span> and
+<span class="ltx_text ltx_font_typewriter">SQL.sqlite3 (<span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">flags</span>, <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">filename</span>)</span> return a
+connection information to an SQLite3 database file.
+The string <span class="ltx_text ltx_font_italic" style="font-size:120%;">filename</span> indicates the filename.
+Note that SQLite3 interprets the filenames beginning with “:”
+in a special way.
+</p>
+</div>
+<div id="I1.i6.p3" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_italic" style="font-size:120%;">flags</span> is a record consisting of the following four fields:
+</p>
+<ul id="I1.i6.I1" class="ltx_itemize">
+<li id="I1.i6.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="I1.i6.I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">mode</span>: the open mode of the file, which is one of the following:
+</p>
+<ul id="I1.i6.I1.i1.I1" class="ltx_itemize">
+<li id="I1.i6.I1.i1.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">*</span> 
+<div id="I1.i6.I1.i1.I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.SQLite3.SQLITE_OPEN_READONLY</span></p>
+</div>
+</li>
+<li id="I1.i6.I1.i1.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">*</span> 
+<div id="I1.i6.I1.i1.I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.SQLite3.SQLITE_OPEN_READWRITE</span></p>
+</div>
+</li>
+<li id="I1.i6.I1.i1.I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">*</span> 
+<div id="I1.i6.I1.i1.I1.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.SQLite3.SQLITE_OPEN_READWRITE_CREATE</span></p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li id="I1.i6.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="I1.i6.I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">threading</span>: the threading mode, which is one of the following:
+</p>
+<ul id="I1.i6.I1.i2.I1" class="ltx_itemize">
+<li id="I1.i6.I1.i2.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">*</span> 
+<div id="I1.i6.I1.i2.I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.SQLite3.SQLITE_OPEN_NOMUTEX</span></p>
+</div>
+</li>
+<li id="I1.i6.I1.i2.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">*</span> 
+<div id="I1.i6.I1.i2.I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.SQLite3.SQLITE_OPEN_FULLMUTEX</span></p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li id="I1.i6.I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="I1.i6.I1.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">cache</span>: the cache mode, which is one of the following:
+</p>
+<ul id="I1.i6.I1.i3.I1" class="ltx_itemize">
+<li id="I1.i6.I1.i3.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">*</span> 
+<div id="I1.i6.I1.i3.I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.SQLite3.SQLITE_OPEN_SHAREDCACHE</span>
+</p>
+</div>
+</li>
+<li id="I1.i6.I1.i3.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">*</span> 
+<div id="I1.i6.I1.i3.I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.SQLite3.SQLITE_OPEN_PRIVATECACHE</span></p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li id="I1.i6.I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="I1.i6.I1.i4.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">uri</span>: the way to interpret the filename, which may be
+the following:
+</p>
+<ul id="I1.i6.I1.i4.I1" class="ltx_itemize">
+<li id="I1.i6.I1.i4.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">*</span> 
+<div id="I1.i6.I1.i4.I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.SQLite3.SQLITE_OPEN_URI</span></p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+<p class="ltx_p">See the SQLite3 C/C++ API manual for details of these flags.
+These constants are defined in
+the <span class="ltx_text ltx_font_typewriter">SQL.SQLite3</span> structure.
+In addition,
+<span class="ltx_text ltx_font_typewriter">SQL.SQLite3</span> provides the default flag <span class="ltx_text ltx_font_typewriter">SQL.SQLite3.flags</span>,
+which is used if <span class="ltx_text ltx_font_italic" style="font-size:120%;">flags</span> is omitted.
+A partially modified version of <span class="ltx_text ltx_font_typewriter">SQL.SQLite3.flags</span> can
+be obatained by using the field update expression.
+</p>
+</div>
+<div id="I1.i6.p4" class="ltx_para">
+<p class="ltx_p">The correspondence between SQLite3’s type affinities and
+SML#’s type is the following:
+</p>
+</div>
+<div id="I1.i6.p5" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_l ltx_border_r ltx_border_t">Type affinity</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">SML#</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">INT</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">int</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">REAL</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">real</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">STRING</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">string</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">NUMERIC</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">numeric</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">BLOB</span></td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">(unsupported)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="I1.i6.p6" class="ltx_para">
+<p class="ltx_p">Each type of columns specified in CREATE TABLE statement is
+interpreted to a type affinity as described in
+the SQLite3 manual.
+</p>
+</div>
+</li>
+<li id="I1.i7" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i7.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val odbc : string -&gt; backen</span></p>
+</div>
+<div id="I1.i7.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.odbc <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">param</span></span> returns a connection information
+to an ODBC server.
+The string <span class="ltx_text ltx_font_italic" style="font-size:120%;">param</span> consists of
+a DSN name, user name, and password in this order separated by whitespaces.
+If <span class="ltx_text ltx_font_italic" style="font-size:120%;">param</span> is not valid, the <span class="ltx_text ltx_font_typewriter">SQL.Connect</span> exception
+is raised.
+</p>
+</div>
+<div id="I1.i7.p3" class="ltx_para">
+<p class="ltx_p">The correspondence between the ODBC and SML# types is
+the following
+</p>
+</div>
+<div id="I1.i7.p4" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t">ODBC</th>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">SML#</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">CHAR</span></th>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">string</span></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r">
+<span class="ltx_text ltx_font_typewriter">INTEGER</span>, <span class="ltx_text ltx_font_typewriter">SMALLINT</span>
+</th>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">int</span></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">FLOAT</span></th>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">real32</span></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">DOUBLE</span></th>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">real</span></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_l ltx_border_r">
+<span class="ltx_text ltx_font_typewriter">VARCHAR</span>, <span class="ltx_text ltx_font_typewriter">LONGVARCHAR</span>, <span class="ltx_text ltx_font_typewriter">NVARCHAR</span>
+</th>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r"><span class="ltx_text ltx_font_typewriter">string</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li id="I1.i8" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i8.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val connect : ’a server -&gt; ’a conn</span></p>
+</div>
+<div id="I1.i8.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.connect <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">server</span></span> establishes a connection to
+the server indicated by the connection description <span class="ltx_text ltx_font_italic" style="font-size:120%;">server</span>.
+If the connection is established and the schema of the connected
+database subsumes the schema represented by <span class="ltx_text ltx_font_italic" style="font-size:120%;">server</span>,
+it returns a connection handle.
+If a connection error occurs, the <span class="ltx_text ltx_font_typewriter">SQL.Exec</span> exception
+is raised.
+If the two schemas are not matched, the <span class="ltx_text ltx_font_typewriter">SQL.Link</span> exception
+is raised.
+</p>
+</div>
+<div id="I1.i8.p3" class="ltx_para">
+<p class="ltx_p">The type of the connection description <span class="ltx_text ltx_font_italic" style="font-size:120%;">server</span>
+represts the type of the tables and views that the SML# program
+deals with through this connection.
+<span class="ltx_text ltx_font_typewriter">SQL.connect</span> checks the system catalog of the database
+so that all tables and views in the type of <span class="ltx_text ltx_font_italic" style="font-size:120%;">server</span> exists in
+the database.
+The names of tables and views are case-insensitive during this
+check.
+The database may contain tables and views other than those specified
+in the type of <span class="ltx_text ltx_font_italic" style="font-size:120%;">server</span>.
+In contrast,
+for each table in <span class="ltx_text ltx_font_italic" style="font-size:120%;">server</span>,
+its column set must exactly matches with the actual table definition.
+</p>
+</div>
+<div id="I1.i8.p4" class="ltx_para">
+<p class="ltx_p">At the first time to connect to a database server,
+an external library is dynamically linked
+according to the kind of the database server.
+The default name of such libraries are hard-coded.
+If the library name is not appropriate,
+it can be changed by setting environment variables.
+The following table shows the default name and environment vairable
+name for each server kind:
+</p>
+</div>
+<div id="I1.i8.p5" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_l ltx_border_r ltx_border_t">Database</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">Library name</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">Environment variable</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">PostgreSQL</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">libpq.so.5</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">SMLSHARP_LIBPQ</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">MySQL</td>
+<td class="ltx_td ltx_align_left ltx_border_r">libmysqlclient.16.so</td>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">SMLSHARP_LIBMYSQLCLIENT</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">ODBC</td>
+<td class="ltx_td ltx_align_left ltx_border_r">libodbc.so.2</td>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">SMLSHARP_LIBODBC</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_l ltx_border_r">SQLite3</td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">libsqlite3.so.0</td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r"><span class="ltx_text ltx_font_typewriter">SMLSHARP_LIBSQLITE3</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li id="I1.i9" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i9.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val connectAndCreate : ’a server -&gt; ’a conn</span></p>
+</div>
+<div id="I1.i9.p2" class="ltx_para">
+<p class="ltx_p">Same as <span class="ltx_text ltx_font_typewriter">SQL.connect</span> except for the following:
+<span class="ltx_text ltx_font_typewriter">SQL.connectAndCreate</span> creates the tables
+that are indicated in the argument type but do not exist
+in the database by issueing the <span class="ltx_text ltx_font_typewriter">CREATE TABLE</span> commands.
+If a table to be created includes an unsupported type, it raises
+the <span class="ltx_text ltx_font_typewriter">SQL.Link</span> exception.
+If a <span class="ltx_text ltx_font_typewriter">CREATE TABLE</span> command fails, it raises
+the <span class="ltx_text ltx_font_typewriter">SQL.Exec</span> exception.
+</p>
+</div>
+</li>
+<li id="I1.i10" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i10.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val closeConn : ’a conn -&gt; unit</span></p>
+</div>
+<div id="I1.i10.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.closeConn <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">conn</span></span> closes a database connection.
+Any connection established by <span class="ltx_text ltx_font_typewriter">SQL.connect</span> must be
+closed by <span class="ltx_text ltx_font_typewriter">SQL.closeConn</span>.
+</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+<section id="SS2" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.8.2 </span>executing SQL queries and retrieving their results</h2>
+
+<div id="SS2.p1" class="ltx_para">
+<ul id="I2" class="ltx_itemize">
+<li id="I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">exception Exec of string</span></p>
+</div>
+<div id="I2.i1.p2" class="ltx_para">
+<p class="ltx_p">The exception indicating that an error occur during a query
+execution on a database server.
+<span class="ltx_text ltx_font_typewriter">string</span> is the error message.
+</p>
+</div>
+</li>
+<li id="I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val fetch : ’a cursor -&gt; ’a option</span></p>
+</div>
+<div id="I2.i2.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.fetch <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">cursor</span></span> reads one row
+pointed by the cursor <span class="ltx_text ltx_font_italic" style="font-size:120%;">cursor</span> and move the cursor to the next row.
+If the cursor reaches to the end of a table,
+it returns <span class="ltx_text ltx_font_typewriter">NONE</span>.
+If the cursor is already closed,
+the <span class="ltx_text ltx_font_typewriter">SQL.Exec</span> exception is raised.
+</p>
+</div>
+</li>
+<li id="I2.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val fetchAll : ’a cursor -&gt; ’a list</span></p>
+</div>
+<div id="I2.i3.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.fetchAll <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">cursor</span></span> reads
+all rows between the cursor <span class="ltx_text ltx_font_italic" style="font-size:120%;">cursor</span> and the end of the table
+and closes the cursor.
+If the cursor is already closed,
+the <span class="ltx_text ltx_font_typewriter">SQL.Exec</span> exception is raised.
+</p>
+</div>
+</li>
+<li id="I2.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i4.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">closeCursor : ’a cursor -&gt; unit</span></p>
+</div>
+<div id="I2.i4.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">closeCursor <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">cursor</span></span>
+closes the given cursor.
+All cursors must be closed by this function or <span class="ltx_text ltx_font_typewriter">fetchAll</span>.
+</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+<section id="SS3" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.8.3 </span>Utilities for SQL Queries</h2>
+
+<div id="SS3.p1" class="ltx_para">
+<ul id="I3" class="ltx_itemize">
+<li id="I3.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val queryCommand : (’a list, ’b) query -&gt; (’a cursor, ’b) command</span></p>
+</div>
+<div id="I3.i1.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.queryCommand <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">query</span></span> converts
+the given SELECT query to a SQL command.
+This function
+performs the same thing as what an SQL execution function
+<span class="ltx_text ltx_font_typewriter">_sql <math id="I3.i1.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I3.i1.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> =&gt; select...(<math id="I3.i1.p2.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I3.i1.p2.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span> does for a query
+(see Section <a href="Ch22.S7.html" title="22.7 SQL execution function expressions ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.7</span></a>) except for the query execution.
+</p>
+</div>
+</li>
+<li id="I3.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val toy : ((’a, ’c) db -&gt; (’b, ’c) query) -&gt; ’a -&gt; ’b</span></p>
+</div>
+<div id="I3.i2.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.toy <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">query</span> <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">data</span></span> regards
+<span class="ltx_text ltx_font_italic" style="font-size:120%;">data</span> as a database and evaluates the query <span class="ltx_text ltx_font_italic" style="font-size:120%;">query</span> on it.
+The evaluation is carried out in SML# without involving
+any server communication.
+This function executes a toy program
+that the SML# compiler generates for the typecheck of SQL queries.
+Note that the performance of the toy program is not considered
+and therefore this function may be seriously slow.
+</p>
+</div>
+</li>
+<li id="I3.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val commandToString : ((’a,’c) db -&gt; (’b,’c) command) -&gt; string</span></p>
+</div>
+<div id="I3.i3.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.commandToString <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">command</span></span> returns the
+serialized string of the SQL command the function <span class="ltx_text ltx_font_italic" style="font-size:120%;">command</span> returns.
+The string this function returns is identical to the string
+sent to the server when the command is executed.
+</p>
+</div>
+</li>
+<li id="I3.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i4.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val queryToString : ((’a,’c) db -&gt; (’b,’c) query) -&gt; string</span></p>
+</div>
+<div id="I3.i4.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.queryToString <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">query</span></span> returns the
+serialized string of the SELECT query the function <span class="ltx_text ltx_font_italic" style="font-size:120%;">query</span> returns.
+The string this function returns is identical to the string
+sent to the server when the query is executed.
+</p>
+</div>
+</li>
+<li id="I3.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i5.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val expToString : (’a,’c) exp -&gt; string</span></p>
+</div>
+<div id="I3.i5.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.expToString <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">exp</span></span> returns the serialized string
+of the SQL value expression <span class="ltx_text ltx_font_italic" style="font-size:120%;">exp</span>.
+</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch22.S7.html" title="22.7 SQL execution function expressions ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.7 </span>SQL execution function expressions</span></a><a href="Ch22.S9.html" title="22.9 SQL Library: The SQL.Op structure ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.9 </span>SQL Library: The SQL.Op structure</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Apr  6 18:19:31 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

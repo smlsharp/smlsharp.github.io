@@ -1,0 +1,242 @@
+---
+layout: default
+permalink: /ja/documents/4.0.0/Ch28.S1.html
+translated: true
+lang: ja
+head: |
+ <!--Generated on Tue Apr  6 18:18:13 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on 令和3年4月.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch28.html" title="Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="up up" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="up up up" href="./" title="プログラミング言語SML#解説 4.0.0版">
+ <link rel="start" href="./" title="プログラミング言語SML#解説 4.0.0版">
+ <link rel="prev" href="Ch28.html" title="Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="next" href="Ch28.S2.html" title="28.2 モード共通のオプション ‣ Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch28.S2.html" title="28.2 モード共通のオプション ‣ Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch28.S3.html" title="28.3 コンパイルオプション ‣ Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch28.S4.html" title="28.4 リンクオプション ‣ Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch28.S5.html" title="28.5 対話モードのオプション ‣ Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch28.S6.html" title="28.6 コンパイラ開発者向けオプション ‣ Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch28.S7.html" title="28.7 環境変数 ‣ Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch28.S8.html" title="28.8 典型的な使用例 ‣ Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch15.html" title="Chapter 15 序論 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch16.html" title="Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch17.html" title="Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch18.html" title="Chapter 18 型 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch19.html" title="Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch20.html" title="Chapter 20 パターンとパターンマッチング ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch21.html" title="Chapter 21 識別子のスコープ規則 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch22.html" title="Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch23.html" title="Chapter 23 核言語の宣言とインターフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch24.html" title="Chapter 24 モジュール言語の宣言とインタフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch25.html" title="Chapter 25 SML#のライブラリ概要 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch26.html" title="Chapter 26 Standard ML標準ライブラリ ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch27.html" title="Chapter 27 SML#システムライブラリ ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch28.html" title="Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch29.html" title="Chapter 29 SML#実行時データ管理 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.0.0版">
+title: "28.1 モード選択オプション‣ Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.0.0版</div>
+<div>
+<a href="Ch28.html" title="Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">28 </span>SML#コンパイラの起動</span></a><a href="Ch28.html" title="Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">28 </span>SML#コンパイラの起動</span></a><a href="Ch28.S2.html" title="28.2 モード共通のオプション ‣ Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">28.2 </span>モード共通のオプション</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">28.1 </span>モード選択オプション</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">以下のオプションは<span class="ltx_text ltx_font_typewriter">smlsharp</span>コマンドの実行モードを指定する．
+<span class="ltx_text ltx_font_typewriter">smlsharp</span>コマンドのコマンドラインには，以下のオプションの
+いずれかが高々1つ指定されていなければならない．
+</p>
+</div>
+<div id="p2" class="ltx_para">
+<dl id="I1" class="ltx_description">
+<dt id="I1.ix1" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_typewriter">--help</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix1.p1" class="ltx_para">
+<p class="ltx_p">ヘルプメッセージを表示して終了する．
+</p>
+</div>
+</dd>
+<dt id="I1.ix2" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_typewriter">-fsyntax-only</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix2.p1" class="ltx_para">
+<p class="ltx_p">指定された<span class="ltx_text ltx_font_typewriter">.sml</span>および<span class="ltx_text ltx_font_typewriter">.smi</span>ファイルの構文検査のみを行い，
+コンパイルを中断する．
+後述する<span class="ltx_text ltx_font_typewriter">-o</span>オプションをこのオプションと同時に指定することは
+できない．
+検査の結果はエラーメッセージと終了ステータスで通知される．
+</p>
+</div>
+</dd>
+<dt id="I1.ix3" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_typewriter">-ftypecheck-only</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix3.p1" class="ltx_para">
+<p class="ltx_p">指定された<span class="ltx_text ltx_font_typewriter">.sml</span>および<span class="ltx_text ltx_font_typewriter">.smi</span>ファイルの型検査を行い，
+コンパイルを中断する．
+<span class="ltx_text ltx_font_typewriter">-o</span>オプションをこのオプションと同時に指定することは
+できない．
+検査の結果はエラーメッセージと終了ステータスで通知される．
+</p>
+</div>
+</dd>
+<dt id="I1.ix4" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_typewriter">-S</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix4.p1" class="ltx_para">
+<p class="ltx_p">指定された<span class="ltx_text ltx_font_typewriter">.sml</span>ファイルをコンパイルし，アセンブリコードを
+ファイルに出力する．
+出力ファイル名には，入力ファイル名の拡張子<span class="ltx_text ltx_font_typewriter">.sml</span>を<span class="ltx_text ltx_font_typewriter">.s</span>に
+置き換えた名前を用いる．
+入力ファイルがただ1つだけの場合に限り，<span class="ltx_text ltx_font_typewriter">-o</span>オプション
+で出力ファイル名を指定することができる．
+</p>
+</div>
+</dd>
+<dt id="I1.ix5" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_typewriter">-c</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix5.p1" class="ltx_para">
+<p class="ltx_p">指定された<span class="ltx_text ltx_font_typewriter">.sml</span>ファイルをコンパイルし，オブジェクトファイルを
+出力する．
+出力ファイル名には，入力ファイル名の拡張子<span class="ltx_text ltx_font_typewriter">.sml</span>を<span class="ltx_text ltx_font_typewriter">.o</span>に
+置き換えた名前を用いる．
+入力ファイルがただ1つだけの場合に限り，<span class="ltx_text ltx_font_typewriter">-o</span>オプション
+で出力ファイル名を指定することができる．
+</p>
+</div>
+</dd>
+<dt id="I1.ix6" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_typewriter">-Mm</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix6.p1" class="ltx_para">
+<p class="ltx_p">入力ファイルとして指定された<span class="ltx_text ltx_font_typewriter">.smi</span>ファイルをプログラムエントリ
+とするプログラム全体をコンパイルおよびリンクするために必要なMakefileを
+生成する．
+指定された<span class="ltx_text ltx_font_typewriter">.smi</span>ファイルから，コンパイルおよびリンクに必要な
+全てのファイルの依存関係が計算される．
+ml-lexやml-yaccなどのソースファイルを生成するツールを含まない
+プロジェクトならば，このモードはそのプロジェクトのための完全な
+Makefileを出力する．
+<span class="ltx_text ltx_font_typewriter">-o</span>オプションと共に指定されている場合，標準出力の代わりに
+<span class="ltx_text ltx_font_typewriter">-o</span>で指定されたファイルに結果を出力する．
+</p>
+</div>
+</dd>
+<dt id="I1.ix7" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_typewriter">-MMm</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix7.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">-Mm</span>と同じだが，標準ライブラリは出力から除外される．
+</p>
+</div>
+</dd>
+<dt id="I1.ix8" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_typewriter">-M</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix8.p1" class="ltx_para">
+<p class="ltx_p">指定された<span class="ltx_text ltx_font_typewriter">.sml</span>ファイルをコンパイルするときに読み込まれる
+ファイルのリストをMakefile形式で標準出力に表示する．
+<span class="ltx_text ltx_font_typewriter">-o</span>オプションと共に指定されている場合，標準出力の代わりに
+<span class="ltx_text ltx_font_typewriter">-o</span>で指定されたファイルに結果を出力する．
+</p>
+</div>
+</dd>
+<dt id="I1.ix9" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_typewriter">-MM</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix9.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">-M</span>と同じだが，標準ライブラリは出力から除外される．
+</p>
+</div>
+</dd>
+<dt id="I1.ix10" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_typewriter">-Ml</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix10.p1" class="ltx_para">
+<p class="ltx_p">指定された<span class="ltx_text ltx_font_typewriter">.smi</span>ファイルと指定してリンクするときに
+リンク対象となるオブジェクトファイルのリストをMakefile形式で標準出力に
+表示する．
+<span class="ltx_text ltx_font_typewriter">-o</span>オプションと共に指定されている場合，標準出力の代わりに
+<span class="ltx_text ltx_font_typewriter">-o</span>で指定されたファイルに結果を出力する．
+</p>
+</div>
+</dd>
+<dt id="I1.ix11" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_typewriter">-MMl</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix11.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">-Ml</span>と同じだが，標準ライブラリは出力から除外される．
+</p>
+</div>
+</dd>
+</dl>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">以上のいずれのオプションも指定されていない場合，
+入力ファイルの有無によって実行モードが異なる．
+</p>
+<ul id="I2" class="ltx_itemize">
+<li id="I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i1.p1" class="ltx_para">
+<p class="ltx_p">入力ファイルが指定されていない場合，対話環境を起動する．
+</p>
+</div>
+</li>
+<li id="I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i2.p1" class="ltx_para">
+<p class="ltx_p">入力ファイルが指定されている場合，
+<span class="ltx_text ltx_font_typewriter">smlsharp</span>コマンドはリンクモードで起動される．
+入力ファイルのリストには，
+高々1つの<span class="ltx_text ltx_font_typewriter">.smi</span>ファイルまたは<span class="ltx_text ltx_font_typewriter">.sml</span>ファイルを含めても良い．
+入力ファイルリストの中に<span class="ltx_text ltx_font_typewriter">.smi</span>ファイルが
+指定されている場合，その<span class="ltx_text ltx_font_typewriter">.smi</span>ファイルから
+<span class="ltx_text ltx_font_typewriter">_require</span>関係を辿って到達できる全ての<span class="ltx_text ltx_font_typewriter">.smi</span>ファイルを列挙し，
+各<span class="ltx_text ltx_font_typewriter">.smi</span>ファイルに対応するオブジェクトファイルを検索し，
+それらオブジェクトファイルをリンクの対象とする．
+オブジェクトファイルの検索については，
+後述する<span class="ltx_text ltx_font_typewriter">-filemap</span>オプションの説明を参照せよ．
+入力ファイルリストの中に<span class="ltx_text ltx_font_typewriter">.sml</span>ファイルが指定されている場合，
+その<span class="ltx_text ltx_font_typewriter">.sml</span>ファイルをコンパイルした後，
+その<span class="ltx_text ltx_font_typewriter">.sml</span>ファイルに対応する<span class="ltx_text ltx_font_typewriter">.smi</span>ファイルから
+リンク対象のオブジェクトファイルのリストを計算する．
+高々1つの<span class="ltx_text ltx_font_typewriter">.smi</span>ファイルまたは<span class="ltx_text ltx_font_typewriter">.sml</span>ファイルが含まれる．
+<span class="ltx_text ltx_font_typewriter">.smi</span>または<span class="ltx_text ltx_font_typewriter">.sml</span>以外の入力ファイルは，
+システムリンカが受け付けるオブジェクトファイルやライブラリファイルを
+指定する．
+<span class="ltx_text ltx_font_typewriter">smlsharp</span>コマンドは，これらオブジェクトファイルのリストと
+SML#ランタイムライブラリをシステムリンカコマンドを起動してリンクする．
+</p>
+</div>
+<div id="I2.i2.p2" class="ltx_para">
+<p class="ltx_p">なお，システムリンカと同様，入力ファイルを指定する順番には意味がある．
+未参照シンボルを持つオブジェクトファイルは，そのシンボルを定義する
+オブジェクトファイルよりも前に指定されていなければならない．
+</p>
+</div>
+<div id="I2.i2.p3" class="ltx_para">
+<p class="ltx_p">出力される実行形式ファイルのデフォルトの名前は<span class="ltx_text ltx_font_typewriter">a.out</span>である．
+<span class="ltx_text ltx_font_typewriter">-o</span>オプションによって出力ファイル名を指定することができる．
+</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch28.html" title="Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">28 </span>SML#コンパイラの起動</span></a><a href="Ch28.S2.html" title="28.2 モード共通のオプション ‣ Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">28.2 </span>モード共通のオプション</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Apr  6 18:18:13 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

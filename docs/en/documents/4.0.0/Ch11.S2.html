@@ -1,0 +1,250 @@
+---
+layout: default
+permalink: /en/documents/4.0.0/Ch11.S2.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Tue Apr  6 18:19:31 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Apr, 2021.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="up up" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="up up up" href="./" title="SML# Document Version 4.0.0">
+ <link rel="start" href="./" title="SML# Document Version 4.0.0">
+ <link rel="prev" href="Ch11.S1.html" title="11.1 Programming with Pthreads ‣ Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="next" href="Ch12.html" title="Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch11.S1.html" title="11.1 Programming with Pthreads ‣ Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 Installing SML# ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML# feature: other type system extensions ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 4.0.0">
+title: "11.2 Fine-grain multithread programming with MassiveThreads‣ Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 4.0.0</div>
+<div>
+<a href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">11 </span>
+SML# feature: Multithread programming</span></a><a href="Ch11.S1.html" title="11.1 Programming with Pthreads ‣ Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">11.1 </span>Programming with Pthreads</span></a><a href="Ch12.html" title="Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">12 </span>
+SML# feature: seamless SQL integration</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">11.2 </span>Fine-grain multithread programming with MassiveThreads</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">SML# provides MassiveThreads-based multithread
+support by default.
+MassiveThreads is a user-level lightweight thread library in C
+provided by the University of Tokyo.
+The SML#’s direct C interface and unobtrusive
+concurrent garbage collection enable SML# programs to call
+MassiveThreads directly.
+MassiveThreads allows us to create millions of user threads,
+say 1,000,000 threads, that runs concurrently on multicore processors.</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">By default, time SML# runtime is restricted to use
+only one CPU core for the performance of single-thread programs.
+To enable MassiveThreads on multicore processors,
+specify at least one <code class="ltx_verbatim ltx_font_typewriter">MYTH_*</code> environment variable as a configuration
+of MassiveThreads.
+A typical one is <code class="ltx_verbatim ltx_font_typewriter">MYTH_NUM_WORKERS</code> that specifies the
+number of worker threads, i.e., the number of CPU cores the program
+uses.
+For example, do the following command to start an interactive
+session:</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ MYTH_NUM_WORKERS=0 smlsharp</span></p>
+</blockquote>
+<p class="ltx_p">In Linux, setting <code class="ltx_verbatim ltx_font_typewriter">MYTH_NUM_WORKERS</code> to 0 means
+using all available CPU cores.</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">SML# provides <span class="ltx_text ltx_font_typewriter">Myth</span> structure that is a direct
+binding of MassiveThreads library in SML#.
+In <span class="ltx_text ltx_font_typewriter">Myth.Thread</span> structure,
+you find basic functions for thread management.
+Its primary functions are the following:</p>
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">User thread creation.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">Myth.Thread.create : (unit -&gt; int) -&gt; Myth.thread</span></p>
+</blockquote>
+<p class="ltx_p"><math id="I1.i1.p1.m1" class="ltx_Math" alttext="\mbox{\tt create}\ f" display="inline"><mrow><mtext>𝚌𝚛𝚎𝚊𝚝𝚎</mtext><mspace width="5.0pt"></mspace><mi>f</mi></mrow></math>
+creates a new user thread that computes
+<math id="I1.i1.p1.m2" class="ltx_Math" alttext="f\ \mbox{\tt()}" display="inline"><mrow><mi>f</mi><mspace width="5.0pt"></mspace><mtext mathvariant="monospace">()</mtext></mrow></math>.
+The created user thread will be scheduled to an appropriate
+CPU core by the MassiveThreads task scheduler.
+Its scheduling policy is non-preemptive;
+a thread occupies a CPU core until
+either it calls a thread control function of MassiveThreads
+(<span class="ltx_text ltx_font_typewriter">Myth.Thread.yield</span>)
+or it terminates.</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">User thread join.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">Myth.Thread.join : Myth.thread -&gt; int</span></p>
+</blockquote>
+<p class="ltx_p"><math id="I1.i2.p1.m1" class="ltx_Math" alttext="\mbox{\tt join}\ t" display="inline"><mrow><mtext>𝚓𝚘𝚒𝚗</mtext><mspace width="5.0pt"></mspace><mi>t</mi></mrow></math>
+waits for the completion of thread <math id="I1.i2.p1.m2" class="ltx_Math" alttext="t" display="inline"><mi>t</mi></math> and returns the result of the
+computation of <math id="I1.i2.p1.m3" class="ltx_Math" alttext="t" display="inline"><mi>t</mi></math>.
+Any user thread created by <span class="ltx_text ltx_font_typewriter">create</span> must be
+<span class="ltx_text ltx_font_typewriter">join</span>ed sometime in the future.
+Note that this <span class="ltx_text ltx_font_typewriter">Myth.Thread</span> structure is just a direct
+binding of C functions, as in C, the resource of the created threads
+must be freed explicitly.</p>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p">User thread scheduling.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">Myth.Thread.yield : unit -&gt; unit</span></p>
+</blockquote>
+<p class="ltx_p"><math id="I1.i3.p1.m1" class="ltx_Math" alttext="\mbox{\tt yield}\ \mbox{\tt()}" display="inline"><mrow><mtext>𝚢𝚒𝚎𝚕𝚍</mtext><mspace width="5.0pt"></mspace><mtext mathvariant="monospace">()</mtext></mrow></math>
+yields the CPU core to other threads.</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">As an introduction to MassiveThreads programming,
+let us write a task parallel program.
+Roughly speaking,
+you can write a task parallel program by the following steps:</p>
+<ol id="I2" class="ltx_enumerate">
+<li id="I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="I2.i1.p1" class="ltx_para">
+<p class="ltx_p">Write a recursive function that performs divide-and-conquer.</p>
+</div>
+</li>
+<li id="I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="I2.i2.p1" class="ltx_para">
+<p class="ltx_p">Surround each recursive call with a pair of
+<span class="ltx_text ltx_font_typewriter">create</span> and <span class="ltx_text ltx_font_typewriter">join</span> so that
+each recursive call is evaluated in a different thread.</p>
+</div>
+</li>
+<li id="I2.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span> 
+<div id="I2.i3.p1" class="ltx_para">
+<p class="ltx_p">To prevent from creating very short threads,
+set a threshold (cut-off) to stop thread creation and do recursive
+calls in the same thread.
+The threshold must be decided so that
+sequential wall-clock time of a user thread is sufficiently longer than
+the overhead of thread creation.
+In practice, 3–4 microseconds for a user thread is good enough.</p>
+</div>
+</li>
+</ol>
+<p class="ltx_p">For example, let us write a program that compute <span class="ltx_text ltx_font_typewriter">fib 40</span>
+recursively.
+The following is a typical definition of recursive <span class="ltx_text ltx_font_typewriter">fib</span> function:</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">fun fib 0 = 0
+<br class="ltx_break">
+  | fib 1 = 1
+<br class="ltx_break">
+  | fib n = fib (n - 1) + fib (n - 2)
+<br class="ltx_break">
+val result = fib 40</span></p>
+</blockquote>
+<p class="ltx_p">To compute
+<span class="ltx_text ltx_font_typewriter">fib (n - 1)</span> and <span class="ltx_text ltx_font_typewriter">fib (n - 2)</span> in parallel,
+surround one of them with <span class="ltx_text ltx_font_typewriter">create</span> and <span class="ltx_text ltx_font_typewriter">join</span>:</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">fun fib 0 = 0
+<br class="ltx_break">
+  | fib 1 = 1
+<br class="ltx_break">
+  | fib n =
+<br class="ltx_break">
+    let
+<br class="ltx_break">
+      val t2 = Myth.Thread.create (fn () =&gt; fib (n - 2))
+<br class="ltx_break">
+    in
+<br class="ltx_break">
+      fib (n - 1) + Myth.Thread.join t2
+<br class="ltx_break">
+    end
+<br class="ltx_break">
+val result = fib 40</span></p>
+</blockquote>
+<p class="ltx_p">This is not a goal; unfortunately,
+if <span class="ltx_text ltx_font_typewriter">n</span> is very small,
+the computation cost of <span class="ltx_text ltx_font_typewriter">fib n</span> is apparently much smaller than
+the overhead of thread creation.
+To avoid this,
+we introduce a threshold
+so that it computes sequentially if <span class="ltx_text ltx_font_typewriter">n</span> is smaller than 10.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val cutOff = 10
+<br class="ltx_break">
+fun fib 0 = 0
+<br class="ltx_break">
+  | fib 1 = 1
+<br class="ltx_break">
+  | fib n =
+<br class="ltx_break">
+    if n &lt; cutOff
+<br class="ltx_break">
+    then fib (n - 1) + fib (n - 2)
+<br class="ltx_break">
+    else
+<br class="ltx_break">
+      let
+<br class="ltx_break">
+        val t2 = Myth.Thread.create (fn () =&gt; fib (n - 2))
+<br class="ltx_break">
+      in
+<br class="ltx_break">
+        fib (n - 1) + Myth.Thread.join t2
+<br class="ltx_break">
+      end
+<br class="ltx_break">
+val result = fib 40</span></p>
+</blockquote>
+<p class="ltx_p">Now it is all done!
+Running this program, it eventually generates 3,524,577 user
+threads in total.</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch11.S1.html" title="11.1 Programming with Pthreads ‣ Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">11.1 </span>Programming with Pthreads</span></a><a href="Ch12.html" title="Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">12 </span>
+SML# feature: seamless SQL integration</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Apr  6 18:19:31 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

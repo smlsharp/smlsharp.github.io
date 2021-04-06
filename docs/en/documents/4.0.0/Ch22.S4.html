@@ -1,0 +1,1066 @@
+---
+layout: default
+permalink: /en/documents/4.0.0/Ch22.S4.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Tue Apr  6 18:19:31 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Apr, 2021.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch22.html" title="Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="up up" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="up up up" href="./" title="SML# Document Version 4.0.0">
+ <link rel="start" href="./" title="SML# Document Version 4.0.0">
+ <link rel="prev" href="Ch22.S3.html" title="22.3 Database Server Description: The _sqlserver Expression ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="next" href="Ch22.S5.html" title="22.5 SELECT queries ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch22.S1.html" title="22.1 SQL Types ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch22.S2.html" title="22.2 Extended ML Expressions for SQL Queries ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch22.S3.html" title="22.3 Database Server Description: The _sqlserver Expression ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch22.S5.html" title="22.5 SELECT queries ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch22.S6.html" title="22.6 SQL commands ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch22.S7.html" title="22.7 SQL execution function expressions ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch22.S8.html" title="22.8 SQL Library: The SQL Structure ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch22.S9.html" title="22.9 SQL Library: The SQL.Op structure ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch22.S10.html" title="22.10 SQL Library: The SQL.Numeric Structure ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch22.S11.html" title="22.11 Difference from the standard SQL (Informative) ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch15.html" title="Chapter 15 Introduction ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch16.html" title="Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch17.html" title="Chapter 17 Lexical structure ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch18.html" title="Chapter 18 Types ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch19.html" title="Chapter 19 Expressions ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch20.html" title="Chapter 20 Patterns and Pattern Matching ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch21.html" title="Chapter 21 Scope rules for identifier ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch22.html" title="Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch23.html" title="Chapter 23 Declarations of the core language and their interfaces ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch24.html" title="Chapter 24 Module language declarations and interface ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch25.html" title="Chapter 25 Overview of SML# Libraries ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch26.html" title="Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch27.html" title="Chapter 27 SML# System Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch28.html" title="Chapter 28 The smlsharp command ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch29.html" title="Chapter 29 SML# Run-time data management ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 4.0.0">
+title: "22.4 SQL Value Expressions‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 4.0.0</div>
+<div>
+<a href="Ch22.html" title="Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22 </span>SQL Expressions and Commands</span></a><a href="Ch22.S3.html" title="22.3 Database Server Description: The _sqlserver Expression ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.3 </span>Database Server Description: The _sqlserver Expression</span></a><a href="Ch22.S5.html" title="22.5 SELECT queries ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.5 </span>SELECT queries</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">22.4 </span>SQL Value Expressions</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">An <span class="ltx_text ltx_font_italic">SQL value expression</span> is an expression that occurs
+in an SQL command and evaluates to a value when the SQL command evaluates.
+An SML#’s SQL value expression constructs
+a fragment of the SQL value expression as its value.
+The SQL value expression constructed is almost literally
+identical to the SML#’s counterpart and evaluated on
+the database server.
+For example, the SML#’s SQL value expression
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">_sql(1 + #employee.salary)</span></p>
+</blockquote>
+<p class="ltx_p">is evaluated to the SQL value expression
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">1 + employee.salary</span></p>
+</blockquote>
+<p class="ltx_p">as a fragment of an SQL command to be sent to a database server.
+</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">If an SQL value expression contains a subexpression that can
+be evaluated by SML#, the subexpression evaluates to a value
+and the value is embedded in an SQL command to be sent to a database server.
+For example,
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">_sql(1 + 2 + #employee.salary)</span></p>
+</blockquote>
+<p class="ltx_p">is evaluated to the SQL value expression
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">3 + employee.salary
+</span></p>
+</blockquote>
+<p class="ltx_p">of a fragment of an SQL command.
+</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">The following set of expressions <math id="p3.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlexp<span class="ltx_text ltx_font_upright"><math id="p3.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>,
+which includes a subset of value expressions of the standard SQL,
+is available in SML#:
+</p>
+</div>
+<div id="p4" class="ltx_para">
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">SQL value expressions (top-level)
+<br class="ltx_break">
+<span class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<span class="ltx_tbody">
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_th ltx_th_row"><math id="I1.i1.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlexp<span class="ltx_text ltx_font_upright"><math id="I1.i1.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span>
+<span class="ltx_td ltx_align_center ltx_th ltx_th_row">::=</span>
+<span class="ltx_td ltx_align_left"><math id="I1.i1.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlinfexp<span class="ltx_text ltx_font_upright"><math id="I1.i1.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span>
+<span class="ltx_td"></span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_th ltx_th_row"></span>
+<span class="ltx_td ltx_align_center ltx_th ltx_th_row"><span class="ltx_text ltx_markedasmath"> <math id="I1.i1.p1.m5.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></span>
+<span class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">not <math id="I1.i1.p1.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlexp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i1.p1.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span>
+<span class="ltx_td ltx_align_left">SQL’s logical nagation</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_th ltx_th_row"></span>
+<span class="ltx_td ltx_align_center ltx_th ltx_th_row"><span class="ltx_text ltx_markedasmath"> <math id="I1.i1.p1.m8.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></span>
+<span class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter"><math id="I1.i1.p1.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlexp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i1.p1.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> and <math id="I1.i1.p1.m11" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlexp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i1.p1.m12" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span>
+<span class="ltx_td ltx_align_left">SQL’s logical conjunction</span></span>
+<span class="ltx_tr">
+<span class="ltx_td"></span>
+<span class="ltx_td ltx_align_center ltx_th ltx_th_row"><span class="ltx_text ltx_markedasmath"> <math id="I1.i1.p1.m13.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></span>
+<span class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter"><math id="I1.i1.p1.m14" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlexp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i1.p1.m15" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> or <math id="I1.i1.p1.m16" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlexp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i1.p1.m17" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span>
+<span class="ltx_td ltx_align_left">SQL’s logical disjunction</span></span>
+</span>
+</span></p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">SQL infix expressions
+<br class="ltx_break">
+<span class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<span class="ltx_tbody">
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_th ltx_th_row"><math id="I1.i2.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlinfexp<span class="ltx_text ltx_font_upright"><math id="I1.i2.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span>
+<span class="ltx_td ltx_align_center ltx_th ltx_th_row">::=</span>
+<span class="ltx_td ltx_align_left"><math id="I1.i2.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlcastexp<span class="ltx_text ltx_font_upright"><math id="I1.i2.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span>
+<span class="ltx_td"></span></span>
+<span class="ltx_tr">
+<span class="ltx_td"></span>
+<span class="ltx_td ltx_align_center ltx_th ltx_th_row"><span class="ltx_text ltx_markedasmath"> <math id="I1.i2.p1.m5.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></span>
+<span class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter"><math id="I1.i2.p1.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlinfexp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i2.p1.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> <math id="I1.i2.p1.m8" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i2.p1.m9" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> <math id="I1.i2.p1.m10" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlinfexp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i2.p1.m11" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span>
+<span class="ltx_td ltx_align_left">infix expresssions</span></span>
+</span>
+</span></p>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p">SQL type cast expressions
+<br class="ltx_break">
+<span class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<span class="ltx_tbody">
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_th ltx_th_row"><math id="I1.i3.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlcastexp<span class="ltx_text ltx_font_upright"><math id="I1.i3.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span>
+<span class="ltx_td ltx_align_center ltx_th ltx_th_row">::=</span>
+<span class="ltx_td ltx_align_left"><math id="I1.i3.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlappexp<span class="ltx_text ltx_font_upright"><math id="I1.i3.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span>
+<span class="ltx_td"></span></span>
+<span class="ltx_tr">
+<span class="ltx_td"></span>
+<span class="ltx_td ltx_align_center ltx_th ltx_th_row"><span class="ltx_text ltx_markedasmath"> <math id="I1.i3.p1.m5.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></span>
+<span class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">(<math id="I1.i3.p1.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i3.p1.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">) <math id="I1.i3.p1.m8" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlcastexp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i3.p1.m9" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span>
+<span class="ltx_td ltx_align_left">type cast</span></span>
+</span>
+</span>
+
+<br class="ltx_break"></p>
+</div>
+</li>
+<li id="I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i4.p1" class="ltx_para">
+<p class="ltx_p">SQL function application expressions
+<br class="ltx_break">
+<span class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<span class="ltx_tbody">
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_th ltx_th_row"><math id="I1.i4.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlappexp<span class="ltx_text ltx_font_upright"><math id="I1.i4.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span>
+<span class="ltx_td ltx_align_center ltx_th ltx_th_row">::=</span>
+<span class="ltx_td ltx_align_left"><math id="I1.i4.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlatexp<span class="ltx_text ltx_font_upright"><math id="I1.i4.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span>
+<span class="ltx_td"></span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_th ltx_th_row"></span>
+<span class="ltx_td ltx_align_center ltx_th ltx_th_row"><span class="ltx_text ltx_markedasmath"> <math id="I1.i4.p1.m5.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></span>
+<span class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter"><math id="I1.i4.p1.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i4.p1.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> <math id="I1.i4.p1.m8" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlatexp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i4.p1.m9" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span>
+<span class="ltx_td ltx_align_left">function applications</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_th ltx_th_row"></span>
+<span class="ltx_td ltx_align_center ltx_th ltx_th_row"><span class="ltx_text ltx_markedasmath"> <math id="I1.i4.p1.m10.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></span>
+<span class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter"><math id="I1.i4.p1.m11" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlappexp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i4.p1.m12" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> <math id="I1.i4.p1.m13" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlatexp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i4.p1.m14" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span>
+<span class="ltx_td ltx_align_left">function applications</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_th ltx_th_row"></span>
+<span class="ltx_td ltx_align_center ltx_th ltx_th_row"><span class="ltx_text ltx_markedasmath"> <math id="I1.i4.p1.m15.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></span>
+<span class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter"><math id="I1.i4.p1.m16" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlappexp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i4.p1.m17" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> is <math id="I1.i4.p1.m18" class="ltx_Math" alttext="(" display="inline"><mo mathvariant="normal" stretchy="false">(</mo></math>not<math id="I1.i4.p1.m19" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math> <math id="I1.i4.p1.m20" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlis<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i4.p1.m21" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span>
+<span class="ltx_td ltx_align_left">SQL’s IS predicates</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_th ltx_th_row"><math id="I1.i4.p1.m22" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlis<span class="ltx_text ltx_font_upright"><math id="I1.i4.p1.m23" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span>
+<span class="ltx_td ltx_align_center ltx_th ltx_th_row">::=</span>
+<span class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">null</span> <math id="I1.i4.p1.m24" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <span class="ltx_text ltx_font_typewriter">true</span> <math id="I1.i4.p1.m25" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <span class="ltx_text ltx_font_typewriter">false</span> <math id="I1.i4.p1.m26" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <span class="ltx_text ltx_font_typewriter">unknown</span></span>
+<span class="ltx_td"></span></span>
+</span>
+</span></p>
+</div>
+</li>
+<li id="I1.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i5.p1" class="ltx_para">
+<p class="ltx_p">SQL atomic expressions
+<br class="ltx_break">
+<span class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<span class="ltx_tbody">
+<span class="ltx_tr">
+<span class="ltx_td ltx_align_left ltx_th ltx_th_row"><math id="I1.i5.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlatexp<span class="ltx_text ltx_font_upright"><math id="I1.i5.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span>
+<span class="ltx_td ltx_align_center ltx_th ltx_th_row">::=</span>
+<span class="ltx_td ltx_align_left"><math id="I1.i5.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">scon<span class="ltx_text ltx_font_upright"><math id="I1.i5.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span>
+<span class="ltx_td ltx_align_left">constant literals</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_th ltx_th_row"></span>
+<span class="ltx_td ltx_align_center ltx_th ltx_th_row"><span class="ltx_text ltx_markedasmath"> <math id="I1.i5.p1.m5.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></span>
+<span class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">true</span></span>
+<span class="ltx_td ltx_align_left">SML#’s true literal</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_th ltx_th_row"></span>
+<span class="ltx_td ltx_align_center ltx_th ltx_th_row"><span class="ltx_text ltx_markedasmath"> <math id="I1.i5.p1.m6.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></span>
+<span class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">false</span></span>
+<span class="ltx_td ltx_align_left">SML#’s false literal</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_th ltx_th_row"></span>
+<span class="ltx_td ltx_align_center ltx_th ltx_th_row"><span class="ltx_text ltx_markedasmath"> <math id="I1.i5.p1.m7.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></span>
+<span class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">null</span></span>
+<span class="ltx_td ltx_align_left">SQL’s NULL literal</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_th ltx_th_row"></span>
+<span class="ltx_td ltx_align_center ltx_th ltx_th_row"><span class="ltx_text ltx_markedasmath"> <math id="I1.i5.p1.m8.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></span>
+<span class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">#<math id="I1.i5.p1.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i5.p1.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">.<math id="I1.i5.p1.m11" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i5.p1.m12" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span>
+<span class="ltx_td ltx_align_left">Reference to a column in a named relation</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_th ltx_th_row"></span>
+<span class="ltx_td ltx_align_center ltx_th ltx_th_row"><span class="ltx_text ltx_markedasmath"> <math id="I1.i5.p1.m13.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></span>
+<span class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">#.<math id="I1.i5.p1.m14" class="ltx_Math" alttext="\mbox{$\,\langle$}{\it lab}\mbox{$\rangle\,$}" display="inline"><mrow><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow><mi>l</mi><mi>a</mi><mi>b</mi><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></mrow></math></span></span>
+<span class="ltx_td ltx_align_left">Reference to a column in an unnamed relation</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_th ltx_th_row"></span>
+<span class="ltx_td ltx_align_center ltx_th ltx_th_row"><span class="ltx_text ltx_markedasmath"> <math id="I1.i5.p1.m15.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></span>
+<span class="ltx_td ltx_align_left"><math id="I1.i5.p1.m16" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_upright"><math id="I1.i5.p1.m17" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span>
+<span class="ltx_td ltx_align_left">SML#’s variable reference</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_th ltx_th_row"></span>
+<span class="ltx_td ltx_align_center ltx_th ltx_th_row"><span class="ltx_text ltx_markedasmath"> <math id="I1.i5.p1.m18.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></span>
+<span class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">op <math id="I1.i5.p1.m19" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">longvid<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i5.p1.m20" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span>
+<span class="ltx_td ltx_align_left">SML#’s variable reference</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_th ltx_th_row"></span>
+<span class="ltx_td ltx_align_center ltx_th ltx_th_row"><span class="ltx_text ltx_markedasmath"> <math id="I1.i5.p1.m21.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></span>
+<span class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">(<math id="I1.i5.p1.m22" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlexp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i5.p1.m23" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">, <math id="I1.i5.p1.m24" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math>, <math id="I1.i5.p1.m25" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlexp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i5.p1.m26" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span></span>
+<span class="ltx_td ltx_align_left">SML#’s tuples</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_th ltx_th_row"></span>
+<span class="ltx_td ltx_align_center ltx_th ltx_th_row"><span class="ltx_text ltx_markedasmath"> <math id="I1.i5.p1.m27.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></span>
+<span class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">(<math id="I1.i5.p1.m28" class="ltx_Math" alttext="(" display="inline"><mo mathvariant="normal" stretchy="false">(</mo></math>_sql<math id="I1.i5.p1.m29" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math> <math id="I1.i5.p1.m30" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlselect<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i5.p1.m31" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span></span>
+<span class="ltx_td ltx_align_left">SQL’s SELECT subqueries</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_th ltx_th_row"></span>
+<span class="ltx_td ltx_align_center ltx_th ltx_th_row"><span class="ltx_text ltx_markedasmath"> <math id="I1.i5.p1.m32.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></span>
+<span class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter"><math id="I1.i5.p1.m33" class="ltx_Math" alttext="(" display="inline"><mo mathvariant="normal" stretchy="false">(</mo></math></span><span class="ltx_text ltx_font_typewriter">_sql</span><span class="ltx_text ltx_font_typewriter"><math id="I1.i5.p1.m34" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span><span class="ltx_text ltx_font_typewriter"> exists (<math id="I1.i5.p1.m35" class="ltx_Math" alttext="(" display="inline"><mo mathvariant="normal" stretchy="false">(</mo></math>_sql<math id="I1.i5.p1.m36" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math> <math id="I1.i5.p1.m37" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlselect<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i5.p1.m38" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span></span>
+<span class="ltx_td ltx_align_left">SQL’s EXISTS subqueries</span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_th ltx_th_row"></span>
+<span class="ltx_td ltx_align_center ltx_th ltx_th_row"><span class="ltx_text ltx_markedasmath"> <math id="I1.i5.p1.m39.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></span>
+<span class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">(<math id="I1.i5.p1.m40" class="ltx_Math" alttext="(" display="inline"><mo mathvariant="normal" stretchy="false">(</mo></math>_sql<math id="I1.i5.p1.m41" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math> <math id="I1.i5.p1.m42" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlcommand<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i5.p1.m43" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span></span>
+<span class="ltx_td"></span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_th ltx_th_row"></span>
+<span class="ltx_td ltx_align_center ltx_th ltx_th_row"><span class="ltx_text ltx_markedasmath"> <math id="I1.i5.p1.m44.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></span>
+<span class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">(<math id="I1.i5.p1.m45" class="ltx_Math" alttext="(" display="inline"><mo mathvariant="normal" stretchy="false">(</mo></math>_sql<math id="I1.i5.p1.m46" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math> <math id="I1.i5.p1.m47" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlclause<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i5.p1.m48" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span></span>
+<span class="ltx_td"></span></span>
+<span class="ltx_tr">
+<span class="ltx_td ltx_th ltx_th_row"></span>
+<span class="ltx_td ltx_align_center ltx_th ltx_th_row"><span class="ltx_text ltx_markedasmath"> <math id="I1.i5.p1.m49.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></span>
+<span class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">(<math id="I1.i5.p1.m50" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlexp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i5.p1.m51" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span></span>
+<span class="ltx_td"></span></span>
+<span class="ltx_tr">
+<span class="ltx_td"></span>
+<span class="ltx_td ltx_align_center ltx_th ltx_th_row"><span class="ltx_text ltx_markedasmath"> <math id="I1.i5.p1.m52.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></span>
+<span class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">( ... <math id="I1.i5.p1.m53" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i5.p1.m54" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> )</span></span>
+<span class="ltx_td ltx_align_left">embedded SQL value expressions</span></span>
+</span>
+</span></p>
+</div>
+</li>
+</ul>
+</div>
+<div id="p5" class="ltx_para">
+<p class="ltx_p">As seen in the definition,
+some SQL value expressions may begin with the keyword <span class="ltx_text ltx_font_typewriter">_sql</span>.
+This is allowed just for the inner one of a nested SQL
+value expressions to be written in the same manner of the outermost one.
+These <span class="ltx_text ltx_font_typewriter">_sql</span> keywords are simply ignored.
+</p>
+</div>
+<div id="p6" class="ltx_para">
+<p class="ltx_p">The type of an SQL value expression <math id="p6.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlexp<span class="ltx_text ltx_font_upright"><math id="p6.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+is determined under the
+type <math id="p6.m3" class="ltx_Math" alttext="\tau^{\prime}" display="inline"><mrow><mi>τ</mi><msup><mi></mi><mo>′</mo></msup></mrow></math> of a set of tables and <math id="p6.m4" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math> of the database connection
+identification, both of which are given in the static context.
+The type of every subexpression in an SQL value expression
+is given under the same <math id="p6.m5" class="ltx_Math" alttext="\tau^{\prime}" display="inline"><mrow><mi>τ</mi><msup><mi></mi><mo>′</mo></msup></mrow></math> and <math id="p6.m6" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>.
+In what follows,
+we write that the type of an expression <math id="p6.m7" class="ltx_Math" alttext="e" display="inline"><mi>e</mi></math> is <math id="p6.m8" class="ltx_Math" alttext="(T,w)\triangleright\tau" display="inline"><mrow><mo stretchy="false">(</mo><mi>T</mi><mo>,</mo><mi>w</mi><mo stretchy="false">)</mo><mo>▷</mo><mi>τ</mi></mrow></math>
+if <math id="p6.m9" class="ltx_Math" alttext="e" display="inline"><mi>e</mi></math> has type <math id="p6.m10" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math> under <math id="p6.m11" class="ltx_Math" alttext="\tau^{\prime}" display="inline"><mrow><mi>τ</mi><msup><mi></mi><mo>′</mo></msup></mrow></math> and <math id="p6.m12" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>.
+If <math id="p6.m13" class="ltx_Math" alttext="\tau^{\prime}" display="inline"><mrow><mi>τ</mi><msup><mi></mi><mo>′</mo></msup></mrow></math> and <math id="p6.m14" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math> do not need to be described,
+we simply write that the type of <math id="p6.m15" class="ltx_Math" alttext="e" display="inline"><mi>e</mi></math> is <math id="p6.m16" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>.
+</p>
+</div>
+<section id="SS1" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.4.1 </span>Expressions evaluated by SML#</h2>
+
+<div id="SS1.p1" class="ltx_para">
+<p class="ltx_p">An SQL value expression satisfying the
+following inductive condition is <span class="ltx_text ltx_font_italic">evaluated by SML#</span> and
+their values are embedded in the SQL command to be sent to
+the database server.
+</p>
+<ol id="I2" class="ltx_enumerate">
+<li id="I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="I2.i1.p1" class="ltx_para">
+<p class="ltx_p">A constant expression <math id="I2.i1.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">scon<span class="ltx_text ltx_font_upright"><math id="I2.i1.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> is evaluated by SML#.
+</p>
+</div>
+</li>
+<li id="I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="I2.i2.p1" class="ltx_para">
+<p class="ltx_p">Variable expressions <math id="I2.i2.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_upright"><math id="I2.i2.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> and <span class="ltx_text ltx_font_typewriter">op <math id="I2.i2.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">longvid<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I2.i2.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+are evaluated by SML#.
+</p>
+</div>
+</li>
+<li id="I2.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span> 
+<div id="I2.i3.p1" class="ltx_para">
+<p class="ltx_p">A tuple
+<span class="ltx_text ltx_font_typewriter">(<math id="I2.i3.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlexp<math id="I2.i3.p1.m2" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I2.i3.p1.m3" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">, <math id="I2.i3.p1.m4" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math>, <math id="I2.i3.p1.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlexp<math id="I2.i3.p1.m6" class="ltx_Math" alttext="{}_{n}" display="inline"><msub><mi></mi><mi>n</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I2.i3.p1.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span>
+is evaluated by SML# if
+<math id="I2.i3.p1.m8" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlexp<math id="I2.i3.p1.m9" class="ltx_Math" alttext="{}_{i}" display="inline"><msub><mi></mi><mi>i</mi></msub></math><span class="ltx_text ltx_font_upright"><math id="I2.i3.p1.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> is evaluated by SML#
+for any <math id="I2.i3.p1.m11" class="ltx_Math" alttext="i" display="inline"><mi>i</mi></math>.
+</p>
+</div>
+</li>
+<li id="I2.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">4.</span> 
+<div id="I2.i4.p1" class="ltx_para">
+<p class="ltx_p">A function application <span class="ltx_text ltx_font_typewriter"><math id="I2.i4.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I2.i4.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> <math id="I2.i4.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlatexp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I2.i4.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+is evaluated by SML# if
+<math id="I2.i4.p1.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlatexp<span class="ltx_text ltx_font_upright"><math id="I2.i4.p1.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> is evaluated by SML#.
+</p>
+</div>
+</li>
+<li id="I2.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">5.</span> 
+<div id="I2.i5.p1" class="ltx_para">
+<p class="ltx_p">An infix expression
+<span class="ltx_text ltx_font_typewriter"><math id="I2.i5.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlinfexp<math id="I2.i5.p1.m2" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I2.i5.p1.m3" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> <math id="I2.i5.p1.m4" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I2.i5.p1.m5" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> <math id="I2.i5.p1.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlinfexp<math id="I2.i5.p1.m7" class="ltx_Math" alttext="{}_{2}" display="inline"><msub><mi></mi><mn mathvariant="normal">2</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I2.i5.p1.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+is evaluated by SML# if
+<math id="I2.i5.p1.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlinfexp<math id="I2.i5.p1.m10" class="ltx_Math" alttext="{}_{i}" display="inline"><msub><mi></mi><mi>i</mi></msub></math><span class="ltx_text ltx_font_upright"><math id="I2.i5.p1.m11" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> is evaluated by SML#
+for any <math id="I2.i5.p1.m12" class="ltx_Math" alttext="i" display="inline"><mi>i</mi></math>.
+</p>
+</div>
+</li>
+<li id="I2.i6" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">6.</span> 
+<div id="I2.i6.p1" class="ltx_para">
+<p class="ltx_p">An SML#’s function application
+<span class="ltx_text ltx_font_typewriter"><math id="I2.i6.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlappexp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I2.i6.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> <math id="I2.i6.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlatexp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I2.i6.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+is evaluated by SML#.
+A syntax error occurs if
+either <math id="I2.i6.p1.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlappexp<span class="ltx_text ltx_font_upright"><math id="I2.i6.p1.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> or <math id="I2.i6.p1.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlatexp<span class="ltx_text ltx_font_upright"><math id="I2.i6.p1.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+is not evaluated by SML#.
+</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="SS1.p2" class="ltx_para">
+<p class="ltx_p">For example, consider the following SQL query:
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val q = _sql db =&gt; select SOME 1 + sum(#a.b) from #db.a group by #a.c;
+</span></p>
+</blockquote>
+<p class="ltx_p">The subexpression <span class="ltx_text ltx_font_typewriter">SOME 1</span> is evaluated by SML#
+and its value is embedded in the SQL query fragment
+(if <span class="ltx_text ltx_font_typewriter">SOME</span> is not defined, it causes an undefined variable error).
+<span class="ltx_text ltx_font_typewriter">sum(#a.b)</span> is not evaluated by SML# and
+therefore embedded in the query without any modification.
+The SQL query that is sent to the server when executing <span class="ltx_text ltx_font_typewriter">q</span>
+is the following:
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SELECT 1 + SUM(a.b) AS "1" FROM a GROUP BY a.c</span></p>
+</blockquote>
+</div>
+<div id="SS1.p3" class="ltx_para">
+<p class="ltx_p">The type of expressions that are evalutated by SML#
+must be one of the SQL basic types defined in Subsection
+<a href="Ch22.S1.html#SS1" title="22.1.1 SQL Basic Types ‣ 22.1 SQL Types ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.1.1</span></a>.
+</p>
+</div>
+<div id="SS1.p4" class="ltx_para">
+<p class="ltx_p">Each subexpression evaluated by SML# in an SQL value
+expression
+is evaluated immediately at the time when the SQL value expression
+is evaluated.
+The evaluation order of such subexpressions
+are also same as SML# expressions.
+An SQL value expression is expansive, i.e, avoided to have
+polymorphic types, if it contains a function application
+in a subexpression evaluated by SML#.
+Since SQL queries are polymorphic in almost cases,
+SQL value expressions including function applicaions evaluated by
+SML# often cause
+“value restriction” warnings, as seen in the following example:
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># _sql(1 + 2);
+<br class="ltx_break">
+none:~1.~1-~1.~1 Warning:
+<br class="ltx_break">
+(type inference 065) dummy type variable(s) are introduced due to value
+<br class="ltx_break">
+restriction in: it
+<br class="ltx_break">
+val it = _ : (?X1 -&gt; int, ?X0) SQL.exp</span></p>
+</blockquote>
+<p class="ltx_p">To use an SQL expression polymorphically or to put it at
+the program toplevel,
+enclose it with <span class="ltx_text ltx_font_typewriter">fn () =&gt; <math id="SS1.p4.m1" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math></span> to avoid the warning.
+For example, in contrast to the above, the following example does
+not cause the warning:
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># fn () =&gt; _sql(1 + 2);
+<br class="ltx_break">
+val it = fn : [’a, ’b. unit -&gt; (’a -&gt; int, ’b) SQL.exp]</span></p>
+</blockquote>
+</div>
+</section>
+<section id="SS2" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.4.2 </span>SQL constant expressions</h2>
+
+<div id="SS2.p1" class="ltx_para">
+<p class="ltx_p">Any constant expression in an SQL value expression is
+evaluated by SML#.
+The SML#’s syntax is used to write SQL
+constants; therefore, they looks differently from the standard SQL.
+In particular, string literals are totally
+different than the standard one.
+</p>
+</div>
+<div id="SS2.p2" class="ltx_para">
+<p class="ltx_p">Note that neither the <span class="ltx_text ltx_font_typewriter">true</span> nor <span class="ltx_text ltx_font_typewriter">false</span> has
+<span class="ltx_text ltx_font_typewriter">SQL.bool3</span> type.
+They denotes a first-class boolean value and therefore they
+are distinguished from boolean expressions.
+See Section <a href="Ch22.S1.html#SS2" title="22.1.2 The Type of SQL Logical Expressions ‣ 22.1 SQL Types ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.1.2</span></a> for
+the distinction between boolean expressions and values.
+</p>
+</div>
+<div id="SS2.p3" class="ltx_para">
+<p class="ltx_p">The UNKNOWN literal defined in SQL99 feature ID T031
+is not provided in SML#.
+This is due to the fact that
+PostgreSQL, the only implementation of the T031 feature, does not have
+the UNKNOWN litreral, and even if another implementation of T031
+would appear in the future, UNKNOWN can be substituted by NULL
+without changing its meaning
+(this interchangable use of UNKNOWN and NULL has been criticized
+since it is not compatible with the SQL core).
+</p>
+</div>
+</section>
+<section id="SS3" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.4.3 </span>SQL identifier expressions</h2>
+
+<div id="SS3.p1" class="ltx_para">
+<p class="ltx_p">All the <math id="SS3.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_upright"><math id="SS3.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> and
+<span class="ltx_text ltx_font_typewriter">op <math id="SS3.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">longvid<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS3.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> references to the SML# variables.
+A <math id="SS3.p1.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">longvid<span class="ltx_text ltx_font_upright"><math id="SS3.p1.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> with one or more structure identifiers must
+begin with the <span class="ltx_text ltx_font_typewriter">op</span> keyword.
+</p>
+</div>
+<div id="SS3.p2" class="ltx_para">
+<p class="ltx_p">In the SQL value expressions,
+the infixity of some identifiers are declared as follows:
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">infix 7 %
+<br class="ltx_break">
+infix 5 like ||
+<br class="ltx_break">
+nonfix mod</span></p>
+</blockquote>
+</div>
+<div id="SS3.p3" class="ltx_para">
+<p class="ltx_p">The type and value of an identifier expression is
+varied depending on whether or not the identifier occurs in an
+expression evaluated by SML#.
+If an identifier occurs in an expression evaluted by SML#,
+its type and value are
+those of the identifier bound in the current context of the SML#
+program.
+Otherwise, the type and value of an identifier are
+those of the identifier bound in the <span class="ltx_text ltx_font_typewriter">SQL.Op</span> structure.
+</p>
+</div>
+<div id="SS3.p4" class="ltx_para">
+<p class="ltx_p">For example, the two <span class="ltx_text ltx_font_typewriter">+</span> identifiers occured in the
+expression
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">_sql(1 + 2 + #a.b)</span></p>
+</blockquote>
+<p class="ltx_p">have different meanings.
+The first <span class="ltx_text ltx_font_typewriter">+</span> is the <span class="ltx_text ltx_font_typewriter">+</span> bound in the current SML#
+environment, and the second <span class="ltx_text ltx_font_typewriter">+</span> is <span class="ltx_text ltx_font_typewriter">SQL.Op.+</span>.
+</p>
+</div>
+<div id="SS3.p5" class="ltx_para">
+<p class="ltx_p">An identifier occuring in an expression that is not evaluated
+by SML#, except for <math id="SS3.p5.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_upright"><math id="SS3.p5.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> of
+<span class="ltx_text ltx_font_typewriter">(<math id="SS3.p5.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS3.p5.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">) <math id="SS3.p5.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlappexp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS3.p5.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <a href="#SS5" title="22.4.5 Type cast expressions ‣ 22.4 SQL Value Expressions ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.4.5</span></a>),
+is embedded in the SQL query after translating it by the following rules:</p>
+<ul id="I3" class="ltx_itemize">
+<li id="I3.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i1.p1" class="ltx_para">
+<p class="ltx_p">All lower case alphabets are replaced with upper case alphabets.</p>
+</div>
+</li>
+</ul>
+<p class="ltx_p">The value of an identifier defined in the <span class="ltx_text ltx_font_typewriter">SQL.Op</span>
+structure is referred only when the toy program of the SQL query is executed
+(see Subsection <a href="Ch22.S8.html#SS3" title="22.8.3 Utilities for SQL Queries ‣ 22.8 SQL Library: The SQL Structure ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.8.3</span></a>).
+Its type is used for typing SQL value expressions.
+For example, the type of <span class="ltx_text ltx_font_typewriter">_sql(1 + #a.b)</span>
+in SML# can be determined by looking for the type of <span class="ltx_text ltx_font_typewriter">SQL.Op.+</span>.
+</p>
+</div>
+</section>
+<section id="SS4" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.4.4 </span>SQL function applications and infix expressions</h2>
+
+<div id="SS4.p1" class="ltx_para">
+<p class="ltx_p">SQL function application and infix expressions are
+parsed in the same way as those of SML#,
+except for builtin logical expressions.
+The associatibity of infix expressions is decided by
+SML#’s infix declarations.
+Thus, SML#’s SQL infix operators may have different
+associatibity than the standard SQL in accordance with the use of
+the infix declarations.
+</p>
+</div>
+<div id="SS4.p2" class="ltx_para">
+<p class="ltx_p">Unlike the standard SQL,
+the syntax of SML#’s function application expressions
+does not require the function arguments to be parenthesized,
+but requires at least one delimiter or space between the function and
+arguemnts.
+However, particularly in an SQL expressions,
+it is suggested to use parenthesizes for the arguments and omit
+the space between the function and arguments
+so that it looks much closer to the standard SQL.
+This is completely allowed in the grammar of Standard ML.
+For example,
+an aggregate function can be used in a SQL query like as follows:
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">fn db =&gt; _sql select avg(#e.age)
+<br class="ltx_break">
+              from #db.employee as e
+<br class="ltx_break">
+              group by ()</span></p>
+</blockquote>
+<p class="ltx_p">The subexpression <span class="ltx_text ltx_font_typewriter">avg(#e.age)</span> is a function application
+expression that applies the <span class="ltx_text ltx_font_typewriter">SQL.Op.avg</span> function to the argument
+<span class="ltx_text ltx_font_typewriter">#e.age</span>.
+</p>
+</div>
+<div id="SS4.p3" class="ltx_para">
+<p class="ltx_p">Each of the SQL infix operators and functions, except for builtin
+logical operators, is provided as an SML# library function
+defined in the <span class="ltx_text ltx_font_typewriter">SQL.Op</span> structure.
+The list of SQL functions and operators available in expressions
+that are not evaluated by SML# is shown in Section
+<a href="Ch22.S9.html#SS2" title="22.9.2 SQL operators and functions ‣ 22.9 SQL Library: The SQL.Op structure ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.9.2</span></a>.
+</p>
+</div>
+<div id="SS4.p4" class="ltx_para">
+<p class="ltx_p">An SQL function application expression and SQL infix expression
+is typechecked in the same way as those of SML#.
+</p>
+</div>
+</section>
+<section id="SS5" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.4.5 </span>Type cast expressions</h2>
+
+<div id="SS5.p1" class="ltx_para">
+<p class="ltx_p">In a SML#’s SQL value expression,
+the expression consisting of a single identifier surrounded by parenthesizes
+has a special meaning.
+By putting an identifier surrounded by parenthesizes
+in front of an expression,
+the value of the expression is applied to the function identified by
+the identifier.
+The identifier and its surrounding parenthesizes do not appear
+in the SQL query to be sent to the database server.
+An identifier surrounded by parenthesizes must be defined in
+the <span class="ltx_text ltx_font_typewriter">SQL.Op</span> structure.
+In what follows, an expression prefixed with an identifier
+surrounded by parenthesizes is referred to as <span class="ltx_text ltx_font_italic">a type cast expression</span>.
+</p>
+</div>
+<div id="SS5.p2" class="ltx_para">
+<p class="ltx_p">A type cast expression
+corresponds to implicit type cast in SQL, which is not
+supported by SML#’s type system.
+One of its typical usage is to deal with the <span class="ltx_text ltx_font_typewriter">option</span> and
+numeric types.
+As described in Section <a href="Ch22.S1.html" title="22.1 SQL Types ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.1</span></a>,
+SML# distinguish values being possibly NULL from non-NULL values
+by using <span class="ltx_text ltx_font_typewriter">option</span> type.
+In contrast,
+the standard SQL allows NULL in any type.
+Due to this difference,
+the SML# compiler reports a type error
+even for a query type-correct in the standard SQL.
+Similarly,
+SML# does not allow implicit numeric type conversion,
+which the standard SQL allows.
+For example,
+consider the following that queries people younger than
+the average in each deparment:
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">fn db =&gt; _sql select #e.department as department, #e.name as name
+<br class="ltx_break">
+              from #db.empoloyee as e
+<br class="ltx_break">
+              where #e.age &lt; (select avg(#t.age)
+<br class="ltx_break">
+                              from #db.employee as t
+<br class="ltx_break">
+                              where #t.department = #e.department
+<br class="ltx_break">
+                              group by ())</span></p>
+</blockquote>
+<p class="ltx_p">This expression is typechecked,
+but the type of <span class="ltx_text ltx_font_typewriter">age</span> column of <span class="ltx_text ltx_font_typewriter">employee</span> table is
+infered as <span class="ltx_text ltx_font_typewriter">SQL.numeric option</span>.
+Thus, this query cannot be executed
+if the <span class="ltx_text ltx_font_typewriter">age</span> column is of <span class="ltx_text ltx_font_typewriter">int</span>.
+The source of this inference is that
+the result of the aggregate function <span class="ltx_text ltx_font_typewriter">avg</span> is compared with
+<span class="ltx_text ltx_font_typewriter">#e.age</span>.
+The result type of <span class="ltx_text ltx_font_typewriter">avg</span> is
+<span class="ltx_text ltx_font_typewriter">SQL.numeric option</span>.
+The comparison operator forces the two expressions to have
+the same type.
+Therefore,
+the type of <span class="ltx_text ltx_font_typewriter">#e.age</span> is <span class="ltx_text ltx_font_typewriter">SQL.numeric option</span>.
+In the standard SQL,
+<span class="ltx_text ltx_font_typewriter">age</span> may have an arbitrary numeric type
+since its type is implicitly casted to <span class="ltx_text ltx_font_typewriter">NUMERIC</span>.
+</p>
+</div>
+<div id="SS5.p3" class="ltx_para">
+<p class="ltx_p">For the above example,
+inserting <span class="ltx_text ltx_font_typewriter">Num</span> function to the left side of the comparison operator
+allows <span class="ltx_text ltx_font_typewriter">age</span> to have an arbitrary numeric type.
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">fn db =&gt; _sql select #e.department as department, #e.name as name
+<br class="ltx_break">
+              from #db.empoloyee as e
+<br class="ltx_break">
+              where (Num)#e.age &lt; (select avg(#t.age)
+<br class="ltx_break">
+                                   from #db.employee as t
+<br class="ltx_break">
+                                   where #t.department = #e.department
+<br class="ltx_break">
+                                   group by ())</span></p>
+</blockquote>
+<p class="ltx_p">This <span class="ltx_text ltx_font_typewriter">(Num)</span> is ignored when an SQL query is composed;
+therefore, regardless of the existence of <span class="ltx_text ltx_font_typewriter">(Num)</span>,
+the SQL query to be sent to the database server is not changed.
+The <span class="ltx_text ltx_font_typewriter">(Num)</span> is evaluated statically only for
+the typechecking of the SQL value expression.
+</p>
+</div>
+<div id="SS5.p4" class="ltx_para">
+<p class="ltx_p">For the set of identifiers provided for type cast expressions,
+see Subsection <a href="Ch22.S9.html#SS1" title="22.9.1 Workarounds for type inconsistencies ‣ 22.9 SQL Library: The SQL.Op structure ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.9.1</span></a>.
+</p>
+</div>
+</section>
+<section id="SS6" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.4.6 </span>SQL logical expressions</h2>
+
+<div id="SS6.p1" class="ltx_para">
+<p class="ltx_p">The following logical operators are built in the syntax of
+expressions:
+</p>
+<ul id="I4" class="ltx_itemize">
+<li id="I4.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I4.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">not</span><span class="ltx_text ltx_font_typewriter"> <math id="I4.i1.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlexp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I4.i1.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></p>
+</div>
+</li>
+<li id="I4.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I4.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"><math id="I4.i2.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlexp<math id="I4.i2.p1.m2" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I4.i2.p1.m3" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> and <math id="I4.i2.p1.m4" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlexp<math id="I4.i2.p1.m5" class="ltx_Math" alttext="{}_{2}" display="inline"><msub><mi></mi><mn mathvariant="normal">2</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I4.i2.p1.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></p>
+</div>
+</li>
+<li id="I4.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I4.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"><math id="I4.i3.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlexp<math id="I4.i3.p1.m2" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I4.i3.p1.m3" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> or <math id="I4.i3.p1.m4" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlexp<math id="I4.i3.p1.m5" class="ltx_Math" alttext="{}_{2}" display="inline"><msub><mi></mi><mn mathvariant="normal">2</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I4.i3.p1.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></p>
+</div>
+</li>
+<li id="I4.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I4.i4.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"><math id="I4.i4.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlexp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I4.i4.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> is <math id="I4.i4.p1.m3" class="ltx_Math" alttext="(" display="inline"><mo mathvariant="normal" stretchy="false">(</mo></math>not<math id="I4.i4.p1.m4" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math> <math id="I4.i4.p1.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlis<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I4.i4.p1.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</p>
+</div>
+</li>
+</ul>
+<p class="ltx_p">The <span class="ltx_text ltx_font_typewriter">and</span> operator has an additional restriction on
+its syntax:
+to avoid conflict with other SML# syntax,
+<span class="ltx_text ltx_font_typewriter">and</span> may occur only if it is parenthesized.
+For example, the following causes a parse error:
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># fn () =&gt; _sql where #t.c &gt;= 10 and #t.c &lt;= 20;
+<br class="ltx_break">
+(interactive):1.31-1.35 Error: Syntax error: deleting AND HASH</span></p>
+</blockquote>
+<p class="ltx_p">By surrounding the expression including the <span class="ltx_text ltx_font_typewriter">and</span> operator
+with parenthesizes, the parse error is avoided, as seen in the following:
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># fn () =&gt; _sql where (#t.c &gt;= 10 and #t.c &lt;= 20);
+<br class="ltx_break">
+val it = fn : [’a#t: ’b, ’b#c: int, ’c.
+<br class="ltx_break">
+               unit -&gt; (’a list -&gt; ’a list, ’c) SQL.whr]</span></p>
+</blockquote>
+</div>
+<div id="SS6.p2" class="ltx_para">
+<p class="ltx_p">The type of a logical expression is
+<span class="ltx_text ltx_font_typewriter">SQL.bool3</span>
+if its all subexpressions is of the
+<span class="ltx_text ltx_font_typewriter">SQL.bool3</span>
+type.
+Similarly,
+all SQL comparison operators provided as SML# library functions
+return a query of the
+<span class="ltx_text ltx_font_typewriter">SQL.bool3</span>
+type.
+</p>
+</div>
+<div id="SS6.p3" class="ltx_para">
+<p class="ltx_p">As described in
+Section <a href="Ch22.S1.html#SS2" title="22.1.2 The Type of SQL Logical Expressions ‣ 22.1 SQL Types ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.1.2</span></a>, to avoid confusion on
+dealing with boolean values in the standard SQL,
+SML# distingishes the types of boolean expressions and
+boolean values.
+Note that boolean value expressions, such as
+a reference to a column of the BOOLEAN type and the boolean value
+literals like <span class="ltx_text ltx_font_typewriter">true</span>,
+is not allowed to be a boolean expression.
+The following example causes a type error:
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># fn () =&gt; _sql(true is false);
+<br class="ltx_break">
+(interactive):1.14-1.26 Error:
+<br class="ltx_break">
+(type inference 016) operator and operand don’t agree
+<br class="ltx_break">
+operator domain: SQL.bool3
+<br class="ltx_break">
+operand: ’HBP::bool</span></p>
+</blockquote>
+<p class="ltx_p">In contrast, the following does not cause type error
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># fn () =&gt; _sql(#t.c = true is false);
+<br class="ltx_break">
+val it = fn : [’a, ’b. unit -&gt; (’a -&gt; SQL.bool3, ’b) SQL.exp]</span></p>
+</blockquote>
+<p class="ltx_p">because <span class="ltx_text ltx_font_typewriter">#t.c = true</span> is an boolean expression
+whereas <span class="ltx_text ltx_font_typewriter">true</span> itself denotes an boolean value.
+</p>
+</div>
+</section>
+<section id="SS7" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.4.7 </span>SQL column reference expressions</h2>
+
+<div id="SS7.p1" class="ltx_para">
+<p class="ltx_p">To reference a certain column of a certain table,
+write
+<span class="ltx_text ltx_font_typewriter">#<math id="SS7.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<math id="SS7.p1.m2" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS7.p1.m3" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">.<math id="SS7.p1.m4" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<math id="SS7.p1.m5" class="ltx_Math" alttext="{}_{2}" display="inline"><msub><mi></mi><mn mathvariant="normal">2</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS7.p1.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>,
+where
+<math id="SS7.p1.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">lab<math id="SS7.p1.m8" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_upright"><math id="SS7.p1.m9" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> and <math id="SS7.p1.m10" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">lab<math id="SS7.p1.m11" class="ltx_Math" alttext="{}_{2}" display="inline"><msub><mi></mi><mn mathvariant="normal">2</mn></msub></math><span class="ltx_text ltx_font_upright"><math id="SS7.p1.m12" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> are the names of
+the table and column, respectively.
+The type of a column reference is
+that of the column <math id="SS7.p1.m13" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">lab<math id="SS7.p1.m14" class="ltx_Math" alttext="{}_{2}" display="inline"><msub><mi></mi><mn mathvariant="normal">2</mn></msub></math><span class="ltx_text ltx_font_upright"><math id="SS7.p1.m15" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+of the table <math id="SS7.p1.m16" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">lab<math id="SS7.p1.m17" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_upright"><math id="SS7.p1.m18" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> as specified in the type of table sets
+given by the static context.
+</p>
+</div>
+<div id="SS7.p2" class="ltx_para">
+<p class="ltx_p">Unlike the standard SQL, which sometimes allows to omit
+the table name in a column reference,
+SML# requires the table name explicit in all the column
+reference expressions.
+In addition, column references must be prefixed with <span class="ltx_text ltx_font_typewriter">#</span>
+to avoid the conflict with other syntax.
+</p>
+</div>
+<div id="SS7.p3" class="ltx_para">
+<p class="ltx_p">Also unlike the standard SQL,
+table names and column names in SML# are
+case-sensitive.
+For example,
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SELECT Employee.name FROM EMPLOYEE</span></p>
+</blockquote>
+<p class="ltx_p">is a valid query in the standard SQL, but in SML#,
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">_sql db =&gt; select #Employee.name from #db.EMPLOYEE</span></p>
+</blockquote>
+<p class="ltx_p">causes an type error because the table name referenced is not found.
+In the SQL value expression to be sent to a server,
+the table and column names appears in the same case as the
+SML#’s counterpart.
+</p>
+</div>
+<div id="SS7.p4" class="ltx_para">
+<p class="ltx_p">Sometimes in SQL,
+a column in an anonymous table is referenced.
+A typical example of this situation is the ORDER BY clause
+that refers to a column computed by the SELECT clause.
+In SML#, such kind of column references is written
+as <span class="ltx_text ltx_font_typewriter">#.<math id="SS7.p4.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS7.p4.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>.
+Its type is the type of the column <math id="SS7.p4.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">lab<span class="ltx_text ltx_font_upright"><math id="SS7.p4.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>.
+For example, the SQL query
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SELECT e.name AS name, e.age + 1 AS nextAge
+<br class="ltx_break">
+FROM employee AS e
+<br class="ltx_break">
+ORDER BY nextAge</span></p>
+</blockquote>
+<p class="ltx_p">is written in SML# as follows:
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">fn db =&gt; _sql select #e.name as name, #e.age + 1 as nextAge
+<br class="ltx_break">
+              from employee as e
+<br class="ltx_break">
+              order by #.nextAge</span></p>
+</blockquote>
+</div>
+</section>
+<section id="SS8" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.4.8 </span>SQL Subqueries</h2>
+
+<div id="SS8.p1" class="ltx_para">
+<p class="ltx_p">The following two kinds of subqueries are allowed in SML#:
+</p>
+<ul id="I5" class="ltx_itemize">
+<li id="I5.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I5.i1.p1" class="ltx_para">
+<p class="ltx_p">SELECT subqueries:
+<span class="ltx_text ltx_font_typewriter">( <math id="I5.i1.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlselect<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I5.i1.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> )</span></p>
+</div>
+</li>
+<li id="I5.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I5.i2.p1" class="ltx_para">
+<p class="ltx_p">EXIST subqueries:
+<span class="ltx_text ltx_font_typewriter">exists ( <math id="I5.i2.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlselect<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I5.i2.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> )</span></p>
+</div>
+</li>
+</ul>
+<p class="ltx_p">An additional <span class="ltx_text ltx_font_typewriter">_sql</span> keyword may appear just before the
+first keyword of a subquery so that
+it looks like other SML#’s SQL expressions.
+These <span class="ltx_text ltx_font_typewriter">_sql</span>s are simply ignored.
+</p>
+</div>
+<div id="SS8.p2" class="ltx_para">
+<p class="ltx_p">A SELECT subquery
+<span class="ltx_text ltx_font_typewriter">( <math id="SS8.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlselect<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS8.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> )</span> must return a 1-column and 1-row result.
+The type system of SML# enforces the
+1-column property of a subquery
+and therefore it is checked at compile time.
+The type of <math id="SS8.p2.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlselect<span class="ltx_text ltx_font_upright"><math id="SS8.p2.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> must be
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">({1: <math id="SS8.p2.m5" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>} list, <math id="SS8.p2.m6" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.query</span></p>
+</blockquote>
+<p class="ltx_p">in SML#.
+If it is satisfied,
+the type of the subquery expression
+<span class="ltx_text ltx_font_typewriter">(<math id="SS8.p2.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlselect<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS8.p2.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span> is
+<math id="SS8.p2.m9" class="ltx_Math" alttext="(T,w)\triangleright\tau" display="inline"><mrow><mo stretchy="false">(</mo><mi>T</mi><mo>,</mo><mi>w</mi><mo stretchy="false">)</mo><mo>▷</mo><mi>τ</mi></mrow></math> for some <math id="SS8.p2.m10" class="ltx_Math" alttext="\tau^{\prime}" display="inline"><mrow><mi>τ</mi><msup><mi></mi><mo>′</mo></msup></mrow></math>.
+The number of rows in the result of the subquery is
+checked at runtime by a database server.
+If the subquery returns zero or more than one rows,
+the <span class="ltx_text ltx_font_typewriter">SQL.Exec</span> exception is raised.
+</p>
+</div>
+<div id="SS8.p3" class="ltx_para">
+<p class="ltx_p">For an EXIST subquery
+<span class="ltx_text ltx_font_typewriter">exists ( <math id="SS8.p3.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlselect<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS8.p3.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> )</span>,
+if <math id="SS8.p3.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlselect<span class="ltx_text ltx_font_upright"><math id="SS8.p3.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> is of type
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">(<math id="SS8.p3.m5" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math> list, <math id="SS8.p3.m6" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.query</span>,</p>
+</blockquote>
+<p class="ltx_p">then the entire expression is of type
+<math id="SS8.p3.m7" class="ltx_Math" alttext="(\tau^{\prime},w)\triangleright\mbox{\tt\frenchspacing SQL.bool3}" display="inline"><mrow><mo stretchy="false">(</mo><mi>τ</mi><msup><mi></mi><mo>′</mo></msup><mo>,</mo><mi>w</mi><mo stretchy="false">)</mo><mo>▷</mo><mtext mathvariant="monospace">SQL.bool3</mtext></mrow></math> for some <math id="SS8.p3.m8" class="ltx_Math" alttext="\tau^{\prime}" display="inline"><mrow><mi>τ</mi><msup><mi></mi><mo>′</mo></msup></mrow></math>.
+</p>
+</div>
+</section>
+<section id="SS9" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.4.9 </span>Embedded SQL value expressions</h2>
+
+<div id="SS9.p1" class="ltx_para">
+<p class="ltx_p">To obtain a first-class SML# object of an SQL value
+expression <math id="SS9.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlexp<span class="ltx_text ltx_font_upright"><math id="SS9.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>, write an expression
+<span class="ltx_text ltx_font_typewriter">_sql(<math id="SS9.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlexp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS9.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span>.
+The type of <span class="ltx_text ltx_font_typewriter">_sql(<math id="SS9.p1.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlexp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS9.p1.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span> is
+<span class="ltx_text ltx_font_typewriter">(<math id="SS9.p1.m7" class="ltx_Math" alttext="\tau^{\prime}" display="inline"><mrow><mi>τ</mi><msup><mi></mi><mo mathvariant="normal">′</mo></msup></mrow></math> -&gt; <math id="SS9.p1.m8" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>, <math id="SS9.p1.m9" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.exp</span>
+if <math id="SS9.p1.m10" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlexp<span class="ltx_text ltx_font_upright"><math id="SS9.p1.m11" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> is of type <math id="SS9.p1.m12" class="ltx_Math" alttext="(\tau^{\prime},w)\triangleright\tau" display="inline"><mrow><mo stretchy="false">(</mo><mi>τ</mi><msup><mi></mi><mo>′</mo></msup><mo>,</mo><mi>w</mi><mo stretchy="false">)</mo><mo>▷</mo><mi>τ</mi></mrow></math>.
+For example, the type of
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val q = _sql(1 + #employee.salary)</span></p>
+</blockquote>
+<p class="ltx_p">is
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val q : [ ’a#{employee: ’b}, ’b#{salary: int}, ’w.
+(’a -&gt; int, ’w) SQL.exp ]</span>.</p>
+</blockquote>
+</div>
+<div id="SS9.p2" class="ltx_para">
+<p class="ltx_p">To embed a fragment of SQL value expression obtained in such
+a way in another SQL value expression,
+use the <span class="ltx_text ltx_font_typewriter">(...<math id="SS9.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS9.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span> expression.
+For example,
+the following expression is constructed by embedding <span class="ltx_text ltx_font_typewriter">q</span> in it:
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">_sql((...q) &gt; 10)</span></p>
+</blockquote>
+<p class="ltx_p">This expression denotes the following SQL query:
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">1 + employee.salary &gt; 10</span></p>
+</blockquote>
+<p class="ltx_p">The type of <span class="ltx_text ltx_font_typewriter">(...<math id="SS9.p2.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS9.p2.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span> is
+<math id="SS9.p2.m5" class="ltx_Math" alttext="(\tau^{\prime},w)\triangleright\tau" display="inline"><mrow><mo stretchy="false">(</mo><mi>τ</mi><msup><mi></mi><mo>′</mo></msup><mo>,</mo><mi>w</mi><mo stretchy="false">)</mo><mo>▷</mo><mi>τ</mi></mrow></math>
+if the type of <math id="SS9.p2.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_upright"><math id="SS9.p2.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> is
+<span class="ltx_text ltx_font_typewriter">(<math id="SS9.p2.m8" class="ltx_Math" alttext="\tau^{\prime}" display="inline"><mrow><mi>τ</mi><msup><mi></mi><mo mathvariant="normal">′</mo></msup></mrow></math> -&gt; <math id="SS9.p2.m9" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>, <math id="SS9.p2.m10" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.exp</span>.
+If <math id="SS9.p2.m11" class="ltx_Math" alttext="\tau^{\prime}" display="inline"><mrow><mi>τ</mi><msup><mi></mi><mo>′</mo></msup></mrow></math> is inconsistent with the type of tables referenced
+by the expression where the <math id="SS9.p2.m12" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_upright"><math id="SS9.p2.m13" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> is embedded in,
+a type error occurs.
+For example, the following expression causes a type error:
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">_sql((...q) &gt; 10 and #employee.salary = "abc")</span></p>
+</blockquote>
+</div>
+<div id="SS9.p3" class="ltx_para">
+<p class="ltx_p">The <math id="SS9.p3.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_upright"><math id="SS9.p3.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> in
+the <span class="ltx_text ltx_font_typewriter">(...<math id="SS9.p3.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS9.p3.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span> notation is not an SQL value expression
+but an SML# expression.
+In <math id="SS9.p3.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_upright"><math id="SS9.p3.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>,
+SQL keywords are not keywords but ordinary identifiers as well as ordinary
+SML# expressions.
+</p>
+</div>
+<div id="SS9.p4" class="ltx_para">
+<p class="ltx_p">Although an embedded SQL value expresssion constitutes a
+constant expression in the resulting SQL value expression,
+the constant expression is not evaluated by SML#.
+Whether or not an SQL value expression is evaluated by SML#
+is determined only by the static syntacitic structure of the expression.
+For example,
+the following function <span class="ltx_text ltx_font_typewriter">nat <math id="SS9.p4.m1" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math></span> does not return the value <math id="SS9.p4.m2" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>,
+but returns the SQL value expression <span class="ltx_text ltx_font_typewriter">1 + 1 + <math id="SS9.p4.m3" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math> + 1</span>
+where the number of <span class="ltx_text ltx_font_typewriter">1</span>s is <math id="SS9.p4.m4" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># fun nat 1 = _sql(1)
+<br class="ltx_break">
+    | nat n = _sql(1 + (...nat (n - 1)));
+<br class="ltx_break">
+val nat = fn : [’a, ’b. int -&gt; (’a -&gt; int, ’d) SQL.exp]
+<br class="ltx_break">
+# SQL.expToString (nat 5);
+<br class="ltx_break">
+val it = "(1 + (1 + (1 + (1 + 1))))" : string</span></p>
+</blockquote>
+</div>
+</section>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch22.S3.html" title="22.3 Database Server Description: The _sqlserver Expression ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.3 </span>Database Server Description: The _sqlserver Expression</span></a><a href="Ch22.S5.html" title="22.5 SELECT queries ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.5 </span>SELECT queries</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Apr  6 18:19:31 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

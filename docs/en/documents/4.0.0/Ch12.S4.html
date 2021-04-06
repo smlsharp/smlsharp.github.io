@@ -1,0 +1,175 @@
+---
+layout: default
+permalink: /en/documents/4.0.0/Ch12.S4.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Tue Apr  6 18:19:31 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Apr, 2021.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch12.html" title="Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="up up" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="up up up" href="./" title="SML# Document Version 4.0.0">
+ <link rel="start" href="./" title="SML# Document Version 4.0.0">
+ <link rel="prev" href="Ch12.S3.html" title="12.3 Query execution ‣ Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="next" href="Ch12.S5.html" title="12.5 Other SQL statements ‣ Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch12.S1.html" title="12.1 Relational databases and SQL ‣ Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch12.S2.html" title="12.2 Integrating SQL in SML# ‣ Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch12.S3.html" title="12.3 Query execution ‣ Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch12.S5.html" title="12.5 Other SQL statements ‣ Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 Installing SML# ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML# feature: other type system extensions ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 4.0.0">
+title: "12.4 Query examples‣ Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.0.0"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 4.0.0</div>
+<div>
+<a href="Ch12.html" title="Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">12 </span>
+SML# feature: seamless SQL integration</span></a><a href="Ch12.S3.html" title="12.3 Query execution ‣ Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">12.3 </span>Query execution</span></a><a href="Ch12.S5.html" title="12.5 Other SQL statements ‣ Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">12.5 </span>Other SQL statements</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">12.4 </span>Query examples</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">Let us now connect and use an actual database from SML#.
+SML# version 4.0.0 support PostgreSQL.
+To use a database, you need to install and start PostgreSQL server.</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">Here we show a standard step in Linux system to set up PostgreSQL server.
+For more details, consult PostgreSQL document.</p>
+<ol id="I1" class="ltx_enumerate">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">Login as postgres.</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">Start PostgreSQL server.
+The command <span class="ltx_text ltx_font_typewriter">pg_ctl start -D /usr/local/pgsql/data</span> will do this.</p>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p">Create a PostgreSQL user role by executing command
+<span class="ltx_text ltx_font_typewriter">createuser <math id="I1.i3.p1.m1" class="ltx_Math" alttext="\mathit{myAccount}" display="inline"><mrow><mi>m</mi><mi>y</mi><mi>A</mi><mi>c</mi><mi>c</mi><mi>o</mi><mi>u</mi><mi>n</mi><mi>t</mi></mrow></math></span>, where <math id="I1.i3.p1.m2" class="ltx_Math" alttext="\mathit{myAccount}" display="inline"><mrow><mi>m</mi><mi>y</mi><mi>A</mi><mi>c</mi><mi>c</mi><mi>o</mi><mi>u</mi><mi>n</mi><mi>t</mi></mrow></math>
+is your user account.</p>
+</div>
+</li>
+<li id="I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">4.</span> 
+<div id="I1.i4.p1" class="ltx_para">
+<p class="ltx_p">Return to your account, and execute command <span class="ltx_text ltx_font_typewriter">createdb mydb</span> to
+create a database called mydb.</p>
+</div>
+</li>
+<li id="I1.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">5.</span> 
+<div id="I1.i5.p1" class="ltx_para">
+<p class="ltx_p">Use the SQL interpreter to create a table.
+For example, the table in
+Section <a href="Ch12.S1.html" title="12.1 Relational databases and SQL ‣ Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12.1</span></a> can be created as follows.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ psql mydb
+<br class="ltx_break">
+mydb# CREATE TABLE Persons (
+<br class="ltx_break">
+    name text not null, age int not null, salary int not null
+  );
+<br class="ltx_break">
+mydb# INSERT INTO Persons VALUES (’Joe’, 21, 10000);
+<br class="ltx_break">
+mydb# INSERT INTO Persons VALUES (’Sue’, 31, 20000);
+<br class="ltx_break">
+mydb# INSERT INTO Persons VALUES (’Bob’, 41, 30000);
+<br class="ltx_break"></span></p>
+</blockquote>
+</div>
+</li>
+<li id="I1.i6" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">6.</span> 
+<div id="I1.i6.p1" class="ltx_para">
+<p class="ltx_p">Check that the database can be accessed.
+You should get the following output.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ psql mydb;
+<br class="ltx_break">
+
+<br class="ltx_break">
+mydb=# SELECT * FROM Persons;
+<br class="ltx_break">
+ name | age | salary 
+<br class="ltx_break">
+------+-----+--------
+<br class="ltx_break">
+ Joe  |  21 |  10000
+<br class="ltx_break">
+ Sue  |  31 |  20000
+<br class="ltx_break">
+ Bob  |  41 |  20000
+<br class="ltx_break">
+(3 rows)</span></p>
+</blockquote>
+</div>
+</li>
+</ol>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">Now let’s access this database from SML#.
+Let the query function defined in Section <a href="Ch12.S2.html" title="12.2 Integrating SQL in SML# ‣ Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12.2</span></a>
+<span class="ltx_text ltx_font_typewriter">myQuery</span>.
+In an interactive session, you should get the following.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ smlsharp
+<br class="ltx_break">
+# val myServer = _sqlserver SQL.postgresql "dbname=mydb" : {Persons:{name:string, age:int, salary :int} list};
+<br class="ltx_break">
+val myServer = _ : {Persons: {age: int, name: string, salary: int} list} SQL.server
+<br class="ltx_break">
+# val conn = SQL.connet myServer;
+<br class="ltx_break">
+val conn = _ : {Persons: {age: int, name: string, salary: int} list} SQL.conn
+<br class="ltx_break">
+# val rel = myQuery conn;
+<br class="ltx_break">
+val rel = {Persons: {age: int, name: string, salary: int}} list SQL.conn
+<br class="ltx_break">
+# SQL.fetchAll rel;
+<br class="ltx_break">
+val it = {{age=32, name="Sue"}, {age=41, name="Bob"}} : {age:int, name: string} list</span></p>
+</blockquote>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch12.S3.html" title="12.3 Query execution ‣ Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">12.3 </span>Query execution</span></a><a href="Ch12.S5.html" title="12.5 Other SQL statements ‣ Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">12.5 </span>Other SQL statements</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Apr  6 18:19:31 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

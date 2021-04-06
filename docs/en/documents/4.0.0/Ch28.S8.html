@@ -1,0 +1,284 @@
+---
+layout: default
+permalink: /en/documents/4.0.0/Ch28.S8.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Tue Apr  6 18:19:31 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Apr, 2021.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch28.html" title="Chapter 28 The smlsharp command ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="up up" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="up up up" href="./" title="SML# Document Version 4.0.0">
+ <link rel="start" href="./" title="SML# Document Version 4.0.0">
+ <link rel="prev" href="Ch28.S7.html" title="28.7 Environment variables ‣ Chapter 28 The smlsharp command ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="next" href="Ch29.html" title="Chapter 29 SML# Run-time data management ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch28.S1.html" title="28.1 Mode switch ‣ Chapter 28 The smlsharp command ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch28.S2.html" title="28.2 Common options for all modes ‣ Chapter 28 The smlsharp command ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch28.S3.html" title="28.3 Compile options ‣ Chapter 28 The smlsharp command ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch28.S4.html" title="28.4 Link options ‣ Chapter 28 The smlsharp command ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch28.S5.html" title="28.5 Interactive mode options ‣ Chapter 28 The smlsharp command ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch28.S6.html" title="28.6 Developers’ options ‣ Chapter 28 The smlsharp command ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch28.S7.html" title="28.7 Environment variables ‣ Chapter 28 The smlsharp command ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch15.html" title="Chapter 15 Introduction ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch16.html" title="Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch17.html" title="Chapter 17 Lexical structure ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch18.html" title="Chapter 18 Types ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch19.html" title="Chapter 19 Expressions ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch20.html" title="Chapter 20 Patterns and Pattern Matching ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch21.html" title="Chapter 21 Scope rules for identifier ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch22.html" title="Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch23.html" title="Chapter 23 Declarations of the core language and their interfaces ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch24.html" title="Chapter 24 Module language declarations and interface ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch25.html" title="Chapter 25 Overview of SML# Libraries ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch26.html" title="Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch27.html" title="Chapter 27 SML# System Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch28.html" title="Chapter 28 The smlsharp command ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch29.html" title="Chapter 29 SML# Run-time data management ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 4.0.0">
+title: "28.8 Typical examples‣ Chapter 28 The smlsharp command ‣ Part III Reference manual ‣ SML# Document Version 4.0.0"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 4.0.0</div>
+<div>
+<a href="Ch28.html" title="Chapter 28 The smlsharp command ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">28 </span>The <span class="ltx_text ltx_font_typewriter">smlsharp</span> command</span></a><a href="Ch28.S7.html" title="28.7 Environment variables ‣ Chapter 28 The smlsharp command ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">28.7 </span>Environment variables</span></a><a href="Ch29.html" title="Chapter 29 SML# Run-time data management ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">29 </span>SML# Run-time data management</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">28.8 </span>Typical examples</h1>
+
+<section id="SS1" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">28.8.1 </span>Start an interactive session</h2>
+
+<div id="SS1.p1" class="ltx_para">
+<p class="ltx_p">A typical way to start an interactive session is to execute
+<span class="ltx_text ltx_font_typewriter">smlsharp</span> command with no argument.
+</p>
+<pre class="ltx_verbatim ltx_font_typewriter">
+    $ smlsharp
+</pre>
+<p class="ltx_p">When you use a C library in the interactive session,
+specify <span class="ltx_text ltx_font_typewriter">-l</span> option with the name of the library.
+For example, if you want to use zlib library, do
+</p>
+<pre class="ltx_verbatim ltx_font_typewriter">
+    $ smlsharp -lz
+</pre>
+<p class="ltx_p">The libraries SML# uses, such as the standard
+C library and POSIX thread library, are available by default.
+You can use them without <span class="ltx_text ltx_font_typewriter">-l</span> option.
+</p>
+</div>
+</section>
+<section id="SS2" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">28.8.2 </span>Compile a program</h2>
+
+<div id="SS2.p1" class="ltx_para">
+<p class="ltx_p">If your program consists of only one <span class="ltx_text ltx_font_typewriter">.sml</span> file (and its
+corresponding <span class="ltx_text ltx_font_typewriter">.smi</span> file), just give the <span class="ltx_text ltx_font_typewriter">.sml</span> file to
+<span class="ltx_text ltx_font_typewriter">smlsharp</span> command and you will obtain its executable file.
+</p>
+<pre class="ltx_verbatim ltx_font_typewriter">
+    $ smlsharp foo.sml
+</pre>
+<p class="ltx_p">If you don’t like the default name <span class="ltx_text ltx_font_typewriter">a.out</span>, change it by
+<span class="ltx_text ltx_font_typewriter">-o</span> option.
+</p>
+<pre class="ltx_verbatim ltx_font_typewriter">
+    $ smlsharp -o foo foo.sml
+</pre>
+</div>
+</section>
+<section id="SS3" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">28.8.3 </span>Compile separately and link a program</h2>
+
+<div id="SS3.p1" class="ltx_para">
+<p class="ltx_p">A typical way to compile and link a program consisting of multiple
+files is the following:
+</p>
+<pre class="ltx_verbatim ltx_font_typewriter">
+    $ smlsharp -c -O2 foo.sml
+    $ smlsharp -c -O2 bar.sml
+    $ smlsharp -c -O2 baz.sml
+    $ smlsharp foo.smi
+</pre>
+<p class="ltx_p">First, compile each <span class="ltx_text ltx_font_typewriter">.sml</span> file in the project separately
+in random order by the <span class="ltx_text ltx_font_typewriter">smlsharp</span> command with <span class="ltx_text ltx_font_typewriter">-c</span>.
+If the compilation of <span class="ltx_text ltx_font_typewriter">foo.sml</span> is done successfully,
+its object file <span class="ltx_text ltx_font_typewriter">foo.o</span> is generated.
+After compiling all <span class="ltx_text ltx_font_typewriter">.sml</span> files,
+link their object files into an executable file by giving
+the <span class="ltx_text ltx_font_typewriter">smlsharp</span> command the <span class="ltx_text ltx_font_typewriter">.smi</span> file whose top-level code is
+the entry of the program (in this example, <span class="ltx_text ltx_font_typewriter">foo.smi</span>).
+At this time, the <span class="ltx_text ltx_font_typewriter">smlsharp</span> command traces all <span class="ltx_text ltx_font_typewriter">.smi</span>
+files reachable from <span class="ltx_text ltx_font_typewriter">foo.smi</span> through <span class="ltx_text ltx_font_typewriter">_require</span> relationship
+recursively and obtains the list of object files to be linked
+by replacing their <span class="ltx_text ltx_font_typewriter">.smi</span> suffix with <span class="ltx_text ltx_font_typewriter">.o</span>.
+</p>
+</div>
+<div id="SS3.p2" class="ltx_para">
+<p class="ltx_p">If you change this default correspondence from <span class="ltx_text ltx_font_typewriter">.smi</span> files
+to <span class="ltx_text ltx_font_typewriter">.o</span> files,
+create a map file and give it by <span class="ltx_text ltx_font_typewriter">-filemap</span> option like the following:
+</p>
+<pre class="ltx_verbatim ltx_font_typewriter">
+    $ smlsharp -c -O2 -o obj/foo.o foo.sml
+    $ smlsharp -c -O2 -o obj/bar.o bar.sml
+    $ smlsharp -c -O2 -o obj/baz.o baz.sml
+    $ smlsharp -filemap=objmap foo.smi
+</pre>
+<p class="ltx_p">The contents of <span class="ltx_text ltx_font_typewriter">objmap</span> file is given below:
+</p>
+<pre class="ltx_verbatim ltx_font_typewriter">
+    = foo.o obj/foo.o
+    = bar.o obj/bar.o
+    = baz.o obj/baz.o
+</pre>
+</div>
+<div id="SS3.p3" class="ltx_para">
+<p class="ltx_p">SML# programs may be linked with arbitrary C/C++ programs
+and libraries.
+To link your program with C/C++ libraries, give them
+to the <span class="ltx_text ltx_font_typewriter">smlsharp</span> command with a <span class="ltx_text ltx_font_typewriter">.smi</span> file.
+For example, to link <span class="ltx_text ltx_font_typewriter">foo.sml</span> with
+a C program <span class="ltx_text ltx_font_typewriter">util.c</span> and
+C libraries <span class="ltx_text ltx_font_typewriter">libgl</span> and <span class="ltx_text ltx_font_typewriter">libglu</span>, do
+</p>
+<pre class="ltx_verbatim ltx_font_typewriter">
+    $ smlsharp -c -O2 foo.sml
+    $ cc -c -O2 util.c
+    $ smlsharp foo.smi util.o -lgl -lglu
+</pre>
+</div>
+</section>
+<section id="SS4" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">28.8.4 </span>Generate a Makefile</h2>
+
+<div id="SS4.p1" class="ltx_para">
+<p class="ltx_p">it is useful to combine SML# with “make” command so that
+your program is separately compiled and linked automatically.
+To use make command,
+you need to create a Makefile that includes dependencies between source
+files.
+By <span class="ltx_text ltx_font_typewriter">smlsharp -Mm</span> command, you can automatically obtain
+a complete Makefile for building a SML# program automatically.
+</p>
+</div>
+<div id="SS4.p2" class="ltx_para">
+<p class="ltx_p">For example, suppose a project consisting of
+three <span class="ltx_text ltx_font_typewriter">.smi</span> files
+<span class="ltx_text ltx_font_typewriter">foo.smi</span>,
+<span class="ltx_text ltx_font_typewriter">bar.smi</span>, and
+<span class="ltx_text ltx_font_typewriter">baz.smi</span> (and their corresponding <span class="ltx_text ltx_font_typewriter">.sml</span> files).
+The <span class="ltx_text ltx_font_typewriter">_require</span> relationship between them is as follows:</p>
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">foo.smi</span> <span class="ltx_text ltx_font_typewriter">_require</span>s <span class="ltx_text ltx_font_typewriter">bar.smi</span>.</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">bar.smi</span> <span class="ltx_text ltx_font_typewriter">_require</span>s <span class="ltx_text ltx_font_typewriter">baz.smi</span>.</p>
+</div>
+</li>
+</ul>
+<p class="ltx_p">In this case,</p>
+<pre class="ltx_verbatim ltx_font_typewriter">
+    $ smlsharp -Mm foo.smi -o Makefile
+</pre>
+<p class="ltx_p">generates the following Makefile:
+</p>
+<pre class="ltx_verbatim ltx_font_typewriter">
+SMLSHARP = smlsharp
+SMLFLAGS = -O2
+LIBS =
+all: foo
+foo: foo.o bar.o baz.o foo.smi
+        $(SMLSHARP) $(LDFLAGS) -o $@ foo.smi $(LIBS)
+foo.o: foo.sml foo.smi bar.smi baz.smi
+        $(SMLSHARP) $(SMLFLAGS) -o $@ -c u.sml
+bar.o: bar.sml bar.smi baz.smi
+        $(SMLSHARP) $(SMLFLAGS) -o $@ -c u.sml
+baz.o: baz.sml baz.smi
+        $(SMLSHARP) $(SMLFLAGS) -o $@ -c u.sml
+</pre>
+<p class="ltx_p">Then, just do <span class="ltx_text ltx_font_typewriter">make</span> and build your program.
+</p>
+<pre class="ltx_verbatim ltx_font_typewriter">
+  % make
+  smlsharp  -o foo.o -c foo.sml
+  smlsharp  -o bar.o -c bar.sml
+  smlsharp  -o baz.o -c baz.sml
+  smlsharp  -o foo foo.smi
+</pre>
+<p class="ltx_p">Every time you modify the program and its <span class="ltx_text ltx_font_typewriter">_require</span>
+relationship is changed, you need to do <span class="ltx_text ltx_font_typewriter">smlsharp -MMm</span> to update
+the Makefile.
+</p>
+</div>
+<div id="SS4.p3" class="ltx_para">
+<p class="ltx_p">If your project contains source files of ml-lex and ml-yacc,
+<span class="ltx_text ltx_font_typewriter">smlsharp -Mm</span> is not enough.
+You need additional rules that invokes those tools to generate
+<span class="ltx_text ltx_font_typewriter">.sml</span> files.
+For example, if your project has a parser <span class="ltx_text ltx_font_typewriter">parser.grm</span>,
+create Makefile by <span class="ltx_text ltx_font_typewriter">smlsharp -Mm</span> and then
+add the following rule to the Makefile by hand:
+</p>
+<pre class="ltx_verbatim ltx_font_typewriter">
+parser.grm.sml parser.grm.sig: parser.grm
+        ml-yacc parser.grm
+parser.grm.sig: parser.grm.sml
+</pre>
+<p class="ltx_p">It should be useful if you separate two Makefiles,
+one of which is automatically generated by <span class="ltx_text ltx_font_typewriter">smlsharp -Mm</span> and
+another of which includes the additional rules.
+A simple way to manage two Makefiles is
+to organize Makefile with additional rules and <span class="ltx_text ltx_font_typewriter">include</span> of the
+automatically generated one.
+For example, create a Makefile like the following:</p>
+<pre class="ltx_verbatim ltx_font_typewriter">
+# The default target is "all".
+all:
+
+# File dependency is automatically generated and included.
+depend.mk:
+        smlsharp -Mm foo.smi -o depend.mk
+include depend.mk
+
+# Additional rules.
+parser.grm.sml parser.grm.sig: parser.grm
+        ml-yacc parser.grm
+parser.grm.sig: parser.grm.sml
+</pre>
+<p class="ltx_p">Of course, you can exploit your favorite Makefile techniques.
+</p>
+</div>
+</section>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch28.S7.html" title="28.7 Environment variables ‣ Chapter 28 The smlsharp command ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">28.7 </span>Environment variables</span></a><a href="Ch29.html" title="Chapter 29 SML# Run-time data management ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">29 </span>SML# Run-time data management</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Apr  6 18:19:31 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

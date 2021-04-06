@@ -1,0 +1,722 @@
+---
+layout: default
+permalink: /ja/documents/4.0.0/Ch17.S2.html
+translated: true
+lang: ja
+head: |
+ <!--Generated on Tue Apr  6 18:18:13 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on 令和3年4月.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch17.html" title="Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="up up" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="up up up" href="./" title="プログラミング言語SML#解説 4.0.0版">
+ <link rel="start" href="./" title="プログラミング言語SML#解説 4.0.0版">
+ <link rel="prev" href="Ch17.S1.html" title="17.1 文字集合 ‣ Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="next" href="Ch18.html" title="Chapter 18 型 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch17.S1.html" title="17.1 文字集合 ‣ Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch15.html" title="Chapter 15 序論 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch16.html" title="Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch17.html" title="Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch18.html" title="Chapter 18 型 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch19.html" title="Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch20.html" title="Chapter 20 パターンとパターンマッチング ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch21.html" title="Chapter 21 識別子のスコープ規則 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch22.html" title="Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch23.html" title="Chapter 23 核言語の宣言とインターフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch24.html" title="Chapter 24 モジュール言語の宣言とインタフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch25.html" title="Chapter 25 SML#のライブラリ概要 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch26.html" title="Chapter 26 Standard ML標準ライブラリ ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch27.html" title="Chapter 27 SML#システムライブラリ ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch28.html" title="Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch29.html" title="Chapter 29 SML#実行時データ管理 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.0.0版">
+title: "17.2 字句集合‣ Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.0.0版</div>
+<div>
+<a href="Ch17.html" title="Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">17 </span>字句構造</span></a><a href="Ch17.S1.html" title="17.1 文字集合 ‣ Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">17.1 </span>文字集合</span></a><a href="Ch18.html" title="Chapter 18 型 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">18 </span>型</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">17.2 </span>字句集合</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">SML#の字句は，以下の種類がある．
+</p>
+</div>
+<div id="p2" class="ltx_para">
+<dl id="I1" class="ltx_description">
+<dt id="I1.ix1" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">予約語</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix1.p1" class="ltx_para">
+<p class="ltx_p">以下はSML#の予約語であり，識別子には使用できない．
+</p>
+</div>
+<div id="I1.ix1.p2" class="ltx_para">
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">abstype
+and
+andalso
+as
+case
+datatype
+do
+else
+end
+eqtype
+exception
+fn
+fun
+functor
+handle
+if
+in
+include
+infix
+infixr
+let
+local
+nonfix
+of
+op
+open
+orelse
+raise
+rec
+set
+sharing
+sig
+signature
+struct
+structure
+then
+type
+val
+where
+while
+with
+withtype
+(
+)
+[
+]
+{
+}
+,
+:
+:&gt;
+;
+...
+_
+=
+=&gt;
+-&gt;
+#</span></p>
+</blockquote>
+</div>
+<div id="I1.ix1.p3" class="ltx_para">
+<p class="ltx_p">これら文字列は，以下の識別子の項で定義される言語クラス
+<math id="I1.ix1.p3.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix1.p3.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>には含まれない．
+</p>
+</div>
+</dd>
+<dt id="I1.ix2" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">SQL予約語</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix2.p1" class="ltx_para">
+<p class="ltx_p">以下の各語は，SQL構文の中では予約語であり，
+識別名として使用できない．
+</p>
+</div>
+<div id="I1.ix2.p2" class="ltx_para">
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">asc all begin by commit cross default delete desc distinct
+fetch first from group inner insert into is join limit
+natural next not null offset only on or order rollback row
+rows select set update values where</span></p>
+</blockquote>
+</div>
+<div id="I1.ix2.p3" class="ltx_para">
+<p class="ltx_p">これら文字列は，
+第<a href="Ch19.html" title="Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">19</span></a>章および
+第<a href="Ch22.html" title="Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22</span></a>章で定義される，
+<span class="ltx_text ltx_font_typewriter">_sql</span>で始まるSQL式内では，字句クラス<math id="I1.ix2.p3.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix2.p3.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>には含まれない．
+その詳細は第<a href="Ch22.html" title="Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22</span></a>節で述べる．
+SQL構文は，Standard MLでは構文として認識されないため，
+これら制限を追加してもStandard MLとの後方互換性が保たれている．
+</p>
+</div>
+</dd>
+<dt id="I1.ix3" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">拡張予約語</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">_</span>で始まる以下の名前は，SML#の拡張機能を実現するた
+めに導入された予約語である．
+これら拡張予約語は，Standard MLでは字句と認識されない語であり，
+これらを追加してもStandard MLとの後方互換性が保たれている．
+</p>
+</div>
+<div id="I1.ix3.p2" class="ltx_para">
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">__attribute__
+_builtin
+_foreach
+_import
+_interface
+_join
+_dynamic
+_dynamiccase
+_polyrec
+_require
+_sizeof
+_sql
+_sqlserver
+_typeof
+_use</span></p>
+</blockquote>
+</div>
+</dd>
+<dt id="I1.ix4" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">識別子</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix4.p1" class="ltx_para">
+<p class="ltx_p">識別子は，プログラム中で使用される種々の名前である．
+SML#では，以下の7種類の識別子がある．
+これら7種類はその使用文脈に応じて区別されるので，同一の名前を別
+の用途に使用してよい．
+</p>
+</div>
+<div id="I1.ix4.p2" class="ltx_para ltx_align_center">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_l ltx_border_r ltx_border_t">名</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">用途</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">
+<math id="I1.ix4.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">変数，データコンストラクタ</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">
+<math id="I1.ix4.p2.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">lab<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p2.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_r">レコードのラベル</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">
+<math id="I1.ix4.p2.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strid<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p2.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_r">ストラクチャ名</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">
+<math id="I1.ix4.p2.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sigid<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p2.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_r">シグネチャ名</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">
+<math id="I1.ix4.p2.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">funid<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p2.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_r">ファンクタ名</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">
+<math id="I1.ix4.p2.m11" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">tycon<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p2.m12" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_r">型構成子名</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_l ltx_border_r">
+<math id="I1.ix4.p2.m13" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">tyvar<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p2.m14" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">型変数</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="I1.ix4.p3" class="ltx_para">
+<p class="ltx_p">これら識別子の構造は以下の通りである．</p>
+</div>
+<div id="I1.ix4.p4" class="ltx_para ltx_align_center">
+<table class="ltx_tabular ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p4.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p4.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>  <math id="I1.ix4.p4.m5" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <math id="I1.ix4.p4.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">symbolId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p4.m8" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">lab<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m9" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p4.m10" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m11" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+ <math id="I1.ix4.p4.m12" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <math id="I1.ix4.p4.m13" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">string<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m14" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+ <math id="I1.ix4.p4.m15" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <math id="I1.ix4.p4.m16" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">decimal<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m17" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+ <math id="I1.ix4.p4.m18" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <math id="I1.ix4.p4.m19" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">decimal<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m20" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <span class="ltx_text ltx_font_typewriter">_</span> <math id="I1.ix4.p4.m21" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m22" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">（注1）</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p4.m23" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strid<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m24" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p4.m25" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m26" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p4.m27" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sigid<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m28" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p4.m29" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m30" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p4.m31" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">funid<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m32" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p4.m33" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m34" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p4.m35" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">tyvar<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m36" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">’</span> <math id="I1.ix4.p4.m37" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m38" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>  <math id="I1.ix4.p4.m39" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <span class="ltx_text ltx_font_typewriter">’’</span><math id="I1.ix4.p4.m40" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m41" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p4.m42" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">tycon<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m43" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p4.m44" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m45" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>  <math id="I1.ix4.p4.m46" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <math id="I1.ix4.p4.m47" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">symbolId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p4.m48" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="I1.ix4.p5" class="ltx_para">
+<p class="ltx_p">注</p>
+<ol id="I1.ix4.I1" class="ltx_enumerate">
+<li id="I1.ix4.I0.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">1.</span></span> 
+<div id="I1.ix4.I0.i1.p1" class="ltx_para">
+<p class="ltx_p">レコードラベルは，
+文字列ラベル（<math id="I1.ix4.I0.i1.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.I0.i1.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>または<math id="I1.ix4.I0.i1.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">string<span class="ltx_text ltx_font_upright"><math id="I1.ix4.I0.i1.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>），
+整数ラベル（<math id="I1.ix4.I0.i1.p1.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">decimal<span class="ltx_text ltx_font_upright"><math id="I1.ix4.I0.i1.p1.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>），
+順序付き文字列ラベル（<math id="I1.ix4.I0.i1.p1.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">decimal<span class="ltx_text ltx_font_upright"><math id="I1.ix4.I0.i1.p1.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <span class="ltx_text ltx_font_typewriter">_</span> <math id="I1.ix4.I0.i1.p1.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.I0.i1.p1.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>）
+の３種類がある．
+SML#では，レコードは，ラベルの順序に従ってソートされ，メ
+モリーが割り当てられる．
+文字列ラベルの順序は，文字列の順序<span class="ltx_text ltx_font_typewriter">String.compare</span>である．
+数字ラベルの順序は，数字列を自然数と解釈した時の自然数の順序であ
+る．
+順序付き文字列ラベルは，数字ラベルと文字列ラベルが<code class="ltx_verbatim ltx_font_typewriter">_</code>で連結
+されたものであり，その順序は，数字ラベルと文字列ラベルの順序の辞書式順序
+である．</p>
+</div>
+</li>
+</ol>
+<p class="ltx_p">各文字クラスの定義は以下の通り．
+</p>
+</div>
+<div id="I1.ix4.p6" class="ltx_para ltx_align_center">
+<table class="ltx_tabular ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p6.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alpha<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p6.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">[A-Za-z<code class="ltx_verbatim ltx_font_typewriter">\</code>127-<code class="ltx_verbatim ltx_font_typewriter">\</code>255]</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p6.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">symbol<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p6.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">!</span> <math id="I1.ix4.p6.m5" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">%</span> <math id="I1.ix4.p6.m6" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">&amp;</span> <math id="I1.ix4.p6.m7" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">$</span> <math id="I1.ix4.p6.m8" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">+</span> <math id="I1.ix4.p6.m9" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">/</span> <math id="I1.ix4.p6.m10" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">:</span> <math id="I1.ix4.p6.m11" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">&lt;</span> <math id="I1.ix4.p6.m12" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">=</span> <math id="I1.ix4.p6.m13" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">&gt;</span> <math id="I1.ix4.p6.m14" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">?</span> <math id="I1.ix4.p6.m15" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">@</span> <math id="I1.ix4.p6.m16" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter"> </span> <math id="I1.ix4.p6.m17" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">‘</span> <math id="I1.ix4.p6.m18" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">|</span> <math id="I1.ix4.p6.m19" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">#</span> <math id="I1.ix4.p6.m20" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">-</span> <math id="I1.ix4.p6.m21" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">^</span> <math id="I1.ix4.p6.m22" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> 
+<span class="ltx_text ltx_font_typewriter">\</span>
+</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p6.m23" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p6.m24" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p6.m25" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alpha<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p6.m26" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> (<math id="I1.ix4.p6.m27" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alpha<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p6.m28" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>  <math id="I1.ix4.p6.m29" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> [<span class="ltx_text ltx_font_typewriter">0</span>-<span class="ltx_text ltx_font_typewriter">9</span>]  <math id="I1.ix4.p6.m30" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <span class="ltx_text ltx_font_typewriter">’</span>  <math id="I1.ix4.p6.m31" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <span class="ltx_text ltx_font_typewriter">_</span> )*</td>
+<td class="ltx_td ltx_align_left">（注1）</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p6.m32" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">decimal<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p6.m33" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">[<span class="ltx_text ltx_font_typewriter">1</span>-<span class="ltx_text ltx_font_typewriter">9</span>] [<span class="ltx_text ltx_font_typewriter">0</span>-<span class="ltx_text ltx_font_typewriter">9</span>]*</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p6.m34" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">symbolId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p6.m35" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix4.p6.m36" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">symbol<span class="ltx_text ltx_font_upright"><math id="I1.ix4.p6.m37" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>*</td>
+<td class="ltx_td ltx_align_left">（注2）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="I1.ix4.p7" class="ltx_para">
+<p class="ltx_p">注</p>
+<ol id="I1.ix4.I1a" class="ltx_enumerate">
+<li id="I1.ix4.I0.i1a" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">1.</span></span> 
+<div id="I1.ix4.I0.i1a.p1" class="ltx_para">
+<p class="ltx_p">字句クラス<math id="I1.ix4.I0.i1a.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.I0.i1a.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>には予約語は含まれない．
+さらに，<span class="ltx_text ltx_font_typewriter">_sql</span>で始まるSQL式内では，
+<math id="I1.ix4.I0.i1a.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">alphaId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.I0.i1a.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>にはSQL予約語は含まれない．</p>
+</div>
+</li>
+<li id="I1.ix4.I0.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">2.</span></span> 
+<div id="I1.ix4.I0.i2.p1" class="ltx_para">
+<p class="ltx_p"><math id="I1.ix4.I0.i2.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">symbolId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.I0.i2.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>には予約語は含まれない．
+したがって，<span class="ltx_text ltx_font_typewriter">==&gt;</span>は<math id="I1.ix4.I0.i2.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">symbolId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.I0.i2.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の要素であるが，
+<span class="ltx_text ltx_font_typewriter">=&gt;</span>は<math id="I1.ix4.I0.i2.p1.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">symbolId<span class="ltx_text ltx_font_upright"><math id="I1.ix4.I0.i2.p1.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の要素ではない．</p>
+</div>
+</li>
+</ol>
+</div>
+</dd>
+<dt id="I1.ix5" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">long識別子</span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix5.p1" class="ltx_para">
+<p class="ltx_p">変数やデータ構成子名<math id="I1.ix5.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_upright"><math id="I1.ix5.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>とストラクチャ名<math id="I1.ix5.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strid<span class="ltx_text ltx_font_upright"><math id="I1.ix5.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+に対しては，ストラクチャ名のリストがプレフィックスされたlong識別子が定義
+される．</p>
+</div>
+<div id="I1.ix5.p2" class="ltx_para ltx_align_center">
+<table class="ltx_tabular ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix5.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">longVid<span class="ltx_text ltx_font_upright"><math id="I1.ix5.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">(<math id="I1.ix5.p2.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strid<span class="ltx_text ltx_font_upright"><math id="I1.ix5.p2.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <span class="ltx_text ltx_font_typewriter">.</span>)* <math id="I1.ix5.p2.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_upright"><math id="I1.ix5.p2.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix5.p2.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">longTycon<span class="ltx_text ltx_font_upright"><math id="I1.ix5.p2.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">(<math id="I1.ix5.p2.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strid<span class="ltx_text ltx_font_upright"><math id="I1.ix5.p2.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <span class="ltx_text ltx_font_typewriter">.</span>)* <math id="I1.ix5.p2.m11" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">tycon<span class="ltx_text ltx_font_upright"><math id="I1.ix5.p2.m12" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix5.p2.m13" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">longStrid<span class="ltx_text ltx_font_upright"><math id="I1.ix5.p2.m14" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">(<math id="I1.ix5.p2.m15" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strid<span class="ltx_text ltx_font_upright"><math id="I1.ix5.p2.m16" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <span class="ltx_text ltx_font_typewriter">.</span>)* <math id="I1.ix5.p2.m17" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strid<span class="ltx_text ltx_font_upright"><math id="I1.ix5.p2.m18" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt id="I1.ix6" class="ltx_item"><span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">定数リテラル <math id="I1.ix6.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">scon<span class="ltx_text ltx_font_bold ltx_font_upright"><math id="I1.ix6.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></dt>
+<dd class="ltx_item">
+<div id="I1.ix6.p1" class="ltx_para">
+<p class="ltx_p">定数リテラルの定義は以下の通りである．</p>
+</div>
+<div id="I1.ix6.p2" class="ltx_para ltx_align_center">
+<table class="ltx_tabular ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix6.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">scon<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix6.p2.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">int<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+ <math id="I1.ix6.p2.m5" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <math id="I1.ix6.p2.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">word<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+ <math id="I1.ix6.p2.m8" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <math id="I1.ix6.p2.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">real<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+ <math id="I1.ix6.p2.m11" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <math id="I1.ix6.p2.m12" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">string<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m13" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+ <math id="I1.ix6.p2.m14" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <math id="I1.ix6.p2.m15" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">char<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m16" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">定数リテラル</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix6.p2.m17" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">int<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m18" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix6.p2.m19" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><code class="ltx_verbatim ltx_font_typewriter">~</code><math id="I1.ix6.p2.m20" class="ltx_Math" alttext=")?" display="inline"><mrow><mo stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math>[<span class="ltx_text ltx_font_typewriter">0</span>-<span class="ltx_text ltx_font_typewriter">9</span>]<math id="I1.ix6.p2.m21" class="ltx_Math" alttext="+" display="inline"><mo>+</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">10進整数</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m22" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix6.p2.m23" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><code class="ltx_verbatim ltx_font_typewriter">~</code><math id="I1.ix6.p2.m24" class="ltx_Math" alttext=")?" display="inline"><mrow><mo stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math><code class="ltx_verbatim ltx_font_typewriter">0x</code>[<span class="ltx_text ltx_font_typewriter">0</span>-<span class="ltx_text ltx_font_typewriter">9</span><span class="ltx_text ltx_font_typewriter">a</span>-<span class="ltx_text ltx_font_typewriter">f</span><span class="ltx_text ltx_font_typewriter">A</span>-<span class="ltx_text ltx_font_typewriter">F</span>]<math id="I1.ix6.p2.m25" class="ltx_Math" alttext="+" display="inline"><mo>+</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">16進整数</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix6.p2.m26" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">word<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m27" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<code class="ltx_verbatim ltx_font_typewriter">0w</code>[<span class="ltx_text ltx_font_typewriter">0</span>-<span class="ltx_text ltx_font_typewriter">9</span>]<math id="I1.ix6.p2.m28" class="ltx_Math" alttext="+" display="inline"><mo>+</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">10進符合なし整数</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m29" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<code class="ltx_verbatim ltx_font_typewriter">0wx</code>[<span class="ltx_text ltx_font_typewriter">0</span>-<span class="ltx_text ltx_font_typewriter">9</span><span class="ltx_text ltx_font_typewriter">a</span>-<span class="ltx_text ltx_font_typewriter">f</span><span class="ltx_text ltx_font_typewriter">A</span>-<span class="ltx_text ltx_font_typewriter">F</span>]<math id="I1.ix6.p2.m30" class="ltx_Math" alttext="+" display="inline"><mo>+</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">16進符合なし整数</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix6.p2.m31" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">real<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m32" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix6.p2.m33" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><code class="ltx_verbatim ltx_font_typewriter">~</code><math id="I1.ix6.p2.m34" class="ltx_Math" alttext=")?" display="inline"><mrow><mo stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math>[<span class="ltx_text ltx_font_typewriter">0</span>-<span class="ltx_text ltx_font_typewriter">9</span>]<math id="I1.ix6.p2.m35" class="ltx_Math" alttext="+" display="inline"><mo>+</mo></math>
+<span class="ltx_text ltx_font_typewriter">.</span> [<span class="ltx_text ltx_font_typewriter">0</span>-<span class="ltx_text ltx_font_typewriter">9</span>]<math id="I1.ix6.p2.m36" class="ltx_Math" alttext="+" display="inline"><mo>+</mo></math>
+[<span class="ltx_text ltx_font_typewriter">E</span><span class="ltx_text ltx_font_typewriter">e</span>]<math id="I1.ix6.p2.m37" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><code class="ltx_verbatim ltx_font_typewriter">~</code><math id="I1.ix6.p2.m38" class="ltx_Math" alttext=")?" display="inline"><mrow><mo stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math>[<span class="ltx_text ltx_font_typewriter">0</span>-<span class="ltx_text ltx_font_typewriter">9</span>]+</td>
+<td class="ltx_td ltx_align_left">不動小数点数</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m39" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix6.p2.m40" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><code class="ltx_verbatim ltx_font_typewriter">~</code><math id="I1.ix6.p2.m41" class="ltx_Math" alttext=")?" display="inline"><mrow><mo stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math>[<span class="ltx_text ltx_font_typewriter">0</span>-<span class="ltx_text ltx_font_typewriter">9</span>]<math id="I1.ix6.p2.m42" class="ltx_Math" alttext="+" display="inline"><mo>+</mo></math>
+<span class="ltx_text ltx_font_typewriter">.</span> [<span class="ltx_text ltx_font_typewriter">0</span>-<span class="ltx_text ltx_font_typewriter">9</span>]+</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m43" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix6.p2.m44" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><code class="ltx_verbatim ltx_font_typewriter">~</code><math id="I1.ix6.p2.m45" class="ltx_Math" alttext=")?" display="inline"><mrow><mo stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math>[<span class="ltx_text ltx_font_typewriter">0</span>-<span class="ltx_text ltx_font_typewriter">9</span>]<math id="I1.ix6.p2.m46" class="ltx_Math" alttext="+" display="inline"><mo>+</mo></math>
+[<span class="ltx_text ltx_font_typewriter">E</span><span class="ltx_text ltx_font_typewriter">e</span>]<math id="I1.ix6.p2.m47" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><code class="ltx_verbatim ltx_font_typewriter">~</code><math id="I1.ix6.p2.m48" class="ltx_Math" alttext=")?" display="inline"><mrow><mo stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math>[<span class="ltx_text ltx_font_typewriter">0</span>-<span class="ltx_text ltx_font_typewriter">9</span>]+</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix6.p2.m49" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">char<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m50" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<code class="ltx_verbatim ltx_font_typewriter">#"</code> (<math id="I1.ix6.p2.m51" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">printable<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m52" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"> <math id="I1.ix6.p2.m53" class="ltx_Math" alttext="|" display="inline"><mo mathvariant="normal" stretchy="false">|</mo></math> </span><span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m54" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span>escape<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m55" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>) <code class="ltx_verbatim ltx_font_typewriter">"</code>
+</td>
+<td class="ltx_td ltx_align_left">文字</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix6.p2.m56" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">string<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m57" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<code class="ltx_verbatim ltx_font_typewriter">"</code> (<math id="I1.ix6.p2.m58" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">printable<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m59" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"> <math id="I1.ix6.p2.m60" class="ltx_Math" alttext="|" display="inline"><mo mathvariant="normal" stretchy="false">|</mo></math> </span><span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m61" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span>escape<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m62" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>)<math id="I1.ix6.p2.m63" class="ltx_Math" alttext="*" display="inline"><mo>*</mo></math> <code class="ltx_verbatim ltx_font_typewriter">"</code>
+</td>
+<td class="ltx_td ltx_align_left">文字列</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix6.p2.m64" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">printable<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m65" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">\</span>と<span class="ltx_text ltx_font_typewriter">"</span>を除いた文字</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="I1.ix6.p2.m66" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">escape<span class="ltx_text ltx_font_upright"><math id="I1.ix6.p2.m67" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left"><code class="ltx_verbatim ltx_font_typewriter">\a</code></td>
+<td class="ltx_td ltx_align_left">警告文字 (ASCII 7)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m68" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left"><code class="ltx_verbatim ltx_font_typewriter">\b</code></td>
+<td class="ltx_td ltx_align_left">バックスペース (ASCII 8)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m69" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left"><code class="ltx_verbatim ltx_font_typewriter">\t</code></td>
+<td class="ltx_td ltx_align_left">タブ (ASCII 9)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m70" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left"><code class="ltx_verbatim ltx_font_typewriter">\n</code></td>
+<td class="ltx_td ltx_align_left">改行文字 (ASCII 10)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m71" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left"><code class="ltx_verbatim ltx_font_typewriter">\v</code></td>
+<td class="ltx_td ltx_align_left">垂直タブ (ASCII 11)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m72" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left"><code class="ltx_verbatim ltx_font_typewriter">\f</code></td>
+<td class="ltx_td ltx_align_left">ホームフィード (ASCII 12)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m73" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left"><code class="ltx_verbatim ltx_font_typewriter">\r</code></td>
+<td class="ltx_td ltx_align_left">リターン (ASCII 13)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m74" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<code class="ltx_verbatim ltx_font_typewriter">\^</code>[<code class="ltx_verbatim ltx_font_typewriter">\</code>064-<code class="ltx_verbatim ltx_font_typewriter">\</code>095]</td>
+<td class="ltx_td ltx_align_left">[<span class="ltx_text ltx_font_typewriter">\</span>064-<span class="ltx_text ltx_font_typewriter">\</span>095]が表す制御文字</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m75" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left"><code class="ltx_verbatim ltx_font_typewriter">\\</code></td>
+<td class="ltx_td ltx_align_left">文字<span class="ltx_text ltx_font_typewriter">\</span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m76" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left"><code class="ltx_verbatim ltx_font_typewriter">\"</code></td>
+<td class="ltx_td ltx_align_left">文字<span class="ltx_text ltx_font_typewriter">"</span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m77" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<code class="ltx_verbatim ltx_font_typewriter">\</code><math id="I1.ix6.p2.m78" class="ltx_Math" alttext="ddd" display="inline"><mrow><mi>d</mi><mi>d</mi><mi>d</mi></mrow></math>
+</td>
+<td class="ltx_td ltx_align_left">十進数<math id="I1.ix6.p2.m79" class="ltx_Math" alttext="ddd" display="inline"><mrow><mi>d</mi><mi>d</mi><mi>d</mi></mrow></math>の番号を持つ文字</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m80" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<code class="ltx_verbatim ltx_font_typewriter">\</code><math id="I1.ix6.p2.m81" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math>
+<math id="I1.ix6.p2.m82" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math> <math id="I1.ix6.p2.m83" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math><code class="ltx_verbatim ltx_font_typewriter">\</code>
+</td>
+<td class="ltx_td ltx_align_left">空白文字の列<math id="I1.ix6.p2.m84" class="ltx_Math" alttext="f\cdots f" display="inline"><mrow><mi>f</mi><mi mathvariant="normal">⋯</mi><mi>f</mi></mrow></math>を無視する</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="I1.ix6.p2.m85" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<code class="ltx_verbatim ltx_font_typewriter">\u</code><math id="I1.ix6.p2.m86" class="ltx_Math" alttext="xxxx" display="inline"><mrow><mi>x</mi><mi>x</mi><mi>x</mi><mi>x</mi></mrow></math>
+</td>
+<td class="ltx_td ltx_align_left">16進数表現<math id="I1.ix6.p2.m87" class="ltx_Math" alttext="xxxx" display="inline"><mrow><mi>x</mi><mi>x</mi><mi>x</mi><mi>x</mi></mrow></math>で表される番号を持つUTF-8文字列</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+</dl>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch17.S1.html" title="17.1 文字集合 ‣ Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">17.1 </span>文字集合</span></a><a href="Ch18.html" title="Chapter 18 型 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">18 </span>型</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Apr  6 18:18:13 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

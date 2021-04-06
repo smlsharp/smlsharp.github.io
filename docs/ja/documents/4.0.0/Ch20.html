@@ -1,0 +1,688 @@
+---
+layout: default
+permalink: /ja/documents/4.0.0/Ch20.html
+translated: true
+lang: ja
+head: |
+ <!--Generated on Tue Apr  6 18:18:13 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on 令和3年4月.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="up up" href="./" title="プログラミング言語SML#解説 4.0.0版">
+ <link rel="start" href="./" title="プログラミング言語SML#解説 4.0.0版">
+ <link rel="prev" href="Ch19.S25.html" title="19.25 動的型キャスト付き場合分け式 _dynamiccase ⟨ exp ⟩ of ⟨ match ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="next" href="Ch21.html" title="Chapter 21 識別子のスコープ規則 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch15.html" title="Chapter 15 序論 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch16.html" title="Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch17.html" title="Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch18.html" title="Chapter 18 型 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch19.html" title="Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch21.html" title="Chapter 21 識別子のスコープ規則 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch22.html" title="Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch23.html" title="Chapter 23 核言語の宣言とインターフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch24.html" title="Chapter 24 モジュール言語の宣言とインタフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch25.html" title="Chapter 25 SML#のライブラリ概要 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch26.html" title="Chapter 26 Standard ML標準ライブラリ ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch27.html" title="Chapter 27 SML#システムライブラリ ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch28.html" title="Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch29.html" title="Chapter 29 SML#実行時データ管理 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.0.0版">
+title: "20 パターンとパターンマッチング‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.0.0版</div>
+<div>
+<a href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">III </span>参照マニュアル</span></a><a href="Ch19.S25.html" title="19.25 動的型キャスト付き場合分け式 _dynamiccase ⟨ exp ⟩ of ⟨ match ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">19.25 </span>動的型キャスト付き場合分け式
+<span class="ltx_text ltx_font_typewriter">_dynamiccase <math class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> of <math class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">match<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></a><a href="Ch21.html" title="Chapter 21 識別子のスコープ規則 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">21 </span>識別子のスコープ規則</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_chapter ltx_authors_1line">
+<h1 class="ltx_title ltx_title_chapter">
+<span class="ltx_tag ltx_tag_chapter">Chapter 20 </span>パターンとパターンマッチング</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">値束縛宣言（<span class="ltx_text ltx_font_typewriter">valBind</span>）(<a href="Ch23.S1.html" title="23.1 val宣言 : ⟨ valDecl ⟩ ‣ Chapter 23 核言語の宣言とインターフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">23.1</span></a>)の束縛対象および
+関数宣言（<span class="ltx_text ltx_font_typewriter">funDecl</span>）(<a href="Ch23.S2.html" title="23.2 関数宣言 : ⟨ valRecDecl ⟩ , ⟨ funDecl ⟩ ‣ Chapter 23 核言語の宣言とインターフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">23.2</span></a>)，
+<span class="ltx_text ltx_font_typewriter">case</span>式 (<a href="Ch19.S18.html" title="19.18 場合分け式 case ⟨ exp ⟩ of ⟨ match ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">19.18</span></a>)，
+<span class="ltx_text ltx_font_typewriter">fn</span>式 (<a href="Ch19.S19.html" title="19.19 関数式 fn ⟨ match ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">19.19</span></a>)，
+<span class="ltx_text ltx_font_typewriter">handle</span>式 (<a href="Ch19.S14.html" title="19.14 例外処理式 ⟨ exp ⟩ handle ⟨ match ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">19.14</span></a>)
+の引数には，パターンを記述する．
+変数はパターンの特殊な場合である．</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">パターンは，値が持つべき構造を記述する．
+記述されたパターンは，対応する値とマッチングが試みられ，マッチす
+れば，パターンに含まれる変数が，その現れる位置に対応する値に束縛される．
+パターンマッチングは，各パターンのスコープにある式を評価のた
+めの束縛環境にパターンに含まれる変数の束縛環境を追加する効果を持つ．
+従って，各パターンは，静的な評価の場合，追加すべき型環境を，実行
+時の動的な評価の場合，型環境に対応した値の環境を生成する．</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p"><math id="p3.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">pat<span class="ltx_text ltx_font_upright"><math id="p3.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>構文は以下の文法で与えられる．
+</p>
+</div>
+<div id="p4" class="ltx_para">
+<ul id="S0.I1" class="ltx_itemize">
+<li id="S0.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S0.I1.i1.p1" class="ltx_para">
+<p class="ltx_p">パターン（トップレベル）
+<br class="ltx_break"></p>
+</div>
+<div id="S0.I1.i1.p2" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row">
+<math id="S0.I1.i1.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">pat<span class="ltx_text ltx_font_upright"><math id="S0.I1.i1.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row">::=</th>
+<td class="ltx_td ltx_align_left">
+<math id="S0.I1.i1.p2.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">atpat<span class="ltx_text ltx_font_upright"><math id="S0.I1.i1.p2.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="S0.I1.i1.p2.m5" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="S0.I1.i1.p2.m6" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><span class="ltx_text ltx_font_typewriter">op</span><math id="S0.I1.i1.p2.m7" class="ltx_Math" alttext=")?" display="inline"><mrow><mo stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math> <math id="S0.I1.i1.p2.m8" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">longVid<span class="ltx_text ltx_font_upright"><math id="S0.I1.i1.p2.m9" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <math id="S0.I1.i1.p2.m10" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">atpat<span class="ltx_text ltx_font_upright"><math id="S0.I1.i1.p2.m11" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">データ構造</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="S0.I1.i1.p2.m12" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="S0.I1.i1.p2.m13" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">pat<span class="ltx_text ltx_font_upright"><math id="S0.I1.i1.p2.m14" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <math id="S0.I1.i1.p2.m15" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_upright"><math id="S0.I1.i1.p2.m16" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <math id="S0.I1.i1.p2.m17" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">pat<span class="ltx_text ltx_font_upright"><math id="S0.I1.i1.p2.m18" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">データ構造（演算子表現）</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="S0.I1.i1.p2.m19" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="S0.I1.i1.p2.m20" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">pat<span class="ltx_text ltx_font_upright"><math id="S0.I1.i1.p2.m21" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <span class="ltx_text ltx_font_typewriter">:</span> <math id="S0.I1.i1.p2.m22" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">ty<span class="ltx_text ltx_font_upright"><math id="S0.I1.i1.p2.m23" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">型制約パターン</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="S0.I1.i1.p2.m24" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="S0.I1.i1.p2.m25" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_upright"><math id="S0.I1.i1.p2.m26" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <math id="S0.I1.i1.p2.m27" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><span class="ltx_text ltx_font_typewriter">:</span> <math id="S0.I1.i1.p2.m28" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">ty<span class="ltx_text ltx_font_upright"><math id="S0.I1.i1.p2.m29" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="S0.I1.i1.p2.m30" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span> <span class="ltx_text ltx_font_typewriter">as</span> <math id="S0.I1.i1.p2.m31" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">pat<span class="ltx_text ltx_font_upright"><math id="S0.I1.i1.p2.m32" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">多層パターン</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li id="S0.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S0.I1.i2.p1" class="ltx_para">
+<p class="ltx_p">原子パターン
+<br class="ltx_break"></p>
+</div>
+<div id="S0.I1.i2.p2" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row">
+<math id="S0.I1.i2.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">atpat<span class="ltx_text ltx_font_upright"><math id="S0.I1.i2.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row">::=</th>
+<td class="ltx_td ltx_align_left">
+<math id="S0.I1.i2.p2.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">scon<span class="ltx_text ltx_font_upright"><math id="S0.I1.i2.p2.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">定数</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="S0.I1.i2.p2.m5" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">_</span></td>
+<td class="ltx_td ltx_align_left">匿名パターン</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="S0.I1.i2.p2.m6" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="S0.I1.i2.p2.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_upright"><math id="S0.I1.i2.p2.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">変数及びコンストラクタ</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="S0.I1.i2.p2.m9" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="S0.I1.i2.p2.m10" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">longVid<span class="ltx_text ltx_font_upright"><math id="S0.I1.i2.p2.m11" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">コンストラクタ</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="S0.I1.i2.p2.m12" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">{</span><math id="S0.I1.i2.p2.m13" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><math id="S0.I1.i2.p2.m14" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">patrow<span class="ltx_text ltx_font_upright"><math id="S0.I1.i2.p2.m15" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="S0.I1.i2.p2.m16" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span> <span class="ltx_text ltx_font_typewriter">}</span>
+</td>
+<td class="ltx_td ltx_align_left">レコードパターン</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="S0.I1.i2.p2.m17" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">()</span></td>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">unit</span> 型定数</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="S0.I1.i2.p2.m18" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">(<math id="S0.I1.i2.p2.m19" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<math id="S0.I1.i2.p2.m20" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I1.i2.p2.m21" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">,<math id="S0.I1.i2.p2.m22" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math>,<math id="S0.I1.i2.p2.m23" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<math id="S0.I1.i2.p2.m24" class="ltx_Math" alttext="{}_{n}" display="inline"><msub><mi></mi><mi>n</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I1.i2.p2.m25" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span>
+</td>
+<td class="ltx_td ltx_align_left">組 (<math id="S0.I1.i2.p2.m26" class="ltx_Math" alttext="n\geq 2" display="inline"><mrow><mi>n</mi><mo>≥</mo><mn>2</mn></mrow></math>)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="S0.I1.i2.p2.m27" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">[<math id="S0.I1.i2.p2.m28" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<math id="S0.I1.i2.p2.m29" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I1.i2.p2.m30" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">,<math id="S0.I1.i2.p2.m31" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math>,<math id="S0.I1.i2.p2.m32" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<math id="S0.I1.i2.p2.m33" class="ltx_Math" alttext="{}_{n}" display="inline"><msub><mi></mi><mi>n</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I1.i2.p2.m34" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">]</span>
+</td>
+<td class="ltx_td ltx_align_left">リスト (<math id="S0.I1.i2.p2.m35" class="ltx_Math" alttext="n\geq 0" display="inline"><mrow><mi>n</mi><mo>≥</mo><mn>0</mn></mrow></math>)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="S0.I1.i2.p2.m36" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">(<math id="S0.I1.i2.p2.m37" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I1.i2.p2.m38" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span>
+</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row">
+<math id="S0.I1.i2.p2.m39" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">patrow<span class="ltx_text ltx_font_upright"><math id="S0.I1.i2.p2.m40" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row">::=</th>
+<td class="ltx_td ltx_align_left"><code class="ltx_verbatim ltx_font_typewriter">...</code></td>
+<td class="ltx_td ltx_align_left">匿名フィールド</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="S0.I1.i2.p2.m41" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="S0.I1.i2.p2.m42" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">lab<span class="ltx_text ltx_font_upright"><math id="S0.I1.i2.p2.m43" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <span class="ltx_text ltx_font_typewriter">=</span> <math id="S0.I1.i2.p2.m44" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">pat<span class="ltx_text ltx_font_upright"><math id="S0.I1.i2.p2.m45" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <math id="S0.I1.i2.p2.m46" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><span class="ltx_text ltx_font_typewriter">,</span> <math id="S0.I1.i2.p2.m47" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">patrow<span class="ltx_text ltx_font_upright"><math id="S0.I1.i2.p2.m48" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="S0.I1.i2.p2.m49" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">レコードフィールド</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="S0.I1.i2.p2.m50" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">vid<math id="S0.I1.i2.p2.m51" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><span class="ltx_text ltx_font_typewriter">:</span><math id="S0.I1.i2.p2.m52" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">ty<span class="ltx_text ltx_font_upright"><math id="S0.I1.i2.p2.m53" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="S0.I1.i2.p2.m54" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span> <math id="S0.I1.i2.p2.m55" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><span class="ltx_text ltx_font_typewriter">as</span> <math id="S0.I1.i2.p2.m56" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">pat<span class="ltx_text ltx_font_upright"><math id="S0.I1.i2.p2.m57" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="S0.I1.i2.p2.m58" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span>
+<math id="S0.I1.i2.p2.m59" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><span class="ltx_text ltx_font_typewriter">,</span><math id="S0.I1.i2.p2.m60" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">patrow<span class="ltx_text ltx_font_upright"><math id="S0.I1.i2.p2.m61" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="S0.I1.i2.p2.m62" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">変数兼ラベル</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+<div id="p5" class="ltx_para">
+<p class="ltx_p">以下，各パターン<math id="p5.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">pat<span class="ltx_text ltx_font_upright"><math id="p5.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>について，その型<math id="p5.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">ty<span class="ltx_text ltx_font_upright"><math id="p5.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>と
+生成される型環境<math id="p5.m5" class="ltx_Math" alttext="\Gamma" display="inline"><mi mathvariant="normal">Γ</mi></math>およびマッチする値を定義する．
+実行時の動的な評価時に生成される環境は，生成される型環境に対応す
+るマッチした値の束縛環境である．
+</p>
+</div>
+<section id="S0.SS0.SSS0.Px1" class="ltx_paragraph">
+<h2 class="ltx_title ltx_title_paragraph">定数パターン:<math id="S0.SS0.SSS0.Px1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">scon<span class="ltx_text ltx_font_upright"><math id="S0.SS0.SSS0.Px1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</h2>
+
+<div id="S0.SS0.SSS0.Px1.p1" class="ltx_para">
+<p class="ltx_p"><a href="Ch19.S2.html" title="19.2 定数式 ⟨ scon ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">19.2</span></a>で定義された定数式同一であり，対応する型を持ち，空
+の型環境<math id="S0.SS0.SSS0.Px1.p1.m1" class="ltx_Math" alttext="\emptyset" display="inline"><mi mathvariant="normal">∅</mi></math>を生成する．
+同一の定数値にマッチする．
+</p>
+</div>
+</section>
+<section id="S0.SS0.SSS0.Px2" class="ltx_paragraph">
+<h2 class="ltx_title ltx_title_paragraph">匿名パターン:<span class="ltx_text ltx_font_typewriter">_</span>
+</h2>
+
+<div id="S0.SS0.SSS0.Px2.p1" class="ltx_para">
+<p class="ltx_p">文脈に従って決まる任意の型を持ち，空の型環境<math id="S0.SS0.SSS0.Px2.p1.m1" class="ltx_Math" alttext="\emptyset" display="inline"><mi mathvariant="normal">∅</mi></math>を生成する．
+パターンの型を持つ任意の値にマッチする．
+</p>
+</div>
+</section>
+<section id="S0.SS0.SSS0.Px3" class="ltx_paragraph">
+<h2 class="ltx_title ltx_title_paragraph">識別子パターン:<math id="S0.SS0.SSS0.Px3.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_upright"><math id="S0.SS0.SSS0.Px3.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</h2>
+
+<div id="S0.SS0.SSS0.Px3.p1" class="ltx_para">
+<p class="ltx_p">この識別子名が，このパターンが現れる位置をスコープとして含むコン
+ストラクタとして定義されていれば，そのコンストラクタの型を持ち，空の型環
+境を生成する．
+そのコンストラクタにマッチする．</p>
+</div>
+<div id="S0.SS0.SSS0.Px3.p2" class="ltx_para">
+<p class="ltx_p">識別子が定義されていないか，または，変数属性を持つ名前として定義
+されていれば，この名前は文脈によって定まる任意の型<math id="S0.SS0.SSS0.Px3.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">ty<span class="ltx_text ltx_font_upright"><math id="S0.SS0.SSS0.Px3.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>を持ち，
+型環境<math id="S0.SS0.SSS0.Px3.p2.m3" class="ltx_Math" alttext="\{\mbox{$\,\langle$}{\it vid}\mbox{$\rangle\,$}:\mbox{$\,\langle$}{\it ty}%
+\mbox{$\rangle\,$}\}" display="inline"><mrow><mo stretchy="false">{</mo><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow><mi>v</mi><mi>i</mi><mi>d</mi><mrow><mo stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow><mo>:</mo><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow><mi>t</mi><mi>y</mi><mrow><mo stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow><mo stretchy="false">}</mo></mrow></math>を生成する．
+型<math id="S0.SS0.SSS0.Px3.p2.m4" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">ty<span class="ltx_text ltx_font_upright"><math id="S0.SS0.SSS0.Px3.p2.m5" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>を持つ任意の値にマッチする．
+このパターンは，パターンを含む構文が定めるスコープ規則に従い，名
+前<math id="S0.SS0.SSS0.Px3.p2.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_upright"><math id="S0.SS0.SSS0.Px3.p2.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>が再定義される．</p>
+</div>
+<div id="S0.SS0.SSS0.Px3.p3" class="ltx_para">
+<p class="ltx_p">以下に簡単な例を示す．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SML# 4.0.0 (2021-04-06) for x86_64-pc-linux-gnu with LLVM 11.1.0
+
+<br class="ltx_break">
+# val A = 1
+
+<br class="ltx_break">
+val A = 1 : int
+
+<br class="ltx_break">
+# fn A =&gt; 1;
+
+<br class="ltx_break">
+val it = fn : [’a. ’a -&gt; int]
+
+<br class="ltx_break">
+# datatype foo = A;
+
+<br class="ltx_break">
+datatype foo = A
+
+<br class="ltx_break">
+# fn A =&gt; 1;
+
+<br class="ltx_break">
+val it = fn : foo -&gt; int
+
+<br class="ltx_break">
+# datatype foo = A of int;
+
+<br class="ltx_break">
+datatype foo = x of int
+
+<br class="ltx_break">
+# fn A =&gt; 1;
+
+<br class="ltx_break">
+(interactive):12.3-12.3 Error:
+
+<br class="ltx_break">
+    (type inference 039) data constructor A used without argument in pattern</span></p>
+</blockquote>
+</div>
+</section>
+<section id="S0.SS0.SSS0.Px4" class="ltx_paragraph">
+<h2 class="ltx_title ltx_title_paragraph">long識別子パターン:<math id="S0.SS0.SSS0.Px4.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">longVid<span class="ltx_text ltx_font_upright"><math id="S0.SS0.SSS0.Px4.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</h2>
+
+<div id="S0.SS0.SSS0.Px4.p1" class="ltx_para">
+<p class="ltx_p">このlong識別子名が，このパターンが現れる位置をスコープとして含む
+引数を持たないコンストラクタ<math id="S0.SS0.SSS0.Px4.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_upright"><math id="S0.SS0.SSS0.Px4.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>として定義されていれば，
+空の型環境が生成されれ，コンストラクタ<math id="S0.SS0.SSS0.Px4.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_upright"><math id="S0.SS0.SSS0.Px4.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>にマッチする．
+現在の環境にlong識別子がコンストラクタとして定義されていないか，
+または，引数を持つコンストラクタとして定義されていれば，エラーとなる．
+以下に簡単な例を示す．
+</p>
+</div>
+<div id="S0.SS0.SSS0.Px4.p2" class="ltx_para">
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># structure A = struct datatype foo = A | B of int val C = 1 end;
+<br class="ltx_break">
+structure A =
+<br class="ltx_break">
+  struct
+<br class="ltx_break">
+    datatype foo = A | B of int
+<br class="ltx_break">
+    val C = 1 : int
+<br class="ltx_break">
+  end
+<br class="ltx_break">
+# val f = fn A.A =&gt; 1;
+<br class="ltx_break">
+val f = fn : A.foo -&gt; int
+<br class="ltx_break">
+# val g = fn A.B =&gt; 1;
+<br class="ltx_break">
+(interactive):3.11-3.13 Error:
+<br class="ltx_break">
+  (type inference 046) data constructor A.B used without argument in pattern
+<br class="ltx_break">
+# val h = fn A.C =&gt; 1;
+<br class="ltx_break">
+(interactive):4.11-4.13 Error: (name evaluation "020") unbound constructor: A.C</span></p>
+</blockquote>
+</div>
+<div id="S0.SS0.SSS0.Px4.p3" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">A.B</span>は引数を持つコンストラクタであり，<span class="ltx_text ltx_font_typewriter">A.C</span>は変数であるため，
+関数宣言<span class="ltx_text ltx_font_typewriter">g</span>と<span class="ltx_text ltx_font_typewriter">h</span>はエラーとなる．
+</p>
+</div>
+</section>
+<section id="S0.SS0.SSS0.Px5" class="ltx_paragraph">
+<h2 class="ltx_title ltx_title_paragraph">レコードパターン:<math id="S0.SS0.SSS0.Px5.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_typewriter">{</span><span class="ltx_text ltx_font_italic"><math id="S0.SS0.SSS0.Px5.m2" class="ltx_Math" alttext="(" display="inline"><mo mathvariant="normal" stretchy="false">(</mo></math></span><span class="ltx_text ltx_font_italic"><math id="S0.SS0.SSS0.Px5.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">patrow<math id="S0.SS0.SSS0.Px5.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math><math id="S0.SS0.SSS0.Px5.m5" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math> <span class="ltx_text ltx_font_typewriter ltx_font_upright">}</span><span class="ltx_text ltx_font_upright"><math id="S0.SS0.SSS0.Px5.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</h2>
+
+<div id="S0.SS0.SSS0.Px5.p1" class="ltx_para">
+<p class="ltx_p">レコードフィールドパターン<math id="S0.SS0.SSS0.Px5.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">patrow<span class="ltx_text ltx_font_upright"><math id="S0.SS0.SSS0.Px5.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>が指定されない
+<span class="ltx_text ltx_font_typewriter">{}</span>の形のパターンの場合，空のレコード<span class="ltx_text ltx_font_typewriter">{}</span>にマッチする．
+変数の型環境は生成されない．</p>
+</div>
+<div id="S0.SS0.SSS0.Px5.p2" class="ltx_para">
+<p class="ltx_p">レコードフィールドパターン<math id="S0.SS0.SSS0.Px5.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">patrow<span class="ltx_text ltx_font_upright"><math id="S0.SS0.SSS0.Px5.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>が指定されている場合，
+そのフィールド型を
+<span class="ltx_text ltx_font_typewriter"><math id="S0.SS0.SSS0.Px5.p2.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<math id="S0.SS0.SSS0.Px5.p2.m4" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.SS0.SSS0.Px5.p2.m5" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">:<math id="S0.SS0.SSS0.Px5.p2.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">ty<math id="S0.SS0.SSS0.Px5.p2.m7" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.SS0.SSS0.Px5.p2.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">,<math id="S0.SS0.SSS0.Px5.p2.m9" class="ltx_Math" alttext="\ldots" display="inline"><mi mathvariant="normal">…</mi></math>,
+<math id="S0.SS0.SSS0.Px5.p2.m10" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<math id="S0.SS0.SSS0.Px5.p2.m11" class="ltx_Math" alttext="{}_{n}" display="inline"><msub><mi></mi><mi>n</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.SS0.SSS0.Px5.p2.m12" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">:<math id="S0.SS0.SSS0.Px5.p2.m13" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">ty<math id="S0.SS0.SSS0.Px5.p2.m14" class="ltx_Math" alttext="{}_{n}" display="inline"><msub><mi></mi><mi>n</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.SS0.SSS0.Px5.p2.m15" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>，
+生成される変数の型環境を<math id="S0.SS0.SSS0.Px5.p2.m16" class="ltx_Math" alttext="\Gamma" display="inline"><mi mathvariant="normal">Γ</mi></math>とす
+る．
+レコードフィールドパターン<math id="S0.SS0.SSS0.Px5.p2.m17" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">patrow<span class="ltx_text ltx_font_upright"><math id="S0.SS0.SSS0.Px5.p2.m18" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の形に応じて以下の2通
+りの場合がある．
+</p>
+<ol id="S0.I2" class="ltx_enumerate">
+<li id="S0.I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="S0.I2.i1.p1" class="ltx_para">
+<p class="ltx_p">匿名フィールド<code class="ltx_verbatim ltx_font_typewriter">...</code>を含まない固定レコードパターンの場合．
+フィールド型からなる単相レコード型
+<span class="ltx_text ltx_font_typewriter">{<math id="S0.I2.i1.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<math id="S0.I2.i1.p1.m2" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I2.i1.p1.m3" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">:<math id="S0.I2.i1.p1.m4" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">ty<math id="S0.I2.i1.p1.m5" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I2.i1.p1.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">,<math id="S0.I2.i1.p1.m7" class="ltx_Math" alttext="\ldots" display="inline"><mi mathvariant="normal">…</mi></math>,
+<math id="S0.I2.i1.p1.m8" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<math id="S0.I2.i1.p1.m9" class="ltx_Math" alttext="{}_{n}" display="inline"><msub><mi></mi><mi>n</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I2.i1.p1.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">:<math id="S0.I2.i1.p1.m11" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">ty<math id="S0.I2.i1.p1.m12" class="ltx_Math" alttext="{}_{n}" display="inline"><msub><mi></mi><mi>n</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I2.i1.p1.m13" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">}</span>
+を持ち，型環境<math id="S0.I2.i1.p1.m14" class="ltx_Math" alttext="\Gamma" display="inline"><mi mathvariant="normal">Γ</mi></math>を生成する．</p>
+</div>
+<div id="S0.I2.i1.p2" class="ltx_para">
+<p class="ltx_p">このパターンは，レコードフィールドパターン<math id="S0.I2.i1.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">patrow<span class="ltx_text ltx_font_upright"><math id="S0.I2.i1.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>にマッ
+チするレコードフィールドを含む上記の型のレコードにマッチする．
+</p>
+</div>
+</li>
+<li id="S0.I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="S0.I2.i2.p1" class="ltx_para">
+<p class="ltx_p">多相レコードパターン．
+レコードフィールドパターン<math id="S0.I2.i2.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">patrow<span class="ltx_text ltx_font_upright"><math id="S0.I2.i2.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>が，匿名フィールド
+<code class="ltx_verbatim ltx_font_typewriter">...</code>を含む場合．
+<math id="S0.I2.i2.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">patrow<span class="ltx_text ltx_font_upright"><math id="S0.I2.i2.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>のフィルド型をレコードカインドとしてもつ多相レコード型
+<span class="ltx_text ltx_font_typewriter">’a#{<math id="S0.I2.i2.p1.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<math id="S0.I2.i2.p1.m6" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I2.i2.p1.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">:<math id="S0.I2.i2.p1.m8" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">ty<math id="S0.I2.i2.p1.m9" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I2.i2.p1.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">,<math id="S0.I2.i2.p1.m11" class="ltx_Math" alttext="\ldots" display="inline"><mi mathvariant="normal">…</mi></math>,
+<math id="S0.I2.i2.p1.m12" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<math id="S0.I2.i2.p1.m13" class="ltx_Math" alttext="{}_{n}" display="inline"><msub><mi></mi><mi>n</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I2.i2.p1.m14" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">:<math id="S0.I2.i2.p1.m15" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">ty<math id="S0.I2.i2.p1.m16" class="ltx_Math" alttext="{}_{n}" display="inline"><msub><mi></mi><mi>n</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I2.i2.p1.m17" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">}</span>
+を持ち，レコードフィールドパターン<math id="S0.I2.i2.p1.m18" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">patrow<span class="ltx_text ltx_font_upright"><math id="S0.I2.i2.p1.m19" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>が生成する変数束縛を生
+成する．
+この多相型は，文脈の型制約により，種々の多相レコード型または単相
+レコード型にインスタンス化されうる．</p>
+</div>
+<div id="S0.I2.i2.p2" class="ltx_para">
+<p class="ltx_p">このパターンは，レコードフィールドパターン<math id="S0.I2.i2.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">patrow<span class="ltx_text ltx_font_upright"><math id="S0.I2.i2.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>にマッ
+チするレコードフィールドを含む上記の型のレコードにマッチする．
+</p>
+</div>
+</li>
+</ol>
+</div>
+</section>
+<section id="S0.SS0.SSS0.Px6" class="ltx_paragraph">
+<h2 class="ltx_title ltx_title_paragraph">レコードフィールドパターン:<math id="S0.SS0.SSS0.Px6.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">patrow<span class="ltx_text ltx_font_upright"><math id="S0.SS0.SSS0.Px6.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</h2>
+
+<div id="S0.SS0.SSS0.Px6.p1" class="ltx_para">
+<ul id="S0.I3" class="ltx_itemize">
+<li id="S0.I3.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S0.I3.i1.p1" class="ltx_para">
+<p class="ltx_p">匿名フィールドパターン：<span class="ltx_text ltx_font_typewriter">...</span>．
+指定されたフィールド集合が，レコードの一部であることの指定である．
+</p>
+</div>
+</li>
+<li id="S0.I3.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S0.I3.i2.p1" class="ltx_para">
+<p class="ltx_p">フィールドパターン：<math id="S0.I3.i2.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">lab<span class="ltx_text ltx_font_upright"><math id="S0.I3.i2.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <span class="ltx_text ltx_font_typewriter">=</span> <math id="S0.I3.i2.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">pat<span class="ltx_text ltx_font_upright"><math id="S0.I3.i2.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <math id="S0.I3.i2.p1.m5" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><span class="ltx_text ltx_font_typewriter">,</span> <math id="S0.I3.i2.p1.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">patrow<span class="ltx_text ltx_font_upright"><math id="S0.I3.i2.p1.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="S0.I3.i2.p1.m8" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span>．
+<math id="S0.I3.i2.p1.m9" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><span class="ltx_text ltx_font_typewriter">,</span> <math id="S0.I3.i2.p1.m10" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">patrow<span class="ltx_text ltx_font_upright"><math id="S0.I3.i2.p1.m11" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="S0.I3.i2.p1.m12" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span>のフィールド型を
+<span class="ltx_text ltx_font_typewriter"><math id="S0.I3.i2.p1.m13" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<math id="S0.I3.i2.p1.m14" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I3.i2.p1.m15" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">:<math id="S0.I3.i2.p1.m16" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">ty<math id="S0.I3.i2.p1.m17" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I3.i2.p1.m18" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">,<math id="S0.I3.i2.p1.m19" class="ltx_Math" alttext="\ldots" display="inline"><mi mathvariant="normal">…</mi></math>,
+<math id="S0.I3.i2.p1.m20" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<math id="S0.I3.i2.p1.m21" class="ltx_Math" alttext="{}_{n}" display="inline"><msub><mi></mi><mi>n</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I3.i2.p1.m22" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">:<math id="S0.I3.i2.p1.m23" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">ty<math id="S0.I3.i2.p1.m24" class="ltx_Math" alttext="{}_{n}" display="inline"><msub><mi></mi><mi>n</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I3.i2.p1.m25" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>，
+型環境を<math id="S0.I3.i2.p1.m26" class="ltx_Math" alttext="\Gamma" display="inline"><mi mathvariant="normal">Γ</mi></math>，
+パターン<math id="S0.I3.i2.p1.m27" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">pat<span class="ltx_text ltx_font_upright"><math id="S0.I3.i2.p1.m28" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の型を<math id="S0.I3.i2.p1.m29" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">ty<span class="ltx_text ltx_font_upright"><math id="S0.I3.i2.p1.m30" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>，生成する型環境を<math id="S0.I3.i2.p1.m31" class="ltx_Math" alttext="\Gamma_{0}" display="inline"><mrow><mi mathvariant="normal">Γ</mi><msub><mi></mi><mn>0</mn></msub></mrow></math>とする．</p>
+</div>
+<div id="S0.I3.i2.p2" class="ltx_para">
+<p class="ltx_p">ラベル<math id="S0.I3.i2.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">lab<span class="ltx_text ltx_font_upright"><math id="S0.I3.i2.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>が
+<math id="S0.I3.i2.p2.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">lab<math id="S0.I3.i2.p2.m4" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_upright"><math id="S0.I3.i2.p2.m5" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>,<math id="S0.I3.i2.p2.m6" class="ltx_Math" alttext="\ldots" display="inline"><mi mathvariant="normal">…</mi></math>,<math id="S0.I3.i2.p2.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">lab<math id="S0.I3.i2.p2.m8" class="ltx_Math" alttext="{}_{n}" display="inline"><msub><mi></mi><mi>n</mi></msub></math><span class="ltx_text ltx_font_upright"><math id="S0.I3.i2.p2.m9" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>とすべて異なる場合，
+フィールド型
+<span class="ltx_text ltx_font_typewriter"><math id="S0.I3.i2.p2.m10" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I3.i2.p2.m11" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">:<math id="S0.I3.i2.p2.m12" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">ty<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I3.i2.p2.m13" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">,<math id="S0.I3.i2.p2.m14" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<math id="S0.I3.i2.p2.m15" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I3.i2.p2.m16" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">:<math id="S0.I3.i2.p2.m17" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">ty<math id="S0.I3.i2.p2.m18" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I3.i2.p2.m19" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">,<math id="S0.I3.i2.p2.m20" class="ltx_Math" alttext="\ldots" display="inline"><mi mathvariant="normal">…</mi></math>,
+<math id="S0.I3.i2.p2.m21" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<math id="S0.I3.i2.p2.m22" class="ltx_Math" alttext="{}_{n}" display="inline"><msub><mi></mi><mi>n</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I3.i2.p2.m23" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">:<math id="S0.I3.i2.p2.m24" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">ty<math id="S0.I3.i2.p2.m25" class="ltx_Math" alttext="{}_{n}" display="inline"><msub><mi></mi><mi>n</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I3.i2.p2.m26" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>，
+を持ち，型環境<math id="S0.I3.i2.p2.m27" class="ltx_Math" alttext="\Gamma_{0}\cup\Gamma" display="inline"><mrow><mi mathvariant="normal">Γ</mi><msub><mi></mi><mn>0</mn></msub><mo>∪</mo><mi mathvariant="normal">Γ</mi></mrow></math>が生成される．
+ラベル<math id="S0.I3.i2.p2.m28" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">lab<span class="ltx_text ltx_font_upright"><math id="S0.I3.i2.p2.m29" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>が
+<math id="S0.I3.i2.p2.m30" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">lab<math id="S0.I3.i2.p2.m31" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_upright"><math id="S0.I3.i2.p2.m32" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>,<math id="S0.I3.i2.p2.m33" class="ltx_Math" alttext="\ldots" display="inline"><mi mathvariant="normal">…</mi></math>,<math id="S0.I3.i2.p2.m34" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">lab<math id="S0.I3.i2.p2.m35" class="ltx_Math" alttext="{}_{n}" display="inline"><msub><mi></mi><mi>n</mi></msub></math><span class="ltx_text ltx_font_upright"><math id="S0.I3.i2.p2.m36" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の何れかと一致する場合は型エラーである．
+</p>
+</div>
+</li>
+<li id="S0.I3.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S0.I3.i3.p1" class="ltx_para">
+<p class="ltx_p">変数兼ラベルパターン：
+vid<math id="S0.I3.i3.p1.m1" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><span class="ltx_text ltx_font_typewriter">:</span><math id="S0.I3.i3.p1.m2" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">ty<span class="ltx_text ltx_font_upright"><math id="S0.I3.i3.p1.m3" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="S0.I3.i3.p1.m4" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span> <math id="S0.I3.i3.p1.m5" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><span class="ltx_text ltx_font_typewriter">as</span> <math id="S0.I3.i3.p1.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">pat<span class="ltx_text ltx_font_upright"><math id="S0.I3.i3.p1.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="S0.I3.i3.p1.m8" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span>
+ <math id="S0.I3.i3.p1.m9" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><span class="ltx_text ltx_font_typewriter">,</span> <math id="S0.I3.i3.p1.m10" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">patrow<span class="ltx_text ltx_font_upright"><math id="S0.I3.i3.p1.m11" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="S0.I3.i3.p1.m12" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span>．</p>
+</div>
+<div id="S0.I3.i3.p2" class="ltx_para">
+<p class="ltx_p">以下のフィールドパターンに変換された後評価される．</p>
+</div>
+<div id="S0.I3.i3.p3" class="ltx_para ltx_align_center">
+<p class="ltx_p">vid = vid<math id="S0.I3.i3.p3.m1" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><span class="ltx_text ltx_font_typewriter">:</span><math id="S0.I3.i3.p3.m2" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">ty<span class="ltx_text ltx_font_upright"><math id="S0.I3.i3.p3.m3" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="S0.I3.i3.p3.m4" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span> <math id="S0.I3.i3.p3.m5" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><span class="ltx_text ltx_font_typewriter">as</span> <math id="S0.I3.i3.p3.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">pat<span class="ltx_text ltx_font_upright"><math id="S0.I3.i3.p3.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="S0.I3.i3.p3.m8" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span>
+ <math id="S0.I3.i3.p3.m9" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><span class="ltx_text ltx_font_typewriter">,</span> <math id="S0.I3.i3.p3.m10" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">patrow<span class="ltx_text ltx_font_upright"><math id="S0.I3.i3.p3.m11" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="S0.I3.i3.p3.m12" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span>．</p>
+</div>
+<div id="S0.I3.i3.p4" class="ltx_para">
+<p class="ltx_p">生成される型環境，マッチする値は，対応するレコードパターンの場合と同一である．
+以下に簡単な例を示す．
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="S0.SS0.SSS0.Px6.p2" class="ltx_para">
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># val f = fn {x:int as 1, y} =&gt; x + y;
+
+<br class="ltx_break">
+(interactive):33.8-33.34 Warning: match nonexhaustive
+
+<br class="ltx_break">
+  {x = x as 1, y = y} =&gt; ...
+
+<br class="ltx_break">
+val f = fn : {x: int, y: int} -&gt; int
+
+<br class="ltx_break">
+# val g = fn {x = x:int as 1, y = y} =&gt; x + y;
+
+<br class="ltx_break">
+(interactive):34.8-34.37 Warning: match nonexhaustive
+
+<br class="ltx_break">
+  {x = x as 1, y = y} =&gt; ...
+
+<br class="ltx_break">
+val g = fn : {x: int, y: int} -&gt; int
+
+<br class="ltx_break">
+# f {x = 1, y = 2};
+
+<br class="ltx_break">
+val it = 3 : int
+
+<br class="ltx_break">
+# g {x = 1, y = 2};
+
+<br class="ltx_break">
+val it = 3 : int</span></p>
+</blockquote>
+</div>
+</section>
+<section id="S0.SS0.SSS0.Px7" class="ltx_paragraph">
+<h2 class="ltx_title ltx_title_paragraph">組パターン:<span class="ltx_text ltx_font_typewriter">(<math id="S0.SS0.SSS0.Px7.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<math id="S0.SS0.SSS0.Px7.m2" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.SS0.SSS0.Px7.m3" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">,<math id="S0.SS0.SSS0.Px7.m4" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math>,<math id="S0.SS0.SSS0.Px7.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<math id="S0.SS0.SSS0.Px7.m6" class="ltx_Math" alttext="{}_{n}" display="inline"><msub><mi></mi><mi>n</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.SS0.SSS0.Px7.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span>
+</h2>
+
+<div id="S0.SS0.SSS0.Px7.p1" class="ltx_para">
+<p class="ltx_p">レコードパターン</p>
+<p class="ltx_p ltx_align_center"><span class="ltx_text ltx_font_typewriter">{1 = <math id="S0.SS0.SSS0.Px7.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<math id="S0.SS0.SSS0.Px7.p1.m2" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.SS0.SSS0.Px7.p1.m3" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">, <math id="S0.SS0.SSS0.Px7.p1.m4" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math>, <math id="S0.SS0.SSS0.Px7.p1.m5" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math> = <math id="S0.SS0.SSS0.Px7.p1.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<math id="S0.SS0.SSS0.Px7.p1.m7" class="ltx_Math" alttext="{}_{n}" display="inline"><msub><mi></mi><mi>n</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.SS0.SSS0.Px7.p1.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">}</span></p>
+</div>
+<div id="S0.SS0.SSS0.Px7.p2" class="ltx_para">
+<p class="ltx_p">に変換され，評価される．
+生成される型環境，マッチする値は，対応するレコードパターンの場合と同一である．
+以下に簡単な例を示す．
+</p>
+</div>
+<div id="S0.SS0.SSS0.Px7.p3" class="ltx_para">
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># val f = fn (x,y) =&gt; 2 * x + y;
+
+<br class="ltx_break">
+val f = fn : int * int -&gt; int
+
+<br class="ltx_break">
+# val g = fn {1=x, 2=y} =&gt; 2 * x + y;
+
+<br class="ltx_break">
+val g = fn : int * int -&gt; int
+
+<br class="ltx_break">
+# f 1=1, 2=2;
+
+<br class="ltx_break">
+val it = 4 : int
+
+<br class="ltx_break">
+# g (1,2);
+
+<br class="ltx_break">
+val it = 4 : int</span></p>
+</blockquote>
+</div>
+</section>
+<section id="S0.SS0.SSS0.Px8" class="ltx_paragraph">
+<h2 class="ltx_title ltx_title_paragraph">リストパターン:<span class="ltx_text ltx_font_typewriter">[<math id="S0.SS0.SSS0.Px8.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<math id="S0.SS0.SSS0.Px8.m2" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.SS0.SSS0.Px8.m3" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">,<math id="S0.SS0.SSS0.Px8.m4" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math>,<math id="S0.SS0.SSS0.Px8.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<math id="S0.SS0.SSS0.Px8.m6" class="ltx_Math" alttext="{}_{n}" display="inline"><msub><mi></mi><mi>n</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.SS0.SSS0.Px8.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">]</span>
+</h2>
+
+<div id="S0.SS0.SSS0.Px8.p1" class="ltx_para">
+<p class="ltx_p">ネストしたリストデータ構造パターン</p>
+</div>
+<div id="S0.SS0.SSS0.Px8.p2" class="ltx_para ltx_align_center">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"><math id="S0.SS0.SSS0.Px8.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<math id="S0.SS0.SSS0.Px8.p2.m2" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.SS0.SSS0.Px8.p2.m3" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> :: <math id="S0.SS0.SSS0.Px8.p2.m4" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math> :: <math id="S0.SS0.SSS0.Px8.p2.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<math id="S0.SS0.SSS0.Px8.p2.m6" class="ltx_Math" alttext="{}_{n}" display="inline"><msub><mi></mi><mi>n</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.SS0.SSS0.Px8.p2.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> :: nil</span></p>
+</div>
+<div id="S0.SS0.SSS0.Px8.p3" class="ltx_para">
+<p class="ltx_p">に変換され，評価される．
+生成される型環境，マッチする値は，対応するコンストラクタアプリケー
+ションパターンの場合と同一である．
+以下に簡単な例を示す．
+</p>
+</div>
+<div id="S0.SS0.SSS0.Px8.p4" class="ltx_para">
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># val f = fn [x,y] =&gt; 2 * x + y;
+<br class="ltx_break">
+(interactive):24.8-24.26 Warning: match nonexhaustive
+<br class="ltx_break">
+  :: (x, :: (y, nil )) =&gt; ...
+<br class="ltx_break">
+val f = fn : int list -&gt; int
+<br class="ltx_break">
+# val g = fn (x::y::nil) =&gt; 2 * x + y;
+<br class="ltx_break">
+(interactive):25.8-25.32 Warning: match nonexhaustive
+<br class="ltx_break">
+  :: (x, :: (y, nil )) =&gt; ...
+<br class="ltx_break">
+val g = fn : int list -&gt; int
+<br class="ltx_break">
+# f (1::2::nil);
+<br class="ltx_break">
+val it = 4 : int
+<br class="ltx_break">
+# g [1,2];
+<br class="ltx_break">
+val it = 4 : int</span></p>
+</blockquote>
+</div>
+</section>
+<section id="S0.SS0.SSS0.Px9" class="ltx_paragraph">
+<h2 class="ltx_title ltx_title_paragraph">データ構造パターン:<math id="S0.SS0.SSS0.Px9.m1" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><span class="ltx_text ltx_font_typewriter">op</span><math id="S0.SS0.SSS0.Px9.m2" class="ltx_Math" alttext=")?" display="inline"><mrow><mo stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math> <math id="S0.SS0.SSS0.Px9.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">longVid<span class="ltx_text ltx_font_upright"><math id="S0.SS0.SSS0.Px9.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <math id="S0.SS0.SSS0.Px9.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">atpat<span class="ltx_text ltx_font_upright"><math id="S0.SS0.SSS0.Px9.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</h2>
+
+<div id="S0.SS0.SSS0.Px9.p1" class="ltx_para">
+<p class="ltx_p"><math id="S0.SS0.SSS0.Px9.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">longVid<span class="ltx_text ltx_font_upright"><math id="S0.SS0.SSS0.Px9.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>が型<span class="ltx_text ltx_font_typewriter"><math id="S0.SS0.SSS0.Px9.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">ty<math id="S0.SS0.SSS0.Px9.p1.m4" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.SS0.SSS0.Px9.p1.m5" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> -&gt; <math id="S0.SS0.SSS0.Px9.p1.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">ty<math id="S0.SS0.SSS0.Px9.p1.m7" class="ltx_Math" alttext="{}_{2}" display="inline"><msub><mi></mi><mn mathvariant="normal">2</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.SS0.SSS0.Px9.p1.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>を持
+つコンストラクタ<math id="S0.SS0.SSS0.Px9.p1.m9" class="ltx_Math" alttext="C" display="inline"><mi>C</mi></math>に束縛されている時，型<math id="S0.SS0.SSS0.Px9.p1.m10" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">ty<math id="S0.SS0.SSS0.Px9.p1.m11" class="ltx_Math" alttext="{}_{2}" display="inline"><msub><mi></mi><mn mathvariant="normal">2</mn></msub></math><span class="ltx_text ltx_font_upright"><math id="S0.SS0.SSS0.Px9.p1.m12" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>を持ち，<math id="S0.SS0.SSS0.Px9.p1.m13" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">atpat<span class="ltx_text ltx_font_upright"><math id="S0.SS0.SSS0.Px9.p1.m14" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>が生成する型環境を生成する．
+このパターンは，<math id="S0.SS0.SSS0.Px9.p1.m15" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">atpat<span class="ltx_text ltx_font_upright"><math id="S0.SS0.SSS0.Px9.p1.m16" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>のマッチするデータ<math id="S0.SS0.SSS0.Px9.p1.m17" class="ltx_Math" alttext="v" display="inline"><mi>v</mi></math>を部分構造としてもつデータ構造<math id="S0.SS0.SSS0.Px9.p1.m18" class="ltx_Math" alttext="C(v)" display="inline"><mrow><mi>C</mi><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo></mrow></math>にマッチする．
+</p>
+</div>
+<div id="S0.SS0.SSS0.Px9.p2" class="ltx_para">
+<p class="ltx_p">演算子表現のデータ構造パターン <math id="S0.SS0.SSS0.Px9.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">pat<math id="S0.SS0.SSS0.Px9.p2.m2" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_upright"><math id="S0.SS0.SSS0.Px9.p2.m3" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <math id="S0.SS0.SSS0.Px9.p2.m4" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_upright"><math id="S0.SS0.SSS0.Px9.p2.m5" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <math id="S0.SS0.SSS0.Px9.p2.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">pat<math id="S0.SS0.SSS0.Px9.p2.m7" class="ltx_Math" alttext="{}_{2}" display="inline"><msub><mi></mi><mn mathvariant="normal">2</mn></msub></math><span class="ltx_text ltx_font_upright"><math id="S0.SS0.SSS0.Px9.p2.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は，
+<span class="ltx_text ltx_font_typewriter">op <math id="S0.SS0.SSS0.Px9.p2.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.SS0.SSS0.Px9.p2.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">(<math id="S0.SS0.SSS0.Px9.p2.m11" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<math id="S0.SS0.SSS0.Px9.p2.m12" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.SS0.SSS0.Px9.p2.m13" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">,<math id="S0.SS0.SSS0.Px9.p2.m14" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<math id="S0.SS0.SSS0.Px9.p2.m15" class="ltx_Math" alttext="{}_{2}" display="inline"><msub><mi></mi><mn mathvariant="normal">2</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.SS0.SSS0.Px9.p2.m16" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span>に変換された後評価される．
+その型と生成される型環境，マッチする動的値は，変換後のパターンと同一である．
+</p>
+</div>
+</section>
+<section id="S0.SS0.SSS0.Px10" class="ltx_paragraph">
+<h2 class="ltx_title ltx_title_paragraph">型制約パターン: <span class="ltx_text ltx_font_typewriter"><math id="S0.SS0.SSS0.Px10.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.SS0.SSS0.Px10.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">:<math id="S0.SS0.SSS0.Px10.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">ty<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.SS0.SSS0.Px10.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</h2>
+
+<div id="S0.SS0.SSS0.Px10.p1" class="ltx_para">
+<p class="ltx_p">パターン<math id="S0.SS0.SSS0.Px10.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">pat<span class="ltx_text ltx_font_upright"><math id="S0.SS0.SSS0.Px10.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>が型<math id="S0.SS0.SSS0.Px10.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">ty<math id="S0.SS0.SSS0.Px10.p1.m4" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_upright"><math id="S0.SS0.SSS0.Px10.p1.m5" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>と型環境<math id="S0.SS0.SSS0.Px10.p1.m6" class="ltx_Math" alttext="\Gamma_{0}" display="inline"><mrow><mi mathvariant="normal">Γ</mi><msub><mi></mi><mn>0</mn></msub></mrow></math>を持ちかつ
+<math id="S0.SS0.SSS0.Px10.p1.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">ty<math id="S0.SS0.SSS0.Px10.p1.m8" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_upright"><math id="S0.SS0.SSS0.Px10.p1.m9" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>と<math id="S0.SS0.SSS0.Px10.p1.m10" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">ty<span class="ltx_text ltx_font_upright"><math id="S0.SS0.SSS0.Px10.p1.m11" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>が型代入<math id="S0.SS0.SSS0.Px10.p1.m12" class="ltx_Math" alttext="S" display="inline"><mi>S</mi></math>のもとで単一化できる場合，
+型<math id="S0.SS0.SSS0.Px10.p1.m13" class="ltx_Math" alttext="S(\mbox{$\,\langle$}{\it ty}\mbox{$\rangle\,$})" display="inline"><mrow><mi>S</mi><mo stretchy="false">(</mo><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow><mi>t</mi><mi>y</mi><mrow><mo stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow><mo stretchy="false">)</mo></mrow></math>を持ち，型環境<math id="S0.SS0.SSS0.Px10.p1.m14" class="ltx_Math" alttext="S(\Gamma_{0})" display="inline"><mrow><mi>S</mi><mo stretchy="false">(</mo><mi mathvariant="normal">Γ</mi><msub><mi></mi><mn>0</mn></msub><mo stretchy="false">)</mo></mrow></math>をもつ．
+型制約の下で，パターン<math id="S0.SS0.SSS0.Px10.p1.m15" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">pat<span class="ltx_text ltx_font_upright"><math id="S0.SS0.SSS0.Px10.p1.m16" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>にマッチする値にマッチする．
+</p>
+</div>
+</section>
+<section id="S0.SS0.SSS0.Px11" class="ltx_paragraph">
+<h2 class="ltx_title ltx_title_paragraph">多層パターン: <span class="ltx_text ltx_font_typewriter"><math id="S0.SS0.SSS0.Px11.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.SS0.SSS0.Px11.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> <math id="S0.SS0.SSS0.Px11.m3" class="ltx_Math" alttext="(" display="inline"><mo mathvariant="normal" stretchy="false">(</mo></math>: <math id="S0.SS0.SSS0.Px11.m4" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">ty<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.SS0.SSS0.Px11.m5" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.SS0.SSS0.Px11.m6" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> as <math id="S0.SS0.SSS0.Px11.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.SS0.SSS0.Px11.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</h2>
+
+<div id="S0.SS0.SSS0.Px11.p1" class="ltx_para">
+<p class="ltx_p">パターン<span class="ltx_text ltx_font_typewriter"><math id="S0.SS0.SSS0.Px11.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.SS0.SSS0.Px11.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">:<math id="S0.SS0.SSS0.Px11.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">ty<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.SS0.SSS0.Px11.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>が型<math id="S0.SS0.SSS0.Px11.p1.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">ty<math id="S0.SS0.SSS0.Px11.p1.m6" class="ltx_Math" alttext="{}^{\prime}" display="inline"><msup><mi></mi><mo mathvariant="normal">′</mo></msup></math><span class="ltx_text ltx_font_upright"><math id="S0.SS0.SSS0.Px11.p1.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>と型環境<math id="S0.SS0.SSS0.Px11.p1.m8" class="ltx_Math" alttext="\Gamma" display="inline"><mi mathvariant="normal">Γ</mi></math>をもてば，
+このパターンは型<math id="S0.SS0.SSS0.Px11.p1.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">ty<math id="S0.SS0.SSS0.Px11.p1.m10" class="ltx_Math" alttext="{}^{\prime}" display="inline"><msup><mi></mi><mo mathvariant="normal">′</mo></msup></math><span class="ltx_text ltx_font_upright"><math id="S0.SS0.SSS0.Px11.p1.m11" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>と型環境<math id="S0.SS0.SSS0.Px11.p1.m12" class="ltx_Math" alttext="\Gamma\cup\{x:\mbox{$\,\langle$}{\it ty^{\prime}}\mbox{$\rangle\,$}\}" display="inline"><mrow><mi mathvariant="normal">Γ</mi><mo>∪</mo><mo stretchy="false">{</mo><mi>x</mi><mo>:</mo><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow><mi>t</mi><mi>y</mi><msup><mi></mi><mo>′</mo></msup><mrow><mo stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow><mo stretchy="false">}</mo></mrow></math>をもつ．
+このパターンは，<span class="ltx_text ltx_font_typewriter"><math id="S0.SS0.SSS0.Px11.p1.m13" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.SS0.SSS0.Px11.p1.m14" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">:<math id="S0.SS0.SSS0.Px11.p1.m15" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">ty<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.SS0.SSS0.Px11.p1.m16" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> にマッチする動的値にマッチする．
+</p>
+</div>
+</section>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch19.S25.html" title="19.25 動的型キャスト付き場合分け式 _dynamiccase ⟨ exp ⟩ of ⟨ match ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">19.25 </span>動的型キャスト付き場合分け式
+<span class="ltx_text ltx_font_typewriter">_dynamiccase <math class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> of <math class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">match<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></a><a href="Ch21.html" title="Chapter 21 識別子のスコープ規則 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">21 </span>識別子のスコープ規則</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Apr  6 18:18:13 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

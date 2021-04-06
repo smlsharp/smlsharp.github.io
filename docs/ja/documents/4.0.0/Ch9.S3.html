@@ -1,0 +1,130 @@
+---
+layout: default
+permalink: /ja/documents/4.0.0/Ch9.S3.html
+translated: true
+lang: ja
+head: |
+ <!--Generated on Tue Apr  6 18:18:13 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on 令和3年4月.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch9.html" title="Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="up up" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="up up up" href="./" title="プログラミング言語SML#解説 4.0.0版">
+ <link rel="start" href="./" title="プログラミング言語SML#解説 4.0.0版">
+ <link rel="prev" href="Ch9.S2.html" title="9.2 ランク１多相性による値多相性制約の緩和 ‣ Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="next" href="Ch10.html" title="Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch9.S1.html" title="9.1 ランク１多相性 ‣ Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="section" href="Ch9.S2.html" title="9.2 ランク１多相性による値多相性制約の緩和 ‣ Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML#の拡張機能：マルチスレッドプログラミング ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.0.0版">
+ <link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.0.0版">
+title: "9.3  第一級オーバーローディング ‣ Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.0.0版</div>
+<div>
+<a href="Ch9.html" title="Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">9 </span>SML#の拡張機能：その他の型の拡張</span></a><a href="Ch9.S2.html" title="9.2 ランク１多相性による値多相性制約の緩和 ‣ Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">9.2 </span>ランク１多相性による値多相性制約の緩和</span></a><a href="Ch10.html" title="Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">10 </span>
+SML#の拡張機能：Cとの直接連携</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">9.3 </span>
+第一級オーバーローディング
+</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">MLでよく使われる組込み演算は，オーバーロードされています．
+例えば，加算演算子<span class="ltx_text ltx_font_typewriter">+</span>は，<span class="ltx_text ltx_font_typewriter">int, real, word</span>などを含む型の
+加算に使用できます．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># 1 + 1;
+<br class="ltx_break">
+val it = 2 : int
+<br class="ltx_break">
+# 1.0 + 1.0;
+<br class="ltx_break">
+val it = 2.0 : real
+<br class="ltx_break">
+# 0w1 + 0w1;
+<br class="ltx_break">
+val it = 0wx2 : word</span></p>
+</blockquote>
+<p class="ltx_p">この<span class="ltx_text ltx_font_typewriter">+</span>は多相関数と違い，適用される値によって対応する組込
+み演算（上の例の場合<span class="ltx_text ltx_font_typewriter">Int.+, Real.+, Word.+</span>のどれか）が選択されます．
+Standard MLでは，このオーバーロード機構はトップレベルで解決する戦
+略がとられています．
+トップレベルでもオーバーロードが解消しなかった場合，コンパイラはあ
+らかじめ決められた型を選択します．
+例えば，関数</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">fun plus x = x + x</span></p>
+</blockquote>
+<p class="ltx_p">を定義すると，演算子のオーバーロードを解決するための<span class="ltx_text ltx_font_typewriter">x</span>に関する型情報
+がないため，あらかじめ決められている<span class="ltx_text ltx_font_typewriter">int</span>型が選択されます．</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">この戦略は，データベースの問い合わせ言語をシームレスに取り込む上
+で，大きな制約となります．
+SQLで提供されている種々の組込み演算の多くは，データベースのカラ
+ムに格納できる型に対してオーバーロードされています．
+これらの演算子の型をすべてSQL式が書かれた時点で決定してしまうと，
+SQLの柔軟性が失われ，SML#からデータベースを柔軟に使用する上での利
+点を十分に活かすことができません．
+そこでSML#では，オーバーロードされた演算子を，第一級の関数
+と同様に使用できる機構を導入しています．
+オーバーロードされた演算子を含む式は，その演算子が対応可能な型に関
+して多相的になります．
+例えば関数<span class="ltx_text ltx_font_typewriter">plus</span>に対して以下のような型が推論されます．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># fun plus x = x + x;
+<br class="ltx_break">
+val plus = fn : [’a::{int, word, int8, word8, ...}. ’a -&gt; ’a]
+</span></p>
+</blockquote>
+<p class="ltx_p">この関数は，型変数<span class="ltx_text ltx_font_typewriter">’a</span>に
+<span class="ltx_text ltx_font_typewriter">int</span>,
+<span class="ltx_text ltx_font_typewriter">word</span>,
+<span class="ltx_text ltx_font_typewriter">int8</span>,
+<span class="ltx_text ltx_font_typewriter">word8</span>,
+<span class="ltx_text ltx_font_typewriter">int16</span>,
+<span class="ltx_text ltx_font_typewriter">word16</span>,
+<span class="ltx_text ltx_font_typewriter">int64</span>,
+<span class="ltx_text ltx_font_typewriter">word64</span>,
+<span class="ltx_text ltx_font_typewriter">intInf</span>,
+<span class="ltx_text ltx_font_typewriter">real</span>,
+<span class="ltx_text ltx_font_typewriter">real32</span>
+（<span class="ltx_text ltx_font_typewriter">int16</span>以下は省略されています）
+の何れかを代入しえ得られる型をもつ関数として使用できます．
+型変数に付加されている制約<span class="ltx_text ltx_font_typewriter">::{...}</span>は，オーバーロード演算子
+に許される型に制限があるための制約です．
+</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch9.S2.html" title="9.2 ランク１多相性による値多相性制約の緩和 ‣ Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">9.2 </span>ランク１多相性による値多相性制約の緩和</span></a><a href="Ch10.html" title="Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.0.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">10 </span>
+SML#の拡張機能：Cとの直接連携</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Apr  6 18:18:13 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

@@ -1,0 +1,177 @@
+---
+layout: default
+permalink: /en/documents/4.0.0/Ch13.S5.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Tue Apr  6 18:19:31 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Apr, 2021.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch13.html" title="Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="up up" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="up up up" href="./" title="SML# Document Version 4.0.0">
+ <link rel="start" href="./" title="SML# Document Version 4.0.0">
+ <link rel="prev" href="Ch13.S4.html" title="13.4 JSON as a partially dynamic record ‣ Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="next" href="Ch13.S6.html" title="13.6 Examples of JSON programming ‣ Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch13.S1.html" title="13.1 Dynamic typing ‣ Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch13.S2.html" title="13.2 Reification of terms and types ‣ Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch13.S3.html" title="13.3 Pretty printer ‣ Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch13.S4.html" title="13.4 JSON as a partially dynamic record ‣ Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch13.S6.html" title="13.6 Examples of JSON programming ‣ Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 Installing SML# ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML# feature: other type system extensions ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 4.0.0">
+title: "13.5  Language constructs for JSON manipulation ‣ Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 4.0.0</div>
+<div>
+<a href="Ch13.html" title="Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">13 </span>
+SML# feature: dynamic types and typed manipulation of JSON</span></a><a href="Ch13.S4.html" title="13.4 JSON as a partially dynamic record ‣ Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">13.4 </span>
+JSON as a partially dynamic record</span></a><a href="Ch13.S6.html" title="13.6 Examples of JSON programming ‣ Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">13.6 </span>
+Examples of JSON programming</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">13.5 </span>
+Language constructs for JSON manipulation
+</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">SML# provides the following constructs:</p>
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">Importing a JSON data.
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">Dynamic.fromJson : string -&gt; Dynamic.void Dynamic.dyn</span></p>
+</blockquote>
+<p class="ltx_p">This function parses a JSON string and read it as a
+partially dynamic record.
+It raises the <span class="ltx_text ltx_font_typewriter">Dynamic.RuntimeTypeError</span> exception
+if the parsing failed.
+In the return type, <span class="ltx_text ltx_font_typewriter">Dynamic.void</span> denotes that the structure
+of the value is not yet statically known.</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">Dynamic type checking expression
+<span class="ltx_text ltx_font_typewriter">_dynamic <math id="I1.i2.p1.m1" class="ltx_Math" alttext="\mathit{exp}" display="inline"><mrow><mi>e</mi><mi>x</mi><mi>p</mi></mrow></math> as <math id="I1.i2.p1.m2" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math></span>
+and dynamic patttern matching expression
+<span class="ltx_text ltx_font_typewriter">_dynamiccase</span>.
+These expressions described in Section <a href="Ch13.S1.html" title="13.1 Dynamic typing ‣ Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref"><span class="ltx_text ltx_ref_tag">13.1</span></a>
+are also useful for JSON type checking.
+The following types are allowed as <math id="I1.i2.p1.m3" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>:</p>
+<ul id="I1.i2.I1" class="ltx_itemize">
+<li id="I1.i2.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="I1.i2.I1.i1.p1" class="ltx_para">
+<p class="ltx_p">Ordinary ML types such as
+basic types such as <span class="ltx_text ltx_font_typewriter">int</span>, <span class="ltx_text ltx_font_typewriter">bool</span>, and <span class="ltx_text ltx_font_typewriter">string</span>;
+record types;
+list types; and
+arbitrary combination of these.
+Only if the structure of the given JSON matches with <math id="I1.i2.I1.i1.p1.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math> completely,
+the type cast succeeds.</p>
+</div>
+</li>
+<li id="I1.i2.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="I1.i2.I1.i2.p1" class="ltx_para">
+<p class="ltx_p">Partially dynamic record types
+of the form
+<span class="ltx_text ltx_font_typewriter">{<math id="I1.i2.I1.i2.p1.m1" class="ltx_Math" alttext="l_{1}" display="inline"><mrow><mi>l</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math>:<math id="I1.i2.I1.i2.p1.m2" class="ltx_Math" alttext="\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math>, <math id="I1.i2.I1.i2.p1.m3" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math>, <math id="I1.i2.I1.i2.p1.m4" class="ltx_Math" alttext="l_{n}" display="inline"><mrow><mi>l</mi><msub><mi></mi><mi>n</mi></msub></mrow></math>:<math id="I1.i2.I1.i2.p1.m5" class="ltx_Math" alttext="\tau_{n}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mi>n</mi></msub></mrow></math>} Dynamic.dyn</span>.
+Only if the given JSON is a object
+that have at least labels <math id="I1.i2.I1.i2.p1.m6" class="ltx_Math" alttext="l_{1},\ldots,l_{n}" display="inline"><mrow><mi>l</mi><msub><mi></mi><mn>1</mn></msub><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mi>l</mi><msub><mi></mi><mi>n</mi></msub></mrow></math> and
+the value of each label <math id="I1.i2.I1.i2.p1.m7" class="ltx_Math" alttext="l_{i}" display="inline"><mrow><mi>l</mi><msub><mi></mi><mi>i</mi></msub></mrow></math> can be casted to <math id="I1.i2.I1.i2.p1.m8" class="ltx_Math" alttext="\tau_{i}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mi>i</mi></msub></mrow></math>,
+then the type cast succeeds.</p>
+</div>
+</li>
+<li id="I1.i2.I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="I1.i2.I1.i3.p1" class="ltx_para">
+<p class="ltx_p">Completely dynamic type
+<span class="ltx_text ltx_font_typewriter">Dynamic.void Dynamic.dyn</span>.
+The type cast to this type always succeeds.</p>
+</div>
+</li>
+<li id="I1.i2.I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="I1.i2.I1.i4.p1" class="ltx_para">
+<p class="ltx_p">Arbitrary nested combination of the above types.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p">Obtaining a static view.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">Dynamic.view : [’a#reify. ’a Dynamic.dyn -&gt; ’a]
+</span></p>
+</blockquote>
+<p class="ltx_p">This function converts
+the statically known part of the given partially dynamic record
+to its corresponding ML data structure.
+It raises the <span class="ltx_text ltx_font_typewriter">Dynamic.RuntimeTypeError</span> exception if
+the argument is of type <span class="ltx_text ltx_font_typewriter">Dynamic.void Dynamic.dyn</span>.</p>
+</div>
+</li>
+<li id="I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i4.p1" class="ltx_para">
+<p class="ltx_p">JSON printer.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">Dynamic.toJson : [’a. ’a Dynamic.dyn -&gt; string]</span></p>
+</blockquote>
+<p class="ltx_p">This function returns the string representation of the given JSON.
+The result includes all fields in the given JSON
+regardless of the type instance of <span class="ltx_text ltx_font_typewriter">’a</span>.</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">As seen in the type of JSON data,
+it is allowed to use functions for dynamically-typed values and
+reification with JSON data.
+Conversely, it is also allowed to apply these functions
+for partially dynamic records to dynamically-typed values.
+</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch13.S4.html" title="13.4 JSON as a partially dynamic record ‣ Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">13.4 </span>
+JSON as a partially dynamic record</span></a><a href="Ch13.S6.html" title="13.6 Examples of JSON programming ‣ Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">13.6 </span>
+Examples of JSON programming</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Apr  6 18:19:31 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

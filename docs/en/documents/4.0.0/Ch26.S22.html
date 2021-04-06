@@ -1,0 +1,137 @@
+---
+layout: default
+permalink: /en/documents/4.0.0/Ch26.S22.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Tue Apr  6 18:19:31 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Apr, 2021.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch26.html" title="Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="up up" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="up up up" href="./" title="SML# Document Version 4.0.0">
+ <link rel="start" href="./" title="SML# Document Version 4.0.0">
+ <link rel="prev" href="Ch26.S21.html" title="26.21 MONO_VECTOR_SLICE ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="next" href="Ch26.S23.html" title="26.23 OS ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S1.html" title="26.1 ARRAY ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S2.html" title="26.2 ARRAY_SLICE ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S3.html" title="26.3 BIN_IO ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S4.html" title="26.4 IMPERATIVE_IO ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S5.html" title="26.5 STREAM_IO ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S6.html" title="26.6 BOOL ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S7.html" title="26.7 BYTE ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S8.html" title="26.8 CHAR ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S9.html" title="26.9 COMMAND_LINE ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S10.html" title="26.10 DATE ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S11.html" title="26.11 GENERAL ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S12.html" title="26.12 IEEE_REAL ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S13.html" title="26.13 IO ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S14.html" title="26.14 INTEGER ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S15.html" title="26.15 INT_INF ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S16.html" title="26.16 LIST ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S17.html" title="26.17 LIST_PAIR ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S18.html" title="26.18 MONO_ARRAY ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S19.html" title="26.19 MONO_ARRAY_SLICE ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S20.html" title="26.20 MONO_VECTOR ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S21.html" title="26.21 MONO_VECTOR_SLICE ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S23.html" title="26.23 OS ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S24.html" title="26.24 OS_FILE_SYS ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S25.html" title="26.25 OS_IO ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S26.html" title="26.26 OS_PATH ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S27.html" title="26.27 OS_PROCESS ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S28.html" title="26.28 REAL ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S29.html" title="26.29 MATH ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S30.html" title="26.30 STRING ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S31.html" title="26.31 STRING_CVT ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S32.html" title="26.32 SUBSTRING ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S33.html" title="26.33 TEXT ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S34.html" title="26.34 TEXT_IO ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S35.html" title="26.35 TEXT_STREAM_IO ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S36.html" title="26.36 PRIM_IO ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S37.html" title="26.37 TIME ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S38.html" title="26.38 TIMER ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S39.html" title="26.39 VECTOR ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S40.html" title="26.40 VECTOR_SLICE ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S41.html" title="26.41 WORD ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch26.S42.html" title="26.42 The top-level environment ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch15.html" title="Chapter 15 Introduction ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch16.html" title="Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch17.html" title="Chapter 17 Lexical structure ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch18.html" title="Chapter 18 Types ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch19.html" title="Chapter 19 Expressions ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch20.html" title="Chapter 20 Patterns and Pattern Matching ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch21.html" title="Chapter 21 Scope rules for identifier ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch22.html" title="Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch23.html" title="Chapter 23 Declarations of the core language and their interfaces ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch24.html" title="Chapter 24 Module language declarations and interface ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch25.html" title="Chapter 25 Overview of SML# Libraries ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch26.html" title="Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch27.html" title="Chapter 27 SML# System Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch28.html" title="Chapter 28 The smlsharp command ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch29.html" title="Chapter 29 SML# Run-time data management ‣ Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 4.0.0">
+title: "26.22 OPTION‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 4.0.0</div>
+<div>
+<a href="Ch26.html" title="Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">26 </span>Standard ML Basis Library</span></a><a href="Ch26.S21.html" title="26.21 MONO_VECTOR_SLICE ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">26.21 </span><span class="ltx_text ltx_font_typewriter">MONO_VECTOR_SLICE</span></span></a><a href="Ch26.S23.html" title="26.23 OS ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">26.23 </span><span class="ltx_text ltx_font_typewriter">OS</span></span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">26.22 </span><span class="ltx_text ltx_font_typewriter">OPTION</span>
+</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">Provide an operation type and primitive functions.
+</p>
+</div>
+<div id="p2" class="ltx_para">
+<pre class="ltx_verbatim ltx_font_typewriter">
+signature OPTION =
+sig
+  datatype ’a option = NONE | SOME of ’a
+  exception Option
+  val app : (’a -&gt; unit) -&gt; ’a option -&gt; unit
+  val compose : (’a -&gt; ’b) * (’c -&gt; ’a option) -&gt; ’c -&gt; ’b option
+  val composePartial : (’a -&gt; ’b option) * (’c -&gt; ’a option) -&gt; ’c -&gt; ’b option
+  val filter : (’a -&gt; bool) -&gt; ’a -&gt; ’a option
+  val getOpt : ’a option * ’a -&gt; ’a
+  val isSome : ’a option -&gt; bool
+  val join : ’a option option -&gt; ’a option
+  val map : (’a -&gt; ’b) -&gt; ’a option -&gt; ’b option
+  val mapPartial : (’a -&gt; ’b option) -&gt; ’a option -&gt; ’b option
+  val valOf : ’a option -&gt; ’a
+end
+</pre>
+</div>
+<div id="p3" class="ltx_para">
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">Option : OPTION</span></p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch26.S21.html" title="26.21 MONO_VECTOR_SLICE ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">26.21 </span><span class="ltx_text ltx_font_typewriter">MONO_VECTOR_SLICE</span></span></a><a href="Ch26.S23.html" title="26.23 OS ‣ Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">26.23 </span><span class="ltx_text ltx_font_typewriter">OS</span></span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Apr  6 18:19:31 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

@@ -1,0 +1,300 @@
+---
+layout: default
+permalink: /en/documents/4.0.0/Ch14.S2.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Tue Apr  6 18:19:31 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Apr, 2021.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch14.html" title="Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="up up" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="up up up" href="./" title="SML# Document Version 4.0.0">
+ <link rel="start" href="./" title="SML# Document Version 4.0.0">
+ <link rel="prev" href="Ch14.S1.html" title="14.1 Separate compilation overview ‣ Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="next" href="Ch14.S3.html" title="14.3 Structure of interface files ‣ Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch14.S1.html" title="14.1 Separate compilation overview ‣ Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch14.S3.html" title="14.3 Structure of interface files ‣ Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch14.S4.html" title="14.4 Opaque types ‣ Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch14.S5.html" title="14.5 Treatment of signatures ‣ Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch14.S6.html" title="14.6 Functor support ‣ Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch14.S7.html" title="14.7 Replications ‣ Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch14.S8.html" title="14.8 Top-level execution ‣ Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 Installing SML# ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML# feature: other type system extensions ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 4.0.0">
+title: "14.2 Separate compilation example‣ Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.0.0"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 4.0.0</div>
+<div>
+<a href="Ch14.html" title="Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">14 </span>
+SML# feature: separate compilation</span></a><a href="Ch14.S1.html" title="14.1 Separate compilation overview ‣ Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">14.1 </span>Separate compilation overview</span></a><a href="Ch14.S3.html" title="14.3 Structure of interface files ‣ Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">14.3 </span>Structure of interface files</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">14.2 </span>Separate compilation example</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">Following the simple scenario in the previous section, let us
+develop an Omikuji (Japanese written oracle drawing) program as an example.
+Instead of asking Japanese sacred split, we use extremely good
+random number generator.
+The system is divided into</p>
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">random</span>: a random number generator, and</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">main</span>: the main part.</p>
+</div>
+</li>
+</ul>
+<p class="ltx_p">The fist step is to design interface files as follows.</p>
+<ul id="I2" class="ltx_itemize">
+<li id="I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">random.smi</span>:</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">structure Random =
+
+<br class="ltx_break">
+struct
+
+<br class="ltx_break">
+  val intit : int -&gt; unit
+
+<br class="ltx_break">
+  val genrand : unit -&gt; int
+
+<br class="ltx_break">
+end</span></p>
+</blockquote>
+<p class="ltx_p">This interface file says that the implementing source file provide
+<span class="ltx_text ltx_font_typewriter">Random</span> structure without using any other files.</p>
+</div>
+</li>
+<li id="I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">main.smi</span>:</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">_require "basis.smi"
+<br class="ltx_break">
+_require "./random.smi"</span></p>
+</blockquote>
+<p class="ltx_p">This interface file says that it uses <span class="ltx_text ltx_font_typewriter">"basis.smi"</span> (The
+Standard ML Basis Library) and <span class="ltx_text ltx_font_typewriter">random.smi</span>, and provide no resource.</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">Using these interface files, <span class="ltx_text ltx_font_typewriter">main.sml</span> and <span class="ltx_text ltx_font_typewriter">random.sml</span>
+are developed independently.
+<span class="ltx_text ltx_font_typewriter">main.sml</span> can be given as in Figure <a href="#Ch14.F1" title="Figure 14.1 ‣ 14.2 Separate compilation example ‣ Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref"><span class="ltx_text ltx_ref_tag">14.1</span></a>.
+This file can be compiled without any source file that implements
+<span class="ltx_text ltx_font_typewriter">random.smi</span>, and checks syntax and type errors by typing:</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ smlsharp -c main.sml</span></p>
+</blockquote>
+<p class="ltx_p">The <span class="ltx_text ltx_font_typewriter">-c</span> switch instructs SML# compiler
+to compile the specified source file to an object file.
+The compiler checks its syntax and types and if no error is
+detected then it produces <span class="ltx_text ltx_font_typewriter">main.o</span> file.
+<span class="ltx_text ltx_font_typewriter">main.smi</span> is chosen as its interface file by default.
+A specific interface file can be specified by including the
+directive <span class="ltx_text ltx_font_typewriter">_interface <math id="p2.m1" class="ltx_Math" alttext="filePath" display="inline"><mrow><mi>f</mi><mi>i</mi><mi>l</mi><mi>e</mi><mi>P</mi><mi>a</mi><mi>t</mi><mi>h</mi></mrow></math></span> at the beginning of the source
+file.</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">Next，we develop <span class="ltx_text ltx_font_typewriter">random.sml</span>.
+Development of a high quality random number generator requires
+expert knowledge in algebraic number theory and careful coding.
+Here, instead of developing one from scratch, we try to find
+some existing quality code.
+Among a large number of implementations, perhaps Mersenne
+Twister is the best in its quality and efficiency.
+So we decide to use this algorithm, which is available as a C
+source file <span class="ltx_text ltx_font_typewriter">mt19937ar.c</span>.</p>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">Let us obtain the C source from the Internet by searching for
+Mersenne Twister or <span class="ltx_text ltx_font_typewriter">mt19937ar.c</span>.
+The file contains the following function definitions.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">void init_genrand(unsigned long s);
+<br class="ltx_break">
+void init_by_array(unsigned long init_key[], int key_length);
+<br class="ltx_break">
+unsigned long genrand_int32(void);
+<br class="ltx_break">
+long genrand_int31(void);
+<br class="ltx_break">
+double genrand_real1(void);
+<br class="ltx_break">
+double genrand_real2(void);
+<br class="ltx_break">
+double genrand_real3(void);
+<br class="ltx_break">
+double genrand_res53(void);
+<br class="ltx_break">
+int main(void)</span></p>
+</blockquote>
+<p class="ltx_p">Among them, <span class="ltx_text ltx_font_typewriter">main</span> is a main function that test the
+algorithm.
+Since we are defining our executable, the main function should
+be in the compiled object file of our top level source file <span class="ltx_text ltx_font_typewriter">main.sml</span>.
+So we comment out <span class="ltx_text ltx_font_typewriter">int main(void)</span> function in the
+file. <span class="ltx_text ltx_font_typewriter">mt19937ar.c</span>.
+All the others functions can be used from our program.
+Here we decide to use the following two.</p>
+<ul id="I3" class="ltx_itemize">
+<li id="I3.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">void init_genrand(unsigned long s)</span> for initializing the
+algorithm with the seed length <span class="ltx_text ltx_font_typewriter">s</span>, which can be any non-negative
+integer.</p>
+</div>
+</li>
+<li id="I3.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">long genrand_int31(void)</span> for generating 31 bit unsigned
+(i.e. 32 bit non-negative) random number sequence.</p>
+</div>
+</li>
+</ul>
+<p class="ltx_p">The <span class="ltx_text ltx_font_typewriter">random.sml</span> can then be defined as the following code
+that simply call these functions.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">structure Random =
+<br class="ltx_break">
+struct
+<br class="ltx_break">
+  val init = _import "init_genrand" : int -&gt; unit
+<br class="ltx_break">
+  val genrand = _import "genrand_int31" : unit -&gt; int
+<br class="ltx_break">
+end</span></p>
+</blockquote>
+</div>
+<div id="p5" class="ltx_para">
+<p class="ltx_p">This source file can be compiled independently of other files
+by the following command.
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ smlsharp -c random.sml</span></p>
+</blockquote>
+<p class="ltx_p">In doing this, we compile Mersenne Twister (after
+commenting out its <span class="ltx_text ltx_font_typewriter">main</span> function).</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ gcc -c -o mt.o mt19937ar.c</span></p>
+</blockquote>
+<p class="ltx_p">We now have all the object files for the program.
+We can link them to an executable file by specifying the
+top-level interface file and the external object files referenced
+through <span class="ltx_text ltx_font_typewriter">_import</span> declarations.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ smlsharp main.smi mt.o</span></p>
+</blockquote>
+<p class="ltx_p">SML# analyzes <span class="ltx_text ltx_font_typewriter">smi</span> file，traverse all the interface
+files referenced from this file, make a list of object files
+corresponding to the interface files, and then links all the object
+files with those specified in the command line argument to generate an
+executable file.</p>
+</div>
+<figure id="Ch14.F1" class="ltx_figure">
+<table class="ltx_tabular ltx_centering ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_inline-para ltx_minipage ltx_align_middle" style="width:407.2pt;">
+<span id="Ch14.F1.p1" class="ltx_para">
+<span class="ltx_quote">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter">fun main() =
+<br class="ltx_break">
+  let
+<br class="ltx_break">
+    fun getInt () = 
+<br class="ltx_break">
+      case TextIO.inputLine TextIO.stdIn of
+<br class="ltx_break">
+         NONE =&gt; 0
+<br class="ltx_break">
+      | SOME s =&gt; (case Int.fromString s of NONE =&gt; 0 | SOME i =&gt; i)
+<br class="ltx_break">
+    val seed = (print "input a number of your choice (0 for exit)"; getInt())
+<br class="ltx_break">
+  in
+<br class="ltx_break">
+    if seed = 0 then ()
+<br class="ltx_break">
+    else
+<br class="ltx_break">
+      let
+<br class="ltx_break">
+        val _ = Random.init seed;
+<br class="ltx_break">
+        val oracle = Random.genrand()
+<br class="ltx_break">
+        val message = 
+<br class="ltx_break">
+          " あなたの運勢は，" ^
+<br class="ltx_break">
+          (case oracle mod 4 of 0 =&gt; "大吉" | 1 =&gt; "小吉"| 2 =&gt; "吉" | 3 =&gt; "凶")
+<br class="ltx_break">
+          ^ "です．\n"
+<br class="ltx_break">
+        val message = print message
+<br class="ltx_break">
+      in
+<br class="ltx_break">
+        main ()
+<br class="ltx_break">
+      end
+<br class="ltx_break">
+  end
+<br class="ltx_break">
+val _ = main();</span></span>
+</span>
+</span></span></td>
+</tr>
+</tbody>
+</table>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 14.1: </span>Example of main.sml</figcaption>
+</figure>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch14.S1.html" title="14.1 Separate compilation overview ‣ Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">14.1 </span>Separate compilation overview</span></a><a href="Ch14.S3.html" title="14.3 Structure of interface files ‣ Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">14.3 </span>Structure of interface files</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Apr  6 18:19:31 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

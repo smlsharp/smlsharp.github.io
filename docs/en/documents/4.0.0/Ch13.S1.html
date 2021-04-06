@@ -1,0 +1,173 @@
+---
+layout: default
+permalink: /en/documents/4.0.0/Ch13.S1.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Tue Apr  6 18:19:31 2021 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Apr, 2021.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch13.html" title="Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="up up" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="up up up" href="./" title="SML# Document Version 4.0.0">
+ <link rel="start" href="./" title="SML# Document Version 4.0.0">
+ <link rel="prev" href="Ch13.html" title="Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="next" href="Ch13.S2.html" title="13.2 Reification of terms and types ‣ Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch13.S2.html" title="13.2 Reification of terms and types ‣ Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch13.S3.html" title="13.3 Pretty printer ‣ Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch13.S4.html" title="13.4 JSON as a partially dynamic record ‣ Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch13.S5.html" title="13.5 Language constructs for JSON manipulation ‣ Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="section" href="Ch13.S6.html" title="13.6 Examples of JSON programming ‣ Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 Installing SML# ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML# feature: other type system extensions ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.0.0">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 4.0.0">
+title: "13.1  Dynamic typing ‣ Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 4.0.0</div>
+<div>
+<a href="Ch13.html" title="Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">13 </span>
+SML# feature: dynamic types and typed manipulation of JSON</span></a><a href="Ch13.html" title="Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">13 </span>
+SML# feature: dynamic types and typed manipulation of JSON</span></a><a href="Ch13.S2.html" title="13.2 Reification of terms and types ‣ Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">13.2 </span>
+Reification of terms and types</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">13.1 </span>
+Dynamic typing
+</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">In dynamically-typed languages,
+the users are allowed to
+perform operations depending on the types of values at runtime.
+A value in a dynamically-typed language is a uniform data
+structure consisting of the runtime representation of a type and
+a value of the type.
+SML# provides a mechanism to deal with this
+dynamically-typed data structures.</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">The <span class="ltx_text ltx_font_typewriter">Dynamic.void Dynamic.dyn</span> type is the type of
+dynamically-typed values.
+The meaning of <span class="ltx_text ltx_font_typewriter">Dynamic.void</span> shall be described below.
+The following primitives are given for this type:</p>
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">The function
+<span class="ltx_text ltx_font_typewriter">Dynamic.dynamic : [’a#reify. ’a -&gt; Dynamic.void Dynamic.dyn]</span>.
+This introduces a dynamically-typed value from an arbitrary
+ML value.
+<span class="ltx_text ltx_font_typewriter">’a#reify</span> indicates that the runtime type information of
+the instance of <span class="ltx_text ltx_font_typewriter">’a</span> is required.
+Unlike other type kinds, the <span class="ltx_text ltx_font_typewriter">reify</span> kind does not
+restrict the set of types over which the type variable ranges.</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">The expression
+<span class="ltx_text ltx_font_typewriter">_dynamic <math id="I1.i2.p1.m1" class="ltx_Math" alttext="\mathit{exp}" display="inline"><mrow><mi>e</mi><mi>x</mi><mi>p</mi></mrow></math> as <math id="I1.i2.p1.m2" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math></span>.
+This checks the type information of dynamically-typed value
+<math id="I1.i2.p1.m3" class="ltx_Math" alttext="\mathit{exp}" display="inline"><mrow><mi>e</mi><mi>x</mi><mi>p</mi></mrow></math> at runtime and casts it to the type <math id="I1.i2.p1.m4" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>.
+If the cast failed, the runtime exception
+<span class="ltx_text ltx_font_typewriter">Dynamic.RuntimeTypeError</span> is raised.</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">Furthermore, the following expression is provided:</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">_dynamiccase <math id="p3.m1" class="ltx_Math" alttext="\mathit{exp}" display="inline"><mrow><mi>e</mi><mi>x</mi><mi>p</mi></mrow></math> of
+<math id="p3.m2" class="ltx_Math" alttext="\mathit{dpat_{1}}" display="inline"><mrow><mi>d</mi><mi>p</mi><mi>a</mi><mi>t</mi><msub><mi></mi><mn mathvariant="italic">1</mn></msub></mrow></math> =&gt; <math id="p3.m3" class="ltx_Math" alttext="\mathit{exp_{1}}" display="inline"><mrow><mi>e</mi><mi>x</mi><mi>p</mi><msub><mi></mi><mn mathvariant="italic">1</mn></msub></mrow></math>
+| <math id="p3.m4" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math> | <math id="p3.m5" class="ltx_Math" alttext="\mathit{dpat_{n}}" display="inline"><mrow><mi>d</mi><mi>p</mi><mi>a</mi><mi>t</mi><msub><mi></mi><mi>n</mi></msub></mrow></math> =&gt; <math id="p3.m6" class="ltx_Math" alttext="\mathit{exp_{n}}" display="inline"><mrow><mi>e</mi><mi>x</mi><mi>p</mi><msub><mi></mi><mi>n</mi></msub></mrow></math></span></p>
+</blockquote>
+<p class="ltx_p">This performs dynamic type check and pattern matching with
+a dynamically-typed value <math id="p3.m7" class="ltx_Math" alttext="\mathit{exp}" display="inline"><mrow><mi>e</mi><mi>x</mi><mi>p</mi></mrow></math>.
+A pattern <math id="p3.m8" class="ltx_Math" alttext="\mathit{dpat_{i}}" display="inline"><mrow><mi>d</mi><mi>p</mi><mi>a</mi><mi>t</mi><msub><mi></mi><mi>i</mi></msub></mrow></math> may be an arbitrary ML pattern
+except that variable patterns must be type-annotated.</p>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">The following interactive session is an example of
+a heterogenous list and functions proceeding it.
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># val x = Dynamic.dynamic {name = "Sendai", wind = 7.6};
+<br class="ltx_break">
+val x = _ : Dynamic.void Dynamic.dyn
+<br class="ltx_break">
+# val y = Dynamic.dynamic {name = "Shiroishi", weather = "Sunny"};
+<br class="ltx_break">
+val y = _ : Dynamic.void Dynamic.dyn
+<br class="ltx_break">
+# val z = Dynamic.dynamic {name = "Ishinomaki", temp = 12.4};
+<br class="ltx_break">
+val z = _ : Dynamic.void Dynamic.dyn
+<br class="ltx_break">
+# val l = [x, y, z];
+<br class="ltx_break">
+val l = [_, _, _] : Dynamic.void Dynamic.dyn list
+<br class="ltx_break">
+# fun getName r = _dynamiccase r of {name:string, ...} =&gt; name;
+<br class="ltx_break">
+val getName = fn : [’a. ’a Dynamic.dyn -&gt; string]
+<br class="ltx_break">
+# map getName l;
+<br class="ltx_break">
+val it = ["Sendai", "Shiroishi", "Ishinomaki"] : string list
+<br class="ltx_break">
+# fun getTemp r =
+<br class="ltx_break">
+&gt;     _dynamiccase r of
+<br class="ltx_break">
+&gt;       {temp:real, ...} =&gt; SOME temp
+<br class="ltx_break">
+&gt;     | _ : Dynamic.void Dynamic.dyn =&gt; NONE;
+<br class="ltx_break">
+val getTemp = fn : [’a. ’a Dynamic.dyn -&gt; real option]
+<br class="ltx_break">
+# map getTemp l;
+<br class="ltx_break">
+val it = [NONE, NONE, SOME 12.4] : real option list</span></p>
+</blockquote>
+</div>
+<div id="p5" class="ltx_para">
+<p class="ltx_p">Dynamically-typed values are not restricted to records;
+values of arbitrary types, such as datatypes, functions, and opaque types,
+can become dynamically-typed values and get back to statically-typed values.
+</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch13.html" title="Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">13 </span>
+SML# feature: dynamic types and typed manipulation of JSON</span></a><a href="Ch13.S2.html" title="13.2 Reification of terms and types ‣ Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.0.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">13.2 </span>
+Reification of terms and types</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Apr  6 18:19:31 2021 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}
