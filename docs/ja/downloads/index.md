@@ -6,16 +6,17 @@ translated: true
 SML#コンパイラおよびSML#用プログラム開発ツールは、MITライセンスの下で配布されているオープンソースソフトウェアです。
 [ライセンスページ](../about/license/)および[LICENSE](https://github.com/smlsharp/smlsharp/blob/master/LICENSE)ファイルをお読みください。
 
-SML#の最新版は3.7.1で、3条項BSDライセンスの下で配布されています。セットアップ方法については[ドキュメント](../documents/index.md)をご覧ください。リリースごとの主な変更点は[Changes](https://github.com/smlsharp/smlsharp/blob/master/Changes)ファイルをご覧ください。
+SML#の最新版は4.0.0です。セットアップ方法については[ドキュメント](../documents/index.md)をご覧ください。リリースごとの主な変更点は[Changes](https://github.com/smlsharp/smlsharp/blob/master/Changes)ファイルをご覧ください。
 
 
 ### 最新のリリース
 
 #### ソースコード
 
-* [smlsharp-3.7.1.tar.gz](https://github.com/smlsharp/smlsharp/releases/download/v3.7.1/smlsharp-3.7.1.tar.gz)（2021年3月15日リリース）
+* [smlsharp-4.0.0.tar.gz](https://github.com/smlsharp/smlsharp/releases/download/v4.0.0/smlsharp-4.0.0.tar.gz)（2021年4月6日リリース）
   ```
-  SHA256: 6dbe0c6c11b6636f9cf5696961782fd43490ea63265d6e19bf387764931f4449
+  SIZE: 7397808
+  SHA256: 0b44fb1f369f7cfced197c68f0d3102e940dbe5288adc3bdf618a5a3ec3165db
   ```
 
 #### パッケージシステムからインストール
@@ -85,3 +86,5 @@ Windows Subsystem for Linux (WSL)を使用してUbuntuをセットアップし�
 最新のSML#をお使いください。最新版以外のSML#はメンテナンスされていません。
 
 過去にリリースされたパッケージは[GitHubのリリースページ](https://github.com/smlsharp/smlsharp/releases)で確認・ダウンロードできます。
+
+3.7.1以前のSML#は3条項BSDライセンスで配布されています。各リリースのライセンスについてはソースパッケージに含まれるLICENSEファイルをご覧ください。

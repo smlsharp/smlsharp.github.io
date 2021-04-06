@@ -7,7 +7,7 @@ The SML# compiler and its relevant tools are open source software distributed
 under the MIT license copyrighted by the SML# development team.
 (The [License page](../about/license/) and the [LICENSE](https://github.com/smlsharp/smlsharp/blob/master/LICENSE) file in the distribution.)
 
-The latest version of SML# is 3.7.1 distributed under the 3-clause BSD license copyrighted by Tohoku University.
+The latest version of SML# is 4.0.0.
 See the [document](../documents/index.md) page for details on how to set up SML#.
 See the [Changes](https://github.com/smlsharp/smlsharp/blob/master/Changes) file for major changes in each release.
 
@@ -15,9 +15,10 @@ See the [Changes](https://github.com/smlsharp/smlsharp/blob/master/Changes) file
 
 #### Source code
 
-* [smlsharp-3.7.1.tar.gz](https://github.com/smlsharp/smlsharp/releases/download/v3.7.1/smlsharp-3.7.1.tar.gz) (Released on 15 May 2021)
+* [smlsharp-4.0.0.tar.gz](https://github.com/smlsharp/smlsharp/releases/download/v4.0.0/smlsharp-4.0.0.tar.gz)（Released on 6 Apr 2021)
   ```
-  SHA256: 6dbe0c6c11b6636f9cf5696961782fd43490ea63265d6e19bf387764931f4449
+  SIZE: 7397808
+  SHA256: 0b44fb1f369f7cfced197c68f0d3102e940dbe5288adc3bdf618a5a3ec3165db
   ```
 
 #### Installing SML# from package systems
@@ -95,3 +96,7 @@ Releases except for the latest one are not maintained.
 
 Packages released in the past are still available from
 [GitHub release](https://github.com/smlsharp/smlsharp/releases) page.
+
+SML# 3.7.1 and prior are distributed under the 3-clause BSD license
+copyrighted by Tohoku University. See LICENSE file in the source package
+of each release for the license terms.
