@@ -11,5 +11,3 @@ fun f x = ignore (puts (#b x))
 val _ = f {a = "Hi", b = "Hello"}
 val _ = f {b = "World", c = "SML#"}
 ```
-
-現在GitHubへの移行作業中です。[東北大学の旧SML# Webサイトを見る](https://www.pllab.riec.tohoku.ac.jp/smlsharp/ja/)
