@@ -13,4 +13,5 @@ the SML# Delelopment Team.
 
 #### SML# Development Team
 
-Atsushi Ohori and Katsuhiro Ueno, Tohoku University
+* Atsushi Ohori (Tohoku University)
+* Katsuhiro Ueno (Niigata University)
