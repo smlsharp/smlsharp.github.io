@@ -1,0 +1,160 @@
+---
+layout: default
+permalink: /en/documents/4.1.0/Ch8.S5.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Sat Nov 16 16:42:06 2024 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Nov, 2024.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="up up" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="up up up" href="./" title="SML# Document Version 4.1.0">
+ <link rel="start" href="./" title="SML# Document Version 4.1.0">
+ <link rel="prev" href="Ch8.S4.html" title="8.4 Functional record update ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="next" href="Ch8.S6.html" title="8.6 Representing objects ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch8.S1.html" title="8.1 Record expressions ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch8.S2.html" title="8.2 Field selection operation ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch8.S3.html" title="8.3 Record patterns ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch8.S4.html" title="8.4 Functional record update ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch8.S6.html" title="8.6 Representing objects ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch8.S7.html" title="8.7 Polymorphic variants ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 Installing SML# ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML# feature: other type system extensions ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 4.1.0">
+title: "8.5 Record programming examples‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 4.1.0</div>
+<div>
+<a href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8 </span>SML# feature: record polymorphism</span></a><a href="Ch8.S4.html" title="8.4 Functional record update ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8.4 </span>Functional record update</span></a><a href="Ch8.S6.html" title="8.6 Representing objects ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8.6 </span>Representing objects</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">8.5 </span>Record programming examples</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">In a language supporting record polymorphic (currently
+SML# seems to be the only one), one can write generic code by
+focusing only on relevant properties of problems.
+This provide a powerful tool for modular construction of
+programs that scales to large software development.</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">To understand a flavor of this feature, let us consider a
+problem to simulate object movement in a parabolic path in a Cartesian
+coordinate system.
+An object can be represented as a record containing
+<span class="ltx_text ltx_font_typewriter">X:real</span> and <span class="ltx_text ltx_font_typewriter">Y:real</span> fields representing the current
+position vector, and <span class="ltx_text ltx_font_typewriter">Vx:real</span> and <span class="ltx_text ltx_font_typewriter">Vy:real</span> fields representing
+the current velocity vector.
+An object may have a lot of other properties, but for writing
+a program to simulate objects movement, these attributes are sufficient.
+Object movement is simulated by repeatedly applying a function
+<span class="ltx_text ltx_font_typewriter">move</span> that moves an object from the current location to the
+location after one unit of time.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val move : [’a#{X:real, Y:real, Vx:real, Vy:real}. ’a * real -&gt; ’a]</span></p>
+</blockquote>
+<p class="ltx_p">In this exercise, we assume that unit of time is 1 second.
+In the Cartesian coordinate system, since a position vector and
+a velocity vector are compositions of those of the two coordinates,
+we can write write functions on <span class="ltx_text ltx_font_typewriter">X</span> and <span class="ltx_text ltx_font_typewriter">Y</span> coordinates
+independently and compose them.
+The next position is obtained by adding the velocity.
+So we can write functions on <span class="ltx_text ltx_font_typewriter">X</span> and <span class="ltx_text ltx_font_typewriter">Y</span> independently
+as below (which shows the code and its typing in an interactive
+session).</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># fun moveX (p as {X:real, Vx:real,...}, t:real) = p # {X = X + Vx};
+<br class="ltx_break">
+val moveX = fn : [’a#{Vx: real, X: real}. ’a * real -&gt; ’a]
+<br class="ltx_break">
+# fun moveY (p as {Y:real, Vy:real,...}, t:real) = p # {Y = Y + Vy};
+<br class="ltx_break">
+val moveY = fn : [’a#{Vy: real, Y: real}. ’a * real -&gt; ’a]</span></p>
+</blockquote>
+<p class="ltx_p">Next, we need to write functions that change velocities.
+Here we assume that on <span class="ltx_text ltx_font_typewriter">X</span> coordinate, objects maintain its
+uniform motion, and on <span class="ltx_text ltx_font_typewriter">Y</span>, objects are uniformly accelerated by
+gravity.
+Then acceleration functions can be code as follows.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># fun accelerateX (p as {Vx:real,...}, t:real) = p;
+<br class="ltx_break">
+val accelerateX = fn : [’a#{Vx: real}. ’a * real -&gt; ’a]
+<br class="ltx_break">
+# fun accelerateY (p as {Vy:real,...}, t:real) = p # {Vy = Vy + 9.8};
+<br class="ltx_break">
+val accelerateY = fn : [’a#{Vy: real}. ’a * real -&gt; ’a]</span></p>
+</blockquote>
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">accelerateX</span> is constant and therefore not needed in this
+simple case, but we write one for future refinement.</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">The function <span class="ltx_text ltx_font_typewriter">next</span> can be obtained by composing all of them
+below.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">fun move (p, t) =
+<br class="ltx_break">
+  let
+<br class="ltx_break">
+    val p = accelerateX (p, t)
+<br class="ltx_break">
+    val p = accelerateY (p, t)
+<br class="ltx_break">
+    val p = moveX (p, t)
+<br class="ltx_break">
+    val p = moveY (p, t)
+<br class="ltx_break">
+  in
+<br class="ltx_break">
+    p
+<br class="ltx_break">
+  end</span></p>
+</blockquote>
+<p class="ltx_p">The resulting code is highly modular and type safe, and can be
+easily refined.
+For example, if we want to add deacceleration on <span class="ltx_text ltx_font_typewriter">X</span>
+coordinate by 1% per second, one need only re-write <span class="ltx_text ltx_font_typewriter">accelerateY</span>
+to the following.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># fun accelerateX (p as {Vx:real,...}, t:real) = p # {Vx = Vx * 0.90};
+<br class="ltx_break">
+val accelerateX = fn : [’a#{Vx: real}. ’a * real -&gt; ’a]</span></p>
+</blockquote>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">For this <span class="ltx_text ltx_font_typewriter">next</span> function, SML# infers the type we
+designed at the beginning of this section, and therefore can be applied
+to any object having many other attributes.
+</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch8.S4.html" title="8.4 Functional record update ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8.4 </span>Functional record update</span></a><a href="Ch8.S6.html" title="8.6 Representing objects ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8.6 </span>Representing objects</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sat Nov 16 16:42:06 2024 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

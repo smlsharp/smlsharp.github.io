@@ -1,0 +1,129 @@
+---
+layout: default
+permalink: /ja/documents/4.1.0/Ch12.S2.html
+translated: true
+lang: ja
+head: |
+ <!--Generated on Sat Nov 16 16:41:37 2024 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on 令和6年11月.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="up up" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="up up up" href="./" title="プログラミング言語SML#解説 4.1.0版">
+ <link rel="start" href="./" title="プログラミング言語SML#解説 4.1.0版">
+ <link rel="prev" href="Ch12.S1.html" title="12.1 関係データベースとSQL ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="next" href="Ch12.S3.html" title="12.3 問い合わせの実行 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch12.S1.html" title="12.1 関係データベースとSQL ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch12.S3.html" title="12.3 問い合わせの実行 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch12.S4.html" title="12.4 データベース問い合わせ実行例 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch12.S5.html" title="12.5 その他のSQL文 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML#の拡張機能：マルチスレッドプログラミング ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.1.0版">
+title: "12.2 SML#へのSQL式の導入‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.1.0版</div>
+<div>
+<a href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">12 </span>
+SML#の拡張機能：SQLの統合</span></a><a href="Ch12.S1.html" title="12.1 関係データベースとSQL ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">12.1 </span>関係データベースとSQL</span></a><a href="Ch12.S3.html" title="12.3 問い合わせの実行 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">12.3 </span>問い合わせの実行</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">12.2 </span>SML#へのSQL式の導入</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">SQLの<span class="ltx_text ltx_font_typewriter">SELECT</span>文は<span class="ltx_text ltx_font_typewriter">FROM</span>節に記述されたテーブルの集合から
+一つのテーブルを作成する式です．
+SQL言語は，ある特定のデータベースへの接続の下でSQL式を評価する機
+能を提供しますが，これをデータベース接続を受け取りテーブルを返す関数式に
+一般化すれば，関数型言語の型システムに統合することができます．
+テーブルはレコードの構造をしているため，多相レコードの型付けがほ
+ぼそのまま使用できます．
+しかし我々SML#チームの研究によって，このデータベースを受
+け取る関数の型付けには，多相レコード以外にさらに型理論的な機構が必要であ
+ることが示されています<cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib14" title="" class="ltx_ref">14</a>]</cite>．
+そこで，データベース接続を受け取る関数には特別の文法を用意します．
+SML#では，前節のSQL式の例は，以下のような式で表現されます．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">_sql db =&gt; select #P.name as name, #P.age as age
+<br class="ltx_break">
+           from #db.Persons as P
+<br class="ltx_break">
+           where #P.salary &gt; 10000</span></p>
+</blockquote>
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">_sql db =&gt; ...</span>は，データベース接続を変数<span class="ltx_text ltx_font_typewriter">db</span>として受
+け取る問い合わせ関数であることを示しています．
+<span class="ltx_text ltx_font_typewriter">_sql</span>式の中の<span class="ltx_text ltx_font_typewriter">&gt;</span>はデータベース問い合わせを実現する
+ライブラリモジュール<span class="ltx_text ltx_font_typewriter">SQL</span>の中に定義された<span class="ltx_text ltx_font_typewriter">SQL</span>の値のための
+大小比較プリミティブです．
+<span class="ltx_text ltx_font_typewriter">#P.Name</span>はタプル<span class="ltx_text ltx_font_typewriter">P</span>の<span class="ltx_text ltx_font_typewriter">Name</span>フィールドの取り出し演算，
+<span class="ltx_text ltx_font_typewriter">#db.Persons</span>はデータベース<span class="ltx_text ltx_font_typewriter">db</span>からの<span class="ltx_text ltx_font_typewriter">Persons</span>テーブル取り
+出し演算です．
+これらは，SML#式では<span class="ltx_text ltx_font_typewriter">#Name P#Persons db</span>と書か
+れるレコードからのフィールド取り出し式に相当します．
+<span class="ltx_text ltx_font_typewriter">_sql <math id="p1.m1" class="ltx_Math" alttext="x" display="inline"><mi>x</mi></math> =&gt; <math id="p1.m2" class="ltx_Math" alttext="expr" display="inline"><mrow><mi>e</mi><mi>x</mi><mi>p</mi><mi>r</mi></mrow></math></span>式では，SQLの文法に類似の構文を採用して
+います．
+この式に対して以下の型が推論されます．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val it = fn
+
+<br class="ltx_break">
+  : [’a#{Persons: ’b list},
+
+<br class="ltx_break">
+      ’b#{age: ’c, name: ’e, salary: int},
+
+<br class="ltx_break">
+      ’c::{int, intInf, word, char,...},
+
+<br class="ltx_break">
+      ’d::{int, intInf, word, char,...},
+
+<br class="ltx_break">
+      ’e::{int, intInf, word, char,...},
+
+<br class="ltx_break">
+      ’f::{int, intInf, word, char,...},
+
+<br class="ltx_break">
+        ’a SQL.conn -&gt; {age: ’c, name: ’e} SQL.cursor]</span></p>
+</blockquote>
+<p class="ltx_p">この型は，<span class="ltx_text ltx_font_typewriter">’a</span>の構造を持つデータベース接続の型
+<span class="ltx_text ltx_font_typewriter">’a conn</span>から<span class="ltx_text ltx_font_typewriter">{age: ’c, name: ’e}</span>を列とする結果テーブルの型
+への関数型です．
+<span class="ltx_text ltx_font_typewriter">’a</span>は，この問い合わせに必要なデータベース構造を表すレコード
+多相型です．
+このようにSQL式は多相型を持つため，MLプログラミングの原理「式は
+型が正しい限り自由に組み合わせることができる」に従って，第一級のデータ
+としてSML#の他の機能とともに自由にプログラムすることができます．
+</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch12.S1.html" title="12.1 関係データベースとSQL ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">12.1 </span>関係データベースとSQL</span></a><a href="Ch12.S3.html" title="12.3 問い合わせの実行 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">12.3 </span>問い合わせの実行</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sat Nov 16 16:41:37 2024 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

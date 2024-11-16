@@ -1,0 +1,108 @@
+---
+layout: default
+permalink: /en/documents/4.1.0/Ch7.S1.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Sat Nov 16 16:42:06 2024 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Nov, 2024.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="up up" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="up up up" href="./" title="SML# Document Version 4.1.0">
+ <link rel="start" href="./" title="SML# Document Version 4.1.0">
+ <link rel="prev" href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="next" href="Ch7.S2.html" title="7.2 Declarative programming ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S2.html" title="7.2 Declarative programming ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S3.html" title="7.3 Representing computation by composing expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S4.html" title="7.4 Constants literals and built-in primitives ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S5.html" title="7.5 Type bool and conditional expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S6.html" title="7.6 Compound expressions and function definitions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S7.html" title="7.7 Recursive functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S8.html" title="7.8 Functions with multiple arguments ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S9.html" title="7.9 Function application syntax ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S10.html" title="7.10 Higher-order functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S11.html" title="7.11 Using higher-order functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S12.html" title="7.12 Imperative features of ML ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S13.html" title="7.13 Mutable memory reference types ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S14.html" title="7.14 Left-to-right applicative order evaluation ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S15.html" title="7.15 Procedural control ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S16.html" title="7.16 Loop and tail recursion ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S17.html" title="7.17 let expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S18.html" title="7.18 List data type ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S19.html" title="7.19 Principle in composing expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S20.html" title="7.20 Polymorphic functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 Installing SML# ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML# feature: other type system extensions ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 4.1.0">
+title: "7.1 About the ML language family‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 4.1.0</div>
+<div>
+<a href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7 </span>Introduction to ML programming</span></a><a href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7 </span>Introduction to ML programming</span></a><a href="Ch7.S2.html" title="7.2 Declarative programming ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.2 </span>Declarative programming</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">7.1 </span>About the ML language family</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">SML# is a programming language in the ML family.</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">ML was first developed as a <span class="ltx_text ltx_font_bold">M</span>meta <span class="ltx_text ltx_font_bold">L</span>anguage of
+Edinburgh LCF<cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib3" title="" class="ltx_ref">3</a>]</cite> system.
+The prefix <span class="ltx_text ltx_font_italic">meta</span> in this particular usage probably traces
+back to Greek phrase “ta meta ta phusika”, which simply denotes the
+book placed after the phusika (Physics, or the book on the nature).
+The denoted book happens to be on philosophy (metaphysics), which
+made this prefix receive a meaning of the (philosophical) attitude of
+analyzing things beyond the ordinary way of thinking.
+In the context of languages, a meta language is a language used
+to analyze the ordinary usage (writing/reading/speaking) of a language.
+Objects of LCF system are computable functions (programs)
+represented by a language called PPLAMBDA.
+LCF ML was the meta language of PPLAMBDA, namely, a programming
+language to manipulate PPLAMBDA expressions (functions).</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">ML’s name as well as its features are originated from this
+historical role of LCF ML.
+For flexible manipulation of programs, LCF ML itself was defined
+as a functional language.
+In addition, a type inference system was introduced for reliable
+manipulation of function terms.
+Since the success of LCF ML, ML has evolved as a general purpose
+programming language, and several compilers have been developed for ML.
+Based on these efforts, its specification is formally defined as
+Standard ML <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib5" title="" class="ltx_ref">5</a>, <a href="bib.html#bib6" title="" class="ltx_ref">6</a>]</cite>.
+</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7 </span>Introduction to ML programming</span></a><a href="Ch7.S2.html" title="7.2 Declarative programming ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.2 </span>Declarative programming</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sat Nov 16 16:42:06 2024 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

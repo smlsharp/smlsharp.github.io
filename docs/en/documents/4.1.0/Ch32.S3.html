@@ -1,0 +1,434 @@
+---
+layout: default
+permalink: /en/documents/4.1.0/Ch32.S3.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Sat Nov 16 16:42:06 2024 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Nov, 2024.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch32.html" title="Chapter 32 The SML# Source Distribution Package ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 4.1.0">
+ <link rel="up up" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.1.0">
+ <link rel="up up up" href="./" title="SML# Document Version 4.1.0">
+ <link rel="start" href="./" title="SML# Document Version 4.1.0">
+ <link rel="prev" href="Ch32.S2.html" title="32.2 The SML# Source Tree ‣ Chapter 32 The SML# Source Distribution Package ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 4.1.0">
+ <link rel="next" href="Ch32.S4.html" title="32.4 basis directory ‣ Chapter 32 The SML# Source Distribution Package ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch32.S1.html" title="32.1 The structure of the source package ‣ Chapter 32 The SML# Source Distribution Package ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch32.S2.html" title="32.2 The SML# Source Tree ‣ Chapter 32 The SML# Source Distribution Package ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch32.S4.html" title="32.4 basis directory ‣ Chapter 32 The SML# Source Distribution Package ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch31.html" title="Chapter 31 Preface ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch32.html" title="Chapter 32 The SML# Source Distribution Package ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch33.html" title="Chapter 33 Control structure of the compiler ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 4.1.0">
+title: "32.3   compiler directory ‣ Chapter 32 The SML# Source Distribution Package ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 4.1.0"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 4.1.0</div>
+<div>
+<a href="Ch32.html" title="Chapter 32 The SML# Source Distribution Package ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">32 </span>The SML# Source Distribution Package</span></a><a href="Ch32.S2.html" title="32.2 The SML# Source Tree ‣ Chapter 32 The SML# Source Distribution Package ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">32.2 </span>The SML# Source Tree</span></a><a href="Ch32.S4.html" title="32.4 basis directory ‣ Chapter 32 The SML# Source Distribution Package ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">32.4 </span>
+<span class="ltx_text ltx_font_typewriter">basis</span> directory</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">32.3 </span>
+<span class="ltx_text ltx_font_typewriter">compiler</span> directory
+</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">The <span class="ltx_text ltx_font_typewriter">compiler</span> directory is divided into sub-directory,
+as shown.
+</p>
+</div>
+<div id="p2" class="ltx_para">
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">Directories</p>
+<ul id="I1.i1.I1" class="ltx_itemize">
+<li id="I1.i1.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="I1.i1.I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">compilePhases/</span> : compilation phases</p>
+</div>
+<div id="I1.i1.I1.i1.p2" class="ltx_para">
+<table class="ltx_tabular ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">bitmapcompilation/</span></td>
+<td class="ltx_td ltx_align_left">explicit layout-bitmap generation</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">cconvcompile/</span></td>
+<td class="ltx_td ltx_align_left">type-directed calling-convention generation</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">closureconversion/</span></td>
+<td class="ltx_td ltx_align_left">closure conversion</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">datatypecompilation/</span></td>
+<td class="ltx_td ltx_align_left">datalayout computation</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">elaborate/</span></td>
+<td class="ltx_td ltx_align_left">syntactic elaboration</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">fficompilation/</span></td>
+<td class="ltx_td ltx_align_left">C interface generation for higher-order functions</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">llvmemit/</span></td>
+<td class="ltx_td ltx_align_left">llvm code emission</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">llvmgen/</span></td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">loadfile/</span></td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">machinecodegen/</span></td>
+<td class="ltx_td ltx_align_left">law-level code generation</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">main/</span></td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">matchcompilation/</span></td>
+<td class="ltx_td ltx_align_left">pattern matching compilation</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">nameevaluation/</span></td>
+<td class="ltx_td ltx_align_left">name evaluation and module compilation</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">parser/</span></td>
+<td class="ltx_td ltx_align_left">parser</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">recordcalcoptimization/</span></td>
+<td class="ltx_td ltx_align_left">typed record calculus optimization</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">recordcompilation/</span></td>
+<td class="ltx_td ltx_align_left">type-directed record compilation</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">stackallocation/</span></td>
+<td class="ltx_td ltx_align_left">stack frame allocation</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">toplevel/</span></td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">typedcalcoptimization/</span></td>
+<td class="ltx_td ltx_align_left">typed intermediate language optimization</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">typedelaboration/</span></td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">typeinference/</span></td>
+<td class="ltx_td ltx_align_left">type definition，uncurry optimization</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">valrecoptimization/</span></td>
+<td class="ltx_td ltx_align_left">mutual recursive function optimization</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li id="I1.i1.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="I1.i1.I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">compilerIRs/</span> : compiler intermediate representations</p>
+</div>
+<div id="I1.i1.I1.i2.p2" class="ltx_para">
+<table class="ltx_tabular ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">absyn/</span></td>
+<td class="ltx_td ltx_align_left">Abstract syntax tree</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">anormal/</span></td>
+<td class="ltx_td ltx_align_left">A-normal forms</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">bitmapcalc/</span></td>
+<td class="ltx_td ltx_align_left">the language with explicit layout bitmap</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">closurecalc/</span></td>
+<td class="ltx_td ltx_align_left">the language with explicit closure allocation</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">idcalc/</span></td>
+<td class="ltx_td ltx_align_left">the language without static scoping</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">llvmir/</span></td>
+<td class="ltx_td ltx_align_left">LLVM IR</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">machinecode/</span></td>
+<td class="ltx_td ltx_align_left">the register transfer language</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">patterncalc/</span></td>
+<td class="ltx_td ltx_align_left">the untyped intermediate language</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">recordcalc/</span></td>
+<td class="ltx_td ltx_align_left">the polymorphic record calculus</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">runtimecalc/</span></td>
+<td class="ltx_td ltx_align_left">the language with runtime types</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">typedcalc/</span></td>
+<td class="ltx_td ltx_align_left">the typed intermediate language</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">typedlambda/</span></td>
+<td class="ltx_td ltx_align_left">the typed lambda calculus</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li id="I1.i1.I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="I1.i1.I1.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">data/</span> : types, constants and other data</p>
+</div>
+<div id="I1.i1.I1.i3.p2" class="ltx_para">
+<table class="ltx_tabular ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">builtin/</span></td>
+<td class="ltx_td ltx_align_left">compiler built-in data</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">constantterm/</span></td>
+<td class="ltx_td ltx_align_left">constants</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">control/</span></td>
+<td class="ltx_td ltx_align_left">parameters controlling compiler function</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">name/</span></td>
+<td class="ltx_td ltx_align_left">runtime code labels</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">runtimetypes/</span></td>
+<td class="ltx_td ltx_align_left">runtime types</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">symbols/</span></td>
+<td class="ltx_td ltx_align_left">representation of variables, labels etc</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">types/</span></td>
+<td class="ltx_td ltx_align_left">type representations</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li id="I1.i1.I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="I1.i1.I1.i4.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">extensions/</span> : various compile functions</p>
+</div>
+<div id="I1.i1.I1.i4.p2" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row"><span class="ltx_text ltx_font_typewriter">concurrencysupport/</span></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column">concurrent thread support</th>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row"><span class="ltx_text ltx_font_typewriter">debug/</span></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column">debugging support</th>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row"><span class="ltx_text ltx_font_typewriter">foreach/</span></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column">massively parallel <span class="ltx_text ltx_font_typewriter">_foreach</span> statement support</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">format-utils/</span></th>
+<td class="ltx_td ltx_align_left">formater library for <span class="ltx_text ltx_font_typewriter">smlformat</span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">json/</span></th>
+<td class="ltx_td ltx_align_left">JSON manipulation support</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">reflection/</span></th>
+<td class="ltx_td ltx_align_left">compile-time reflection support</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">usererror/</span></th>
+<td class="ltx_td ltx_align_left">compiler error handling</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">userlevelprimitive/</span></th>
+<td class="ltx_td ltx_align_left">compiler extension via user code</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li id="I1.i1.I1.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="I1.i1.I1.i5.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">libs/</span> : libraries used by the compiler</p>
+</div>
+<div id="I1.i1.I1.i5.p2" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row">
+<span class="ltx_text ltx_font_typewriter">digest/</span>&amp;
+SHA hashing library</th>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">env/</span></th>
+<td class="ltx_td ltx_align_left">dictionary utilities</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">heapdump/</span></th>
+<td class="ltx_td ltx_align_left">heap image dump function</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">ids/</span></th>
+<td class="ltx_td ltx_align_left">counter utilities</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">interactivePrinter/</span></th>
+<td class="ltx_td ltx_align_left">interactive printers</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">list-utils/</span></th>
+<td class="ltx_td ltx_align_left">list utilities</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">toolchain/</span></th>
+<td class="ltx_td ltx_align_left">UNIX toolchain commands</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">util/</span></th>
+<td class="ltx_td ltx_align_left">miscellaneous utility functions</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">Files</p>
+</div>
+<div id="I1.i2.p2" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">minismlsharp.smi</span></th>
+<td class="ltx_td ltx_align_left">the interface file of <span class="ltx_text ltx_font_typewriter">minismlshap</span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">minismlsharp.sml</span></th>
+<td class="ltx_td ltx_align_left">the top-level of the compiler to compile <span class="ltx_text ltx_font_typewriter">smlsharp</span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">smlsharp.smi</span></th>
+<td class="ltx_td ltx_align_left">the interface file of <span class="ltx_text ltx_font_typewriter">smlsharp</span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">smlsharp.sml</span></th>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">smlsharp</span> top-level</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">Each of directories, including <span class="ltx_text ltx_font_typewriter">compiler</span> sub-directories,
+contains the <span class="ltx_text ltx_font_typewriter">main</span> sub-directory, where the source files are
+located.
+For example, the source files for abstract syntax trees are placed
+in <span class="ltx_text ltx_font_typewriter">compilerIRs/absyn/main/</span>.
+Source files include program files with <span class="ltx_text ltx_font_typewriter">.sml</span> suffix and
+the corresponding interface files of the same names with <span class="ltx_text ltx_font_typewriter">.smi</span> suffix.</p>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">Files with following suffix are input files of source
+file generation tools.
+</p>
+</div>
+<div id="p5" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">.ppg</span></th>
+<td class="ltx_td ltx_align_left">an input file to <span class="ltx_text ltx_font_typewriter">smlformat</span> pretty-printer generator.</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">.grm</span></th>
+<td class="ltx_td ltx_align_left">an <span class="ltx_text ltx_font_typewriter">smlyacc</span> input file</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">.lex</span></th>
+<td class="ltx_td ltx_align_left">an <span class="ltx_text ltx_font_typewriter">smlyacc</span> input file</td>
+</tr>
+</tbody>
+</table>
+<p class="ltx_p">An interface file having of one of those names with <span class="ltx_text ltx_font_typewriter">.smi</span>
+suffix describes the interface of the generated source program.
+</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch32.S2.html" title="32.2 The SML# Source Tree ‣ Chapter 32 The SML# Source Distribution Package ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">32.2 </span>The SML# Source Tree</span></a><a href="Ch32.S4.html" title="32.4 basis directory ‣ Chapter 32 The SML# Source Distribution Package ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">32.4 </span>
+<span class="ltx_text ltx_font_typewriter">basis</span> directory</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sat Nov 16 16:42:06 2024 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

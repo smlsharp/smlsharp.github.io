@@ -1,0 +1,836 @@
+---
+layout: default
+permalink: /ja/documents/4.1.0/Ch22.S8.html
+translated: true
+lang: ja
+head: |
+ <!--Generated on Sat Nov 16 16:41:37 2024 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on 令和6年11月.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch22.html" title="Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="up up" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="up up up" href="./" title="プログラミング言語SML#解説 4.1.0版">
+ <link rel="start" href="./" title="プログラミング言語SML#解説 4.1.0版">
+ <link rel="prev" href="Ch22.S7.html" title="22.7 SQL実行関数式 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="next" href="Ch22.S9.html" title="22.9 SQLライブラリ：SQL.Opストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S1.html" title="22.1 SQLの型 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S2.html" title="22.2 SQLクエリのためのML式の拡張構文 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S3.html" title="22.3 接続先データベース宣言式：_sqlserver ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S4.html" title="22.4 SQL評価式 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S5.html" title="22.5 SELECTクエリ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S6.html" title="22.6 SQLコマンド ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S7.html" title="22.7 SQL実行関数式 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S9.html" title="22.9 SQLライブラリ：SQL.Opストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S10.html" title="22.10 SQLライブラリ：SQL.Numericストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S11.html" title="22.11 標準SQL文法との差異（参考） ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch15.html" title="Chapter 15 序論 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch16.html" title="Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch17.html" title="Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch18.html" title="Chapter 18 型 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch19.html" title="Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch20.html" title="Chapter 20 パターンとパターンマッチング ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch21.html" title="Chapter 21 識別子のスコープ規則 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch22.html" title="Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch23.html" title="Chapter 23 核言語の宣言とインターフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch24.html" title="Chapter 24 モジュール言語の宣言とインタフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch25.html" title="Chapter 25 SML#のライブラリ概要 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch26.html" title="Chapter 26 Standard ML標準ライブラリ ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch27.html" title="Chapter 27 SML#システムライブラリ ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch28.html" title="Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch29.html" title="Chapter 29 SML#実行時データ管理 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.1.0版">
+title: "22.8 SQLライブラリ：SQLストラクチャ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.1.0版</div>
+<div>
+<a href="Ch22.html" title="Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22 </span>SQL式とコマンド</span></a><a href="Ch22.S7.html" title="22.7 SQL実行関数式 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.7 </span>SQL実行関数式</span></a><a href="Ch22.S9.html" title="22.9 SQLライブラリ：SQL.Opストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.9 </span>SQLライブラリ：SQL.Opストラクチャ</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">22.8 </span>SQLライブラリ：SQLストラクチャ</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">SML#は，SQL関連の拡張構文と共に使用するための
+関数や型をライブラリとして提供する．
+SQLに関連する全ての型と関数は，
+インターフェースファイル<span class="ltx_text ltx_font_typewriter">sql.smi</span>がプロバイドする
+<span class="ltx_text ltx_font_typewriter">SQL</span>ストラクチャに含まれる．
+SQL機能を使用して書かれたSML#のソースファイルは，
+そのインターフェースファイルに以下の一行を加え，
+<span class="ltx_text ltx_font_typewriter">sql.smi</span>を参照しなければならない．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">_require "sql.smi"</span></p>
+</blockquote>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL</span>ストラクチャのシグネチャは以下の通りである．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">structure SQL : sig
+<br class="ltx_break">
+  type bool3
+<br class="ltx_break">
+  type numeric
+<br class="ltx_break">
+  type decimal = numeric
+<br class="ltx_break">
+  type backend
+<br class="ltx_break">
+  type ’a server
+<br class="ltx_break">
+  type ’a conn
+<br class="ltx_break">
+  type ’a cursor
+<br class="ltx_break">
+  type (’a, ’b) exp
+<br class="ltx_break">
+  type (’a, ’b) whr
+<br class="ltx_break">
+  type (’a, ’b) from
+<br class="ltx_break">
+  type (’a, ’b) orderby
+<br class="ltx_break">
+  type (’a, ’b, ’c) select
+<br class="ltx_break">
+  type (’a, ’b) query
+<br class="ltx_break">
+  type (’a, ’b) command
+<br class="ltx_break">
+  type (’a, ’b) db
+<br class="ltx_break">
+  exception Exec
+<br class="ltx_break">
+  exception Connect
+<br class="ltx_break">
+  exception Link
+<br class="ltx_break">
+  val postgresql : string -&gt; backend
+<br class="ltx_break">
+  val mysql : string -&gt; backend
+<br class="ltx_break">
+  val odbc : string -&gt; backend
+<br class="ltx_break">
+  val sqlite3 : string -&gt; backend
+<br class="ltx_break">
+  structure SQLite3 : </span>（<a href="#SS1" title="22.8.1 データベースサーバーへの接続 ‣ 22.8 SQLライブラリ：SQLストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.8.1</span></a>節参照）
+<br class="ltx_break"><span class="ltx_text ltx_font_typewriter">
+  val connect : ’a server -&gt; ’a conn
+<br class="ltx_break">
+  val connectAndCreate : ’a server -&gt; ’a conn
+<br class="ltx_break">
+  val closeConn : ’a conn -&gt; unit
+<br class="ltx_break">
+  val fetch : ’a cursor -&gt; ’a option
+<br class="ltx_break">
+  val fetchAll : ’a cursor -&gt; ’a list
+<br class="ltx_break">
+  val closeCursor : ’a cursor -&gt; unit
+<br class="ltx_break">
+  val queryCommand : (’a list, ’b) query -&gt; (’a cursor, ’b) command
+<br class="ltx_break">
+  val toy : ((’a, ’c) db -&gt; (’b, ’c) query) -&gt; ’a -&gt; ’b
+<br class="ltx_break">
+  val commandToString : ((’a,’c) db -&gt; (’b,’c) command) -&gt; string
+<br class="ltx_break">
+  val queryToString : ((’a,’c) db -&gt; (’b,’c) query) -&gt; string
+<br class="ltx_break">
+  val expToString : (’a,’c) exp -&gt; string
+<br class="ltx_break">
+  Structure Op : </span>（<a href="Ch22.S9.html" title="22.9 SQLライブラリ：SQL.Opストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.9</span></a>節参照）
+<br class="ltx_break"><span class="ltx_text ltx_font_typewriter">
+  Structure Numeric : </span>（<a href="Ch22.S10.html" title="22.10 SQLライブラリ：SQL.Numericストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.10</span></a>節参照）
+<br class="ltx_break"><span class="ltx_text ltx_font_typewriter">
+  Structure Decimal = Numeric
+<br class="ltx_break">
+end</span></p>
+</blockquote>
+<p class="ltx_p">以下，
+<a href="Ch22.S1.html" title="22.1 SQLの型 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.1</span></a>節で定義した型を除き，
+これらの定義を役割ごとに副節に分けて説明する．
+</p>
+</div>
+<section id="SS1" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.8.1 </span>データベースサーバーへの接続</h2>
+
+<div id="SS1.p1" class="ltx_para">
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">exception Connect of string</span></p>
+</div>
+<div id="I1.i1.p2" class="ltx_para">
+<p class="ltx_p">データベースへの接続に関するエラーを表す例外．
+<span class="ltx_text ltx_font_typewriter">string</span>はエラーメッセージである．
+</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">exception Link of string</span></p>
+</div>
+<div id="I1.i2.p2" class="ltx_para">
+<p class="ltx_p">データベーススキーマの型チェックに関するエラーを表す例外．
+<span class="ltx_text ltx_font_typewriter">string</span>はエラーメッセージである．
+</p>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">type backend</span></p>
+</div>
+<div id="I1.i3.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">_sqlserver</span>構文に書く接続先情報の型
+（<a href="Ch22.S3.html" title="22.3 接続先データベース宣言式：_sqlserver ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.3</span></a>節参照）．
+以下の関数のいずれかを用いてこの型を持つ式を書く．
+</p>
+</div>
+</li>
+<li id="I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i4.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val postgresql : string -&gt; backend</span></p>
+</div>
+<div id="I1.i4.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.postgresql <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">param</span></span>は，
+PostgreSQLサーバーへの接続情報を返す．
+文字列<span class="ltx_text ltx_font_italic" style="font-size:120%;">param</span>は，
+PostgreSQLライブラリlibpqの接続文字列である．
+接続文字列の詳細はPostgreSQLマニュアルを参照せよ．
+<span class="ltx_text ltx_font_italic" style="font-size:120%;">param</span>が適切でない場合は<span class="ltx_text ltx_font_typewriter">SQL.Connect</span>例外が発生する．
+</p>
+</div>
+<div id="I1.i4.p3" class="ltx_para">
+<p class="ltx_p">サポートするPostgreSQLの型とSML#の型との対応は以下の通りである．
+</p>
+</div>
+<div id="I1.i4.p4" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row ltx_border_l ltx_border_r ltx_border_t">PostgreSQL</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">SML#</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t">
+<span class="ltx_text ltx_font_typewriter">INT</span>, <span class="ltx_text ltx_font_typewriter">INT4</span>
+</th>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">int</span></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">BOOLEAN</span></th>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">bool</span></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r">
+<span class="ltx_text ltx_font_typewriter">TEXT</span>, <span class="ltx_text ltx_font_typewriter">VARCHAR</span>
+</th>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">string</span></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">FLOAT8</span></th>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">real</span></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">FLOAT4</span></th>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r"><span class="ltx_text ltx_font_typewriter">real32</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li id="I1.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i5.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val mysql : string -&gt; backend</span></p>
+</div>
+<div id="I1.i5.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.mysql <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">param</span></span>は，
+MySQLサーバーへの接続情報を返す．
+文字列<span class="ltx_text ltx_font_italic" style="font-size:120%;">param</span>には，
+“キー=値”という形式の指定を空白文字で区切って並べる．
+指定可能なキーとその意味は以下の通りである．
+</p>
+</div>
+<div id="I1.i5.p3" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_l ltx_border_r ltx_border_t">キー</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">説明</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">host</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">MySQLサーバーのホスト名</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">port</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r">MySQLサーバーのポート番号</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">user</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r">MySQLサーバーにログインするときのユーザー名</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">password</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r">MySQLサーバーにログインするときのパスワード</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">dbname</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r">接続先データベースの名前</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">unix_socket</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r">接続先UNIXソケットのファイル名</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">flags</span></td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">通信プロトコルのフラグ（10進数で指定）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="I1.i5.p4" class="ltx_para">
+<p class="ltx_p">このうち<span class="ltx_text ltx_font_typewriter">dbname</span>は必ず指定しなければならない．
+これらのパラメタについて詳しくはMySQLのマニュアルを参照せよ．
+<span class="ltx_text ltx_font_italic" style="font-size:120%;">param</span>が適切でない場合は<span class="ltx_text ltx_font_typewriter">SQL.Connect</span>例外が発生する．
+</p>
+</div>
+<div id="I1.i5.p5" class="ltx_para">
+<p class="ltx_p">サポートするMySQLの型とSML#の型との対応は以下の通りである．
+</p>
+</div>
+<div id="I1.i5.p6" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row ltx_border_l ltx_border_r ltx_border_t">MySQL</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">SML#</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t">
+<span class="ltx_text ltx_font_typewriter">TINYINT</span>, <span class="ltx_text ltx_font_typewriter">SMALLINT</span>, <span class="ltx_text ltx_font_typewriter">MEDIUMINT</span>, <span class="ltx_text ltx_font_typewriter">INT</span>
+</th>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">int</span></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r">
+<span class="ltx_text ltx_font_typewriter">TINYTEXT</span>, <span class="ltx_text ltx_font_typewriter">TEXT</span>, <span class="ltx_text ltx_font_typewriter">VARCHAR</span>
+</th>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">string</span></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">DOUBLE</span></th>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">real</span></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">FLOAT</span></th>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r"><span class="ltx_text ltx_font_typewriter">real32</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li id="I1.i6" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i6.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val sqlite3 : string -&gt; backend</span>
+<br class="ltx_break"><span class="ltx_text ltx_font_typewriter">val sqlite3’ : SQL.SQLite3.flags * string -&gt; backend</span>
+<br class="ltx_break"></p>
+</div>
+<div id="I1.i6.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.sqlite3 <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">filename</span></span>および
+<span class="ltx_text ltx_font_typewriter">SQL.sqlite3 (<span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">flags</span>, <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">filename</span>)</span>は，
+SQLite3データベースファイルへの接続情報を返す．
+文字列<span class="ltx_text ltx_font_italic" style="font-size:120%;">filename</span>には，
+データベースファイルの名前を指定する．
+SQLite3は“:”で始まる名前を特別に解釈することに注意が必要である．
+</p>
+</div>
+<div id="I1.i6.p3" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_italic" style="font-size:120%;">flags</span>は，以下の4つのフィールドからなるレコードである．
+</p>
+<ul id="I1.i6.I1" class="ltx_itemize">
+<li id="I1.i6.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="I1.i6.I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">mode</span>：ファイルをオープンするモードを表す．
+以下のいずれかの値を取る．
+</p>
+<ul id="I1.i6.I1.i1.I1" class="ltx_itemize">
+<li id="I1.i6.I1.i1.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">*</span> 
+<div id="I1.i6.I1.i1.I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.SQLite3.SQLITE_OPEN_READONLY</span></p>
+</div>
+</li>
+<li id="I1.i6.I1.i1.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">*</span> 
+<div id="I1.i6.I1.i1.I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.SQLite3.SQLITE_OPEN_READWRITE</span></p>
+</div>
+</li>
+<li id="I1.i6.I1.i1.I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">*</span> 
+<div id="I1.i6.I1.i1.I1.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.SQLite3.SQLITE_OPEN_READWRITE_CREATE</span></p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li id="I1.i6.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="I1.i6.I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">threading</span>：マルチスレッドモードを表す．
+以下のいずれかの値を取る．
+</p>
+<ul id="I1.i6.I1.i2.I1" class="ltx_itemize">
+<li id="I1.i6.I1.i2.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">*</span> 
+<div id="I1.i6.I1.i2.I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.SQLite3.SQLITE_OPEN_NOMUTEX</span></p>
+</div>
+</li>
+<li id="I1.i6.I1.i2.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">*</span> 
+<div id="I1.i6.I1.i2.I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.SQLite3.SQLITE_OPEN_FULLMUTEX</span></p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li id="I1.i6.I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="I1.i6.I1.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">cache</span>：キャッシュモードを表す．
+以下のいずれかの値を取る．
+</p>
+<ul id="I1.i6.I1.i3.I1" class="ltx_itemize">
+<li id="I1.i6.I1.i3.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">*</span> 
+<div id="I1.i6.I1.i3.I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.SQLite3.SQLITE_OPEN_SHAREDCACHE</span></p>
+</div>
+</li>
+<li id="I1.i6.I1.i3.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">*</span> 
+<div id="I1.i6.I1.i3.I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.SQLite3.SQLITE_OPEN_PRIVATECACHE</span></p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li id="I1.i6.I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="I1.i6.I1.i4.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">uri</span>：ファイル名の解釈の仕方を表す．
+以下の値を取る．
+</p>
+<ul id="I1.i6.I1.i4.I1" class="ltx_itemize">
+<li id="I1.i6.I1.i4.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">*</span> 
+<div id="I1.i6.I1.i4.I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.SQLite3.SQLITE_OPEN_URI</span></p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+<p class="ltx_p">これらのフラグについての詳細はSQLite3 C/C++ APIのマニュアルを
+参照せよ．
+これらの定数は全て
+<span class="ltx_text ltx_font_typewriter">SQL.SQLite3</span>ストラクチャに定義されている．
+また，<span class="ltx_text ltx_font_typewriter">SQL.SQLite3</span>ストラクチャは
+<span class="ltx_text ltx_font_italic" style="font-size:120%;">flags</span>が未指定の場合に用いられるデフォルトのフラグ
+<span class="ltx_text ltx_font_typewriter">SQL.SQLite3.flags</span>を持つ．
+フィールドアップデート式と
+<span class="ltx_text ltx_font_typewriter">SQL.SQLite3.flags</span>を用いることで，
+デフォルトの設定を一部変更したフラグを作ることができる．
+</p>
+</div>
+<div id="I1.i6.p4" class="ltx_para">
+<p class="ltx_p">SQLite3のtype affinityとSML#の型が以下の通りに対応付け
+られている．
+</p>
+</div>
+<div id="I1.i6.p5" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_l ltx_border_r ltx_border_t">Type affinity</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">SML#</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">INT</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">int</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">REAL</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">real</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">STRING</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">string</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">NUMERIC</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">numeric</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">BLOB</span></td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">（未対応）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="I1.i6.p6" class="ltx_para">
+<p class="ltx_p">CREATE TABLE時に各カラムに指定された型と
+type affinityとの対応は，SQLite3のマニュアルに記載されている通りである．
+</p>
+</div>
+</li>
+<li id="I1.i7" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i7.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val odbc : string -&gt; backen</span></p>
+</div>
+<div id="I1.i7.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.odbc <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">param</span></span>は，
+ODBCサーバーへの接続情報を返す．
+文字列<span class="ltx_text ltx_font_italic" style="font-size:120%;">param</span>には，
+DSN名，ユーザー名，パスワードをこの順にスペースで区切って並べる．
+<span class="ltx_text ltx_font_italic" style="font-size:120%;">param</span>が適切でない場合は<span class="ltx_text ltx_font_typewriter">SQL.Connect</span>例外が発生する．
+</p>
+</div>
+<div id="I1.i7.p3" class="ltx_para">
+<p class="ltx_p">サポートするODBCの型とSML#の型との対応は以下の通りである．
+</p>
+</div>
+<div id="I1.i7.p4" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t">ODBC</th>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">SML#</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">CHAR</span></th>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">string</span></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r">
+<span class="ltx_text ltx_font_typewriter">INTEGER</span>, <span class="ltx_text ltx_font_typewriter">SMALLINT</span>
+</th>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">int</span></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">FLOAT</span></th>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">real32</span></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">DOUBLE</span></th>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">real</span></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_l ltx_border_r">
+<span class="ltx_text ltx_font_typewriter">VARCHAR</span>, <span class="ltx_text ltx_font_typewriter">LONGVARCHAR</span>, <span class="ltx_text ltx_font_typewriter">NVARCHAR</span>
+</th>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r"><span class="ltx_text ltx_font_typewriter">string</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li id="I1.i8" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i8.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val connect : ’a server -&gt; ’a conn</span></p>
+</div>
+<div id="I1.i8.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.connect <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">server</span></span>は，
+接続情報<span class="ltx_text ltx_font_italic" style="font-size:120%;">server</span>が表す接続先のサーバーとの接続を確立し，
+実際のデータベーススキーマが<span class="ltx_text ltx_font_italic" style="font-size:120%;">server</span>が表すスキーマを包含することを
+検査し，エラーが無ければ，サーバーへの接続ハンドルを返す．
+サーバーとの接続にエラーがあれば<span class="ltx_text ltx_font_typewriter">SQL.Exec</span>例外が発生する．
+スキーマの検査にエラーがあれば<span class="ltx_text ltx_font_typewriter">SQL.Link</span>例外が発生する．
+</p>
+</div>
+<div id="I1.i8.p3" class="ltx_para">
+<p class="ltx_p">接続情報<span class="ltx_text ltx_font_italic" style="font-size:120%;">server</span>の型は，
+この接続を通じて扱うテーブルおよびビューの型を表す．
+<span class="ltx_text ltx_font_typewriter">SQL.connect</span>は，<span class="ltx_text ltx_font_italic" style="font-size:120%;">server</span>の型にある各テーブル名に
+ついて，同名のテーブルまたはビューが存在するかどうかを，
+データベースのシステムカタログを見てチェックする．
+存在するならば，さらにそのテーブルまたはビューが，
+<span class="ltx_text ltx_font_italic" style="font-size:120%;">server</span>の型にあるカラムを全て持つことを検査する．
+チェックの際，名前の大文字小文字は区別しない．
+データベースは，<span class="ltx_text ltx_font_italic" style="font-size:120%;">server</span>の型に無いテーブルやビューを
+含んでもよい．
+一方，各テーブルは，<span class="ltx_text ltx_font_italic" style="font-size:120%;">server</span>の型に書かれているカラムを
+正確に含まなければならない．
+</p>
+</div>
+<div id="I1.i8.p4" class="ltx_para">
+<p class="ltx_p">初めてデータベースサーバーと接続しようとしたとき，
+接続先データベースの種類に応じて適切な
+接続ライブラリが動的にリンクされる．
+デフォルトのライブラリ名が適切でない場合は，
+環境変数を通じてライブラリ名を指定することができる．
+接続先サーバー，
+デフォルトのライブラリ名，
+および環境変数の名前は以下の通りである．
+</p>
+</div>
+<div id="I1.i8.p5" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_l ltx_border_r ltx_border_t">データベース</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">ライブラリ名</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">環境変数</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">PostgreSQL</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">libpq.so.5</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">SMLSHARP_LIBPQ</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">MySQL</td>
+<td class="ltx_td ltx_align_left ltx_border_r">libmysqlclient.16.so</td>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">SMLSHARP_LIBMYSQLCLIENT</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">ODBC</td>
+<td class="ltx_td ltx_align_left ltx_border_r">libodbc.so.2</td>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">SMLSHARP_LIBODBC</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_l ltx_border_r">SQLite3</td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">libsqlite3.so.0</td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r"><span class="ltx_text ltx_font_typewriter">SMLSHARP_LIBSQLITE3</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li id="I1.i9" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i9.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val connectAndCreate : ’a server -&gt; ’a conn</span></p>
+</div>
+<div id="I1.i9.p2" class="ltx_para">
+<p class="ltx_p">以下の点を除いて<span class="ltx_text ltx_font_typewriter">SQL.connect</span>と同じである．
+引数の型で指示されたテーブルが
+接続先データベースに存在しない場合，
+<span class="ltx_text ltx_font_typewriter">SQL.connectAndCreate</span>は
+<span class="ltx_text ltx_font_typewriter">CREATE TABLE</span>コマンドを発行し
+そのテーブルを作成する．
+サポートされない型を含むテーブルを作成しようとしたとき
+<span class="ltx_text ltx_font_typewriter">SQL.Link</span>例外が発生する．
+<span class="ltx_text ltx_font_typewriter">CREATE TABLE</span>コマンドの実行に失敗したとき
+<span class="ltx_text ltx_font_typewriter">SQL.Exec</span>例外が発生する．
+</p>
+</div>
+</li>
+<li id="I1.i10" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i10.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val closeConn : ’a conn -&gt; unit</span></p>
+</div>
+<div id="I1.i10.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.closeConn <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">conn</span></span>は，
+<span class="ltx_text ltx_font_typewriter">SQL.connect</span>関数が確立したデータベースサーバーへの接続を閉じる．
+<span class="ltx_text ltx_font_typewriter">SQL.connect</span>で確立した接続は，
+<span class="ltx_text ltx_font_typewriter">SQL.closeConn</span>で必ず閉じられなければならない．
+</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+<section id="SS2" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.8.2 </span>SQLクエリの実行と結果の取得</h2>
+
+<div id="SS2.p1" class="ltx_para">
+<ul id="I2" class="ltx_itemize">
+<li id="I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">exception Exec of string</span></p>
+</div>
+<div id="I2.i1.p2" class="ltx_para">
+<p class="ltx_p">SQLクエリの実行時にデータベースサーバーがエラーを報告したことを
+表す例外．
+<span class="ltx_text ltx_font_typewriter">string</span>はエラーメッセージである．
+</p>
+</div>
+</li>
+<li id="I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val fetch : ’a cursor -&gt; ’a option</span></p>
+</div>
+<div id="I2.i2.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.fetch <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">cursor</span></span>は，
+カーソル<span class="ltx_text ltx_font_italic" style="font-size:120%;">cursor</span>が指す行を一行読み込み，
+<span class="ltx_text ltx_font_italic" style="font-size:120%;">cursor</span>を一行進める．
+もしカーソルがテーブルの終端に到達していた場合は
+<span class="ltx_text ltx_font_typewriter">NONE</span>を返す．
+もしカーソルが閉じられているならば
+<span class="ltx_text ltx_font_typewriter">SQL.Exec</span>例外が発生する．
+</p>
+</div>
+</li>
+<li id="I2.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val fetchAll : ’a cursor -&gt; ’a list</span></p>
+</div>
+<div id="I2.i3.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.fetchAll <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">cursor</span></span>は，
+カーソル<span class="ltx_text ltx_font_italic" style="font-size:120%;">cursor</span>が指す行から最後の行までを読み込み，
+カーソルを閉じる．
+もしカーソルが閉じられているならば
+<span class="ltx_text ltx_font_typewriter">SQL.Exec</span>例外が発生する．
+</p>
+</div>
+</li>
+<li id="I2.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i4.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">closeCursor : ’a cursor -&gt; unit</span></p>
+</div>
+<div id="I2.i4.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">closeCursor <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">cursor</span></span>は，
+SQL実行関数が返したカーソルを閉じる．
+全てのカーソルはこの関数か<span class="ltx_text ltx_font_typewriter">fetchAll</span>関数で
+閉じられなければならない．
+</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+<section id="SS3" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.8.3 </span>SQLクエリの操作</h2>
+
+<div id="SS3.p1" class="ltx_para">
+<ul id="I3" class="ltx_itemize">
+<li id="I3.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val queryCommand : (’a list, ’b) query -&gt; (’a cursor, ’b) command</span></p>
+</div>
+<div id="I3.i1.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.queryCommand <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">query</span></span>は，
+SELECTクエリ<span class="ltx_text ltx_font_italic" style="font-size:120%;">query</span>を
+SQLコマンドに変換する．
+この関数は，
+SQL実行関数式
+<span class="ltx_text ltx_font_typewriter">_sql <math id="I3.i1.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I3.i1.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> =&gt; select...(<math id="I3.i1.p2.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I3.i1.p2.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span>が
+クエリ<math id="I3.i1.p2.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_upright"><math id="I3.i1.p2.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>に対して行うコマンド化（<a href="Ch22.S7.html" title="22.7 SQL実行関数式 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.7</span></a>節参照）
+と同じことをSQL実行関数を生成せずに行う．
+</p>
+</div>
+</li>
+<li id="I3.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val toy : ((’a, ’c) db -&gt; (’b, ’c) query) -&gt; ’a -&gt; ’b</span></p>
+</div>
+<div id="I3.i2.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.toy <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">query</span> <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">data</span></span>は，
+SML#のデータ構造<span class="ltx_text ltx_font_italic" style="font-size:120%;">data</span>をデータベースに見立てて
+SELECTクエリ<span class="ltx_text ltx_font_italic" style="font-size:120%;">query</span>を評価する．
+クエリの評価はSML#の中で行われ，サーバーとのやり取りは
+一切行われない．
+この関数は，SML#コンパイラがSQLの型付けのために生成した
+トイプログラムをそのまま実行する．
+クエリの実行効率は考慮されていないため，
+この関数は実用に適さないほど遅い可能性がある．
+</p>
+</div>
+</li>
+<li id="I3.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val commandToString : ((’a,’c) db -&gt; (’b,’c) command) -&gt; string</span></p>
+</div>
+<div id="I3.i3.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.commandToString <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">command</span></span>は，
+関数<span class="ltx_text ltx_font_italic" style="font-size:120%;">command</span>の本体を評価して得られたSQLコマンドを文字列化して返す．
+この関数が返す文字列は，SQL実行関数が
+SQLコマンド実行時にサーバーに送信する文字列と
+同じものである．
+</p>
+</div>
+</li>
+<li id="I3.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i4.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val queryToString : ((’a,’c) db -&gt; (’b,’c) query) -&gt; string</span></p>
+</div>
+<div id="I3.i4.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.queryToString <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">query</span></span>は，
+関数<span class="ltx_text ltx_font_italic" style="font-size:120%;">query</span>の本体を評価して得られたSELECTクエリを文字列化する．
+この関数が返す文字列は，SQL実行関数が
+SELECTクエリ実行時にサーバーに送信する文字列と
+同じものである．
+</p>
+</div>
+</li>
+<li id="I3.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i5.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val expToString : (’a,’c) exp -&gt; string</span></p>
+</div>
+<div id="I3.i5.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.expToString <span class="ltx_text ltx_font_serif ltx_font_italic" style="font-size:120%;">exp</span></span>は，
+SQL評価式<span class="ltx_text ltx_font_italic" style="font-size:120%;">exp</span>を文字列化する．
+</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch22.S7.html" title="22.7 SQL実行関数式 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.7 </span>SQL実行関数式</span></a><a href="Ch22.S9.html" title="22.9 SQLライブラリ：SQL.Opストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.9 </span>SQLライブラリ：SQL.Opストラクチャ</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sat Nov 16 16:41:37 2024 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

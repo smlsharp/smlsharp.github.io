@@ -1,0 +1,416 @@
+---
+layout: default
+permalink: /ja/documents/4.1.0/Ch22.S9.html
+translated: true
+lang: ja
+head: |
+ <!--Generated on Sat Nov 16 16:41:37 2024 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on 令和6年11月.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch22.html" title="Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="up up" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="up up up" href="./" title="プログラミング言語SML#解説 4.1.0版">
+ <link rel="start" href="./" title="プログラミング言語SML#解説 4.1.0版">
+ <link rel="prev" href="Ch22.S8.html" title="22.8 SQLライブラリ：SQLストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="next" href="Ch22.S10.html" title="22.10 SQLライブラリ：SQL.Numericストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S1.html" title="22.1 SQLの型 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S2.html" title="22.2 SQLクエリのためのML式の拡張構文 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S3.html" title="22.3 接続先データベース宣言式：_sqlserver ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S4.html" title="22.4 SQL評価式 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S5.html" title="22.5 SELECTクエリ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S6.html" title="22.6 SQLコマンド ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S7.html" title="22.7 SQL実行関数式 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S8.html" title="22.8 SQLライブラリ：SQLストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S10.html" title="22.10 SQLライブラリ：SQL.Numericストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S11.html" title="22.11 標準SQL文法との差異（参考） ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch15.html" title="Chapter 15 序論 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch16.html" title="Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch17.html" title="Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch18.html" title="Chapter 18 型 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch19.html" title="Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch20.html" title="Chapter 20 パターンとパターンマッチング ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch21.html" title="Chapter 21 識別子のスコープ規則 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch22.html" title="Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch23.html" title="Chapter 23 核言語の宣言とインターフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch24.html" title="Chapter 24 モジュール言語の宣言とインタフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch25.html" title="Chapter 25 SML#のライブラリ概要 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch26.html" title="Chapter 26 Standard ML標準ライブラリ ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch27.html" title="Chapter 27 SML#システムライブラリ ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch28.html" title="Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch29.html" title="Chapter 29 SML#実行時データ管理 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.1.0版">
+title: "22.9 SQLライブラリ：SQL.Opストラクチャ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.1.0版</div>
+<div>
+<a href="Ch22.html" title="Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22 </span>SQL式とコマンド</span></a><a href="Ch22.S8.html" title="22.8 SQLライブラリ：SQLストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.8 </span>SQLライブラリ：SQLストラクチャ</span></a><a href="Ch22.S10.html" title="22.10 SQLライブラリ：SQL.Numericストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.10 </span>SQLライブラリ：SQL.Numericストラクチャ</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">22.9 </span>SQLライブラリ：SQL.Opストラクチャ</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.Op</span>ストラクチャは，
+SQL評価式の中で用いる
+SQLの二項演算子や集約関数，およびその他のユーティリティーを
+提供する．
+SQL評価式構文の中では，
+いくつかの識別子が以下の通りinfix宣言される．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">infix 7 %
+<br class="ltx_break">
+infix 5 like ||
+<br class="ltx_break">
+nonfix mod</span></p>
+</blockquote>
+<p class="ltx_p">SML#で評価される式でないSQL評価式構文内では，
+このストラクチャで定義されている関数や演算子を
+ストラクチャ名を前置することなく使用することができる．
+</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.Op</span>ストラクチャで定義されている関数の多くは，
+複数のSQL基本型（<a href="Ch22.S1.html" title="22.1 SQLの型 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.1</span></a>節参照）に対して
+オーバーロードされている．
+本節では，説明の便宜上，
+オーバーロードされている型とその動く範囲を，
+以下の型変数の名前で示す．
+</p>
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">’sql</span>は全てのSQL基本型およびその<span class="ltx_text ltx_font_typewriter">option</span>型を動く．
+</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">’sqlopt</span>は全てのSQL基本型の<span class="ltx_text ltx_font_typewriter">option</span>型を動く．
+</p>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">’num</span>はSQL基本型のうち数値型およびその<span class="ltx_text ltx_font_typewriter">option</span>型を動く．
+</p>
+</div>
+</li>
+<li id="I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i4.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">’str</span>は<span class="ltx_text ltx_font_typewriter">string</span>型および<span class="ltx_text ltx_font_typewriter">string option</span>型のどちらかを動く．
+</p>
+</div>
+</li>
+<li id="I1.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i5.p1" class="ltx_para">
+<p class="ltx_p">これら以外の型変数は，通常通り，任意の型を動く．
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.Op</span>ストラクチャのシグネチャは以下の通りである．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">structure SQL : sig
+<br class="ltx_break">
+  <math id="p3.m1" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math>
+<br class="ltx_break">
+  structure Op : sig
+<br class="ltx_break">
+    val Some : ’a -&gt; ’a option
+<br class="ltx_break">
+    val Part : ’a option list -&gt; ’a list
+<br class="ltx_break">
+    val Num : ’num -&gt; numeric option
+<br class="ltx_break">
+    val + : ’num * ’num -&gt; ’num
+<br class="ltx_break">
+    val - : ’num * ’num -&gt; ’num
+<br class="ltx_break">
+    val * : ’num * ’num -&gt; ’num
+<br class="ltx_break">
+    val / : ’num * ’num -&gt; ’num
+<br class="ltx_break">
+    val mod : ’num * ’num -&gt; ’num
+<br class="ltx_break">
+    val ~: ’num -&gt; ’num
+<br class="ltx_break">
+    val abs : ’num -&gt; ’num
+<br class="ltx_break">
+    val &lt; : ’sql * ’sql -&gt; bool3
+<br class="ltx_break">
+    val &gt; : ’sql * ’sql -&gt; bool3
+<br class="ltx_break">
+    val &lt;= : ’sql * ’sql -&gt; bool3
+<br class="ltx_break">
+    val &gt;= : ’sql * ’sql -&gt; bool3
+<br class="ltx_break">
+    val = : ’sql * ’sql -&gt; bool3
+<br class="ltx_break">
+    val &lt;&gt; : ’sql * ’sql -&gt; bool3
+<br class="ltx_break">
+    val || : ’str * ’str -&gt; ’str
+<br class="ltx_break">
+    val like : ’str * ’str -&gt; bool3
+<br class="ltx_break">
+    val nullif : ’sqlopt * ’sqlopt -&gt; ’sqlopt
+<br class="ltx_break">
+    val coalesce : ’b option * ’b -&gt; ’b
+<br class="ltx_break">
+    val coalesce’ : ’b option * ’b option -&gt; ’b option
+<br class="ltx_break">
+    val count : ’sql list -&gt; int
+<br class="ltx_break">
+    val avg : ’num list -&gt; numeric option
+<br class="ltx_break">
+    val sum : ’num list -&gt; ’num option
+<br class="ltx_break">
+    val sum’ : ’num option list -&gt; ’num option
+<br class="ltx_break">
+    val min : ’sql list -&gt; ’sql option
+<br class="ltx_break">
+    val min’ : ’sql option list -&gt; ’sql option
+<br class="ltx_break">
+    val max : ’sql list -&gt; ’sql option
+<br class="ltx_break">
+    val max’ : ’sql option list -&gt; ’sql option
+<br class="ltx_break">
+  end
+<br class="ltx_break">
+end</span></p>
+</blockquote>
+<p class="ltx_p">以下，
+これらの定義を役割ごとに副節に分けて説明する．
+</p>
+</div>
+<section id="SS1" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.9.1 </span>型を合わせるための何もしない関数</h2>
+
+<div id="SS1.p1" class="ltx_para">
+<p class="ltx_p">SML#がサポートしない
+暗黙のキャストやオーバーロードに対応するため，
+型の辻褄を合わせるための以下の関数が提供されている．
+これらの使い方は
+<a href="Ch22.S4.html#SS5" title="22.4.5 型キャスト式 ‣ 22.4 SQL評価式 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.4.5</span></a>節を参照せよ．
+</p>
+</div>
+<div id="SS1.p2" class="ltx_para">
+<ul id="I2" class="ltx_itemize">
+<li id="I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val Some : ’a -&gt; ’a option</span></p>
+</div>
+</li>
+<li id="I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val Part : ’a option list -&gt; ’a list</span></p>
+</div>
+</li>
+<li id="I2.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val Num : ’num -&gt; numeric option</span></p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+<section id="SS2" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.9.2 </span>SQL演算子および関数</h2>
+
+<div id="SS2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.Op</span>ストラクチャは以下の二項演算子を提供する．
+これらの演算子は，
+引数に取るSQL評価式に同名の演算子を加えたSQL評価式を返す．
+演算子式はクエリがサーバーに送信されるまで評価されない．
+</p>
+<ul id="I3" class="ltx_itemize">
+<li id="I3.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i1.p1" class="ltx_para">
+<p class="ltx_p">比較演算子：
+5種類の比較演算子
+<span class="ltx_text ltx_font_typewriter">&lt;</span>, <span class="ltx_text ltx_font_typewriter">&gt;</span>, <span class="ltx_text ltx_font_typewriter">&lt;=</span>, <span class="ltx_text ltx_font_typewriter">&gt;=</span>, <span class="ltx_text ltx_font_typewriter">=</span>, <span class="ltx_text ltx_font_typewriter">&lt;&gt;</span>が
+全てのSQL基本型に対してオーバーロードされている．
+これらの比較演算子の型は，
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">’sql * ’sql -&gt; bool3</span></p>
+</blockquote>
+<p class="ltx_p">である．
+</p>
+</div>
+</li>
+<li id="I3.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i2.p1" class="ltx_para">
+<p class="ltx_p">算術演算子：
+4種類の二項演算子
+<span class="ltx_text ltx_font_typewriter">+</span>, <span class="ltx_text ltx_font_typewriter">-</span>, <span class="ltx_text ltx_font_typewriter">*</span>, <span class="ltx_text ltx_font_typewriter">/</span>, <span class="ltx_text ltx_font_typewriter">%</span>
+および2つの単項演算子
+<span class="ltx_text ltx_font_typewriter">~</span>, <span class="ltx_text ltx_font_typewriter">abs</span>が
+全てのSQLの数値型に対してオーバーロードされている．
+SQL評価式の中では，識別子<span class="ltx_text ltx_font_typewriter">%</span>はinfixと宣言される．
+これらの型は，
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">’num * ’num -&gt; ’num</span></p>
+</blockquote>
+<p class="ltx_p">または
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">’num -&gt; ’num</span></p>
+</blockquote>
+<p class="ltx_p">である．
+</p>
+</div>
+</li>
+<li id="I3.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i3.p1" class="ltx_para">
+<p class="ltx_p">剰余演算：
+剰余演算子<span class="ltx_text ltx_font_typewriter">mod</span>は，標準SQLに合わせ，
+二項演算子ではなく関数としても提供されている．
+接続先のデータベースによっては，
+<span class="ltx_text ltx_font_typewriter">mod</span>と<span class="ltx_text ltx_font_typewriter">%</span>のどちらか片方しかサポートしていないことに
+注意すること．
+SQL評価式の中では，識別子<span class="ltx_text ltx_font_typewriter">mod</span>はnonfixと宣言される．
+<span class="ltx_text ltx_font_typewriter">mod</span>の型は，
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">’num * ’num -&gt; ’num</span></p>
+</blockquote>
+<p class="ltx_p">である．
+</p>
+</div>
+</li>
+<li id="I3.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i4.p1" class="ltx_para">
+<p class="ltx_p">文字列演算子：
+パターンマッチ演算子<span class="ltx_text ltx_font_typewriter">like</span>と
+結合演算子<span class="ltx_text ltx_font_typewriter">||</span>が使用できる．
+どちらの識別子も
+SQL評価式の中ではinfix宣言されている．
+これらの型は以下の通りである．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val like : ’str * ’str -&gt; bool3
+<br class="ltx_break">
+val || : ’str * ’str -&gt; ’str</span></p>
+</blockquote>
+</div>
+</li>
+<li id="I3.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i5.p1" class="ltx_para">
+<p class="ltx_p">NULLIF：
+以下の型の<span class="ltx_text ltx_font_typewriter">nullif</span>関数が提供されている．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val nullif : ’sqlopt * ’sqlopt -&gt; ’sqlopt</span></p>
+</blockquote>
+<p class="ltx_p">引数は2つとも<span class="ltx_text ltx_font_typewriter">option</span>型でなければならない．
+適宜<span class="ltx_text ltx_font_typewriter">Some</span>で型を合わせること．
+</p>
+</div>
+</li>
+<li id="I3.i6" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i6.p1" class="ltx_para">
+<p class="ltx_p">COALESCE:
+<span class="ltx_text ltx_font_typewriter">option</span>型の取り扱いの違いで，
+<span class="ltx_text ltx_font_typewriter">coalesce</span>と<span class="ltx_text ltx_font_typewriter">coalesce’</span>の2つの関数が提供されている．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val coalesce : ’b option * ’b -&gt; ’b
+<br class="ltx_break">
+val coalesce’ : ’b option * ’b option -&gt; ’b option</span></p>
+</blockquote>
+<p class="ltx_p">どちらの関数を用いても，
+サーバーに送信される関数名はCOALESCEである．
+<span class="ltx_text ltx_font_typewriter">coalesce</span>の型は，
+NULLをNULLでない値で置き換える使い方に合わせて決めている．
+標準SQLとは異なり，3つ以上の引数はサポートしていない．
+3つ以上の値を取り扱うときは<span class="ltx_text ltx_font_typewriter">coalesce’</span>関数をネストすること．
+</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+<section id="SS3" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.9.3 </span>SQL集約関数</h2>
+
+<div id="SS3.p1" class="ltx_para">
+<p class="ltx_p">5つの標準SQLの集約関数
+<span class="ltx_text ltx_font_typewriter">count</span>，
+<span class="ltx_text ltx_font_typewriter">avg</span>，
+<span class="ltx_text ltx_font_typewriter">sum</span>，
+<span class="ltx_text ltx_font_typewriter">min</span>，
+<span class="ltx_text ltx_font_typewriter">max</span>が
+利用可能である．
+このうち，
+<span class="ltx_text ltx_font_typewriter">sum</span>，<span class="ltx_text ltx_font_typewriter">min</span>，<span class="ltx_text ltx_font_typewriter">max</span>関数は，
+<span class="ltx_text ltx_font_typewriter">option</span>型の取り扱いの違いにより，
+2種類の関数（例えば<span class="ltx_text ltx_font_typewriter">sum</span>と<span class="ltx_text ltx_font_typewriter">sum’</span>）が提供されている．
+どちらの関数を用いても，
+サーバーに送信される関数名は同じである．
+</p>
+</div>
+<div id="SS3.p2" class="ltx_para">
+<p class="ltx_p">これらの関数の型は以下の通りである．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val count : ’sql list -&gt; int
+<br class="ltx_break">
+val avg : ’num list -&gt; numeric option
+<br class="ltx_break">
+val sum : ’num list -&gt; ’num option
+<br class="ltx_break">
+val sum’ : ’num option list -&gt; ’num option
+<br class="ltx_break">
+val min : ’sql list -&gt; ’sql option
+<br class="ltx_break">
+val min’ : ’sql option list -&gt; ’sql option
+<br class="ltx_break">
+val max : ’sql list -&gt; ’sql option
+<br class="ltx_break">
+val max’ : ’sql option list -&gt; ’sql option</span></p>
+</blockquote>
+</div>
+</section>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch22.S8.html" title="22.8 SQLライブラリ：SQLストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.8 </span>SQLライブラリ：SQLストラクチャ</span></a><a href="Ch22.S10.html" title="22.10 SQLライブラリ：SQL.Numericストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.10 </span>SQLライブラリ：SQL.Numericストラクチャ</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sat Nov 16 16:41:37 2024 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

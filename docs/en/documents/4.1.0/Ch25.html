@@ -1,0 +1,211 @@
+---
+layout: default
+permalink: /en/documents/4.1.0/Ch25.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Sat Nov 16 16:42:06 2024 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Nov, 2024.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="up up" href="./" title="SML# Document Version 4.1.0">
+ <link rel="start" href="./" title="SML# Document Version 4.1.0">
+ <link rel="prev" href="Ch24.S4.html" title="24.4 Module language interface ‣ Chapter 24 Module language declarations and interface ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="next" href="Ch26.html" title="Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch15.html" title="Chapter 15 Introduction ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch16.html" title="Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch17.html" title="Chapter 17 Lexical structure ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch18.html" title="Chapter 18 Types ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch19.html" title="Chapter 19 Expressions ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch20.html" title="Chapter 20 Patterns and Pattern Matching ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch21.html" title="Chapter 21 Scope rules for identifier ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch22.html" title="Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch23.html" title="Chapter 23 Declarations of the core language and their interfaces ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch24.html" title="Chapter 24 Module language declarations and interface ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch26.html" title="Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch27.html" title="Chapter 27 SML# System Library ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch28.html" title="Chapter 28 The smlsharp command ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch29.html" title="Chapter 29 SML# Run-time data management ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 4.1.0">
+title: "25 Overview of SML# Libraries‣ Part III Reference manual ‣ SML# Document Version 4.1.0"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 4.1.0</div>
+<div>
+<a href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">III </span>Reference manual</span></a><a href="Ch24.S4.html" title="24.4 Module language interface ‣ Chapter 24 Module language declarations and interface ‣ Part III Reference manual ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">24.4 </span>Module language interface</span></a><a href="Ch26.html" title="Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">26 </span>Standard ML Basis Library</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_chapter ltx_authors_1line">
+<h1 class="ltx_title ltx_title_chapter">
+<span class="ltx_tag ltx_tag_chapter">Chapter 25 </span>Overview of SML# Libraries</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">As a functional language, SML# provides various data
+structures and their operations through a structure declaration
+containing types and function definitions.
+Related structures are bundled together in a source file (sml
+file) with an interface file (smi file) through SML# separate
+compilation system.
+In this document, we call a group of structures represented by
+an interface file as a library.
+Related libraries are hierarchically organized through <span class="ltx_text ltx_font_typewriter">_include</span>
+statement of the SML# interface language.</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">The set of libraries provided by SML# are classified into the
+following categories.
+</p>
+</div>
+<div id="p3" class="ltx_para">
+<ul id="S0.I1" class="ltx_itemize">
+<li id="S0.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S0.I1.i1.p1" class="ltx_para">
+<p class="ltx_p">Standard ML Basis Library</p>
+</div>
+<div id="S0.I1.i1.p2" class="ltx_para">
+<p class="ltx_p">This is a standard library for Standard ML language specified in
+<cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib2" title="" class="ltx_ref">2</a>]</cite>.
+It provides primitive functions for built-in data types
+IO primitives, and OS interface.
+SML# provides all the required structures of Standard ML
+Basis Library and some optional ones.
+</p>
+</div>
+</li>
+<li id="S0.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S0.I1.i2.p1" class="ltx_para">
+<p class="ltx_p">SML# Library</p>
+</div>
+<div id="S0.I1.i2.p2" class="ltx_para">
+<p class="ltx_p">They include the following support libraries for the SML# advanced features.
+</p>
+<ul id="S0.I1.i2.I1" class="ltx_itemize">
+<li id="S0.I1.i2.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="S0.I1.i2.I1.i1.p1" class="ltx_para">
+<p class="ltx_p">FFI library</p>
+</div>
+</li>
+<li id="S0.I1.i2.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="S0.I1.i2.I1.i2.p1" class="ltx_para">
+<p class="ltx_p">SQL library</p>
+</div>
+</li>
+<li id="S0.I1.i2.I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="S0.I1.i2.I1.i3.p1" class="ltx_para">
+<p class="ltx_p">Thread library</p>
+</div>
+</li>
+<li id="S0.I1.i2.I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="S0.I1.i2.I1.i4.p1" class="ltx_para">
+<p class="ltx_p">Reify library</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li id="S0.I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S0.I1.i3.p1" class="ltx_para">
+<p class="ltx_p">Miscellaneous utilities</p>
+</div>
+<div id="S0.I1.i3.p2" class="ltx_para">
+<p class="ltx_p">They provide various useful functions.
+</p>
+</div>
+<div id="S0.I1.i3.p3" class="ltx_para">
+<ul id="S0.I1.i3.I1" class="ltx_itemize">
+<li id="S0.I1.i3.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="S0.I1.i3.I1.i1.p1" class="ltx_para">
+<p class="ltx_p">SML New Jersey Library</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li id="S0.I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S0.I1.i4.p1" class="ltx_para">
+<p class="ltx_p">Tool support libraries</p>
+</div>
+<div id="S0.I1.i4.p2" class="ltx_para">
+<p class="ltx_p">They are libraries for using SML# programming tools in
+SML# programs.
+They include the following.
+</p>
+</div>
+<div id="S0.I1.i4.p3" class="ltx_para">
+<ul id="S0.I1.i4.I1" class="ltx_itemize">
+<li id="S0.I1.i4.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="S0.I1.i4.I1.i1.p1" class="ltx_para">
+<p class="ltx_p">smlyacc and smllex
+support libraries</p>
+</div>
+</li>
+<li id="S0.I1.i4.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="S0.I1.i4.I1.i2.p1" class="ltx_para">
+<p class="ltx_p">Printer generator SMLFormat support library</p>
+</div>
+</li>
+<li id="S0.I1.i4.I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item"><span class="ltx_text ltx_font_bold">–</span></span> 
+<div id="S0.I1.i4.I1.i3.p1" class="ltx_para">
+<p class="ltx_p">Unit test tool SMLUnit support Library</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">In this document, we define a library specification in the
+following format.</p>
+<ul id="S0.I2" class="ltx_itemize">
+<li id="S0.I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S0.I2.i1.p1" class="ltx_para">
+<p class="ltx_p">For the libraries such as those of Standard ML Basis Library for
+which a formal signature is define, we first show the signature and then
+for each structure that implements the signature, we give additional
+type instantiation information that are not represented by the signature.</p>
+</div>
+</li>
+<li id="S0.I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S0.I2.i2.p1" class="ltx_para">
+<p class="ltx_p">For those that have no signature specification, we show
+their interface information.
+An interface contains type information for separate compilation
+that are not represented by the signature.</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch24.S4.html" title="24.4 Module language interface ‣ Chapter 24 Module language declarations and interface ‣ Part III Reference manual ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">24.4 </span>Module language interface</span></a><a href="Ch26.html" title="Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">26 </span>Standard ML Basis Library</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sat Nov 16 16:42:06 2024 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

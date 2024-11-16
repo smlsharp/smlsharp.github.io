@@ -7,7 +7,7 @@ Manuals, tutorials, and publications to help you learn about SML#.
 
 ### Manual
 
-* [SML# Document version 4.0.0](4.0.0/) ([PDF](4.0.0/manual.pdf))
+* [SML# Document version 4.1.0](4.1.0/) ([PDF](4.1.0/manual.pdf))
 
 This is a comprehensive manual about SML# including installation how-to,
 tutorial, and reference manual.
@@ -16,19 +16,19 @@ is still incomplete.
 
 #### Installation
 
-See [Installing SML#](4.0.0/Ch5.html) (Chapter 5).
+See [Installing SML#](4.1.0/Ch5.html) (Chapter 5).
 It explains how to install SML# on each OS and how to build SML# from
 the source.
 
 #### Tutorial
 
-Let's get started with [Tutorials](4.0.0/Pt2.html) (Part II).
+Let's get started with [Tutorials](4.1.0/Pt2.html) (Part II).
 It covers from brief introduction on ML programming to SML#'s advanced
 features.
 
 #### Reference manual
 
-[Reference manual](4.0.0/Pt3.html) (Part III) describes the SML# language
+[Reference manual](4.1.0/Pt3.html) (Part III) describes the SML# language
 as well as Standard ML.
 
 ### Research papers and talks
@@ -38,4 +38,4 @@ as well as Standard ML.
 
 ### Document of past releases
 
-* [SML# Document version 3.7.1](3.7.1/) ([PDF](3.7.1/manual.pdf))
+* [SML# Document version 4.0.0](4.0.0/) ([PDF](4.0.0/manual.pdf))

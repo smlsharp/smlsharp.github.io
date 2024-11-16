@@ -1,0 +1,445 @@
+---
+layout: default
+permalink: /en/documents/4.1.0/Ch21.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Sat Nov 16 16:42:06 2024 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Nov, 2024.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="up up" href="./" title="SML# Document Version 4.1.0">
+ <link rel="start" href="./" title="SML# Document Version 4.1.0">
+ <link rel="prev" href="Ch20.html" title="Chapter 20 Patterns and Pattern Matching ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="next" href="Ch22.html" title="Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch15.html" title="Chapter 15 Introduction ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch16.html" title="Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch17.html" title="Chapter 17 Lexical structure ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch18.html" title="Chapter 18 Types ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch19.html" title="Chapter 19 Expressions ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch20.html" title="Chapter 20 Patterns and Pattern Matching ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch22.html" title="Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch23.html" title="Chapter 23 Declarations of the core language and their interfaces ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch24.html" title="Chapter 24 Module language declarations and interface ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch25.html" title="Chapter 25 Overview of SML# Libraries ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch26.html" title="Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch27.html" title="Chapter 27 SML# System Library ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch28.html" title="Chapter 28 The smlsharp command ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch29.html" title="Chapter 29 SML# Run-time data management ‣ Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 4.1.0">
+title: "21 Scope rules for identifier‣ Part III Reference manual ‣ SML# Document Version 4.1.0"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 4.1.0</div>
+<div>
+<a href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">III </span>Reference manual</span></a><a href="Ch20.html" title="Chapter 20 Patterns and Pattern Matching ‣ Part III Reference manual ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">20 </span>Patterns and Pattern Matching</span></a><a href="Ch22.html" title="Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22 </span>SQL Expressions and Commands</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_chapter ltx_authors_1line">
+<h1 class="ltx_title ltx_title_chapter">
+<span class="ltx_tag ltx_tag_chapter">Chapter 21 </span>Scope rules for identifier</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">This chapter defines the static scope rules for names used in programs.</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">As defined in Section <a href="Ch17.S2.html" title="17.2 Lexical items ‣ Chapter 17 Lexical structure ‣ Part III Reference manual ‣ SML# Document Version 4.1.0" class="ltx_ref"><span class="ltx_text ltx_ref_tag">17.2</span></a>, identifiers are
+used as names of the following seven classes.
+</p>
+</div>
+<div id="p3" class="ltx_para ltx_align_center">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_l ltx_border_r ltx_border_t">identifier</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">name class</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">
+<math id="p3.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_upright"><math id="p3.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">variable and constructor names</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">
+<math id="p3.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strid<span class="ltx_text ltx_font_upright"><math id="p3.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_r">structure name</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">
+<math id="p3.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sigid<span class="ltx_text ltx_font_upright"><math id="p3.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_r">signature name</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">
+<math id="p3.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">funid<span class="ltx_text ltx_font_upright"><math id="p3.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_r">functor name</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">
+<math id="p3.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">tycon<span class="ltx_text ltx_font_upright"><math id="p3.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_r">type constructor name</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">
+<math id="p3.m11" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">tyvar<span class="ltx_text ltx_font_upright"><math id="p3.m12" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_r">type variable name</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_l ltx_border_r">
+<math id="p3.m13" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">lab<span class="ltx_text ltx_font_upright"><math id="p3.m14" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">record label</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">Among them, type variable names have the syntax
+<span class="ltx_text ltx_font_typewriter">’...</span>, and are distinguished from the other classes of names.
+All the other names overlap one another.
+For example, <span class="ltx_text ltx_font_typewriter">A</span> can be used as a name of any of the
+classes other than type variable name.
+As defined in Chapter <span class="ltx_ref ltx_ref_self"><span class="ltx_text ltx_ref_tag">21</span></span>，the syntax is defined so
+that the name class of identifier occurrence is uniquely determined.
+Furthermore, these name classes are managed as separate name spaces,
+and same identifier can be used as names of different classes.
+The following example shows usage of the same identifier
+<span class="ltx_text ltx_font_typewriter">A</span> as different names.
+</p>
+</div>
+<div id="p5" class="ltx_para">
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">(* 1 *) val A = {A = 1}
+<br class="ltx_break">
+(* 2 *) type ’A A = {A: ’A}
+<br class="ltx_break">
+(* 3 *) signature A = sig val A : int A end
+<br class="ltx_break">
+(* 4 *) functor A () : A = struct val A = {A = 1} end
+<br class="ltx_break">
+(* 5 *) structure A : A = A()
+<br class="ltx_break">
+(* 6 *) val x = A.A
+<br class="ltx_break">
+(* 7 *) val y = A : int A</span></p>
+</blockquote>
+<p class="ltx_p">The first occurrence of <span class="ltx_text ltx_font_typewriter">A</span> in line 7 refers to the variable defined in line 1
+and the second occurrence of <span class="ltx_text ltx_font_typewriter">A</span> refers to the type constructor
+defined in line 2.
+The first occurrence of <span class="ltx_text ltx_font_typewriter">A</span> in line 6 refers to the
+structure defined in line 5.</p>
+</div>
+<div id="p6" class="ltx_para">
+<p class="ltx_p">Names other than record labels are defined by program constructs
+and referenced.
+The following are the program constructs involving name definitions.
+</p>
+</div>
+<div id="p7" class="ltx_para">
+<ol id="S0.I1" class="ltx_enumerate">
+<li id="S0.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="S0.I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">Interface files in separate compilation</span>.
+ProvideList <math id="S0.I1.i1.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">provideList<span class="ltx_text ltx_font_upright"><math id="S0.I1.i1.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> in the interface file define names.
+For example, the interface file containing the following declarations
+</p>
+</div>
+<div id="S0.I1.i1.p2" class="ltx_para">
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">_require "myLibrary.smi"
+<br class="ltx_break">
+val x : int
+<br class="ltx_break">
+datatype foo = A of int | B of bool</span></p>
+</blockquote>
+</div>
+<div id="S0.I1.i1.p3" class="ltx_para">
+<p class="ltx_p">defines variable name <span class="ltx_text ltx_font_typewriter">x</span>, data constructor names <span class="ltx_text ltx_font_typewriter">A,B</span>，
+and type constructor name <span class="ltx_text ltx_font_typewriter">foo</span>.
+</p>
+</div>
+</li>
+<li id="S0.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="S0.I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">Structure declaration</span>.
+The structure name and the set of long names obtained
+from the set of long names defined in the structure by prefixing the
+structure name are defined.
+For example, if the structure <math id="S0.I1.i2.p1.m1" class="ltx_Math" alttext="S" display="inline"><mi>S</mi></math> define a set of long names <math id="S0.I1.i2.p1.m2" class="ltx_Math" alttext="L" display="inline"><mi>L</mi></math> then
+a declaration <span class="ltx_text ltx_font_typewriter">structure S = <math id="S0.I1.i2.p1.m3" class="ltx_Math" alttext="S" display="inline"><mi>S</mi></math></span> defines the structure name <span class="ltx_text ltx_font_typewriter">S</span> and
+the set of long names <math id="S0.I1.i2.p1.m4" class="ltx_Math" alttext="\{S.path\mbox{\ $|$\ }path\in L\}" display="inline"><mrow><mo stretchy="false">{</mo><mi>S</mi><mo>.</mo><mi>p</mi><mi>a</mi><mi>t</mi><mi>h</mi><mrow><mtext> </mtext><mo stretchy="false">|</mo><mtext> </mtext></mrow><mi>p</mi><mi>a</mi><mi>t</mi><mi>h</mi><mo>∈</mo><mi>L</mi><mo stretchy="false">}</mo></mrow></math>.
+</p>
+</div>
+</li>
+<li id="S0.I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span> 
+<div id="S0.I1.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">Functor declaration</span>.
+The functor name and the names in the argument specification are
+defined.
+For example, <span class="ltx_text ltx_font_typewriter">functor F(type foo) = <math id="S0.I1.i3.p1.m1" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math></span> defines
+functor name <span class="ltx_text ltx_font_typewriter">F</span> and type constructor name <span class="ltx_text ltx_font_typewriter">foo</span>.
+</p>
+</div>
+</li>
+<li id="S0.I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">4.</span> 
+<div id="S0.I1.i4.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">Type alias declaration</span>.
+The type constructor name and the argument type variable names
+are defined.
+For example, <span class="ltx_text ltx_font_typewriter">type foo = <math id="S0.I1.i4.p1.m1" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math></span> defines
+type constructor (without type parameter) name
+<span class="ltx_text ltx_font_typewriter">foo</span>.
+</p>
+</div>
+</li>
+<li id="S0.I1.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">5.</span> 
+<div id="S0.I1.i5.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">Datatype declaration</span>.
+The type constructor name, the argument type variable names and
+the data constructor names are defined.
+For example, <span class="ltx_text ltx_font_typewriter">datatype ’a foo = A of int | B of bool</span> defines
+type constructor name <span class="ltx_text ltx_font_typewriter">foo</span>，argument type variable name <span class="ltx_text ltx_font_typewriter">’a</span>，
+and data constructor names <span class="ltx_text ltx_font_typewriter">A</span>，<span class="ltx_text ltx_font_typewriter">B</span>.
+．</p>
+</div>
+</li>
+<li id="S0.I1.i6" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">6.</span> 
+<div id="S0.I1.i6.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">Exception declarations</span>.
+Exception constructor names are defined.
+For example, <span class="ltx_text ltx_font_typewriter">exception E</span> defines exception constructor
+(without argument) name <span class="ltx_text ltx_font_typewriter">E</span>.
+</p>
+</div>
+</li>
+<li id="S0.I1.i7" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">7.</span> 
+<div id="S0.I1.i7.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">Val declaration</span>．
+The variables occurring in the bound pattern are defined.
+For example, if <span class="ltx_text ltx_font_typewriter">x</span> is not defined as a data constructor,
+<span class="ltx_text ltx_font_typewriter">val x = 1</span> defines variable name <span class="ltx_text ltx_font_typewriter">x</span>.
+</p>
+</div>
+</li>
+<li id="S0.I1.i8" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">8.</span> 
+<div id="S0.I1.i8.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">Function declaration</span>．
+Function names and variables occurring in argument patterns are defined.
+For example, if <span class="ltx_text ltx_font_typewriter">x</span> is not defined as a data constructor in
+the occurring context, then <span class="ltx_text ltx_font_typewriter">fun f x = 1</span> defines variable name <span class="ltx_text ltx_font_typewriter">f</span>.
+</p>
+</div>
+</li>
+<li id="S0.I1.i9" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">9.</span> 
+<div id="S0.I1.i9.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">fn</span><span class="ltx_text ltx_font_bold"> expression</span>．
+The variables occurring in argument patterns are defined.
+For example, if <span class="ltx_text ltx_font_typewriter">x</span> is not defined as a data constructor in
+the occurring context, then <span class="ltx_text ltx_font_typewriter">fn x =&gt; x</span> defines variable name <span class="ltx_text ltx_font_typewriter">f</span>.
+</p>
+</div>
+</li>
+<li id="S0.I1.i10" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">10.</span> 
+<div id="S0.I1.i10.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">case</span><span class="ltx_text ltx_font_bold"> expression</span>．
+The variables occurring in case patterns are defined.
+For example, if <span class="ltx_text ltx_font_typewriter">x</span> is not defined as a data constructor in
+the occurring context, then <span class="ltx_text ltx_font_typewriter">case y of A x =&gt; x</span> defines variable
+name <span class="ltx_text ltx_font_typewriter">x</span>.
+</p>
+</div>
+</li>
+<li id="S0.I1.i11" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">11.</span> 
+<div id="S0.I1.i11.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">SQL expression</span>．
+SQL expressions that begins with <span class="ltx_text ltx_font_typewriter">_sql</span> may
+contain variable definitions.
+They are defined in Chapter <a href="Ch22.html" title="Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.1.0" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22</span></a>.
+</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="p8" class="ltx_para">
+<p class="ltx_p">These defined names have their scopes (the extents where the
+defined names can be referenced).
+These scopes of defined names are nested according to the inductively
+defined syntax.
+As a block-structured language in the Algol family, SML#
+adopts static scoping rules, under which definition and reference relation
+is determined at compile time, and new definition hides the old
+definition of the same name in the syntax introduced by the
+definition.</p>
+</div>
+<div id="p9" class="ltx_para">
+<p class="ltx_p">In the following, we list the static scopes introduced by scope
+delimiting syntactic constructs.
+The actual scope of a name is the parts of
+the static scope of its defining syntactic construct
+that exclude the inner static scopes of the same name of the same class.
+</p>
+</div>
+<div id="p10" class="ltx_para">
+<ul id="S0.I2" class="ltx_itemize">
+<li id="S0.I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S0.I2.i1.p1" class="ltx_para">
+<p class="ltx_p">Separate compilation unit.</p>
+</div>
+<div id="S0.I2.i1.p2" class="ltx_para">
+<p class="ltx_p">A separate compilation unit is a single source file
+<math id="S0.I2.i1.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">srcFule<span class="ltx_text ltx_font_upright"><math id="S0.I2.i1.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">.sml</span>.</p>
+</div>
+<div id="S0.I2.i1.p3" class="ltx_para">
+<p class="ltx_p">The scope of the names defined in a top-level declaration of
+<math id="S0.I2.i1.p3.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">srcFile<span class="ltx_text ltx_font_upright"><math id="S0.I2.i1.p3.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">.sml</span> is the rest of the file.
+</p>
+</div>
+<div id="S0.I2.i1.p4" class="ltx_para">
+<p class="ltx_p">An interface file reference from a source file also defines
+names.
+Without explicit <span class="ltx_text ltx_font_typewriter">_interface</span> declaration in a source file
+<math id="S0.I2.i1.p4.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">srcFile<span class="ltx_text ltx_font_upright"><math id="S0.I2.i1.p4.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">.sml</span>, the file <math id="S0.I2.i1.p4.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">srcFile<span class="ltx_text ltx_font_upright"><math id="S0.I2.i1.p4.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">.sml</span> in the
+same directory is implicitly referenced as its interface file.
+The scope of the names defined by the reference to an interface
+file <math id="S0.I2.i1.p4.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">smiFilePath<span class="ltx_text ltx_font_upright"><math id="S0.I2.i1.p4.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">.smi</span> from a source file
+<math id="S0.I2.i1.p4.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">srcFile<span class="ltx_text ltx_font_upright"><math id="S0.I2.i1.p4.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">.sml</span> is the entire source file.
+The name defined by a reference to an interface
+file <math id="S0.I2.i1.p4.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">smiFilePath<span class="ltx_text ltx_font_upright"><math id="S0.I2.i1.p4.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">.smi</span> is the set of all names declared
+in the interface files required by <span class="ltx_text ltx_font_typewriter">_require</span> declarations in
+<math id="S0.I2.i1.p4.m11" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">smiFilePath<span class="ltx_text ltx_font_upright"><math id="S0.I2.i1.p4.m12" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">.smi</span>.
+</p>
+</div>
+</li>
+<li id="S0.I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S0.I2.i2.p1" class="ltx_para">
+<p class="ltx_p">Structure construction : <span class="ltx_text ltx_font_typewriter">struct <math id="S0.I2.i2.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">decl<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I2.i2.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> end</span>.</p>
+</div>
+<div id="S0.I2.i2.p2" class="ltx_para">
+<p class="ltx_p">The scope of a name defined in a top-level declaration in
+<math id="S0.I2.i2.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">decl<span class="ltx_text ltx_font_upright"><math id="S0.I2.i2.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> is the rest of its declaration occurrence of <math id="S0.I2.i2.p2.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">decl<span class="ltx_text ltx_font_upright"><math id="S0.I2.i2.p2.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>.
+</p>
+</div>
+</li>
+<li id="S0.I2.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S0.I2.i3.p1" class="ltx_para">
+<p class="ltx_p">Local declaration : <span class="ltx_text ltx_font_typewriter">local <math id="S0.I2.i3.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">decl<math id="S0.I2.i3.p1.m2" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I2.i3.p1.m3" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> in <math id="S0.I2.i3.p1.m4" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">decl<math id="S0.I2.i3.p1.m5" class="ltx_Math" alttext="{}_{2}" display="inline"><msub><mi></mi><mn mathvariant="normal">2</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I2.i3.p1.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> end</span>.</p>
+</div>
+<div id="S0.I2.i3.p2" class="ltx_para">
+<p class="ltx_p">The scope of a name defined in <math id="S0.I2.i3.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">decl<math id="S0.I2.i3.p2.m2" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_upright"><math id="S0.I2.i3.p2.m3" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> is the rest of
+its declaration occurrence in <math id="S0.I2.i3.p2.m4" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">decl<math id="S0.I2.i3.p2.m5" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_upright"><math id="S0.I2.i3.p2.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> and the entire <math id="S0.I2.i3.p2.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">decl<math id="S0.I2.i3.p2.m8" class="ltx_Math" alttext="{}_{2}" display="inline"><msub><mi></mi><mn mathvariant="normal">2</mn></msub></math><span class="ltx_text ltx_font_upright"><math id="S0.I2.i3.p2.m9" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>.
+The scope of a name defined in <math id="S0.I2.i3.p2.m10" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">decl<math id="S0.I2.i3.p2.m11" class="ltx_Math" alttext="{}_{2}" display="inline"><msub><mi></mi><mn mathvariant="normal">2</mn></msub></math><span class="ltx_text ltx_font_upright"><math id="S0.I2.i3.p2.m12" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> is the rest of
+its declaration occurrence in <math id="S0.I2.i3.p2.m13" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">decl<math id="S0.I2.i3.p2.m14" class="ltx_Math" alttext="{}_{2}" display="inline"><msub><mi></mi><mn mathvariant="normal">2</mn></msub></math><span class="ltx_text ltx_font_upright"><math id="S0.I2.i3.p2.m15" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>.
+</p>
+</div>
+</li>
+<li id="S0.I2.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S0.I2.i4.p1" class="ltx_para">
+<p class="ltx_p">Let expression : <span class="ltx_text ltx_font_typewriter">let <math id="S0.I2.i4.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">decl<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I2.i4.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> in <math id="S0.I2.i4.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I2.i4.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> end</span>.</p>
+</div>
+<div id="S0.I2.i4.p2" class="ltx_para">
+<p class="ltx_p">The scope of a name defined in <math id="S0.I2.i4.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">decl1<span class="ltx_text ltx_font_upright"><math id="S0.I2.i4.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> is the rest of
+its declaration occurrence in <math id="S0.I2.i4.p2.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">decl<span class="ltx_text ltx_font_upright"><math id="S0.I2.i4.p2.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> and <math id="S0.I2.i4.p2.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_upright"><math id="S0.I2.i4.p2.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>.
+</p>
+</div>
+</li>
+<li id="S0.I2.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S0.I2.i5.p1" class="ltx_para">
+<p class="ltx_p">Function declaration.</p>
+</div>
+<div id="S0.I2.i5.p2" class="ltx_para">
+<p class="ltx_p">It has the following syntax.
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">fun <math id="S0.I2.i5.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">id<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I2.i5.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> <math id="S0.I2.i5.p2.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<math id="S0.I2.i5.p2.m4" class="ltx_Math" alttext="{}_{1,1}" display="inline"><msub><mi></mi><mrow><mn mathvariant="normal">1</mn><mo mathvariant="normal">,</mo><mn mathvariant="normal">1</mn></mrow></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I2.i5.p2.m5" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> <math id="S0.I2.i5.p2.m6" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math> <math id="S0.I2.i5.p2.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<math id="S0.I2.i5.p2.m8" class="ltx_Math" alttext="{}_{1,n}" display="inline"><msub><mi></mi><mrow><mn mathvariant="normal">1</mn><mo mathvariant="normal">,</mo><mi>n</mi></mrow></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I2.i5.p2.m9" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> = <math id="S0.I2.i5.p2.m10" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<math id="S0.I2.i5.p2.m11" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I2.i5.p2.m12" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span>
+<br class="ltx_break"></span><span class="ltx_text ltx_font_typewriter">
+     <math id="S0.I2.i5.p2.m13" class="ltx_Math" alttext="\vdots" display="inline"><mi mathvariant="normal">⋮</mi></math>
+<br class="ltx_break">
+  | <math id="S0.I2.i5.p2.m14" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">id<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I2.i5.p2.m15" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> <math id="S0.I2.i5.p2.m16" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<math id="S0.I2.i5.p2.m17" class="ltx_Math" alttext="{}_{m,1}" display="inline"><msub><mi></mi><mrow><mi>m</mi><mo mathvariant="normal">,</mo><mn mathvariant="normal">1</mn></mrow></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I2.i5.p2.m18" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> <math id="S0.I2.i5.p2.m19" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math> <math id="S0.I2.i5.p2.m20" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<math id="S0.I2.i5.p2.m21" class="ltx_Math" alttext="{}_{m,n}" display="inline"><msub><mi></mi><mrow><mi>m</mi><mo mathvariant="normal">,</mo><mi>n</mi></mrow></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I2.i5.p2.m22" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> = <math id="S0.I2.i5.p2.m23" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<math id="S0.I2.i5.p2.m24" class="ltx_Math" alttext="{}_{m}" display="inline"><msub><mi></mi><mi>m</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I2.i5.p2.m25" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"></span></p>
+</blockquote>
+</div>
+<div id="S0.I2.i5.p3" class="ltx_para">
+<p class="ltx_p">The scope of the function name <math id="S0.I2.i5.p3.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">id<span class="ltx_text ltx_font_upright"><math id="S0.I2.i5.p3.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> is
+the list of <math id="S0.I2.i5.p3.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exp<math id="S0.I2.i5.p3.m4" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_upright"><math id="S0.I2.i5.p3.m5" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> to <math id="S0.I2.i5.p3.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exp<math id="S0.I2.i5.p3.m7" class="ltx_Math" alttext="{}_{m}" display="inline"><msub><mi></mi><mi>m</mi></msub></math><span class="ltx_text ltx_font_upright"><math id="S0.I2.i5.p3.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>.
+The scope of names in each pattern <math id="S0.I2.i5.p3.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">pat<math id="S0.I2.i5.p3.m10" class="ltx_Math" alttext="{}_{i,j}" display="inline"><msub><mi></mi><mrow><mi>i</mi><mo mathvariant="normal">,</mo><mi>j</mi></mrow></msub></math><span class="ltx_text ltx_font_upright"><math id="S0.I2.i5.p3.m11" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> is the
+corresponding expression <math id="S0.I2.i5.p3.m12" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exp<math id="S0.I2.i5.p3.m13" class="ltx_Math" alttext="{}_{i}" display="inline"><msub><mi></mi><mi>i</mi></msub></math><span class="ltx_text ltx_font_upright"><math id="S0.I2.i5.p3.m14" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>.
+</p>
+</div>
+</li>
+<li id="S0.I2.i6" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S0.I2.i6.p1" class="ltx_para">
+<p class="ltx_p">Function expression.</p>
+</div>
+<div id="S0.I2.i6.p2" class="ltx_para">
+<p class="ltx_p">It has the following syntax.
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">fn <math id="S0.I2.i6.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<math id="S0.I2.i6.p2.m2" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I2.i6.p2.m3" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">  =&gt; <math id="S0.I2.i6.p2.m4" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<math id="S0.I2.i6.p2.m5" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I2.i6.p2.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">  |  <math id="S0.I2.i6.p2.m7" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math>  | <math id="S0.I2.i6.p2.m8" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<math id="S0.I2.i6.p2.m9" class="ltx_Math" alttext="{}_{n}" display="inline"><msub><mi></mi><mi>n</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I2.i6.p2.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">  =&gt; <math id="S0.I2.i6.p2.m11" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<math id="S0.I2.i6.p2.m12" class="ltx_Math" alttext="{}_{m}" display="inline"><msub><mi></mi><mi>m</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I2.i6.p2.m13" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">
+</span></p>
+</blockquote>
+<p class="ltx_p">The scope of a name defined in a pattern <math id="S0.I2.i6.p2.m14" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">pat<math id="S0.I2.i6.p2.m15" class="ltx_Math" alttext="{}_{i}" display="inline"><msub><mi></mi><mi>i</mi></msub></math><span class="ltx_text ltx_font_upright"><math id="S0.I2.i6.p2.m16" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+is the corresponding expression <math id="S0.I2.i6.p2.m17" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exp<math id="S0.I2.i6.p2.m18" class="ltx_Math" alttext="{}_{i}" display="inline"><msub><mi></mi><mi>i</mi></msub></math><span class="ltx_text ltx_font_upright"><math id="S0.I2.i6.p2.m19" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>.
+</p>
+</div>
+</li>
+<li id="S0.I2.i7" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S0.I2.i7.p1" class="ltx_para">
+<p class="ltx_p">Case expression.</p>
+</div>
+<div id="S0.I2.i7.p2" class="ltx_para">
+<p class="ltx_p">It has the following syntax.
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">case <math id="S0.I2.i7.p2.m1" class="ltx_Math" alttext="exp" display="inline"><mrow><mi>e</mi><mi>x</mi><mi>p</mi></mrow></math> of <math id="S0.I2.i7.p2.m2" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<math id="S0.I2.i7.p2.m3" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I2.i7.p2.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">  =&gt; <math id="S0.I2.i7.p2.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<math id="S0.I2.i7.p2.m6" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I2.i7.p2.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">  |  <math id="S0.I2.i7.p2.m8" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math>  | <math id="S0.I2.i7.p2.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">pat<math id="S0.I2.i7.p2.m10" class="ltx_Math" alttext="{}_{n}" display="inline"><msub><mi></mi><mi>n</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I2.i7.p2.m11" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">  =&gt; <math id="S0.I2.i7.p2.m12" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<math id="S0.I2.i7.p2.m13" class="ltx_Math" alttext="{}_{m}" display="inline"><msub><mi></mi><mi>m</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="S0.I2.i7.p2.m14" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"></span></p>
+</blockquote>
+<p class="ltx_p">The scope of a name in each pattern <math id="S0.I2.i7.p2.m15" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">pat<math id="S0.I2.i7.p2.m16" class="ltx_Math" alttext="{}_{i}" display="inline"><msub><mi></mi><mi>i</mi></msub></math><span class="ltx_text ltx_font_upright"><math id="S0.I2.i7.p2.m17" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> is
+the corresponding expression <math id="S0.I2.i7.p2.m18" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exp<math id="S0.I2.i7.p2.m19" class="ltx_Math" alttext="{}_{i}" display="inline"><msub><mi></mi><mi>i</mi></msub></math><span class="ltx_text ltx_font_upright"><math id="S0.I2.i7.p2.m20" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>.
+</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch20.html" title="Chapter 20 Patterns and Pattern Matching ‣ Part III Reference manual ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">20 </span>Patterns and Pattern Matching</span></a><a href="Ch22.html" title="Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22 </span>SQL Expressions and Commands</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sat Nov 16 16:42:06 2024 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

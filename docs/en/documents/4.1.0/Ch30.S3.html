@@ -1,0 +1,215 @@
+---
+layout: default
+permalink: /en/documents/4.1.0/Ch30.S3.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Sat Nov 16 16:42:06 2024 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Nov, 2024.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch30.html" title="Chapter 30 A parser generator smlyacc and smllex ‣ Part IV Programming Tools ‣ SML# Document Version 4.1.0">
+ <link rel="up up" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.1.0">
+ <link rel="up up up" href="./" title="SML# Document Version 4.1.0">
+ <link rel="start" href="./" title="SML# Document Version 4.1.0">
+ <link rel="prev" href="Ch30.S2.html" title="30.2 The structure of a smlyacc input file ‣ Chapter 30 A parser generator smlyacc and smllex ‣ Part IV Programming Tools ‣ SML# Document Version 4.1.0">
+ <link rel="next" href="Ch30.S4.html" title="30.4 The structure of a smllex input file ‣ Chapter 30 A parser generator smlyacc and smllex ‣ Part IV Programming Tools ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch30.S1.html" title="30.1 The generated files ‣ Chapter 30 A parser generator smlyacc and smllex ‣ Part IV Programming Tools ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch30.S2.html" title="30.2 The structure of a smlyacc input file ‣ Chapter 30 A parser generator smlyacc and smllex ‣ Part IV Programming Tools ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch30.S4.html" title="30.4 The structure of a smllex input file ‣ Chapter 30 A parser generator smlyacc and smllex ‣ Part IV Programming Tools ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch30.S5.html" title="30.5 The interface file for the generated lexer ‣ Chapter 30 A parser generator smlyacc and smllex ‣ Part IV Programming Tools ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch30.html" title="Chapter 30 A parser generator smlyacc and smllex ‣ Part IV Programming Tools ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 4.1.0">
+title: "30.3 The structure of a smlyacc output file and the interface file specification‣ Chapter 30 A parser generator smlyacc and smllex ‣ Part IV Programming Tools ‣ SML# Document Version 4.1.0"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 4.1.0</div>
+<div>
+<a href="Ch30.html" title="Chapter 30 A parser generator smlyacc and smllex ‣ Part IV Programming Tools ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">30 </span>A parser generator smlyacc and smllex</span></a><a href="Ch30.S2.html" title="30.2 The structure of a smlyacc input file ‣ Chapter 30 A parser generator smlyacc and smllex ‣ Part IV Programming Tools ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">30.2 </span>The structure of a smlyacc input file</span></a><a href="Ch30.S4.html" title="30.4 The structure of a smllex input file ‣ Chapter 30 A parser generator smlyacc and smllex ‣ Part IV Programming Tools ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">30.4 </span>The structure of a smllex input file</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">30.3 </span>The
+structure of a smlyacc output file and the interface file specification</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">smlyacc</span> generates a file
+<span class="ltx_text ltx_font_typewriter"><math id="p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">YaccInputFile<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">.grm.sml</span> containing one structure of the
+following signature.
+</p>
+</div>
+<div id="p2" class="ltx_para">
+<pre class="ltx_verbatim ltx_font_typewriter">
+    signature ML_LRVALS =
+      sig
+         structure Tokens : ML_TOKENS
+         structure Parser : PARSER
+         sharing type Parser.token = Tokens.token
+      end
+</pre>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">This signature and other supporting library for <span class="ltx_text ltx_font_typewriter">smlyacc</span>
+are collected in <span class="ltx_text ltx_font_typewriter">smlyacc-lib.smi</span>.
+In order to use the generated parser program file, the following
+interface file must be written.
+</p>
+</div>
+<div id="p4" class="ltx_para">
+<pre class="ltx_verbatim ltx_font_typewriter">
+    _require "basis.smi"
+    _require "ml-yacc-lib.smi"
+
+    structure &lt;Name&gt; =
+    struct
+      structure Parser =
+      struct
+        type token (= boxed)
+        type stream (= boxed)
+        type result = Absyn.parseresult
+        type pos = int
+        type arg = unit
+        exception ParseError
+        val makeStream : {lexer:unit -&gt; token} -&gt; stream
+        val consStream : token * stream -&gt; stream
+        val getStream : stream -&gt; token * stream
+        val sameToken : token * token -&gt; bool
+        val parse : {lookahead:int,
+                     stream:stream,
+                     error: (string * pos * pos -&gt; unit),
+                     arg: arg}
+                    -&gt; result * stream
+      end
+      structure Tokens =
+      struct
+        type pos = Parser.pos
+        type token = Parser.token
+        &lt;the set of Token forming functions&gt;
+         ...
+        val EOF: word *  pos * pos -&gt; token
+        val CHAR: string *  pos * pos -&gt; token
+        ....
+      end
+    end
+</pre>
+</div>
+<div id="p5" class="ltx_para">
+<p class="ltx_p">In <span class="ltx_text ltx_font_typewriter">Parser</span> structure, <span class="ltx_text ltx_font_typewriter">pos</span>，<span class="ltx_text ltx_font_typewriter">arg</span>，
+<span class="ltx_text ltx_font_typewriter">result</span> types are those that are specified in
+<math id="p5.m1" class="ltx_Math" alttext="\mbox{$\,\langle$}{\it YaccInputFileName}\mbox{$\rangle\,$}" display="inline"><mrow><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow><mi>Y</mi><mi>a</mi><mi>c</mi><mi>c</mi><mi>I</mi><mi>n</mi><mi>p</mi><mi>u</mi><mi>t</mi><mi>F</mi><mi>i</mi><mi>l</mi><mi>e</mi><mi>N</mi><mi>a</mi><mi>m</mi><mi>e</mi><mrow><mo stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></mrow></math><span class="ltx_text ltx_font_typewriter">.grm</span>.
+The other components are fixed and should be specified as above.
+To write the <span class="ltx_text ltx_font_typewriter">Token</span> structure，copy the contents of
+the <math id="p5.m2" class="ltx_Math" alttext="\mbox{$\,\langle$}{\it YaccInputFileName}\mbox{$\rangle\,$}" display="inline"><mrow><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow><mi>Y</mi><mi>a</mi><mi>c</mi><mi>c</mi><mi>I</mi><mi>n</mi><mi>p</mi><mi>u</mi><mi>t</mi><mi>F</mi><mi>i</mi><mi>l</mi><mi>e</mi><mi>N</mi><mi>a</mi><mi>m</mi><mi>e</mi><mrow><mo stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></mrow></math><span class="ltx_text ltx_font_typewriter">.grm.sig</span> signature generated by <span class="ltx_text ltx_font_typewriter">smlyacc</span>.</p>
+</div>
+<div id="p6" class="ltx_para">
+<p class="ltx_p">The components are described below.
+</p>
+</div>
+<div id="p7" class="ltx_para">
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">token</span> type.
+The abstract type for the token returned by the lexer generated
+by <span class="ltx_text ltx_font_typewriter">smllex</span>.</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">stream</span> type.
+The abstract type for the input stream of the parser.</p>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">result</span> type.
+The type of the output of the parser.
+It should be the same as the type of the attribute of the
+top-level grammar rule specified in the
+<span class="ltx_text ltx_font_typewriter"><math id="I1.i3.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">YaccInputFile<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i3.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">.grm</span> file.
+の属の性の型と同一である．</p>
+</div>
+</li>
+<li id="I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i4.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">pos</span> type.
+The position data type used by the lexer.</p>
+</div>
+</li>
+<li id="I1.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i5.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">arg</span> type.
+The additional argument type for the parser specified in the
+<span class="ltx_text ltx_font_typewriter"><math id="I1.i5.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">YaccInputFile<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i5.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">.grm</span> file.</p>
+</div>
+</li>
+<li id="I1.i6" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i6.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">ParseError</span> exception.
+Parse error exception generated by the parser.</p>
+</div>
+</li>
+<li id="I1.i7" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i7.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">makeStream</span> function.
+It takes a lexer and return the input stream for the parser.</p>
+</div>
+</li>
+<li id="I1.i8" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i8.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">consStream</span> function.
+This up-push one token to the given input stream.</p>
+</div>
+</li>
+<li id="I1.i9" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i9.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">getStream</span> function.
+It returns the first token in the current input stream.</p>
+</div>
+</li>
+<li id="I1.i10" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i10.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">sameToken</span> function.
+Token equality checking function.</p>
+</div>
+</li>
+<li id="I1.i11" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i11.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">parse</span> function.
+The parser function.
+It takes the current input stream and returns the generated
+abstract syntax tree and the rest of the input stream.</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch30.S2.html" title="30.2 The structure of a smlyacc input file ‣ Chapter 30 A parser generator smlyacc and smllex ‣ Part IV Programming Tools ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">30.2 </span>The structure of a smlyacc input file</span></a><a href="Ch30.S4.html" title="30.4 The structure of a smllex input file ‣ Chapter 30 A parser generator smlyacc and smllex ‣ Part IV Programming Tools ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">30.4 </span>The structure of a smllex input file</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sat Nov 16 16:42:06 2024 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

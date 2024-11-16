@@ -1,0 +1,152 @@
+---
+layout: default
+permalink: /en/documents/4.1.0/Ch7.S3.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Sat Nov 16 16:42:06 2024 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Nov, 2024.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="up up" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="up up up" href="./" title="SML# Document Version 4.1.0">
+ <link rel="start" href="./" title="SML# Document Version 4.1.0">
+ <link rel="prev" href="Ch7.S2.html" title="7.2 Declarative programming ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="next" href="Ch7.S4.html" title="7.4 Constants literals and built-in primitives ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S1.html" title="7.1 About the ML language family ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S2.html" title="7.2 Declarative programming ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S4.html" title="7.4 Constants literals and built-in primitives ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S5.html" title="7.5 Type bool and conditional expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S6.html" title="7.6 Compound expressions and function definitions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S7.html" title="7.7 Recursive functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S8.html" title="7.8 Functions with multiple arguments ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S9.html" title="7.9 Function application syntax ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S10.html" title="7.10 Higher-order functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S11.html" title="7.11 Using higher-order functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S12.html" title="7.12 Imperative features of ML ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S13.html" title="7.13 Mutable memory reference types ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S14.html" title="7.14 Left-to-right applicative order evaluation ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S15.html" title="7.15 Procedural control ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S16.html" title="7.16 Loop and tail recursion ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S17.html" title="7.17 let expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S18.html" title="7.18 List data type ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S19.html" title="7.19 Principle in composing expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch7.S20.html" title="7.20 Polymorphic functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 Installing SML# ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML# feature: other type system extensions ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 4.1.0">
+title: "7.3  Representing computation by composing expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 4.1.0</div>
+<div>
+<a href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7 </span>Introduction to ML programming</span></a><a href="Ch7.S2.html" title="7.2 Declarative programming ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.2 </span>Declarative programming</span></a><a href="Ch7.S4.html" title="7.4 Constants literals and built-in primitives ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.4 </span>
+Constants literals and built-in primitives</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">7.3 </span>
+Representing computation by composing expressions
+</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">In the factorial example, the program returns <span class="ltx_text ltx_font_typewriter">1</span>
+if the parameter is <span class="ltx_text ltx_font_typewriter">0</span>，and returns <span class="ltx_text ltx_font_typewriter">n * fact (n - 1)</span>
+otherwise.
+In this way, the value returned by a function is represented by
+an <span class="ltx_text ltx_font_italic">expression</span>.
+<span class="ltx_text ltx_font_typewriter">1</span> in the first case is an expression representing the
+natural number <math id="p1.m1" class="ltx_Math" alttext="1" display="inline"><mn>1</mn></math>.
+<span class="ltx_text ltx_font_typewriter">n * fact (n - 1)</span> is an expression involving variable <span class="ltx_text ltx_font_typewriter">n</span> and function application.
+The basic principle of ML programming is</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">programming is done by defining an expression that represents the desired value</span>.</p>
+</blockquote>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">An expression consist of the following components:</p>
+<ol id="I1" class="ltx_enumerate">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">constants such as <span class="ltx_text ltx_font_typewriter">1</span>,</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">variables representing function parameters and defined values.</p>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p">function applications (function calls), and</p>
+</div>
+</li>
+<li id="I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">4.</span> 
+<div id="I1.i4.p1" class="ltx_para">
+<p class="ltx_p">functions and other data structure constructions</p>
+</div>
+</li>
+</ol>
+<p class="ltx_p">The items 1 through 3 are the same as in mathematical expressions,
+we have leaned in school.
+For example, the sum of the arithmetic sequence
+<math id="p2.m1" class="ltx_Math" alttext="S_{n}=1^{2}+2^{2}+\cdots+n^{2}" display="inline"><mrow><mi>S</mi><msub><mi></mi><mi>n</mi></msub><mo>=</mo><mn>1</mn><msup><mi></mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><msup><mi></mi><mn>2</mn></msup><mo>+</mo><mi mathvariant="normal">⋯</mi><mo>+</mo><mi>n</mi><msup><mi></mi><mn>2</mn></msup></mrow></math>
+is given by the following equation.</p>
+<table id="Ch7.Ex3" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Ch7.Ex3.m1" class="ltx_Math" alttext="S_{n}=\frac{n(n+1)(2n+1)}{6}" display="block"><mrow><mi>S</mi><msub><mi></mi><mi>n</mi></msub><mo>=</mo><mfrac><mrow><mi>n</mi><mo stretchy="false">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><mn>6</mn></mfrac></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">This is directly programmed as follows.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val Sn = (n * (n + 1) * (2 * n + 1)) div 6</span></p>
+</blockquote>
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">*</span> and <span class="ltx_text ltx_font_typewriter">div</span> are integer multiplication and division,
+respectively.
+When <math id="p2.m2" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math> is defined, it correctly computes <math id="p2.m3" class="ltx_Math" alttext="S_{n}" display="inline"><mrow><mi>S</mi><msub><mi></mi><mi>n</mi></msub></mrow></math> as seen below.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># val n = 10;
+<br class="ltx_break">
+val n = 10 : int
+<br class="ltx_break">
+# val Sn = (n * (n + 1) * (2 * n + 1)) div 6;
+<br class="ltx_break">
+val Sn = 385 : int</span></p>
+</blockquote>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch7.S2.html" title="7.2 Declarative programming ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.2 </span>Declarative programming</span></a><a href="Ch7.S4.html" title="7.4 Constants literals and built-in primitives ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.4 </span>
+Constants literals and built-in primitives</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sat Nov 16 16:42:06 2024 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

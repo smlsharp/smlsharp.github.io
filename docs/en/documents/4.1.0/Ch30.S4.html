@@ -1,0 +1,184 @@
+---
+layout: default
+permalink: /en/documents/4.1.0/Ch30.S4.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Sat Nov 16 16:42:06 2024 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Nov, 2024.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch30.html" title="Chapter 30 A parser generator smlyacc and smllex ‣ Part IV Programming Tools ‣ SML# Document Version 4.1.0">
+ <link rel="up up" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.1.0">
+ <link rel="up up up" href="./" title="SML# Document Version 4.1.0">
+ <link rel="start" href="./" title="SML# Document Version 4.1.0">
+ <link rel="prev" href="Ch30.S3.html" title="30.3 The structure of a smlyacc output file and the interface file specification ‣ Chapter 30 A parser generator smlyacc and smllex ‣ Part IV Programming Tools ‣ SML# Document Version 4.1.0">
+ <link rel="next" href="Ch30.S5.html" title="30.5 The interface file for the generated lexer ‣ Chapter 30 A parser generator smlyacc and smllex ‣ Part IV Programming Tools ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch30.S1.html" title="30.1 The generated files ‣ Chapter 30 A parser generator smlyacc and smllex ‣ Part IV Programming Tools ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch30.S2.html" title="30.2 The structure of a smlyacc input file ‣ Chapter 30 A parser generator smlyacc and smllex ‣ Part IV Programming Tools ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch30.S3.html" title="30.3 The structure of a smlyacc output file and the interface file specification ‣ Chapter 30 A parser generator smlyacc and smllex ‣ Part IV Programming Tools ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch30.S5.html" title="30.5 The interface file for the generated lexer ‣ Chapter 30 A parser generator smlyacc and smllex ‣ Part IV Programming Tools ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch30.html" title="Chapter 30 A parser generator smlyacc and smllex ‣ Part IV Programming Tools ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 4.1.0">
+title: "30.4 The structure of a smllex input file‣ Chapter 30 A parser generator smlyacc and smllex ‣ Part IV Programming Tools ‣ SML# Document Version 4.1.0"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 4.1.0</div>
+<div>
+<a href="Ch30.html" title="Chapter 30 A parser generator smlyacc and smllex ‣ Part IV Programming Tools ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">30 </span>A parser generator smlyacc and smllex</span></a><a href="Ch30.S3.html" title="30.3 The structure of a smlyacc output file and the interface file specification ‣ Chapter 30 A parser generator smlyacc and smllex ‣ Part IV Programming Tools ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">30.3 </span>The
+structure of a smlyacc output file and the interface file specification</span></a><a href="Ch30.S5.html" title="30.5 The interface file for the generated lexer ‣ Chapter 30 A parser generator smlyacc and smllex ‣ Part IV Programming Tools ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">30.5 </span>The interface file for the generated lexer</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">30.4 </span>The structure of a smllex input file</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">An input file of <span class="ltx_text ltx_font_typewriter">smllex</span> has the following general structure.
+</p>
+</div>
+<div id="p2" class="ltx_para">
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"><math id="p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">user declarations<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">
+
+<br class="ltx_break">
+%%
+
+<br class="ltx_break">
+<math id="p2.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">LEX declarations<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p2.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">
+
+<br class="ltx_break">
+%%
+
+<br class="ltx_break">
+<math id="p2.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">descriptions of regular expressions and their attributes<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p2.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">
+</span></p>
+</blockquote>
+</div>
+<div id="p3" class="ltx_para">
+<ol id="I1" class="ltx_enumerate">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">The user declaration section
+The SML# code for user declarations section specifies
+the types that are used in lexical analysis and any other user level
+code which will be used in attribute specifications in the regular
+expression section.</p>
+</div>
+<div id="I1.i1.p2" class="ltx_para">
+<p class="ltx_p">The mandatory specifications are the following.</p>
+<pre class="ltx_verbatim ltx_font_typewriter">
+   type lexresult = ...
+   fun eof () = ...
+</pre>
+</div>
+<div id="I1.i1.p3" class="ltx_para">
+<ul id="I1.i1.I1" class="ltx_itemize">
+<li id="I1.i1.I0.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.I0.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">lexresult</span> type．
+The type of the value of returned by the lexer when the lexer
+accepts a regular expression.
+When using with the <span class="ltx_text ltx_font_typewriter">smlyacc</span>, this is usually the token
+type defined in <span class="ltx_text ltx_font_typewriter"><math id="I1.i1.I0.i1.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">YaccInputFile<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i1.I0.i1.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">.grm</span> file.</p>
+</div>
+</li>
+<li id="I1.i1.I0.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.I0.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">eof</span> function.
+This is the function that is called when the lexical analyzer
+detects the end of file.
+It usually returns the value (of type <span class="ltx_text ltx_font_typewriter">lexresult</span>) that
+represent the end of file token.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">The LEX declaration section</p>
+</div>
+<div id="I1.i2.p2" class="ltx_para">
+<p class="ltx_p">This section specifies directives for <span class="ltx_text ltx_font_typewriter">smllex</span> functions
+and auxiliary definitions for specifying regular expressions in the
+regular expression section.
+The syntax of auxiliary definitions for regular expressions are the same as
+the standard LEX system.</p>
+</div>
+<div id="I1.i2.p3" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">smllex</span> directives include the following.
+</p>
+</div>
+<div id="I1.i2.p4" class="ltx_para">
+<ul id="I1.i2.I1" class="ltx_itemize">
+<li id="I1.i2.I0.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.I0.i1.p1" class="ltx_para">
+<p class="ltx_p"><code class="ltx_verbatim ltx_font_typewriter">%structure</code> 宣言．
+<span class="ltx_text ltx_font_typewriter">smllex</span> generate a lexical analyzer as a structure.
+This declaration specifies the name of the structure as follows.
+</p>
+<pre class="ltx_verbatim ltx_font_typewriter">
+    %structure MLLex
+</pre>
+</div>
+</li>
+<li id="I1.i2.I0.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.I0.i2.p1" class="ltx_para">
+<p class="ltx_p"><code class="ltx_verbatim ltx_font_typewriter">%arg</code> 宣言．
+This specifies an extra argument to be passed to the lexical analyzer.
+It can be omitted if no extra argument is needed.
+</p>
+</div>
+</li>
+<li id="I1.i2.I0.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.I0.i3.p1" class="ltx_para">
+<p class="ltx_p"><code class="ltx_verbatim ltx_font_typewriter">%full</code> 宣言．
+This specifies that the generated lexer handles 8 bit character.
+</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p">The regular expression definition section
+This section defines the set of regular expressions to be accepted.
+</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">For the details of the specification, consult the document
+<span class="ltx_text ltx_font_typewriter">src/ml-lex/doc/mllex.pdf</span> in the SML# source code distribution.
+</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch30.S3.html" title="30.3 The structure of a smlyacc output file and the interface file specification ‣ Chapter 30 A parser generator smlyacc and smllex ‣ Part IV Programming Tools ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">30.3 </span>The
+structure of a smlyacc output file and the interface file specification</span></a><a href="Ch30.S5.html" title="30.5 The interface file for the generated lexer ‣ Chapter 30 A parser generator smlyacc and smllex ‣ Part IV Programming Tools ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">30.5 </span>The interface file for the generated lexer</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sat Nov 16 16:42:06 2024 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

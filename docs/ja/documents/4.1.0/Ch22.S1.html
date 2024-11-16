@@ -1,0 +1,638 @@
+---
+layout: default
+permalink: /ja/documents/4.1.0/Ch22.S1.html
+translated: true
+lang: ja
+head: |
+ <!--Generated on Sat Nov 16 16:41:37 2024 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on 令和6年11月.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch22.html" title="Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="up up" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="up up up" href="./" title="プログラミング言語SML#解説 4.1.0版">
+ <link rel="start" href="./" title="プログラミング言語SML#解説 4.1.0版">
+ <link rel="prev" href="Ch22.html" title="Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="next" href="Ch22.S2.html" title="22.2 SQLクエリのためのML式の拡張構文 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S2.html" title="22.2 SQLクエリのためのML式の拡張構文 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S3.html" title="22.3 接続先データベース宣言式：_sqlserver ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S4.html" title="22.4 SQL評価式 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S5.html" title="22.5 SELECTクエリ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S6.html" title="22.6 SQLコマンド ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S7.html" title="22.7 SQL実行関数式 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S8.html" title="22.8 SQLライブラリ：SQLストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S9.html" title="22.9 SQLライブラリ：SQL.Opストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S10.html" title="22.10 SQLライブラリ：SQL.Numericストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch22.S11.html" title="22.11 標準SQL文法との差異（参考） ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch15.html" title="Chapter 15 序論 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch16.html" title="Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch17.html" title="Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch18.html" title="Chapter 18 型 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch19.html" title="Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch20.html" title="Chapter 20 パターンとパターンマッチング ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch21.html" title="Chapter 21 識別子のスコープ規則 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch22.html" title="Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch23.html" title="Chapter 23 核言語の宣言とインターフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch24.html" title="Chapter 24 モジュール言語の宣言とインタフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch25.html" title="Chapter 25 SML#のライブラリ概要 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch26.html" title="Chapter 26 Standard ML標準ライブラリ ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch27.html" title="Chapter 27 SML#システムライブラリ ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch28.html" title="Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch29.html" title="Chapter 29 SML#実行時データ管理 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.1.0版">
+title: "22.1 SQLの型‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.1.0版</div>
+<div>
+<a href="Ch22.html" title="Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22 </span>SQL式とコマンド</span></a><a href="Ch22.html" title="Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22 </span>SQL式とコマンド</span></a><a href="Ch22.S2.html" title="22.2 SQLクエリのためのML式の拡張構文 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.2 </span>SQLクエリのためのML式の拡張構文</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">22.1 </span>SQLの型</h1>
+
+<section id="SS1" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.1.1 </span>SQLの基本型</h2>
+
+<div id="SS1.p1" class="ltx_para">
+<p class="ltx_p">NULLを除いて，
+以下のSML#の基本型がSQLの基本型にそれぞれ対応する．
+</p>
+</div>
+<div id="SS1.p2" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row ltx_border_l ltx_border_r ltx_border_t">SML#の基本型</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">対応するSQLの型</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t">
+<span class="ltx_text ltx_font_typewriter">int</span>, <span class="ltx_text ltx_font_typewriter">intInf</span>, <span class="ltx_text ltx_font_typewriter">word</span>
+</th>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">整数型</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">bool</span></th>
+<td class="ltx_td ltx_align_left ltx_border_r">SQL:99（機能ID T031）のBOOLEAN型</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">char</span></th>
+<td class="ltx_td ltx_align_left ltx_border_r">
+<span class="ltx_text ltx_font_typewriter">CHAR(1)</span>型</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">string</span></th>
+<td class="ltx_td ltx_align_left ltx_border_r">
+<span class="ltx_text ltx_font_typewriter">TEXT</span>または<span class="ltx_text ltx_font_typewriter">VARCHAR</span>型</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">real</span></th>
+<td class="ltx_td ltx_align_left ltx_border_r">倍精度浮動小数点型</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">real32</span></th>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">単精度浮動小数点型</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="SS1.p3" class="ltx_para">
+<p class="ltx_p">さらに，以下の数値型がSQLとの相互運用のために定義されている．
+</p>
+</div>
+<div id="SS1.p4" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row ltx_border_l ltx_border_r ltx_border_t">SML#の型</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">対応するSQLの型</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">SQL.numeric</span></th>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">
+<span class="ltx_text ltx_font_typewriter">NUMERIC</span>型（最大精度の10進数）</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">SQL.decimal</span></th>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">
+<span class="ltx_text ltx_font_typewriter">DECIMAL</span>型（<span class="ltx_text ltx_font_typewriter">NUMERIC</span>型の別名）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="SS1.p5" class="ltx_para">
+<p class="ltx_p">SML#の型とデータベース側の型の具体的な対応付けは，
+接続先のデータベースエンジンと，
+SML#におけるそのデータベースエンジンのサポート状況に依存する．
+データベースエンジンごとの具体的な型の対応は
+<a href="Ch22.S8.html#SS1" title="22.8.1 データベースサーバーへの接続 ‣ 22.8 SQLライブラリ：SQLストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.8.1</span></a>節で示す．
+</p>
+</div>
+<div id="SS1.p6" class="ltx_para">
+<p class="ltx_p">SQLのNULLは，SML#では<span class="ltx_text ltx_font_typewriter">option</span>型の<span class="ltx_text ltx_font_typewriter">NONE</span>に
+対応付けられる．
+NOT NULL制約が無いカラムの参照など，NULLを返す
+可能性がある式の型は，上記の型のいずれかの<span class="ltx_text ltx_font_typewriter">option</span>型である．
+</p>
+</div>
+</section>
+<section id="SS2" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.1.2 </span>SQLの論理演算式の型</h2>
+
+<div id="SS2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.bool3</span>型は，比較演算子や論理演算子からなるSQLの論理演算式
+の型である．
+この<span class="ltx_text ltx_font_typewriter">SQL.bool3</span>型は，SQLクエリの静的な整合性検査のために，
+真偽値に評価されるSQL評価式の断片に便宜上付けた型であり，
+どの標準SQLの型とも対応しない．
+</p>
+</div>
+<div id="SS2.p2" class="ltx_para">
+<p class="ltx_p">論理演算式の型<span class="ltx_text ltx_font_typewriter">SQL.bool3</span>と真偽値の型<span class="ltx_text ltx_font_typewriter">bool</span>を
+区別していることは，
+SQLの真偽値の取り扱いに関して歴史的な混乱があることに由来している．
+SQLでは伝統的に，真偽判定は真，偽，不明の3値で行われ，
+真偽値は第一級ではなく（例えば真偽値をテーブルに保存することはできない），
+真偽値のリテラルも存在しなかった．
+第一級の真偽値型BOOLEANは，SQL99において，オプショナルな機能
+（機能ID T031）として導入された．
+しかし，このオプショナルな規格にはSQLの他の部分との間で技術的な
+不整合があることが指摘されており，
+結局，このBOOLEAN型はRDBMSベンダーからの支持をほとんど集めなかった．
+規格策定から20年近く立った現在においても，
+主要なRDBMSは，唯一の例外であるPostgreSQLを除いて，
+BOOLEAN型を提供していない．
+</p>
+</div>
+<div id="SS2.p3" class="ltx_para">
+<p class="ltx_p">この混乱から来る誤解や非互換性を避けるため，SML#は
+論理演算式と真偽値の区別を型上で強制する．
+真理値リテラル
+<span class="ltx_text ltx_font_typewriter">true</span>および<span class="ltx_text ltx_font_typewriter">false</span>は
+論理演算式として使用することはできず，
+また
+論理演算の結果をBOOLEAN値として取り出すことはできない．
+真偽値リテラルについては
+<a href="Ch22.S4.html#SS2" title="22.4.2 SQL定数式 ‣ 22.4 SQL評価式 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.4.2</span></a>節を，
+SQL論理演算式については
+<a href="Ch22.S4.html#SS6" title="22.4.6 SQL論理演算式 ‣ 22.4 SQL評価式 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.4.6</span></a>節を
+参照せよ．
+</p>
+</div>
+</section>
+<section id="SS3" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.1.3 </span>SQLのテーブルおよびスキーマの型</h2>
+
+<div id="SS3.p1" class="ltx_para">
+<p class="ltx_p">SQLのテーブル，ビュー，およびスキーマには，
+SML#のレコードのリスト型が対応付けられる．
+SQLのテーブルおよびビューには，
+カラムの名前と型をそれぞれフィールドラベルおよびそのフィールドの型
+としたレコード型のリスト型が与えられる．
+カラムに
+NOT NULL制約またはPRIMARY KEY制約が付いていないとき，
+そのカラムの型はいずれかの基本型の<span class="ltx_text ltx_font_typewriter">option</span>型である．
+例えば，
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">CREATE TABLE foo (bar INT, baz TEXT NOT NULL);</span></p>
+</blockquote>
+<p class="ltx_p">と定義されたテーブル<span class="ltx_text ltx_font_typewriter">foo</span>の構造は，SML#では
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">{bar : int option, baz : string} list</span></p>
+</blockquote>
+<p class="ltx_p">という型で表現される．
+</p>
+</div>
+<div id="SS3.p2" class="ltx_para">
+<p class="ltx_p">このように，テーブルあるいはカラムに付く制約のうち，
+NOT NULL制約およびPRIMARY KEY制約の「NULLではない」ことだけは
+SML#の型で表現され，
+SML#の型システムによって静的に検査される．
+その他の制約はSQLデータベースに
+よってクエリ実行時に検査される．
+</p>
+</div>
+<div id="SS3.p3" class="ltx_para">
+<p class="ltx_p">SQLスキーマは，テーブルおよびビューの名前をフィールドラベル，
+その構造を表す型をフィールド型とするレコード型で表現される．
+例えば，
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">CREATE TABLE employee (id INT PRIMARY KEY, name TEXT NOT NULL,
+<br class="ltx_break">
+                       age INT NOT NULL, deptId INT, salary INT);
+<br class="ltx_break">
+CREATE TABLE department (deptId INT PRIMARY KEY, name TEXT NOT NULL);</span></p>
+</blockquote>
+<p class="ltx_p">と定義されたスキーマは，SML#では
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">{
+<br class="ltx_break">
+  employee : {id : int, name : string, age : int,
+<br class="ltx_break">
+              deptId : int option, salary : int option} list,
+<br class="ltx_break">
+  department : {deptId : int, name : string} list
+<br class="ltx_break">
+}</span></p>
+</blockquote>
+<p class="ltx_p">と表現される．
+</p>
+</div>
+</section>
+<section id="SS4" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.1.4 </span>SQLクエリおよびその断片の型</h2>
+
+<div id="SS4.p1" class="ltx_para">
+<p class="ltx_p">SQLクエリおよびその部分式は，その構文カテゴリに対応して，
+それぞれ異なる型を持つ．
+SQLの各構文カテゴリとその型は以下の通りである．
+</p>
+</div>
+<div id="SS4.p2" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_l ltx_border_r ltx_border_t">構文カテゴリ</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">その項の型</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">SQL評価式</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">(<math id="SS4.p2.m1" class="ltx_Math" alttext="\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math> -&gt; <math id="SS4.p2.m2" class="ltx_Math" alttext="\tau_{2}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">2</mn></msub></mrow></math>,<math id="SS4.p2.m3" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.exp</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">SQLコマンド</td>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">(<math id="SS4.p2.m4" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>,<math id="SS4.p2.m5" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.command</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">SELECTクエリ</td>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">(<math id="SS4.p2.m6" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>,<math id="SS4.p2.m7" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.query</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">SELECT句</td>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">(<math id="SS4.p2.m8" class="ltx_Math" alttext="\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math>,<math id="SS4.p2.m9" class="ltx_Math" alttext="\tau_{2}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">2</mn></msub></mrow></math>,<math id="SS4.p2.m10" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.select</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">FROM句</td>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">(<math id="SS4.p2.m11" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>,<math id="SS4.p2.m12" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.from</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">WHERE句</td>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">(<math id="SS4.p2.m13" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>,<math id="SS4.p2.m14" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.whr</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">ORDER BY句</td>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">(<math id="SS4.p2.m15" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>,<math id="SS4.p2.m16" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.orderby</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">OFFSET句</td>
+<td class="ltx_td ltx_align_left ltx_border_r"><span class="ltx_text ltx_font_typewriter">(<math id="SS4.p2.m17" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>,<math id="SS4.p2.m18" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.offset</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_l ltx_border_r">LIMIT句</td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r"><span class="ltx_text ltx_font_typewriter">(<math id="SS4.p2.m19" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>,<math id="SS4.p2.m20" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.limit</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="SS4.p3" class="ltx_para">
+<p class="ltx_p">ここで，<math id="SS4.p3.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>はテーブルの型あるいは基本型，
+<math id="SS4.p3.m2" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>は接続先データベースを識別する型である．
+各型の意図は以下の通りである．
+</p>
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">(<math id="I1.i1.p1.m1" class="ltx_Math" alttext="\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math> -&gt; <math id="I1.i1.p1.m2" class="ltx_Math" alttext="\tau_{2}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">2</mn></msub></mrow></math>, <math id="I1.i1.p1.m3" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.exp</span>
+は，
+データベース接続<math id="I1.i1.p1.m4" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>および<math id="I1.i1.p1.m5" class="ltx_Math" alttext="\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn>1</mn></msub></mrow></math>型の行の下で<math id="I1.i1.p1.m6" class="ltx_Math" alttext="\tau_{2}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn>2</mn></msub></mrow></math>型を持つ
+SQL評価式の型である．
+</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">(<math id="I1.i2.p1.m1" class="ltx_Math" alttext="\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math>,<math id="I1.i2.p1.m2" class="ltx_Math" alttext="\tau_{2}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">2</mn></msub></mrow></math>,<math id="I1.i2.p1.m3" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.select</span>
+は，
+データベース接続<math id="I1.i2.p1.m4" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>の下で
+<math id="I1.i2.p1.m5" class="ltx_Math" alttext="\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn>1</mn></msub></mrow></math>型のテーブルを<math id="I1.i2.p1.m6" class="ltx_Math" alttext="\tau_{2}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn>2</mn></msub></mrow></math>型のテーブルに変換する
+SELECT句の型である．
+</p>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p">これら以外の構文カテゴリの型
+<span class="ltx_text ltx_font_typewriter">(<math id="I1.i3.p1.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>,<math id="I1.i3.p1.m2" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.<math id="I1.i3.p1.m3" class="ltx_Math" alttext="X" display="inline"><mi>X</mi></math></span>は，
+データベース接続<math id="I1.i3.p1.m4" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>の下で<math id="I1.i3.p1.m5" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>型を持つ<math id="I1.i3.p1.m6" class="ltx_Math" alttext="X" display="inline"><mi>X</mi></math>の型である．
+</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+<section id="SS5" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.1.5 </span>SQL関連のハンドルの型</h2>
+
+<div id="SS5.p1" class="ltx_para">
+<p class="ltx_p">SQLデータベースへの接続や，SQLクエリの結果に対して，
+SML#は以下の型を与える．
+</p>
+</div>
+<div id="SS5.p2" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row ltx_border_l ltx_border_r ltx_border_t">型</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">説明</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t">
+<math id="SS5.p2.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> SQL.server</span>
+</th>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">
+<math id="SS5.p2.m2" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>型のスキーマを持つデータベースを管理するサーバーへの接続先</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r">
+<math id="SS5.p2.m3" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> SQL.conn</span>
+</th>
+<td class="ltx_td ltx_align_left ltx_border_r">
+<math id="SS5.p2.m4" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>型のスキーマを持つデータベースを管理するサーバーへの接続ハンドル</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r">
+<math id="SS5.p2.m5" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> SQL.cursor</span>
+</th>
+<td class="ltx_td ltx_align_left ltx_border_r">
+<math id="SS5.p2.m6" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>型のテーブルにアクセスするためのカーソル</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_l ltx_border_r"><span class="ltx_text ltx_font_typewriter">(<math id="SS5.p2.m7" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>,<math id="SS5.p2.m8" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.db</span></th>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">接続<math id="SS5.p2.m9" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>で接続されている<math id="SS5.p2.m10" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>型のスキーマを持つデータベースの実体</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="SS5.p3" class="ltx_para">
+<p class="ltx_p">SQLを用いる典型的なSML#プログラムでは，
+これらの型はおおよそ以下のように使用される．
+</p>
+<ol id="I2" class="ltx_enumerate">
+<li id="I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="I2.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">_sqlserver</span>構文を用いて，
+<math id="I2.i1.p1.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> SQL.server</span>型の接続先情報を作る．
+（<a href="Ch22.S3.html" title="22.3 接続先データベース宣言式：_sqlserver ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.3</span></a>節参照）
+</p>
+</div>
+</li>
+<li id="I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="I2.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.connect</span>関数を用いて，
+<math id="I2.i2.p1.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> SQL.server</span>型の接続先に接続し，
+<math id="I2.i2.p1.m2" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> SQL.conn</span>型の接続ハンドルを得る．
+（<a href="Ch22.S8.html#SS1" title="22.8.1 データベースサーバーへの接続 ‣ 22.8 SQLライブラリ：SQLストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.8.1</span></a>節参照）
+</p>
+</div>
+</li>
+<li id="I2.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span> 
+<div id="I2.i3.p1" class="ltx_para">
+<p class="ltx_p">SQLクエリを，
+<span class="ltx_text ltx_font_typewriter">[’a. (<math id="I2.i3.p1.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>,’a) SQL.db -&gt; (<math id="I2.i3.p1.m2" class="ltx_Math" alttext="\tau^{\prime}" display="inline"><mrow><mi>τ</mi><msup><mi></mi><mo mathvariant="normal">′</mo></msup></mrow></math> SQL.cursor,’a) SQL.command]</span>型を
+持つ多相関数として構築する
+（<a href="#SS6" title="22.1.6 SQL式の型付け方針 ‣ 22.1 SQLの型 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.1.6</span></a>節参照）．
+</p>
+</div>
+</li>
+<li id="I2.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">4.</span> 
+<div id="I2.i4.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">_sql</span>構文を用いて，
+SQLクエリを
+<math id="I2.i4.p1.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> SQL.conn -&gt; <math id="I2.i4.p1.m2" class="ltx_Math" alttext="\tau^{\prime}" display="inline"><mrow><mi>τ</mi><msup><mi></mi><mo mathvariant="normal">′</mo></msup></mrow></math> SQL.cursor</span>型の
+関数に変換する
+（<a href="Ch22.S7.html" title="22.7 SQL実行関数式 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.7</span></a>節参照）．
+</p>
+</div>
+</li>
+<li id="I2.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">5.</span> 
+<div id="I2.i5.p1" class="ltx_para">
+<p class="ltx_p">この関数を<math id="I2.i5.p1.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> SQL.conn</span>型の接続ハンドルを引数として
+呼び出すと，
+SQLクエリがサーバーに送信され，クエリがサーバーで評価される．
+クエリの評価に成功すると，
+評価結果にアクセスする<math id="I2.i5.p1.m2" class="ltx_Math" alttext="\tau^{\prime}" display="inline"><mrow><mi>τ</mi><msup><mi></mi><mo>′</mo></msup></mrow></math><span class="ltx_text ltx_font_typewriter"> SQL.cursor</span>型のカーソルが得られる
+（<a href="Ch22.S7.html" title="22.7 SQL実行関数式 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.7</span></a>節参照）．
+</p>
+</div>
+</li>
+<li id="I2.i6" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">6.</span> 
+<div id="I2.i6.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.fetch</span>関数または<span class="ltx_text ltx_font_typewriter">SQL.fetchAll</span>関数を用いて
+<math id="I2.i6.p1.m1" class="ltx_Math" alttext="\tau^{\prime}" display="inline"><mrow><mi>τ</mi><msup><mi></mi><mo>′</mo></msup></mrow></math><span class="ltx_text ltx_font_typewriter"> SQL.cursor</span>型のカーソルから
+<math id="I2.i6.p1.m2" class="ltx_Math" alttext="\tau^{\prime}" display="inline"><mrow><mi>τ</mi><msup><mi></mi><mo>′</mo></msup></mrow></math>型のレコードを取得する
+（<a href="Ch22.S8.html#SS2" title="22.8.2 SQLクエリの実行と結果の取得 ‣ 22.8 SQLライブラリ：SQLストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.8.2</span></a>節参照）．
+</p>
+</div>
+</li>
+</ol>
+</div>
+</section>
+<section id="SS6" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.1.6 </span>SQL式の型付け方針</h2>
+
+<div id="SS6.p1" class="ltx_para">
+<p class="ltx_p">SML#のSQL式は，
+これまでに定義した基本型の対応，論理演算式型の導入，
+テーブル構造とレコードのリスト型の対応付けを用いて
+型付けされる．
+SQLクエリは，それが行うテーブル処理と同じことを
+レコードのリストに対して行うSML#のプログラムと
+同型の型を持つ．
+</p>
+</div>
+<div id="SS6.p2" class="ltx_para">
+<p class="ltx_p">例えば，
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SELECT t.name AS employeeName, t.age AS employeeAge
+<br class="ltx_break">
+FROM employeeTable AS t
+<br class="ltx_break">
+WHERE t.age &gt; 20</span></p>
+</blockquote>
+<p class="ltx_p">というSQLクエリを，SML#では
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val Q = fn db =&gt; _sql select #t.name as employeeName, #t.age as employeeAge
+<br class="ltx_break">
+                      from #db.employeeTable as t
+<br class="ltx_break">
+                      where #t.age &gt; 20</span></p>
+</blockquote>
+<p class="ltx_p">と書く．
+元のSQLには現れない変数<span class="ltx_text ltx_font_typewriter">db</span>は，
+クエリが実行される対象のデータベースを抽象する変数である．
+</p>
+</div>
+<div id="SS6.p3" class="ltx_para">
+<p class="ltx_p">さて，このクエリは，
+FROM句が参照するテーブルの各行をWHERE句の条件でフィルタにかけ，
+残った各行をSELECT句の式で変形したテーブルを計算するクエリである．
+このクエリと同じことを，SQLのテーブルの代わりに
+SML#のレコードのリストに対して行うSML#プログラムを単純に書くと，
+以下のようになる．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val Q’ =
+<br class="ltx_break">
+  fn db =&gt; List.map
+<br class="ltx_break">
+             (fn x =&gt; {employeeName = #name (#t x), employeeAge = #age (#t x)})
+<br class="ltx_break">
+             (List.filter
+<br class="ltx_break">
+                (fn x =&gt; #age (#t x) &gt; 20)
+<br class="ltx_break">
+                (List.map
+<br class="ltx_break">
+                   (fn x =&gt; {t = x})
+<br class="ltx_break">
+                   (#employeeTable db)))</span></p>
+</blockquote>
+<p class="ltx_p">この関数<span class="ltx_text ltx_font_typewriter">Q’</span>の型は
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val Q’ : [’a#{employeeTable : ’b list},
+<br class="ltx_break">
+          ’b#{age : int, name : ’c},
+<br class="ltx_break">
+          ’c.
+<br class="ltx_break">
+          ’a -&gt; {employeeAge : ’c, employeeName : int} list]</span></p>
+</blockquote>
+<p class="ltx_p">である．
+この関数<span class="ltx_text ltx_font_typewriter">Q’</span>のことを，SQLクエリ<span class="ltx_text ltx_font_typewriter">Q</span>のトイプログラムと
+呼ぶ．</p>
+</div>
+<div id="SS6.p4" class="ltx_para">
+<p class="ltx_p">このSQLクエリとSML#式の対応を通じて，
+上述のクエリ<span class="ltx_text ltx_font_typewriter">Q</span>には，
+「このリストを扱うSML#プログラムと同等のことを
+データベースサーバーが実行するSQLクエリ」を表す以下の型が与えられる．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val Q : [’a#{employeeTable : ’b list},
+<br class="ltx_break">
+         ’b#{age : int, name : ’c},
+<br class="ltx_break">
+         ’c::{int, ...}, ’d.
+<br class="ltx_break">
+         (’a, ’d) SQL.db -&gt; ({employeeAge : ’c, employeeName : int} list, ’d) SQL.query]</span></p>
+</blockquote>
+<p class="ltx_p">この<span class="ltx_text ltx_font_typewriter">Q</span>の型に現れるカインド付き型変数は，
+このクエリの以下の性質をそれぞれ表している．
+</p>
+<ul id="I3" class="ltx_itemize">
+<li id="I3.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">’a</span>は，このクエリが対象とするデータベースには少なくとも
+<span class="ltx_text ltx_font_typewriter">’b</span>型の<span class="ltx_text ltx_font_typewriter">employeeTable</span>テーブルがなくてはならない
+ことを表す．
+それ以外のテーブルの存在はこのクエリの評価に関係しない．
+</p>
+</div>
+</li>
+<li id="I3.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">’b</span>は，<span class="ltx_text ltx_font_typewriter">employeeTable</span>テーブルには少なくとも
+<span class="ltx_text ltx_font_typewriter">int</span>型の<span class="ltx_text ltx_font_typewriter">age</span>カラムと
+<span class="ltx_text ltx_font_typewriter">’c</span>の型の<span class="ltx_text ltx_font_typewriter">name</span>カラムがなくてはならないことを表す．
+それ以外のカラムが<span class="ltx_text ltx_font_typewriter">employeeTable</span>テーブルにあってもよい．
+</p>
+</div>
+</li>
+<li id="I3.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">’c</span>は，<span class="ltx_text ltx_font_typewriter">name</span>カラムの型はSQL基本型の範囲で
+任意であることを表す
+（実際には，<span class="ltx_text ltx_font_typewriter">’c</span>のカインドから参照される型変数がもうひとつ
+存在するが，ここでは省略する）．
+</p>
+</div>
+</li>
+<li id="I3.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i4.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">’d</span>は，このクエリが任意の接続ハンドルを通じて
+サーバーに送信できることを表す
+（1つのクエリが複数の送信先にまたがって書かれていないことを検査するために
+用いられる）．
+</p>
+</div>
+</li>
+</ul>
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">Q</span>にレコード多相型が付いていることから分かる通り，
+SQLクエリはデータベースに対して多相的である．
+SML#は，対象のデータベースが抽象されたSQLクエリに
+対して，そのSQLクエリが持つ最も一般的な型を推論する．</p>
+</div>
+<div id="SS6.p5" class="ltx_para">
+<p class="ltx_p">SQLクエリ全体と同様に，
+SQLクエリのいくつかの断片についても，
+レコードとリストを扱うSML#式との自然な対応を
+考えることができる．
+本章で定義するSQL関連構文の型付け規則はすべて，
+自然な対応に従って定められている．
+</p>
+</div>
+</section>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch22.html" title="Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22 </span>SQL式とコマンド</span></a><a href="Ch22.S2.html" title="22.2 SQLクエリのためのML式の拡張構文 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.2 </span>SQLクエリのためのML式の拡張構文</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sat Nov 16 16:41:37 2024 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

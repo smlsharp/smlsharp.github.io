@@ -1,0 +1,181 @@
+---
+layout: default
+permalink: /en/documents/4.1.0/Ch8.S6.html
+translated: true
+lang: en
+head: |
+ <!--Generated on Sat Nov 16 16:42:06 2024 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on Nov, 2024.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="up up" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="up up up" href="./" title="SML# Document Version 4.1.0">
+ <link rel="start" href="./" title="SML# Document Version 4.1.0">
+ <link rel="prev" href="Ch8.S5.html" title="8.5 Record programming examples ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="next" href="Ch8.S7.html" title="8.7 Polymorphic variants ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch8.S1.html" title="8.1 Record expressions ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch8.S2.html" title="8.2 Field selection operation ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch8.S3.html" title="8.3 Record patterns ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch8.S4.html" title="8.4 Functional record update ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch8.S5.html" title="8.5 Record programming examples ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="section" href="Ch8.S7.html" title="8.7 Polymorphic variants ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 Installing SML# ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML# feature: other type system extensions ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.1.0">
+ <link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 4.1.0">
+title: "8.6 Representing objects‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 4.1.0</div>
+<div>
+<a href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8 </span>SML# feature: record polymorphism</span></a><a href="Ch8.S5.html" title="8.5 Record programming examples ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8.5 </span>Record programming examples</span></a><a href="Ch8.S7.html" title="8.7 Polymorphic variants ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8.7 </span>Polymorphic variants</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">8.6 </span>Representing objects</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">Records are the fundamental data structures, and they are the
+basis for various data manipulation models such as relational databases
+and object-oriented programming.
+As explained in Chapter<a href="Ch12.html" title="Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.1.0" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12</span></a>,
+SML# seamlessly integrate SQL based on record polymorphism.
+Object-oriented programming is based on a different computation
+model than functional programming, and we do not hope to represent it in
+a functional language.
+However, generic object manipulation underlying object-oriented
+programming is naturally represented using record polymorphism.</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">An object has a statue, receives method selector and invoke the
+designated method on its state.
+A class can be regarded as the set of methods that belongs to the
+class.
+So we can represent a class structure as a record of methods.
+Each method is coded as a function that takes a state of an
+object and update it.
+For example, consider an object in a <span class="ltx_text ltx_font_typewriter">pointClass</span> having
+<span class="ltx_text ltx_font_typewriter">X</span> coordinate，
+<span class="ltx_text ltx_font_typewriter">Y</span> coordinate，
+<span class="ltx_text ltx_font_typewriter">Color</span> property.
+An object state can be represented by a reference to a record of
+the those values such as <span class="ltx_text ltx_font_typewriter">{X = 1.1, Y = 2.2}</span>.
+Then a method can be defined as a function that takes an object
+state as <span class="ltx_text ltx_font_typewriter">self</span> and update the state.
+For example, a method to set a value in the <span class="ltx_text ltx_font_typewriter">X</span> coordinate
+can be coded as follows.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># fn self =&gt; fn x =&gt; self := (!self # {X = x});
+<br class="ltx_break">
+val it = fn : [’a#{X: ’b}, ’b. ’a ref -&gt; ’b -&gt; unit]</span></p>
+</blockquote>
+<p class="ltx_p">This method can be applied to any objects that contain
+<span class="ltx_text ltx_font_typewriter">X</span> attributes.
+A class can be a record consisting of these methods with
+appropriate names.
+For example，<span class="ltx_text ltx_font_typewriter">pointClass</span> can be defined as below.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val pointClass =
+<br class="ltx_break">
+    {
+<br class="ltx_break">
+      getX = fn self =&gt; #X (!self),
+<br class="ltx_break">
+      setX = fn self =&gt; fn x =&gt; self := (!self # {X = x}),
+<br class="ltx_break">
+      getY = fn self =&gt; #Y (!self),
+<br class="ltx_break">
+      setY = fn self =&gt; fn x =&gt; self := (!self # {Y = x}),
+<br class="ltx_break">
+      getColor = fn self =&gt; #Color (!self),
+<br class="ltx_break">
+      setColor = fn self =&gt; fn x =&gt; self := (!self # {Color = x})
+<br class="ltx_break">
+    }</span></p>
+</blockquote>
+<p class="ltx_p">An object receives a message and invoke the corresponding method
+on itself.
+In SML#, this is coded below.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">local
+<br class="ltx_break">
+  val state = ref {X = 0.0, Y = 0.0}
+<br class="ltx_break">
+in 
+<br class="ltx_break">
+  val myPoint = fn method =&gt; method pointClass state
+<br class="ltx_break">
+end</span></p>
+</blockquote>
+<p class="ltx_p">We can similarly define an object having <span class="ltx_text ltx_font_typewriter">Color</span> attribute.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">local
+<br class="ltx_break">
+  val state = ref {X = 0.0, Y = 0.0, Color = "Red"}
+<br class="ltx_break">
+in 
+<br class="ltx_break">
+  val myColorPoint = fn method =&gt; method pointClass state
+<br class="ltx_break">
+end
+</span></p>
+</blockquote>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">Under these definition, we can write the following code.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># myPoint # setX 1.0;
+<br class="ltx_break">
+val it = () : unit
+<br class="ltx_break">
+# myPoint # getX;
+<br class="ltx_break">
+val it = 1.0 : real
+<br class="ltx_break">
+# myColorPoint # getX;
+<br class="ltx_break">
+val it = 0.0 : real
+<br class="ltx_break">
+# myColorPoint # getColor;
+<br class="ltx_break">
+val it = "Red" : string
+<br class="ltx_break">
+# myPoint # getColor;
+<br class="ltx_break">
+(interactive):15.1-15.12 Error:
+<br class="ltx_break">
+  (type inference 007) operator and operand don’t agree
+<br class="ltx_break">
+  ...</span></p>
+</blockquote>
+<p class="ltx_p">As shown in the last example, the system detect all the type
+errors statically.
+</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch8.S5.html" title="8.5 Record programming examples ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8.5 </span>Record programming examples</span></a><a href="Ch8.S7.html" title="8.7 Polymorphic variants ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.1.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8.7 </span>Polymorphic variants</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sat Nov 16 16:42:06 2024 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

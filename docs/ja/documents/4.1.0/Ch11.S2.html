@@ -1,0 +1,247 @@
+---
+layout: default
+permalink: /ja/documents/4.1.0/Ch11.S2.html
+translated: true
+lang: ja
+head: |
+ <!--Generated on Sat Nov 16 16:41:37 2024 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on 令和6年11月.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch11.html" title="Chapter 11 SML#の拡張機能：マルチスレッドプログラミング ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="up up" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="up up up" href="./" title="プログラミング言語SML#解説 4.1.0版">
+ <link rel="start" href="./" title="プログラミング言語SML#解説 4.1.0版">
+ <link rel="prev" href="Ch11.S1.html" title="11.1 Pthreadsプログラミング ‣ Chapter 11 SML#の拡張機能：マルチスレッドプログラミング ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="next" href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch11.S1.html" title="11.1 Pthreadsプログラミング ‣ Chapter 11 SML#の拡張機能：マルチスレッドプログラミング ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch5.html" title="Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch6.html" title="Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch7.html" title="Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch8.html" title="Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch9.html" title="Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch10.html" title="Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch11.html" title="Chapter 11 SML#の拡張機能：マルチスレッドプログラミング ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch13.html" title="Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch14.html" title="Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.1.0版">
+title: "11.2 MassiveThreadsを用いた細粒度スレッドプログラミング‣ Chapter 11 SML#の拡張機能：マルチスレッドプログラミング ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.1.0版</div>
+<div>
+<a href="Ch11.html" title="Chapter 11 SML#の拡張機能：マルチスレッドプログラミング ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">11 </span>
+SML#の拡張機能：マルチスレッドプログラミング</span></a><a href="Ch11.S1.html" title="11.1 Pthreadsプログラミング ‣ Chapter 11 SML#の拡張機能：マルチスレッドプログラミング ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">11.1 </span>Pthreadsプログラミング</span></a><a href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">12 </span>
+SML#の拡張機能：SQLの統合</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">11.2 </span>MassiveThreadsを用いた細粒度スレッドプログラミング</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">SML#は，MassiveThreadsベースの細粒度スレッドを
+提供します．
+MassiveThreadsは，
+東京大学情報理工学系研究科で開発されている
+C言語向けの軽量細粒度スレッドライブラリです．
+シームレスなC言語との連携機構と
+スレッドを止めない並行GCにより，
+SML#はMassiveThreadsを直接サポートします．
+MassiveThreadsを利用することで，
+SML#プログラムから大量の（例えば100万個以上の）
+ユーザースレッドを
+マルチコアCPU上で走らせることが可能です．</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">デフォルトでは，シングルスレッドプログラムの実行効率の
+調整のため，SML#からはただ1つのコアのみを使う
+ように設定されています．
+マルチコア上でのMassiveThreadsを有効にするためには，
+<code class="ltx_verbatim ltx_font_typewriter">MYTH_</code>から始まるMassiveThreads関連の環境変数を少なくとも1
+つ設定してください．
+例えば，対話モードの起動時に，</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ MYTH_NUM_WORKERS=0 smlsharp</span></p>
+</blockquote>
+<p class="ltx_p">などとして，環境変数<code class="ltx_verbatim ltx_font_typewriter">MYTH_NUM_WORKERS</code>を定義してください．
+<code class="ltx_verbatim ltx_font_typewriter">MYTH_NUM_WORKERS</code>は，
+ユーザースレッドをスケジュールするワーカースレッドの数，
+すなわち使用するCPUコアの数を表します．
+<code class="ltx_verbatim ltx_font_typewriter">MYTH_NUM_WORKERS</code>が0のとき，Linux環境ならば，全ての
+CPUコアを使用することを表します．</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">MassiveThreadsライブラリをほぼそのままバインドした
+<span class="ltx_text ltx_font_typewriter">Myth</span>ストラクチャが標準で提供されています．
+<span class="ltx_text ltx_font_typewriter">Myth.Thread</span>ストラクチャには，
+スレッドの生成と結合のための基本的な関数が含まれています．
+代表的な関数は以下の通りです．</p>
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">ユーザースレッドの起動．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">Myth.Thread.create : (unit -&gt; int) -&gt; Myth.thread</span></p>
+</blockquote>
+<p class="ltx_p"><math id="I1.i1.p1.m1" class="ltx_Math" alttext="\mbox{\tt create}\ f" display="inline"><mrow><mtext>𝚌𝚛𝚎𝚊𝚝𝚎</mtext><mspace width="5.0pt"></mspace><mi>f</mi></mrow></math>は
+<math id="I1.i1.p1.m2" class="ltx_Math" alttext="f\ \mbox{\tt()}" display="inline"><mrow><mi>f</mi><mspace width="5.0pt"></mspace><mtext mathvariant="monospace">()</mtext></mrow></math>を評価する新しいユーザースレッドを起動します．
+ユーザースレッドはMassiveThreadsによって適切なCPUコアに
+スケジュールされます．
+スケジューリングポリシーはノンプリエンプティブです．
+つまり，一度あるスレッドがあるCPUコア上で走り始めると，
+終了するか，スレッドの実行を制御するMassiveThreadsライブラリ関数
+（<span class="ltx_text ltx_font_typewriter">Myth.Thread.yield</span>）を呼ばない限り，
+そのスレッドはそのCPUコア上で走り続けます．</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">ユーザースレッドの結合．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">Myth.Thread.join : Myth.thread -&gt; int</span></p>
+</blockquote>
+<p class="ltx_p"><math id="I1.i2.p1.m1" class="ltx_Math" alttext="\mbox{\tt join}\ t" display="inline"><mrow><mtext>𝚓𝚘𝚒𝚗</mtext><mspace width="5.0pt"></mspace><mi>t</mi></mrow></math>は
+スレッド<math id="I1.i2.p1.m2" class="ltx_Math" alttext="t" display="inline"><mi>t</mi></math>の完了を待ち，<math id="I1.i2.p1.m3" class="ltx_Math" alttext="t" display="inline"><mi>t</mi></math>の評価結果を返します．
+<span class="ltx_text ltx_font_typewriter">create</span>関数で生成したユーザースレッドは，いつか
+必ず<span class="ltx_text ltx_font_typewriter">join</span>されなければなりません．
+このストラクチャはMassiveThreadsライブラリを直接バインドしたも
+のですので，多くのCライブラリと同様に，生成したスレッドは明示的に
+解放されなければなりません．</p>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p">スレッドスケジューリング．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">Myth.Thread.yield : unit -&gt; unit</span></p>
+</blockquote>
+<p class="ltx_p"><span class="ltx_text ltx_markedasmath ltx_font_typewriter">yield</span><span class="ltx_text ltx_markedasmath ltx_font_typewriter">()</span>は
+他のスレッドにCPUコアの制御を譲ります．</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">MassiveThreadsの使い方を学ぶために，簡単なタスク並列プログラム
+を書いてみましょう．
+タスク並列プログラムは，おおよそ以下の手順で書くことが
+できます．</p>
+<ol id="I2" class="ltx_enumerate">
+<li id="I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="I2.i1.p1" class="ltx_para">
+<p class="ltx_p">分割統治を行う再帰関数を書きます．
+</p>
+</div>
+</li>
+<li id="I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="I2.i2.p1" class="ltx_para">
+<p class="ltx_p">再帰呼び出しのたびに新しいユーザースレッドが作られるように，
+再帰呼び出しを<span class="ltx_text ltx_font_typewriter">create</span>と<span class="ltx_text ltx_font_typewriter">join</span>で囲みます．</p>
+</div>
+</li>
+<li id="I2.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span> 
+<div id="I2.i3.p1" class="ltx_para">
+<p class="ltx_p">ただし，スレッドの計算コストがスレッドの生成コストを
+下回らないように，ある閾値（カットオフ）を下回った場合はスレッド生成を
+せず，同じスレッドで逐次的に再帰呼び出しをするようにします．
+逐次計算に切り替える閾値は，スレッド生成のオーバーヘッドよりも
+逐次処理時間が十分長くなるように決めます．
+経験的には，1スレッドあたりおおよそ3〜4マイクロ秒程度の評価時間に
+なるように設定するのが良いようです．</p>
+</div>
+</li>
+</ol>
+<p class="ltx_p">例えば，<span class="ltx_text ltx_font_typewriter">fib 40</span>を再帰的に計算するプログラムは
+逐次的には以下のように書けます．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">fun fib 0 = 0
+<br class="ltx_break">
+  | fib 1 = 1
+<br class="ltx_break">
+  | fib n = fib (n - 1) + fib (n - 2)
+<br class="ltx_break">
+val result = fib 40</span></p>
+</blockquote>
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">fib (n - 1)</span>と<span class="ltx_text ltx_font_typewriter">fib (n - 2)</span>が並列に計算されるように，
+その片方を<span class="ltx_text ltx_font_typewriter">create</span>と<span class="ltx_text ltx_font_typewriter">join</span>で囲むと，
+タスク並列のプログラムになります．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">fun fib 0 = 0
+<br class="ltx_break">
+  | fib 1 = 1
+<br class="ltx_break">
+  | fib n =
+<br class="ltx_break">
+    let
+<br class="ltx_break">
+      val t2 = Myth.Thread.create (fn () =&gt; fib (n - 2))
+<br class="ltx_break">
+    in
+<br class="ltx_break">
+      fib (n - 1) + Myth.Thread.join t2
+<br class="ltx_break">
+    end
+<br class="ltx_break">
+val result = fib 40</span></p>
+</blockquote>
+<p class="ltx_p">ただし，引数の<span class="ltx_text ltx_font_typewriter">n</span>が十分に小さくなると，
+<span class="ltx_text ltx_font_typewriter">fib n</span>の計算コストがスレッドの生成コストを下回ります．
+そこで，<span class="ltx_text ltx_font_typewriter">n</span>が10を下回った場合は逐次で計算することに
+します．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val cutOff = 10
+<br class="ltx_break">
+fun fib 0 = 0
+<br class="ltx_break">
+  | fib 1 = 1
+<br class="ltx_break">
+  | fib n =
+<br class="ltx_break">
+    if n &lt; cutOff
+<br class="ltx_break">
+    then fib (n - 1) + fib (n - 2)
+<br class="ltx_break">
+    else
+<br class="ltx_break">
+      let
+<br class="ltx_break">
+        val t2 = Myth.Thread.create (fn () =&gt; fib (n - 2))
+<br class="ltx_break">
+      in
+<br class="ltx_break">
+        fib (n - 1) + Myth.Thread.join t2
+<br class="ltx_break">
+      end
+<br class="ltx_break">
+val result = fib 40</span></p>
+</blockquote>
+<p class="ltx_p">これで並列<span class="ltx_text ltx_font_typewriter">fib</span>は完成です．
+このプログラムを実行すると，3,524,577個のスレッドが生成されます．</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch11.S1.html" title="11.1 Pthreadsプログラミング ‣ Chapter 11 SML#の拡張機能：マルチスレッドプログラミング ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">11.1 </span>Pthreadsプログラミング</span></a><a href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">12 </span>
+SML#の拡張機能：SQLの統合</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sat Nov 16 16:41:37 2024 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

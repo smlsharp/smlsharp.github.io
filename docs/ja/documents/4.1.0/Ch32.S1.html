@@ -1,0 +1,169 @@
+---
+layout: default
+permalink: /ja/documents/4.1.0/Ch32.S1.html
+translated: true
+lang: ja
+head: |
+ <!--Generated on Sat Nov 16 16:41:37 2024 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on 令和6年11月.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch32.html" title="Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="up up" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="up up up" href="./" title="プログラミング言語SML#解説 4.1.0版">
+ <link rel="start" href="./" title="プログラミング言語SML#解説 4.1.0版">
+ <link rel="prev" href="Ch32.html" title="Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="next" href="Ch32.S2.html" title="32.2 SML# ソースツリー ‣ Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch32.S2.html" title="32.2 SML# ソースツリー ‣ Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch32.S3.html" title="32.3 compilerディレクトリ ‣ Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch32.S4.html" title="32.4 basisディレクトリ ‣ Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch31.html" title="Chapter 31 序文 ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch32.html" title="Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch33.html" title="Chapter 33 コンパイラの制御構造 ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.1.0版">
+title: "32.1 ソースパッケージの構成 ‣ Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.1.0版"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.1.0版</div>
+<div>
+<a href="Ch32.html" title="Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">32 </span>SML#ソースパッケージ</span></a><a href="Ch32.html" title="Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">32 </span>SML#ソースパッケージ</span></a><a href="Ch32.S2.html" title="32.2 SML# ソースツリー ‣ Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">32.2 </span>SML# ソースツリー</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">32.1 </span>ソースパッケージの構成
+</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">SML#のソースディストリビューション
+<span class="ltx_text ltx_font_typewriter">smlsharp-4.1.0.tar.gz</span>には以下のディレクトリとファイルが含ま
+れる．
+</p>
+</div>
+<div id="p2" class="ltx_para">
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">ディレクトリ</p>
+</div>
+<div id="I1.i1.p2" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row"><span class="ltx_text ltx_font_typewriter">benchmark/</span></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column">ベンチマークソース</th>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row"><span class="ltx_text ltx_font_typewriter">precompiled/</span></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column">
+<span class="ltx_text ltx_font_typewriter">minismlsharp</span>のアセンブリソースアーカイブ</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">sample/</span></th>
+<td class="ltx_td ltx_align_left">サンプルプログラム</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">src/</span></th>
+<td class="ltx_td ltx_align_left">SML# ソースファイル</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">test/</span></th>
+<td class="ltx_td ltx_align_left">テストプログラムとデータ</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">ファイル</p>
+</div>
+<div id="I1.i2.p2" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">Changes</span></th>
+<td class="ltx_td ltx_align_left">リリース情報ファイル</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">INSTALL</span></th>
+<td class="ltx_td ltx_align_left">インストール手順</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">LICENSE</span></th>
+<td class="ltx_td ltx_align_left">SML#ライセンス</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">Makefile.in</span></th>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">Makefile</span>ファイルテンプレート</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">RELEASE_DATE</span></th>
+<td class="ltx_td ltx_align_left">リリース版日付</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">VERSION</span></th>
+<td class="ltx_td ltx_align_left">バージョン</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">config.h.in</span></th>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">config.h</span>ファイルテンプレート</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">config.mk.in</span></th>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">Makefile</span>の動作を制御する<span class="ltx_text ltx_font_typewriter">config.mk</span>ファイルテンプレート</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">configure.ac</span></th>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">autoconf</span>への入力ファイル</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">depend.mk</span></th>
+<td class="ltx_td ltx_align_left">ソースファイルの依存関係</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">files.mk</span></th>
+<td class="ltx_td ltx_align_left">ファイル集合定数の定義ファイル</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">mkdepend</span></th>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">depend.mk</span>作成スクリプト</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><span class="ltx_text ltx_font_typewriter">precompile.mk</span></th>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">precompiled/</span>再構築用<span class="ltx_text ltx_font_typewriter">make</span>スクリプト</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch32.html" title="Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">32 </span>SML#ソースパッケージ</span></a><a href="Ch32.S2.html" title="32.2 SML# ソースツリー ‣ Chapter 32 SML#ソースパッケージ ‣ Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">32.2 </span>SML# ソースツリー</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sat Nov 16 16:41:37 2024 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}

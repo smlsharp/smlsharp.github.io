@@ -6,17 +6,17 @@ translated: true
 SML#コンパイラおよびSML#用プログラム開発ツールは、MITライセンスの下で配布されているオープンソースソフトウェアです。
 [ライセンスページ](../about/license/)および[LICENSE](https://github.com/smlsharp/smlsharp/blob/master/LICENSE)ファイルをお読みください。
 
-SML#の最新版は4.0.0です。セットアップ方法については[ドキュメント](../documents/index.md)をご覧ください。リリースごとの主な変更点は[Changes](https://github.com/smlsharp/smlsharp/blob/master/Changes)ファイルをご覧ください。
+SML#の最新版は4.1.0です。セットアップ方法については[ドキュメント](../documents/index.md)をご覧ください。リリースごとの主な変更点は[Changes](https://github.com/smlsharp/smlsharp/blob/master/Changes)ファイルをご覧ください。
 
 
 ### 最新のリリース
 
 #### ソースコード
 
-* [smlsharp-4.0.0.tar.gz](https://github.com/smlsharp/smlsharp/releases/download/v4.0.0/smlsharp-4.0.0.tar.gz)（2021年4月6日リリース）
+* [smlsharp-4.1.0.tar.gz](https://github.com/smlsharp/smlsharp/releases/download/v4.1.0/smlsharp-4.1.0.tar.gz)（2024年11月8日リリース）
   ```
-  SIZE: 7397808
-  SHA256: 0b44fb1f369f7cfced197c68f0d3102e940dbe5288adc3bdf618a5a3ec3165db
+  SIZE: 14181338
+  SHA256: b19543a42654f4bda1d690c6ea6e4d9ee16dc7544b95828f8a7c649e0919a8a1
   ```
 
 #### パッケージシステムからインストール
@@ -31,15 +31,22 @@ SML#の最新版は4.0.0です。セットアップ方法については[ドキ�
   apt install smlsharp
   ```
 
-* Debian 10 (buster)
+* Debian 11 (bullseye)
   ```
-  wget -P /usr/share/keyrings https://github.com/smlsharp/repos/raw/main/debian/dists/buster/smlsharp-archive-keyring.gpg
-  wget -P /etc/apt/sources.list.d https://github.com/smlsharp/repos/raw/main/debian/dists/buster/smlsharp.list
+  wget -P /usr/share/keyrings https://smlsharp.github.io/repos/debian/dists/bullseye/smlsharp-archive-keyring.gpg
+  wget -P /etc/apt/sources.list.d https://smlsharp.github.io/repos/debian/dists/bullseye/smlsharp.list
+  apt update
+  apt install smlsharp
+  ```
+* Debian 12 (bookworm)
+  ```
+  wget -P /etc/apt/keyrings https://smlsharp.github.io/repos/debian/dists/bookworm/smlsharp-archive-keyring.gpg
+  wget -P /etc/apt/sources.list.d https://smlsharp.github.io/repos/debian/dists/bookworm/smlsharp.sources
   apt update
   apt install smlsharp
   ```
 
-* Ubuntu
+* Ubuntu 20.04 LTS (focal), 22.04 LTS (jammy), 24.04 LTS (noble):
   ```
   apt-add-repository ppa:smlsharp/ppa
   apt update
@@ -48,30 +55,17 @@ SML#の最新版は4.0.0です。セットアップ方法については[ドキ�
 
 * Fedora Rawhide
   ```
-  rpm -i https://github.com/smlsharp/repos/raw/main/fedora/smlsharp-release-rawhide-31-1.noarch.rpm
+  rpm -i https://smlsharp.github.io/repos/fedora/smlsharp-release-fedora-41-1.noarch.rpm
   dnf install smlsharp smlsharp-smlformat smlsharp-smllex smlsharp-smlyacc
   ```
 
-* Fedora
+* AlmaLinux 8, AlmaLinux 9:
   ```
-  rpm -i https://github.com/smlsharp/repos/raw/main/fedora/smlsharp-release-fedora-31-1.noarch.rpm
+  rpm -i https://smlsharp.github.io/repos/almalinux/smlsharp-release-almalinux-8-1.noarch.rpm
   dnf install smlsharp smlsharp-smlformat smlsharp-smllex smlsharp-smlyacc
   ```
 
-* CentOS 8
-  ```
-  rpm -i https://github.com/smlsharp/repos/raw/main/centos/smlsharp-release-centos-8-1.noarch.rpm
-  dnf install smlsharp smlsharp-smlformat smlsharp-smllex smlsharp-smlyacc
-  ```
-
-* CentOS 7
-  ```
-  yum install epel-release
-  rpm -i https://github.com/smlsharp/repos/raw/main/centos/smlsharp-release-centos-7-1.noarch.rpm
-  yum install smlsharp smlsharp-smlformat smlsharp-smllex smlsharp-smlyacc
-  ```
-
-* macOS 11 Big Sur (Homebrew)
+* macOS (Homebrew)
   ```
   brew tap smlsharp/smlsharp
   brew install smlsharp

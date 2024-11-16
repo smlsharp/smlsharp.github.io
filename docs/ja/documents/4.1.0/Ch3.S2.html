@@ -1,0 +1,104 @@
+---
+layout: default
+permalink: /ja/documents/4.1.0/Ch3.S2.html
+translated: true
+lang: ja
+head: |
+ <!--Generated on Sat Nov 16 16:41:37 2024 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+ <!--Document created on 令和6年11月.-->
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="LaTeXML.css" type="text/css">
+ <link rel="stylesheet" href="ltx-book.css" type="text/css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+ <link rel="up" href="Ch3.html" title="Chapter 3 SML#の概要 ‣ Part I 概要 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="up up" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="up up up" href="./" title="プログラミング言語SML#解説 4.1.0版">
+ <link rel="start" href="./" title="プログラミング言語SML#解説 4.1.0版">
+ <link rel="prev" href="Ch3.S1.html" title="3.1 SML#とは？ ‣ Chapter 3 SML#の概要 ‣ Part I 概要 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="next" href="Ch3.S3.html" title="3.3 SML#開発チームと連絡先情報 ‣ Chapter 3 SML#の概要 ‣ Part I 概要 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch3.S1.html" title="3.1 SML#とは？ ‣ Chapter 3 SML#の概要 ‣ Part I 概要 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch3.S3.html" title="3.3 SML#開発チームと連絡先情報 ‣ Chapter 3 SML#の概要 ‣ Part I 概要 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch3.S4.html" title="3.4 謝辞 ‣ Chapter 3 SML#の概要 ‣ Part I 概要 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="section" href="Ch3.S5.html" title="3.5 SML#第4.1.0版の機能と制限 ‣ Chapter 3 SML#の概要 ‣ Part I 概要 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch1.html" title="Chapter 1 はじめに ‣ Part I 概要 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch2.html" title="Chapter 2 本書の構成と執筆状況 ‣ Part I 概要 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch3.html" title="Chapter 3 SML#の概要 ‣ Part I 概要 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="chapter" href="Ch4.html" title="Chapter 4 SML#ライセンス ‣ Part I 概要 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.1.0版">
+ <link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.1.0版">
+title: "3.2 SML#の歴史‣ Chapter 3 SML#の概要 ‣ Part I 概要 ‣ プログラミング言語SML#解説 4.1.0版"
+---
+{% raw %}
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.1.0版</div>
+<div>
+<a href="Ch3.html" title="Chapter 3 SML#の概要 ‣ Part I 概要 ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3 </span>SML#の概要</span></a><a href="Ch3.S1.html" title="3.1 SML#とは？ ‣ Chapter 3 SML#の概要 ‣ Part I 概要 ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.1 </span>SML#とは？</span></a><a href="Ch3.S3.html" title="3.3 SML#開発チームと連絡先情報 ‣ Chapter 3 SML#の概要 ‣ Part I 概要 ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.3 </span>
+SML#開発チームと連絡先情報</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">3.2 </span>SML#の歴史</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">SML#の起源は，大堀等によるデータベースコミュニティへの
+Machiavelli言語の提案<cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib11" title="" class="ltx_ref">11</a>]</cite>に遡ることができます．
+この論文では，レコード多相を含むMLはSQLを包摂できることが示され，
+その有用性がプロトタイプの実装によってしめされています．</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">その後，1993年，沖電気工業（株）関西総合研究所にて，大堀により，
+Standard ML of New Jerseyコンパイラに多相型レコード演算を加え拡張したプ
+ロトタイプ<span class="ltx_text ltx_font_bold">SML# of Kansai</span>が開発されました．
+その時のSML#のtypesメーリングリストへのアナウンスは，今で
+もインターネット上に記録されています
+(
+<a href="http://www.funet.fi/pub/languages/ml/sml%23/description" title="" class="ltx_ref ltx_url ltx_font_typewriter">http://www.funet.fi/pub/languages/ml/sml%23/description</a>
+).</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">SML# of Kansai</span>の名前は，このコンパイラにて初めて多相型が与えら
+れたレコード演算子”<span class="ltx_text ltx_font_typewriter">#</span>”を象徴するものです．
+このコンパイラは，1996年ACM TOPLASに出版されたコード多相性に関する論文
+<cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib9" title="" class="ltx_ref">9</a>]</cite>で，<span class="ltx_text ltx_font_bold">SML#</span>の名前で紹介されています．</p>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">その後，より完全なSML#コンパイラの開発の努力が継続されま
+した．</p>
+</div>
+<div id="p5" class="ltx_para">
+<p class="ltx_p">2003年に，北陸先端科学技術大学院大学にて，文部科学省リーディング
+プロジェクトe-Society基盤ソフトウェアの総合開発「高い生産性をもつ高信頼
+ソフトウエア作成技術の開発」
+（領域代表者：片山卓也）
+の一つの課題
+「プログラムの自動解析に基づく高信頼ソフトウェアシステム構築技術」（2003年―2008年，究代表者:大堀 淳）
+（
+<a href="http://www.tkl.iis.u-tokyo.ac.jp/e-society/index.html" title="" class="ltx_ref ltx_url ltx_font_typewriter">http://www.tkl.iis.u-tokyo.ac.jp/e-society/index.html</a>
+）
+として，
+次世代ML系関数型言語SML#をスクラッチから開発するプロジェクトを開始しました．</p>
+</div>
+<div id="p6" class="ltx_para">
+<p class="ltx_p">2006年4月，プロジェクトは，大堀とともに東北大学電気通信研究所に移り開発
+を継続しています．</p>
+</div>
+<div id="p7" class="ltx_para">
+<p class="ltx_p">2008年のe-Societyプロジェクト終了後も，東北大学電気通信研究所大堀・上野研究室
+にて，SML#の研究開発を続けています．</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch3.S1.html" title="3.1 SML#とは？ ‣ Chapter 3 SML#の概要 ‣ Part I 概要 ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.1 </span>SML#とは？</span></a><a href="Ch3.S3.html" title="3.3 SML#開発チームと連絡先情報 ‣ Chapter 3 SML#の概要 ‣ Part I 概要 ‣ プログラミング言語SML#解説 4.1.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.3 </span>
+SML#開発チームと連絡先情報</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Sat Nov 16 16:41:37 2024 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+{% endraw %}
