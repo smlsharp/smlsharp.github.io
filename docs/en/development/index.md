@@ -8,7 +8,7 @@ translated: true
 The development of SML# is being steered by SML# development team.
 The current members of SML# development team are the following (in alphabetical order):
 
-* Atsushi Ohori (RIEC, Tohoku University)
+* Atsushi Ohori (Professor emeritus, Tohoku University)
 * Katsuhiro Ueno (Niigata University)
 
 ### Community

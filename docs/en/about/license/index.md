@@ -6,7 +6,7 @@ The SML# compiler and its runtime system are open-source software distributed un
 
 The current SML# development team consists of
 
-* Atsushi Ohori (Tohoku University)
+* Atsushi Ohori (Professor emeritus, Tohoku University)
 * Katsuhiro Ueno (Niigata University)
 
 in alphabetical order.

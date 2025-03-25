@@ -27,3 +27,4 @@ funded by the Japan ministry of science, education and technologies
 
 In 2006, the project moved to Tohoku University.
 
+In 2021, the core activity of development moved to the SML# development team.
