@@ -1,0 +1,121 @@
+<!DOCTYPE html><html>
+<head>
+<title>7.6  Compound expressions and function definitions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0</title>
+<!--Generated on Tue Mar 25 14:56:23 2025 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on Mar, 2025.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-book.css" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+<link rel="up" href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="up up" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="up up up" href="./" title="SML# Document Version 4.2.0">
+<link rel="start" href="./" title="SML# Document Version 4.2.0">
+<link rel="prev" href="Ch7.S5.html" title="7.5 Type bool and conditional expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="next" href="Ch7.S7.html" title="7.7 Recursive functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S1.html" title="7.1 About the ML language family ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S2.html" title="7.2 Declarative programming ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S3.html" title="7.3 Representing computation by composing expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S4.html" title="7.4 Constants literals and built-in primitives ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S5.html" title="7.5 Type bool and conditional expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S7.html" title="7.7 Recursive functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S8.html" title="7.8 Functions with multiple arguments ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S9.html" title="7.9 Function application syntax ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S10.html" title="7.10 Higher-order functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S11.html" title="7.11 Using higher-order functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S12.html" title="7.12 Imperative features of ML ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S13.html" title="7.13 Mutable memory reference types ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S14.html" title="7.14 Left-to-right applicative order evaluation ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S15.html" title="7.15 Procedural control ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S16.html" title="7.16 Loop and tail recursion ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S17.html" title="7.17 let expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S18.html" title="7.18 List data type ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S19.html" title="7.19 Principle in composing expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S20.html" title="7.20 Polymorphic functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch5.html" title="Chapter 5 Installing SML# ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch6.html" title="Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch9.html" title="Chapter 9 SML# feature: other type system extensions ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch12.html" title="Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch13.html" title="Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch14.html" title="Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 4.2.0">
+</head>
+<body>
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 4.2.0</div>
+<div>
+<a href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7 </span>Introduction to ML programming</span></a><a href="Ch7.S5.html" title="7.5 Type bool and conditional expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.5 </span>
+Type <span class="ltx_text ltx_font_typewriter">bool</span> and conditional expressions</span></a><a href="Ch7.S7.html" title="7.7 Recursive functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.7 </span>Recursive functions</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">7.6 </span>
+Compound expressions and function definitions
+</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">Of course, constant, variables and primitive functions are not
+sufficient for writing a program that solves a complex problem.
+The important expressions in ML programming are those that
+represent functions.</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">As seen in an example in Section <a href="Ch7.S2.html" title="7.2 Declarative programming ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0" class="ltx_ref"><span class="ltx_text ltx_ref_tag">7.2</span></a>,
+a function is defined by the following syntax:</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">fun</span><span class="ltx_text ltx_font_typewriter"> </span><span class="ltx_text ltx_font_italic">funName</span><span class="ltx_text ltx_font_typewriter"> </span><span class="ltx_text ltx_font_italic">param</span><span class="ltx_text ltx_font_typewriter"> = </span><span class="ltx_text ltx_font_italic">expr</span><span class="ltx_text ltx_font_typewriter"></span></p>
+</blockquote>
+<p class="ltx_p">After this declaration, the variable <span class="ltx_text ltx_font_italic">funName</span> is bound to a
+function that takes <span class="ltx_text ltx_font_italic">param</span> as its argument and returns the result
+computed by <span class="ltx_text ltx_font_italic">expr</span>.
+For example, the equation for an arithmetic sequence we have
+seen before can be regarded as a function that takes a natural number
+<math id="p2.m1" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>:</p>
+<table id="Ch7.Ex4" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Ch7.Ex4.m1" class="ltx_Math" alttext="\mbox{$S(n)$}=\frac{n(n+1)(2n+1)}{6}" display="block"><mrow><mrow><mi>S</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><mo>=</mo><mfrac><mrow><mi>n</mi><mo stretchy="false">(</mo><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mn>2</mn><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><mn>6</mn></mfrac></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">This definition can be programmed directly using <span class="ltx_text ltx_font_typewriter">fun</span> as follows.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># fun S n = (n * (n + 1) * (2 * n + 1)) div 6;
+<br class="ltx_break">
+val S = fn : int -&gt; int</span></p>
+</blockquote>
+<p class="ltx_p">After this definition, <span class="ltx_text ltx_font_typewriter">S</span> can be used as follows.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># S 10;
+<br class="ltx_break">
+val it = 385 : int
+<br class="ltx_break">
+# S 20;
+<br class="ltx_break">
+val it = 2870 : int</span></p>
+</blockquote>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch7.S5.html" title="7.5 Type bool and conditional expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.5 </span>
+Type <span class="ltx_text ltx_font_typewriter">bool</span> and conditional expressions</span></a><a href="Ch7.S7.html" title="7.7 Recursive functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.7 </span>Recursive functions</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Mar 25 14:56:23 2025 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

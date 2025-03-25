@@ -1,0 +1,207 @@
+<!DOCTYPE html><html>
+<head>
+<title>30.3 smlyacc出力ファイルの構造とインタフェイスファイル記述‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版</title>
+<!--Generated on Tue Mar 25 14:55:50 2025 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on 令和7年3月.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-book.css" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+<link rel="up" href="Ch30.html" title="Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="up up" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="up up up" href="./" title="プログラミング言語SML#解説 4.2.0版">
+<link rel="start" href="./" title="プログラミング言語SML#解説 4.2.0版">
+<link rel="prev" href="Ch30.S2.html" title="30.2 smlyacc入力ファイルの構造 ‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="next" href="Ch30.S4.html" title="30.4 smllex入力ファイルの構造 ‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch30.S1.html" title="30.1 生成されるソースファイル ‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch30.S2.html" title="30.2 smlyacc入力ファイルの構造 ‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch30.S4.html" title="30.4 smllex入力ファイルの構造 ‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch30.S5.html" title="30.5 smllex出力ファイルのインタフェイスファイル記述 ‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch30.html" title="Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.2.0版">
+</head>
+<body>
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.2.0版</div>
+<div>
+<a href="Ch30.html" title="Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">30 </span>構文解析器生成ツール smlyaccとsmllex</span></a><a href="Ch30.S2.html" title="30.2 smlyacc入力ファイルの構造 ‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">30.2 </span>smlyacc入力ファイルの構造</span></a><a href="Ch30.S4.html" title="30.4 smllex入力ファイルの構造 ‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">30.4 </span>smllex入力ファイルの構造</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">30.3 </span>smlyacc出力ファイルの構造とインタフェイスファイル記述</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">smlyacc</span>が生成する<span class="ltx_text ltx_font_typewriter"><math id="p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">YaccInputFile<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">.grm.sml</span>は，以下の
+シグネチャをもつストラクチャである．
+</p>
+</div>
+<div id="p2" class="ltx_para">
+<pre class="ltx_verbatim ltx_font_typewriter">
+    signature ML_LRVALS =
+      sig
+         structure Tokens : ML_TOKENS
+         structure Parser : PARSER
+         sharing type Parser.token = Tokens.token
+      end
+</pre>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">このシグネチャを含む<span class="ltx_text ltx_font_typewriter">smlyacc</span>のサポートライブラリは，
+<span class="ltx_text ltx_font_typewriter">smlyacc-lib.smi</span>にまとめられている．
+生成された構文解析プログラムをSML#で使用するためには，
+以下のインタフェイスを書く必要がある．
+</p>
+</div>
+<div id="p4" class="ltx_para">
+<pre class="ltx_verbatim ltx_font_typewriter">
+    _require "basis.smi"
+    _require "ml-yacc-lib.smi"
+
+    structure &lt;Name&gt; =
+    struct
+      structure Parser =
+      struct
+        type token (= boxed)
+        type stream (= boxed)
+        type result = Absyn.parseresult
+        type pos = int
+        type arg = unit
+        exception ParseError
+        val makeStream : {lexer:unit -&gt; token} -&gt; stream
+        val consStream : token * stream -&gt; stream
+        val getStream : stream -&gt; token * stream
+        val sameToken : token * token -&gt; bool
+        val parse : {lookahead:int,
+                     stream:stream,
+                     error: (string * pos * pos -&gt; unit),
+                     arg: arg}
+                    -&gt; result * stream
+      end
+      structure Tokens =
+      struct
+        type pos = Parser.pos
+        type token = Parser.token
+        &lt;the set of Token forming functions&gt;
+         ...
+        val EOF: word *  pos * pos -&gt; token
+        val CHAR: string *  pos * pos -&gt; token
+        ....
+      end
+    end
+</pre>
+</div>
+<div id="p5" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">Parser</span>ストラクチャの<span class="ltx_text ltx_font_typewriter">pos</span>，<span class="ltx_text ltx_font_typewriter">arg</span>，<span class="ltx_text ltx_font_typewriter">result</span>型以外は，
+そのまま指定する．
+<span class="ltx_text ltx_font_typewriter">Token</span>ストラクチャは，<span class="ltx_text ltx_font_typewriter">smlyacc</span>が生成する
+<math id="p5.m1" class="ltx_Math" alttext="\mbox{$\,\langle$}{\it YaccInputFileName}\mbox{$\rangle\,$}" display="inline"><mrow><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow><mi>Y</mi><mi>a</mi><mi>c</mi><mi>c</mi><mi>I</mi><mi>n</mi><mi>p</mi><mi>u</mi><mi>t</mi><mi>F</mi><mi>i</mi><mi>l</mi><mi>e</mi><mi>N</mi><mi>a</mi><mi>m</mi><mi>e</mi><mrow><mo stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></mrow></math><span class="ltx_text ltx_font_typewriter">.grm.sig</span>の内容をここにコピーする．</p>
+</div>
+<div id="p6" class="ltx_para">
+<p class="ltx_p">それぞれの要素の概要を以下に説明する．
+</p>
+</div>
+<div id="p7" class="ltx_para">
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">token</span> 型．
+<span class="ltx_text ltx_font_typewriter">smllex</span>で生成される字句解析処理が返す語彙（トークン）を表す抽象データ型．</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">stream</span> 型．
+<span class="ltx_text ltx_font_typewriter">smlyacc</span>で生成される構文解析器の入力ストリーム型．</p>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">result</span> 型．
+構文解析器の出力である抽象構文木のデータ型．
+<span class="ltx_text ltx_font_typewriter"><math id="I1.i3.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">YaccInputFile<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i3.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">.grm</span>で指定した最上位の構文規則
+の属の性の型と同一である．</p>
+</div>
+</li>
+<li id="I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i4.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">pos</span> 型．
+<span class="ltx_text ltx_font_typewriter"><math id="I1.i4.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">YaccInputFile<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i4.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">.grm</span>で指定し，<span class="ltx_text ltx_font_typewriter">smllex</span>で生成
+した字句解析器が使用するポジション型．</p>
+</div>
+</li>
+<li id="I1.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i5.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">arg</span> 型．
+<span class="ltx_text ltx_font_typewriter"><math id="I1.i5.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">YaccInputFile<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i5.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">.grm</span>で指定したパーザの引数型．
+必要なければ<span class="ltx_text ltx_font_typewriter">unit</span>型でよい．</p>
+</div>
+</li>
+<li id="I1.i6" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i6.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">ParseError</span>例外．
+構文解析器が構文エラーを検出した時の例外．</p>
+</div>
+</li>
+<li id="I1.i7" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i7.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">makeStream</span>関数．
+構文解析器の引数に指定する<span class="ltx_text ltx_font_typewriter">stream</span>型を生成する関数．
+引数には，通常，<span class="ltx_text ltx_font_typewriter">smllex</span>が生成する字句解析器を指定する．</p>
+</div>
+</li>
+<li id="I1.i8" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i8.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">consStream</span>関数．
+現在の入力ストリームに字句を一つ戻す関数．</p>
+</div>
+</li>
+<li id="I1.i9" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i9.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">getStream</span>関数．
+現在の入力ストリームを読み先頭の字句を一返す関数．</p>
+</div>
+</li>
+<li id="I1.i10" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i10.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">sameToken</span>関数．
+字句の同一性をチェックする関数．</p>
+</div>
+</li>
+<li id="I1.i11" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i11.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">parse</span>関数．
+構文解析関数．
+現在の入力を指定して呼び出すと，構文解析結果と残りのトークンストリームを返す．</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch30.S2.html" title="30.2 smlyacc入力ファイルの構造 ‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">30.2 </span>smlyacc入力ファイルの構造</span></a><a href="Ch30.S4.html" title="30.4 smllex入力ファイルの構造 ‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">30.4 </span>smllex入力ファイルの構造</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Mar 25 14:55:50 2025 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

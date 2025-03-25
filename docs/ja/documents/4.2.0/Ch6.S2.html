@@ -1,0 +1,283 @@
+<!DOCTYPE html><html>
+<head>
+<title>6.2  SML#コンパイラの構造とブートストラップ ‣ Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版</title>
+<!--Generated on Tue Mar 25 14:55:50 2025 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on 令和7年3月.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-book.css" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+<link rel="up" href="Ch6.html" title="Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="up up" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="up up up" href="./" title="プログラミング言語SML#解説 4.2.0版">
+<link rel="start" href="./" title="プログラミング言語SML#解説 4.2.0版">
+<link rel="prev" href="Ch6.S1.html" title="6.1 Unix系OS，Emacsエディタ，その他ツールの整備 ‣ Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="next" href="Ch6.S3.html" title="6.3 SML#の対話型モードを使ってみよう ‣ Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch6.S1.html" title="6.1 Unix系OS，Emacsエディタ，その他ツールの整備 ‣ Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch6.S3.html" title="6.3 SML#の対話型モードを使ってみよう ‣ Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch6.S4.html" title="6.4 SML#のコンパイルモードを試してみよう ‣ Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch6.S5.html" title="6.5 smlsharpコマンドの起動モード ‣ Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch5.html" title="Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch6.html" title="Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch7.html" title="Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch8.html" title="Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch9.html" title="Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch10.html" title="Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch11.html" title="Chapter 11 SML#の拡張機能：マルチスレッドプログラミング ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch13.html" title="Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch14.html" title="Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.2.0版">
+</head>
+<body>
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.2.0版</div>
+<div>
+<a href="Ch6.html" title="Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">6 </span>SML#プログラミング環境の準備</span></a><a href="Ch6.S1.html" title="6.1 Unix系OS，Emacsエディタ，その他ツールの整備 ‣ Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">6.1 </span>
+Unix系OS，Emacsエディタ，その他ツールの整備</span></a><a href="Ch6.S3.html" title="6.3 SML#の対話型モードを使ってみよう ‣ Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">6.3 </span>
+SML#の対話型モードを使ってみよう</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">6.2 </span>
+SML#コンパイラの構造とブートストラップ
+</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">この節の内容は，SML#コンパイラをインストールし使用する上で
+理解する必要はありませんが，やや時間がかかるSML#コンパイラのインス
+トール処理の理解や，さらにコンパイラの一般的な構造を理解する上で有用と思
+います．</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">SML#4.2.0版コンパイラは，SML#言語で書かれた
+ファイルを分割コンパイルし，ネイティブコードを生成します．
+対話型モードも，このコンパイラを使い，
+(1) 現在の環境下で分割コンパイル，
+(2) システムとのリンク，
+(3) オブジェクトファイルの動的ロード
+を繰り返すことによって実現しています．
+SML#コンパイラはSML#言語，C言語，およびC++言語
+で書かれており，さらに自分自身のコンパイル時に以下のツールを使用していま
+す．</p>
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">ml-lex，ml-yacc．字句解析および構文解析ツール．</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">SMLFormat．プリンタ自動生成ツール</p>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p">基本ライブラリ</p>
+</div>
+</li>
+</ul>
+<p class="ltx_p">これらもSML#言語で書かれています．</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">SML#コンパイラは，各SML#ファイル（Standard MLファ
+イルを含む）をシステム標準のオブジェクトファイルにコンパイルします．
+コンパイルしたファイルは，システム標準のリンカによって
+実行形式ファイルに結合できます．
+従って，SML#コンパイラは，C/C++コンパイラとSML#
+コンパイラがあれば構築できます．
+しかし，もちろん，SML#コンパイラを初めてインストールする
+時には，SML#コンパイラはまだ存在しません．
+SML#4.2.0版では，以下の手順でこのブートストラップの
+問題を解決し，SML#をビルドしインストールしています．</p>
+</div>
+<div id="p4" class="ltx_para">
+<ol id="I2" class="ltx_enumerate">
+<li id="I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="I2.i1.p1" class="ltx_para">
+<p class="ltx_p">C/C++で書かれたランタイムライブラリをコンパイルし静的リンク
+ライブラリを生成します．</p>
+</div>
+</li>
+<li id="I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="I2.i2.p1" class="ltx_para">
+<p class="ltx_p">SML#コンパイラのソースコードをコンパイルするのに十分な大きさの
+SML#コンパイラ（<span class="ltx_text ltx_font_typewriter">minismlsharp</span>）を，古いSML#コンパイラで
+事前にコンパイルしておき，
+SML#のソースツリーにコンパイル済みのLLVM IRファイルを用意しています．</p>
+</div>
+</li>
+<li id="I2.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span> 
+<div id="I2.i3.p1" class="ltx_para">
+<p class="ltx_p">インストール先のシステムの下で，
+<span class="ltx_text ltx_font_typewriter">minismlsharp</span>のLLVM IRファイルをLLVMを用いてコンパイルし，
+ランタイムライブラリとリンクし，
+<span class="ltx_text ltx_font_typewriter">minismlsharp</span>コマンドを生成します．
+</p>
+</div>
+</li>
+<li id="I2.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">4.</span> 
+<div id="I2.i4.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">minismlsharp</span>コマンドを用いて，SML#をコンパイルするための
+各種ツールとライブラリ，およびSML#コンパイラをコンパイルします．
+このコンパイルは，ツールとライブラリの依存関係から，おおよそ
+以下の順番で行われます．</p>
+<ol id="I2.i4.I1" class="ltx_enumerate">
+<li id="I2.i4.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">(a)</span> 
+<div id="I2.i4.I1.i1.p1" class="ltx_para">
+<p class="ltx_p">基本ライブラリ（Basis Library）のコンパイル．</p>
+</div>
+</li>
+<li id="I2.i4.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">(b)</span> 
+<div id="I2.i4.I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">smllex</span>コマンドのコンパイルとリンク．</p>
+</div>
+</li>
+<li id="I2.i4.I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">(c)</span> 
+<div id="I2.i4.I1.i3.p1" class="ltx_para">
+<p class="ltx_p">ML-yaccライブラリと<span class="ltx_text ltx_font_typewriter">smlyacc</span>コマンドのコンパイルとリンク．</p>
+</div>
+</li>
+<li id="I2.i4.I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">(d)</span> 
+<div id="I2.i4.I1.i4.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">smllex</span>および<span class="ltx_text ltx_font_typewriter">smlyacc</span>コマンドによるパーザの生成．</p>
+</div>
+</li>
+<li id="I2.i4.I1.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">(e)</span> 
+<div id="I2.i4.I1.i5.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">smlformat</span>コマンドのコンパイルとリンク．</p>
+</div>
+</li>
+<li id="I2.i4.I1.i6" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">(f)</span> 
+<div id="I2.i4.I1.i6.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">smlformat</span>コマンドによるプリンタの生成．</p>
+</div>
+</li>
+<li id="I2.i4.I1.i7" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">(g)</span> 
+<div id="I2.i4.I1.i7.p1" class="ltx_para">
+<p class="ltx_p">すべてのライブラリのコンパイル．</p>
+</div>
+</li>
+<li id="I2.i4.I1.i8" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">(h)</span> 
+<div id="I2.i4.I1.i8.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">smlsharp</span>コマンドのコンパイルとリンク．</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li id="I2.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">5.</span> 
+<div id="I2.i5.p1" class="ltx_para">
+<p class="ltx_p">以下のファイルを所定の位置にインストールします．</p>
+<ul id="I2.i5.I1" class="ltx_itemize">
+<li id="I2.i5.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i5.I1.i1.p1" class="ltx_para">
+<p class="ltx_p">ランタイムライブラリのライブラリファイル．</p>
+</div>
+</li>
+<li id="I2.i5.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i5.I1.i2.p1" class="ltx_para">
+<p class="ltx_p">ライブラリのインターフェースファイル，オブジェクトファイル，および
+シグネチャファイル．</p>
+</div>
+</li>
+<li id="I2.i5.I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i5.I1.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">smllex</span>，<span class="ltx_text ltx_font_typewriter">smlyacc</span>，<span class="ltx_text ltx_font_typewriter">smlformat</span>，<span class="ltx_text ltx_font_typewriter">smlsharp</span>の
+各コマンド．</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div id="p5" class="ltx_para">
+<p class="ltx_p">これらは以上のステップが示す様に，各ソースファイルやコマンド間に
+は複雑な依存関係があります．
+さらに，いくつかのソースファイルの処理は，OSの環境に依存しています．
+これらは，大規模なシステムの典型です．
+これら依存関係を制御する一つの手法は，GNU Autoconfによる<span class="ltx_text ltx_font_typewriter">configure</span>スクリプトと<span class="ltx_text ltx_font_typewriter">make</span>コマンドの使用です．
+SML#コンパイラは，インターフェイスファイルに従って各ファイ
+ルをコンパイルします．
+個別のファイルが必要とするファイルは，このインターフェイスファイル
+に記述されています．
+SML#コンパイラは，この依存関係を<span class="ltx_text ltx_font_typewriter">make</span>コマンドが読み
+込めるフォーマットで出力する機能を持っています．</p>
+<ol id="I3" class="ltx_enumerate">
+<li id="I3.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="I3.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">smlsharp -MM <math id="I3.i1.p1.m1" class="ltx_Math" alttext="\mathit{smlFile}" display="inline"><mrow><mi>s</mi><mi>m</mi><mi>l</mi><mi>F</mi><mi>i</mi><mi>l</mi><mi>e</mi></mrow></math></span>.
+ソースファイル<math id="I3.i1.p1.m2" class="ltx_Math" alttext="\mathit{smlFile}" display="inline"><mrow><mi>s</mi><mi>m</mi><mi>l</mi><mi>F</mi><mi>i</mi><mi>l</mi><mi>e</mi></mrow></math>を読み，このソースファイルを
+コンパイルするために必要なファイルのリストをMakefile形式で出力
+します．</p>
+</div>
+</li>
+<li id="I3.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="I3.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">smlsharp -MMl <math id="I3.i2.p1.m1" class="ltx_Math" alttext="\mathit{smiFile}" display="inline"><mrow><mi>s</mi><mi>m</mi><mi>i</mi><mi>F</mi><mi>i</mi><mi>l</mi><mi>e</mi></mrow></math></span>.
+インターフェイスファイル<math id="I3.i2.p1.m2" class="ltx_Math" alttext="\mathit{smiFile}" display="inline"><mrow><mi>s</mi><mi>m</mi><mi>i</mi><mi>F</mi><mi>i</mi><mi>l</mi><mi>e</mi></mrow></math>をトップレベルの
+ファイルとみなし，このトップレベルから生成されるべき実行形式コマンドの
+リンクに必要なオブジェクトファイルのリストをMakefile形式で出力します．</p>
+</div>
+</li>
+<li id="I3.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span> 
+<div id="I3.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">smlsharp -MMm <math id="I3.i3.p1.m1" class="ltx_Math" alttext="\mathit{smiFile}" display="inline"><mrow><mi>s</mi><mi>m</mi><mi>i</mi><mi>F</mi><mi>i</mi><mi>l</mi><mi>e</mi></mrow></math></span>.
+インターフェイスファイル<math id="I3.i3.p1.m2" class="ltx_Math" alttext="\mathit{smiFile}" display="inline"><mrow><mi>s</mi><mi>m</mi><mi>i</mi><mi>F</mi><mi>i</mi><mi>l</mi><mi>e</mi></mrow></math>をトップレベルの
+ファイルとみなし，このトップレベルから生成されるべき実行形式ファイルを
+ビルドするためのMakefileを生成します．
+</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="p6" class="ltx_para">
+<p class="ltx_p">SML#システムは，この機能を利用して，上記の手順を実行する
+<span class="ltx_text ltx_font_typewriter">Makefile</span>を生成しています．
+この<span class="ltx_text ltx_font_typewriter">Makefile</span>によって，通常の大規模システムの開発と同様，再
+コンパイルが必要なファイルのみ<span class="ltx_text ltx_font_typewriter">make</span>コマンドによってコンパイル，リン
+クが実行されます．</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch6.S1.html" title="6.1 Unix系OS，Emacsエディタ，その他ツールの整備 ‣ Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">6.1 </span>
+Unix系OS，Emacsエディタ，その他ツールの整備</span></a><a href="Ch6.S3.html" title="6.3 SML#の対話型モードを使ってみよう ‣ Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">6.3 </span>
+SML#の対話型モードを使ってみよう</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Mar 25 14:55:50 2025 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

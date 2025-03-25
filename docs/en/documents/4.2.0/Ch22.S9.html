@@ -1,0 +1,409 @@
+<!DOCTYPE html><html>
+<head>
+<title>22.9 SQL Library: The SQL.Op structure‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.2.0</title>
+<!--Generated on Tue Mar 25 14:56:23 2025 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on Mar, 2025.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-book.css" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+<link rel="up" href="Ch22.html" title="Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="up up" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="up up up" href="./" title="SML# Document Version 4.2.0">
+<link rel="start" href="./" title="SML# Document Version 4.2.0">
+<link rel="prev" href="Ch22.S8.html" title="22.8 SQL Library: The SQL Structure ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="next" href="Ch22.S10.html" title="22.10 SQL Library: The SQL.Numeric Structure ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch22.S1.html" title="22.1 SQL Types ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch22.S2.html" title="22.2 Extended ML Expressions for SQL Queries ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch22.S3.html" title="22.3 Database Server Description: The _sqlserver Expression ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch22.S4.html" title="22.4 SQL Value Expressions ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch22.S5.html" title="22.5 SELECT queries ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch22.S6.html" title="22.6 SQL commands ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch22.S7.html" title="22.7 SQL execution function expressions ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch22.S8.html" title="22.8 SQL Library: The SQL Structure ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch22.S10.html" title="22.10 SQL Library: The SQL.Numeric Structure ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch22.S11.html" title="22.11 Difference from the standard SQL (Informative) ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch15.html" title="Chapter 15 Introduction ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch16.html" title="Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch17.html" title="Chapter 17 Lexical structure ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch18.html" title="Chapter 18 Types ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch19.html" title="Chapter 19 Expressions ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch20.html" title="Chapter 20 Patterns and Pattern Matching ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch21.html" title="Chapter 21 Scope rules for identifier ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch22.html" title="Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch23.html" title="Chapter 23 Declarations of the core language and their interfaces ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch24.html" title="Chapter 24 Module language declarations and interface ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch25.html" title="Chapter 25 Overview of SML# Libraries ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch26.html" title="Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch27.html" title="Chapter 27 SML# System Library ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch28.html" title="Chapter 28 The smlsharp command ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch29.html" title="Chapter 29 SML# Run-time data management ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 4.2.0">
+</head>
+<body>
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 4.2.0</div>
+<div>
+<a href="Ch22.html" title="Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22 </span>SQL Expressions and Commands</span></a><a href="Ch22.S8.html" title="22.8 SQL Library: The SQL Structure ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.8 </span>SQL Library: The SQL Structure</span></a><a href="Ch22.S10.html" title="22.10 SQL Library: The SQL.Numeric Structure ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.10 </span>SQL Library: The SQL.Numeric Structure</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">22.9 </span>SQL Library: The SQL.Op structure</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">The <span class="ltx_text ltx_font_typewriter">SQL.Op</span> structure provides
+SQL’s infix operators, aggregate functions, and other utilities,
+all of which are used for constructing SQL value expressions.
+In SML#’s SQL value expressions,
+the infixity of some identifiers are declared as follows:
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">infix 7 %
+<br class="ltx_break">
+infix 5 like ||
+<br class="ltx_break">
+nonfix mod
+</span></p>
+</blockquote>
+<p class="ltx_p">In an SQL value expression that is not evaluated by SML#,
+SQL functions and operators defined in this structure can be used
+without any structure prefix.
+</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">Almost all of functions defined in <span class="ltx_text ltx_font_typewriter">SQL.Op</span> is overloaded
+on multiple SQL basic types (see Section <a href="Ch22.S1.html" title="22.1 SQL Types ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.2.0" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.1</span></a>).
+In the description,
+the overloaded type variables and their ranges are indicated by their
+names as follows:
+</p>
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">’sql</span> is one of the SQL basic types or
+their <span class="ltx_text ltx_font_typewriter">option</span> types.
+</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">’sqlopt</span> is the <span class="ltx_text ltx_font_typewriter">option</span> type of an SQL basic type.
+</p>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">’num</span> is one of the SQL basic numeric types or
+their <span class="ltx_text ltx_font_typewriter">option</span> types.
+</p>
+</div>
+</li>
+<li id="I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i4.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">’str</span> is either <span class="ltx_text ltx_font_typewriter">string</span> or <span class="ltx_text ltx_font_typewriter">string option</span>.
+</p>
+</div>
+</li>
+<li id="I1.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i5.p1" class="ltx_para">
+<p class="ltx_p">Other type variables range over the set of all types.
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">The signature of the <span class="ltx_text ltx_font_typewriter">SQL.Op</span> structure is the following:
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">structure SQL : sig
+<br class="ltx_break">
+  <math id="p3.m1" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math>
+<br class="ltx_break">
+  structure Op : sig
+<br class="ltx_break">
+    val Some : ’a -&gt; ’a option
+<br class="ltx_break">
+    val Part : ’a option list -&gt; ’a list
+<br class="ltx_break">
+    val Num : ’num -&gt; numeric option
+<br class="ltx_break">
+    val + : ’num * ’num -&gt; ’num
+<br class="ltx_break">
+    val - : ’num * ’num -&gt; ’num
+<br class="ltx_break">
+    val * : ’num * ’num -&gt; ’num
+<br class="ltx_break">
+    val / : ’num * ’num -&gt; ’num
+<br class="ltx_break">
+    val mod : ’num * ’num -&gt; ’num
+<br class="ltx_break">
+    val ~: ’num -&gt; ’num
+<br class="ltx_break">
+    val abs : ’num -&gt; ’num
+<br class="ltx_break">
+    val &lt; : ’sql * ’sql -&gt; bool3
+<br class="ltx_break">
+    val &gt; : ’sql * ’sql -&gt; bool3
+<br class="ltx_break">
+    val &lt;= : ’sql * ’sql -&gt; bool3
+<br class="ltx_break">
+    val &gt;= : ’sql * ’sql -&gt; bool3
+<br class="ltx_break">
+    val = : ’sql * ’sql -&gt; bool3
+<br class="ltx_break">
+    val &lt;&gt; : ’sql * ’sql -&gt; bool3
+<br class="ltx_break">
+    val || : ’str * ’str -&gt; ’str
+<br class="ltx_break">
+    val like : ’str * ’str -&gt; bool3
+<br class="ltx_break">
+    val nullif : ’sqlopt * ’sqlopt -&gt; ’sqlopt
+<br class="ltx_break">
+    val coalesce : ’b option * ’b -&gt; ’b
+<br class="ltx_break">
+    val coalesce’ : ’b option * ’b option -&gt; ’b option
+<br class="ltx_break">
+    val count : ’sql list -&gt; int
+<br class="ltx_break">
+    val avg : ’num list -&gt; numeric option
+<br class="ltx_break">
+    val sum : ’num list -&gt; ’num option
+<br class="ltx_break">
+    val sum’ : ’num option list -&gt; ’num option
+<br class="ltx_break">
+    val min : ’sql list -&gt; ’sql option
+<br class="ltx_break">
+    val min’ : ’sql option list -&gt; ’sql option
+<br class="ltx_break">
+    val max : ’sql list -&gt; ’sql option
+<br class="ltx_break">
+    val max’ : ’sql option list -&gt; ’sql option
+<br class="ltx_break">
+  end
+<br class="ltx_break">
+end
+</span></p>
+</blockquote>
+<p class="ltx_p">Each of the following subsections describes the definitions
+for each category of their purposes.
+</p>
+</div>
+<section id="SS1" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.9.1 </span>Workarounds for type inconsistencies</h2>
+
+<div id="SS1.p1" class="ltx_para">
+<p class="ltx_p">SML# provides the following functions corresponding to
+implicit type cast.
+See Subsection <a href="Ch22.S4.html#SS5" title="22.4.5 Type cast expressions ‣ 22.4 SQL Value Expressions ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.2.0" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.4.5</span></a> for details.
+</p>
+</div>
+<div id="SS1.p2" class="ltx_para">
+<ul id="I2" class="ltx_itemize">
+<li id="I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val Some : ’a -&gt; ’a option</span></p>
+</div>
+</li>
+<li id="I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val Part : ’a option list -&gt; ’a list</span></p>
+</div>
+</li>
+<li id="I2.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val Num : ’num -&gt; numeric option</span></p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+<section id="SS2" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.9.2 </span>SQL operators and functions</h2>
+
+<div id="SS2.p1" class="ltx_para">
+<p class="ltx_p">The <span class="ltx_text ltx_font_typewriter">SQL.Op</span> structure provides the following
+operators.
+These operators return an SQL value expression that concatinates
+given expressions with the operator.
+The comparison is not performed until the constructed query
+is executed on a database server.
+</p>
+<ul id="I3" class="ltx_itemize">
+<li id="I3.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i1.p1" class="ltx_para">
+<p class="ltx_p">Comparison operators:
+<span class="ltx_text ltx_font_typewriter">&lt;</span>, <span class="ltx_text ltx_font_typewriter">&gt;</span>, <span class="ltx_text ltx_font_typewriter">&lt;=</span>, <span class="ltx_text ltx_font_typewriter">&gt;=</span>, <span class="ltx_text ltx_font_typewriter">=</span>, <span class="ltx_text ltx_font_typewriter">&lt;&gt;</span> are
+provided for any SQL basic types.
+The type of these operators is
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">’sql * ’sql -&gt; bool3</span></p>
+</blockquote>
+</div>
+</li>
+<li id="I3.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i2.p1" class="ltx_para">
+<p class="ltx_p">Arithmetic operators:
+Five infix operators
+<span class="ltx_text ltx_font_typewriter">+</span>, <span class="ltx_text ltx_font_typewriter">-</span>, <span class="ltx_text ltx_font_typewriter">*</span>, <span class="ltx_text ltx_font_typewriter">/</span>, <span class="ltx_text ltx_font_typewriter">%</span> and
+two unary operators
+<span class="ltx_text ltx_font_typewriter">~</span>, <span class="ltx_text ltx_font_typewriter">abs</span>
+are provided for any SQL
+numeric types.
+In the SQL value expression,
+<span class="ltx_text ltx_font_typewriter">%</span> is declared as a infix identifier.
+The type of these operators is either
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">’num * ’num -&gt; ’num</span></p>
+</blockquote>
+<p class="ltx_p">or
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">’num -&gt; ’num</span></p>
+</blockquote>
+</div>
+</li>
+<li id="I3.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i3.p1" class="ltx_para">
+<p class="ltx_p">Modulo operation:
+Following the standard SQL,
+the modulo operator <span class="ltx_text ltx_font_typewriter">mod</span> is also provided as
+a function.
+Note that some database engines supports only one of
+<span class="ltx_text ltx_font_typewriter">mod</span> and <span class="ltx_text ltx_font_typewriter">%</span>.
+In the SQL value expression,
+<span class="ltx_text ltx_font_typewriter">mod</span> is declared as a nonfix identifier.
+The type of <span class="ltx_text ltx_font_typewriter">mod</span> is
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">’num * ’num -&gt; ’num</span></p>
+</blockquote>
+</div>
+</li>
+<li id="I3.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i4.p1" class="ltx_para">
+<p class="ltx_p">String operators:
+The pattern match operator <span class="ltx_text ltx_font_typewriter">like</span> and
+string concatination operator <span class="ltx_text ltx_font_typewriter">||</span> are available.
+Both identifiers are infix operators in SQL value expressions.
+Their types are the following:
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val like : ’str * ’str -&gt; bool3
+<br class="ltx_break">
+val || : ’str * ’str -&gt; ’str</span></p>
+</blockquote>
+</div>
+</li>
+<li id="I3.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i5.p1" class="ltx_para">
+<p class="ltx_p">NULLIF:
+the <span class="ltx_text ltx_font_typewriter">nullif</span> function of the following type is provided:
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val nullif : ’sqlopt * ’sqlopt -&gt; ’sqlopt</span></p>
+</blockquote>
+<p class="ltx_p">Note that the two arguments must be an <span class="ltx_text ltx_font_typewriter">option</span> type.
+Use <span class="ltx_text ltx_font_typewriter">Some</span> if needed.
+</p>
+</div>
+</li>
+<li id="I3.i6" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i6.p1" class="ltx_para">
+<p class="ltx_p">COALESCE:
+Two variants <span class="ltx_text ltx_font_typewriter">coalesce</span> and <span class="ltx_text ltx_font_typewriter">coalesce’</span> are provided
+because of the <span class="ltx_text ltx_font_typewriter">option</span> type.
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val coalesce : ’b option * ’b -&gt; ’b
+<br class="ltx_break">
+val coalesce’ : ’b option * ’b option -&gt; ’b option</span></p>
+</blockquote>
+<p class="ltx_p">In the SQL query sent to a server,
+both functions have the same name COALESCE.
+The type of <span class="ltx_text ltx_font_typewriter">coalesce</span> is chosen
+for a paticular use of COALESCE that substitutes NULL value with non-NULL
+values.
+Different from the standard SQL,
+COALESCE with more than two arguments is not supported.
+Nest <span class="ltx_text ltx_font_typewriter">coalesce’</span> functions for more than two values.
+</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+<section id="SS3" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.9.3 </span>SQL aggregation functions</h2>
+
+<div id="SS3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">count</span>,
+<span class="ltx_text ltx_font_typewriter">avg</span>,
+<span class="ltx_text ltx_font_typewriter">sum</span>,
+<span class="ltx_text ltx_font_typewriter">min</span>, and
+<span class="ltx_text ltx_font_typewriter">max</span> are available.
+Because of the <span class="ltx_text ltx_font_typewriter">option</span> type,
+<span class="ltx_text ltx_font_typewriter">sum</span>, <span class="ltx_text ltx_font_typewriter">min</span>, and <span class="ltx_text ltx_font_typewriter">max</span> function has
+two variants such as <span class="ltx_text ltx_font_typewriter">sum</span> and <span class="ltx_text ltx_font_typewriter">sum’</span>.
+The name sent to a server is same regardless of the variant chosen.
+</p>
+</div>
+<div id="SS3.p2" class="ltx_para">
+<p class="ltx_p">The type of these functions are the following:
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val count : ’sql list -&gt; int
+<br class="ltx_break">
+val avg : ’num list -&gt; numeric option
+<br class="ltx_break">
+val sum : ’num list -&gt; ’num option
+<br class="ltx_break">
+val sum’ : ’num option list -&gt; ’num option
+<br class="ltx_break">
+val min : ’sql list -&gt; ’sql option
+<br class="ltx_break">
+val min’ : ’sql option list -&gt; ’sql option
+<br class="ltx_break">
+val max : ’sql list -&gt; ’sql option
+<br class="ltx_break">
+val max’ : ’sql option list -&gt; ’sql option</span></p>
+</blockquote>
+</div>
+</section>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch22.S8.html" title="22.8 SQL Library: The SQL Structure ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.8 </span>SQL Library: The SQL Structure</span></a><a href="Ch22.S10.html" title="22.10 SQL Library: The SQL.Numeric Structure ‣ Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.10 </span>SQL Library: The SQL.Numeric Structure</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Mar 25 14:56:23 2025 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

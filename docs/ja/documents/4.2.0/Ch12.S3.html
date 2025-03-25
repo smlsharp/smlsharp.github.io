@@ -1,0 +1,140 @@
+<!DOCTYPE html><html>
+<head>
+<title>12.3 問い合わせの実行‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版</title>
+<!--Generated on Tue Mar 25 14:55:50 2025 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on 令和7年3月.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-book.css" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+<link rel="up" href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="up up" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="up up up" href="./" title="プログラミング言語SML#解説 4.2.0版">
+<link rel="start" href="./" title="プログラミング言語SML#解説 4.2.0版">
+<link rel="prev" href="Ch12.S2.html" title="12.2 SML#へのSQL式の導入 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="next" href="Ch12.S4.html" title="12.4 データベース問い合わせ実行例 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch12.S1.html" title="12.1 関係データベースとSQL ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch12.S2.html" title="12.2 SML#へのSQL式の導入 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch12.S4.html" title="12.4 データベース問い合わせ実行例 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch12.S5.html" title="12.5 その他のSQL文 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch5.html" title="Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch6.html" title="Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch7.html" title="Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch8.html" title="Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch9.html" title="Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch10.html" title="Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch11.html" title="Chapter 11 SML#の拡張機能：マルチスレッドプログラミング ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch13.html" title="Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch14.html" title="Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.2.0版">
+</head>
+<body>
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.2.0版</div>
+<div>
+<a href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">12 </span>
+SML#の拡張機能：SQLの統合</span></a><a href="Ch12.S2.html" title="12.2 SML#へのSQL式の導入 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">12.2 </span>SML#へのSQL式の導入</span></a><a href="Ch12.S4.html" title="12.4 データベース問い合わせ実行例 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">12.4 </span>データベース問い合わせ実行例</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">12.3 </span>問い合わせの実行</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">_sql <math id="p1.m1" class="ltx_Math" alttext="x" display="inline"><mi>x</mi></math> =&gt; <math id="p1.m2" class="ltx_Math" alttext="exp" display="inline"><mrow><mi>e</mi><mi>x</mi><mi>p</mi></mrow></math></span>式で定義された問い合わせ関数にデータベー
+ス接続を適用すれば，データベースをアクセスできます．
+そのために，以下の構文と関数が用意されています．</p>
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">データベースサーバー式．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">_sqlserver <math id="I1.i1.p1.m1" class="ltx_Math" alttext="serverLocation" display="inline"><mrow><mi>s</mi><mi>e</mi><mi>r</mi><mi>v</mi><mi>e</mi><mi>r</mi><mi>L</mi><mi>o</mi><mi>c</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi></mrow></math> : <math id="I1.i1.p1.m2" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math></span></p>
+</blockquote>
+<p class="ltx_p">この式は，データベースサーバーを指定します．
+<math id="I1.i1.p1.m3" class="ltx_Math" alttext="serverLocation" display="inline"><mrow><mi>s</mi><mi>e</mi><mi>r</mi><mi>v</mi><mi>e</mi><mi>r</mi><mi>L</mi><mi>o</mi><mi>c</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi></mrow></math>はデータベースサーバーの場所と名前です．
+その具体的な内容は，使用するデータベースシステムのデータベース指
+定構文に従います．
+<math id="I1.i1.p1.m4" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>はデータベースの構造です．
+テーブルの名前とその構造をレコード型の文法で指定します．
+この式を評価すると，<math id="I1.i1.p1.m5" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> SQL.server</span>型をもつデータベースサー
+バー定義が得られます．
+詳細は<a href="Ch22.S3.html" title="22.3 接続先データベース宣言式：_sqlserver ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.3</span></a>節をご覧ください．</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">データベースへの接続プリミティブ関数．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.connect : [’a. ’a SQL.server -&gt; ’a SQL.conn]</span></p>
+</blockquote>
+<p class="ltx_p">SML#コンパイラは，<math id="I1.i2.p1.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> SQL.server</span>型のデータベース定義
+を受け取り，その中に指定されたデータベースに接続しその構造をチェックし
+<math id="I1.i2.p1.m2" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>と一致していることを確認した後，<math id="I1.i2.p1.m3" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> SQL.conn</span>の型をもつ<math id="I1.i2.p1.m4" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>
+型のデータベースへの接続を返します．</p>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p">問い合わせの実行．
+<span class="ltx_text ltx_font_typewriter">_sql</span>式そのものが，データベースで問い合わせを実行する
+関数を表します．
+データベース問い合わせ関数にデータベース接続を
+適用すると，その問い合わせがその接続を通じてデータベース上で実行され，
+その結果にアクセスするための<math id="I1.i3.p1.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> SQL.cursor</span>型のカーソルを
+返します．</p>
+</div>
+</li>
+<li id="I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i4.p1" class="ltx_para">
+<p class="ltx_p">問い合わせ結果の取得．
+以下の2つの手続き的な関数が提供されています．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.fetchAll : [’a. ’a SQL.cursor -&gt; ’a option]
+<br class="ltx_break">
+SQL.fetch : [’a. ’a SQL.cursor -&gt; ’a list]</span></p>
+</blockquote>
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.fetch</span>は先頭のレコードを返し，カーソルを次のレコードに
+進めます．
+<span class="ltx_text ltx_font_typewriter">SQL.fetchAll</span>は，問い合わせによって得られた関係をすべて
+読み込み，リストに変換します．</p>
+</div>
+</li>
+<li id="I1.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i5.p1" class="ltx_para">
+<p class="ltx_p">問い合わせの後処理．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.closeCursor : [’a. ’a SQL.cursor -&gt; unit]
+<br class="ltx_break">
+SQL.closeConn : [’a. ’a SQL.conn -&gt; unit]</span></p>
+</blockquote>
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SQL.closeCursor</span>は問い合わせ処理の終了を，<span class="ltx_text ltx_font_typewriter">SQL.closeConn</span>
+はデータベース接続の終了をそれぞれ
+データベースサーバに通知します．</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch12.S2.html" title="12.2 SML#へのSQL式の導入 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">12.2 </span>SML#へのSQL式の導入</span></a><a href="Ch12.S4.html" title="12.4 データベース問い合わせ実行例 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">12.4 </span>データベース問い合わせ実行例</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Mar 25 14:55:50 2025 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

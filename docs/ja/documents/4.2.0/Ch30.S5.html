@@ -1,0 +1,98 @@
+<!DOCTYPE html><html>
+<head>
+<title>30.5 smllex出力ファイルのインタフェイスファイル記述‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版</title>
+<!--Generated on Tue Mar 25 14:55:50 2025 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on 令和7年3月.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-book.css" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+<link rel="up" href="Ch30.html" title="Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="up up" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="up up up" href="./" title="プログラミング言語SML#解説 4.2.0版">
+<link rel="start" href="./" title="プログラミング言語SML#解説 4.2.0版">
+<link rel="prev" href="Ch30.S4.html" title="30.4 smllex入力ファイルの構造 ‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="next" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch30.S1.html" title="30.1 生成されるソースファイル ‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch30.S2.html" title="30.2 smlyacc入力ファイルの構造 ‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch30.S3.html" title="30.3 smlyacc出力ファイルの構造とインタフェイスファイル記述 ‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch30.S4.html" title="30.4 smllex入力ファイルの構造 ‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch30.html" title="Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.2.0版">
+</head>
+<body>
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.2.0版</div>
+<div>
+<a href="Ch30.html" title="Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">30 </span>構文解析器生成ツール smlyaccとsmllex</span></a><a href="Ch30.S4.html" title="30.4 smllex入力ファイルの構造 ‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">30.4 </span>smllex入力ファイルの構造</span></a><a href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">V </span>SML#の内部構造</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">30.5 </span>smllex出力ファイルのインタフェイスファイル記述</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">smllex</span>は，字句解析生成関数<span class="ltx_text ltx_font_typewriter">makeLexer</span>を含むストラクチャを生成する．
+生成された字句解析プログラムをSML#で使用するためには，その
+インタフェイスを書く必要がある．
+最小のインタフェイスは以下の形である．
+</p>
+</div>
+<div id="p2" class="ltx_para">
+<pre class="ltx_verbatim ltx_font_typewriter">
+    _require "basis.smi"
+    _require "coreML.grm.smi"
+
+    structure CoreMLLex =
+    struct
+      val makeLexer : (int -&gt; string) -&gt; unit -&gt; CoreML.Tokens.token
+    end
+</pre>
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">makeLexer</span>の第一引数は，最大文字数を引数としてとり文字入力
+列を返す関数である．
+この関数を，<span class="ltx_text ltx_font_typewriter">makeLexer (fn n =&gt; TextIO.inputN(TextIO.stdIn,n)</span>
+のように文字列入力に適用すると，呼び出される毎に字句を返す字句解析関数が生成される．
+<span class="ltx_text ltx_font_typewriter">smlyacc</span>によって生成された<span class="ltx_text ltx_font_typewriter">makeStream</span>関数をこの関数に適用すると，
+構文解析器が使用するトークンストリーを生成できる．
+</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">追加引数等のユーザ宣言は<span class="ltx_text ltx_font_typewriter">UserDeclarations</span>ストラクチャに定義される．
+それらを使う字句解析プログラムのインタフェイスファイルは以下の形である．
+</p>
+</div>
+<div id="p4" class="ltx_para">
+<pre class="ltx_verbatim ltx_font_typewriter">
+    _require "basis.smi"
+    _require "&lt;YaccInputFile&gt;.grm.smi"
+
+    structure MLLex =
+    struct
+      structure UserDeclarations =
+      struct
+        type token = &lt;YaccName&gt;.Tokens.token
+        type pos = &lt;YaccName&gt;.Tokens.pos
+        type arg (= boxed)
+      end
+      val makeLexer
+          : (int -&gt; string) -&gt; UserDeclarations.arg -&gt; unit -&gt; UserDeclarations.token
+    end
+</pre>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch30.S4.html" title="30.4 smllex入力ファイルの構造 ‣ Chapter 30 構文解析器生成ツール smlyaccとsmllex ‣ Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">30.4 </span>smllex入力ファイルの構造</span></a><a href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">V </span>SML#の内部構造</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Mar 25 14:55:50 2025 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

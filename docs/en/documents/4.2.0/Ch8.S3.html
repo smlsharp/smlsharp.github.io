@@ -1,0 +1,130 @@
+<!DOCTYPE html><html>
+<head>
+<title>8.3 Record patterns‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.2.0</title>
+<!--Generated on Tue Mar 25 14:56:23 2025 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on Mar, 2025.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-book.css" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+<link rel="up" href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="up up" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="up up up" href="./" title="SML# Document Version 4.2.0">
+<link rel="start" href="./" title="SML# Document Version 4.2.0">
+<link rel="prev" href="Ch8.S2.html" title="8.2 Field selection operation ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="next" href="Ch8.S4.html" title="8.4 Functional record update ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch8.S1.html" title="8.1 Record expressions ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch8.S2.html" title="8.2 Field selection operation ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch8.S4.html" title="8.4 Functional record update ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch8.S5.html" title="8.5 Record programming examples ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch8.S6.html" title="8.6 Representing objects ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch8.S7.html" title="8.7 Polymorphic variants ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch5.html" title="Chapter 5 Installing SML# ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch6.html" title="Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch9.html" title="Chapter 9 SML# feature: other type system extensions ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch12.html" title="Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch13.html" title="Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch14.html" title="Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 4.2.0">
+</head>
+<body>
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 4.2.0</div>
+<div>
+<a href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8 </span>SML# feature: record polymorphism</span></a><a href="Ch8.S2.html" title="8.2 Field selection operation ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8.2 </span>Field selection operation</span></a><a href="Ch8.S4.html" title="8.4 Functional record update ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8.4 </span>Functional record update</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">8.3 </span>Record patterns</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">Record field selection can also be done through pattern
+matching.
+Standard ML has the following patterns.</p>
+<table id="Ch33.S3.EGx7" class="ltx_equationgroup ltx_eqn_eqnarray ltx_eqn_table">
+
+<tbody id="Ch8.Ex5">
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="Ch8.Ex3.m1" class="ltx_Math" alttext="\displaystyle pat" display="inline"><mrow><mi>p</mi><mi>a</mi><mi>t</mi></mrow></math></td>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><math id="Ch8.Ex3.m2" class="ltx_Math" alttext="\displaystyle\mbox{\ \ }::=" display="inline"><mrow><mtext> </mtext><mo>:</mo><mo>:</mo><mo>=</mo></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="Ch8.Ex3.m3" class="ltx_Math" alttext="\displaystyle\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr class="ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><span class="ltx_text ltx_markedasmath"> <math id="Ch8.Ex4.m2.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><span class="ltx_text ltx_markedasmath ltx_font_typewriter">{<math id="Ch8.Ex4.m3.m1" class="ltx_Math" alttext="field\_list" display="inline"><mrow><mi>f</mi><mi>i</mi><mi>e</mi><mi>l</mi><mi>d</mi><mi mathvariant="normal">_</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>t</mi></mrow></math>}</span></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr class="ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><span class="ltx_text ltx_markedasmath"> <math id="Ch8.Ex5.m2.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><span class="ltx_text ltx_markedasmath ltx_font_typewriter">{<math id="Ch8.Ex5.m3.m1" class="ltx_Math" alttext="field\_list" display="inline"><mrow><mi>f</mi><mi>i</mi><mi>e</mi><mi>l</mi><mi>d</mi><mi mathvariant="normal">_</mi><mi>l</mi><mi>i</mi><mi>s</mi><mi>t</mi></mrow></math>,...}</span></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</tbody>
+<tbody id="Ch8.Ex6"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="Ch8.Ex6.m1" class="ltx_Math" alttext="\displaystyle field" display="inline"><mrow><mi>f</mi><mi>i</mi><mi>e</mi><mi>l</mi><mi>d</mi></mrow></math></td>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><math id="Ch8.Ex6.m2" class="ltx_Math" alttext="\displaystyle\mbox{\ \ }::=" display="inline"><mrow><mtext> </mtext><mo>:</mo><mo>:</mo><mo>=</mo></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="Ch8.Ex6.m3" class="ltx_Math" alttext="\displaystyle\mbox{\tt$l$=$pat$}\ |\ l" display="inline"><mrow><mrow><mi>l</mi><mrow><mtext mathvariant="monospace">=</mtext><mrow><mi>p</mi><mi>a</mi><mi>t</mi></mrow></mrow></mrow><mspace width="5.0pt"></mspace><mo stretchy="false">|</mo><mspace width="5.0pt"></mspace><mi>l</mi></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">The first pattern matches a record having the specified set of
+labels, and the second pattern matches any record containing the set of
+specified labels.
+When only a label is specified in a field then it
+is interpreted as a variable with the same name is specified.
+For example, a pattern <span class="ltx_text ltx_font_typewriter">{X, Y}</span> is interpreted as
+<span class="ltx_text ltx_font_typewriter">{X = X, Y = Y}</span>.
+The following are examples of field selection through record patterns.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># fun f {X = x, Y = y} = (x, y);
+<br class="ltx_break">
+val f = fn : [’a, ’b. {X: ’a, Y: ’b} -&gt; ’a * ’b]
+<br class="ltx_break">
+# fun f {X = x, Y = y, ...} = (x, y);
+<br class="ltx_break">
+val f = fn : [’a#{X: ’b, Y: ’c}, ’b, ’c. ’a -&gt; ’b * ’c]
+<br class="ltx_break">
+# fun f {X, Y, ...} = (X, Y);
+<br class="ltx_break">
+val f = fn : [’a#{X: ’b, Y: ’c}, ’b, ’c. ’a -&gt; ’b * ’c]
+<br class="ltx_break"></span></p>
+</blockquote>
+<p class="ltx_p">Record pattern can be freely combined with other patterns.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># fun f ({X,...}::_) = X;
+<br class="ltx_break">
+val f = fn : [’a#{X: ’b}, ’b. ’a list -&gt; ’b]
+<br class="ltx_break"></span></p>
+</blockquote>
+<p class="ltx_p">In this example, <span class="ltx_text ltx_font_typewriter">f</span> takes a list of records containing <span class="ltx_text ltx_font_typewriter">X</span> field, and returns the <span class="ltx_text ltx_font_typewriter">X</span> field of the first record in the list.
+</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch8.S2.html" title="8.2 Field selection operation ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8.2 </span>Field selection operation</span></a><a href="Ch8.S4.html" title="8.4 Functional record update ‣ Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">8.4 </span>Functional record update</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Mar 25 14:56:23 2025 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

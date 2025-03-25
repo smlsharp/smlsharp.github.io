@@ -1,0 +1,390 @@
+<!DOCTYPE html><html>
+<head>
+<title>7.4  定数式と組込み関数 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版</title>
+<!--Generated on Tue Mar 25 14:55:50 2025 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on 令和7年3月.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-book.css" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+<link rel="up" href="Ch7.html" title="Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="up up" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="up up up" href="./" title="プログラミング言語SML#解説 4.2.0版">
+<link rel="start" href="./" title="プログラミング言語SML#解説 4.2.0版">
+<link rel="prev" href="Ch7.S3.html" title="7.3 式の組み合わせによる計算の表現 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="next" href="Ch7.S5.html" title="7.5 bool型と条件式 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch7.S1.html" title="7.1 ML言語について ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch7.S2.html" title="7.2 宣言的プログラミング ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch7.S3.html" title="7.3 式の組み合わせによる計算の表現 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch7.S5.html" title="7.5 bool型と条件式 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch7.S6.html" title="7.6 複雑な式と関数 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch7.S7.html" title="7.7 再帰的な関数 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch7.S8.html" title="7.8 複数の引数を取る関数 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch7.S9.html" title="7.9 関数適用の文法 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch7.S10.html" title="7.10 高階の関数 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch7.S11.html" title="7.11 高階の関数の利用 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch7.S12.html" title="7.12 MLにおける手続き的機能 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch7.S13.html" title="7.13 変更可能なメモリーセルを表す参照型 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch7.S14.html" title="7.14 作用順，左から右への評価戦略 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch7.S15.html" title="7.15 手続き的制御 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch7.S16.html" title="7.16 ループと末尾再帰関数 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch7.S17.html" title="7.17 let式 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch7.S18.html" title="7.18 リストデータ型 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch7.S19.html" title="7.19 式の組み合わせの原則 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch7.S20.html" title="7.20 多相型を持つ関数 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch5.html" title="Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch6.html" title="Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch7.html" title="Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch8.html" title="Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch9.html" title="Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch10.html" title="Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch11.html" title="Chapter 11 SML#の拡張機能：マルチスレッドプログラミング ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch13.html" title="Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch14.html" title="Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.2.0版">
+</head>
+<body>
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.2.0版</div>
+<div>
+<a href="Ch7.html" title="Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7 </span>MLプログラミング入門</span></a><a href="Ch7.S3.html" title="7.3 式の組み合わせによる計算の表現 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.3 </span>
+式の組み合わせによる計算の表現</span></a><a href="Ch7.S5.html" title="7.5 bool型と条件式 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.5 </span>
+<span class="ltx_text ltx_font_typewriter">bool</span>型と条件式</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">7.4 </span>
+定数式と組込み関数
+</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">型付き言語であるMLでは，定数式はすべて決まった型を持ちます．
+MLでよく使われる組込み型には以下のものがあります．</p>
+</div>
+<div id="p2" class="ltx_para ltx_align_center">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_l ltx_border_r ltx_border_t">型</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">内容</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">int</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">（マシン語１ワードの大きさの）符号付き整数</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">real</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">倍精度浮動小数点</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">char</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">文字型</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">string</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">文字列型</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">word</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">（マシン語１ワードの大きさの）符号無し整数</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_l ltx_border_r ltx_border_t">bool</td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r ltx_border_t">真理値型</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">真理値型以外は，他のプログラミング言語と考え方は同じです．
+これらの組込み方の定数式と基本組込み演算を覚えましょう．
+真理値型の扱いは次節で説明します．</p>
+</div>
+<section id="SS1" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">7.4.1 </span>int型</h2>
+
+<div id="SS1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">int</span>型は整数型です．
+SML#では，C言語の<span class="ltx_text ltx_font_typewriter">long</span>と同一の２の補数表現で表され
+る１語長の符号付き整数です．
+<span class="ltx_text ltx_font_typewriter">int</span>型定数には通常の十進数の記述以外に<span class="ltx_text ltx_font_typewriter">0x<math id="SS1.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">h<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS1.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>形式の16進
+数でも記述できます．
+<math id="SS1.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">h<span class="ltx_text ltx_font_upright"><math id="SS1.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は<span class="ltx_text ltx_font_typewriter">0</span>から<span class="ltx_text ltx_font_typewriter">9</span>の数字と<span class="ltx_text ltx_font_typewriter">a</span>(<span class="ltx_text ltx_font_typewriter">A</span>でもよい)
+から<span class="ltx_text ltx_font_typewriter">f</span>(<span class="ltx_text ltx_font_typewriter">F</span>でもよい)までのアルファベットの並びです．
+負数の定数はチルダ記号<code class="ltx_verbatim ltx_font_typewriter">~</code>を付けて表します．
+SML#は<span class="ltx_text ltx_font_typewriter">int</span>型の値を十進数で表示します．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># 10;
+<br class="ltx_break">
+val it = 10 : int
+<br class="ltx_break">
+# 0xA;
+<br class="ltx_break">
+val it = 10 : int
+<br class="ltx_break">
+# ~0xFF;
+<br class="ltx_break">
+val it = ~255 : int</span></p>
+</blockquote>
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">int</span>型に対しては，通常の四則演算<span class="ltx_text ltx_font_typewriter">+, -, *, div</span>が2項演算
+子として定義されています．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># 10 + 0xA;
+<br class="ltx_break">
+val it = 20 : int
+<br class="ltx_break">
+# 0 - 0xA;
+<br class="ltx_break">
+val it = ~10 : int
+<br class="ltx_break">
+# 10 div 2;
+<br class="ltx_break">
+val it = 5 : int
+<br class="ltx_break">
+# 10 * 2;
+<br class="ltx_break">
+val it = 20 : int</span></p>
+</blockquote>
+<p class="ltx_p">これらの組合せは，通常の算術演算の習慣に従い，<span class="ltx_text ltx_font_typewriter">*,div</span>が<span class="ltx_text ltx_font_typewriter">+, -</span>より強く結合します．
+また，同一の演算子は左から順に計算されます．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># 1 + 2 * 3;
+<br class="ltx_break">
+val it = 7 : int
+<br class="ltx_break">
+# 4 - 3 - 2;
+<br class="ltx_break">
+val it = ~1 : int</span></p>
+</blockquote>
+</div>
+</section>
+<section id="SS2" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">7.4.2 </span>real型</h2>
+
+<div id="SS2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">real</span>は浮動小数点データの型です．
+SML#では，C言語の<span class="ltx_text ltx_font_typewriter">double</span>に相当する64ビットの倍精
+度浮動小数点です．
+<span class="ltx_text ltx_font_typewriter">real</span>型の定数は<span class="ltx_text ltx_font_typewriter"><math id="SS2.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">s<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS2.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">.<math id="SS2.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">d<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS2.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">E<math id="SS2.p1.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">s<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS2.p1.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+の形で表現します．
+ここで<math id="SS2.p1.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">s<span class="ltx_text ltx_font_upright"><math id="SS2.p1.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は符号付き十進数，<math id="SS2.p1.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">d<span class="ltx_text ltx_font_upright"><math id="SS2.p1.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は符号なし十進数で
+す．
+整数部，小数部，指数部のいずれも省略できますが．小数部と指数部の
+両方を省略すると<span class="ltx_text ltx_font_typewriter">real</span>型ではなく<span class="ltx_text ltx_font_typewriter">int</span>型と解釈されます．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># 10.0;
+<br class="ltx_break">
+val it = 10.0 : real
+<br class="ltx_break">
+# 1E2;
+<br class="ltx_break">
+val it = 100.0 : real
+<br class="ltx_break">
+# 0.001;
+<br class="ltx_break">
+val it = 0.001 : real
+<br class="ltx_break">
+# ~1E~2;
+<br class="ltx_break">
+val it = ~0.01 : real
+<br class="ltx_break">
+# 10;
+<br class="ltx_break">
+val it = 10 : int</span></p>
+</blockquote>
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">real</span>型に対しても<span class="ltx_text ltx_font_typewriter">int</span>型同様に四則演算が定義されていま
+す．
+ただし，除算は<span class="ltx_text ltx_font_typewriter">div</span>ではなく<span class="ltx_text ltx_font_typewriter">/</span>です．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># 10.0 + 1E1;
+<br class="ltx_break">
+val it = 20.0 : real
+<br class="ltx_break">
+# 0.0 - 10.0;
+<br class="ltx_break">
+val it = ~10.0 : real
+<br class="ltx_break">
+# 10.0 / 2.0;
+<br class="ltx_break">
+val it = 5.0 : real
+<br class="ltx_break">
+# 10.0 * 2.0;
+<br class="ltx_break">
+val it = 20.0 : real</span></p>
+</blockquote>
+</div>
+</section>
+<section id="SS3" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">7.4.3 </span>char型</h2>
+
+<div id="SS3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">char</span>は１文字を表すデータ型です．
+文字<math id="SS3.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">c<span class="ltx_text ltx_font_upright"><math id="SS3.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>を表す<span class="ltx_text ltx_font_typewriter">char</span>型定数は<span class="ltx_text ltx_font_typewriter">#"<math id="SS3.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">c<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS3.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">"</span>と書きます．
+<math id="SS3.p1.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">c<span class="ltx_text ltx_font_upright"><math id="SS3.p1.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>には通常文字以外に以下の特殊文字のエスケープが書けます．</p>
+<table class="ltx_tabular ltx_centering ltx_guessed_headers ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r ltx_border_t"><code class="ltx_verbatim ltx_font_typewriter">\a</code></th>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">warning (ASCII 7)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><code class="ltx_verbatim ltx_font_typewriter">\b</code></th>
+<td class="ltx_td ltx_align_left ltx_border_r">backspace (ASCII 8)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><code class="ltx_verbatim ltx_font_typewriter">\t</code></th>
+<td class="ltx_td ltx_align_left ltx_border_r">horizontal tab(ASCII 9)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><code class="ltx_verbatim ltx_font_typewriter">\n</code></th>
+<td class="ltx_td ltx_align_left ltx_border_r">new line (ASCII 10)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><code class="ltx_verbatim ltx_font_typewriter">\v</code></th>
+<td class="ltx_td ltx_align_left ltx_border_r">vertical tab (ASCII 11)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><code class="ltx_verbatim ltx_font_typewriter">\f</code></th>
+<td class="ltx_td ltx_align_left ltx_border_r">home feed (ASCII 12)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><code class="ltx_verbatim ltx_font_typewriter">\r</code></th>
+<td class="ltx_td ltx_align_left ltx_border_r">carriage return(ASCII 13)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r">
+<code class="ltx_verbatim ltx_font_typewriter">\^</code><math id="SS3.p1.m7" class="ltx_Math" alttext="C" display="inline"><mi>C</mi></math>
+</th>
+<td class="ltx_td ltx_align_left ltx_border_r">control character <math id="SS3.p1.m8" class="ltx_Math" alttext="C" display="inline"><mi>C</mi></math>
+</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><code class="ltx_verbatim ltx_font_typewriter">\"</code></th>
+<td class="ltx_td ltx_align_left ltx_border_r">character <code class="ltx_verbatim ltx_font_typewriter">"</code>
+</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_r"><code class="ltx_verbatim ltx_font_typewriter">\\</code></th>
+<td class="ltx_td ltx_align_left ltx_border_r">character <code class="ltx_verbatim ltx_font_typewriter">\</code>
+</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_l ltx_border_r">
+<code class="ltx_verbatim ltx_font_typewriter">\</code><math id="SS3.p1.m9" class="ltx_Math" alttext="ddd" display="inline"><mrow><mi>d</mi><mi>d</mi><mi>d</mi></mrow></math>
+</th>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">the character whose code is <math id="SS3.p1.m10" class="ltx_Math" alttext="ddd" display="inline"><mrow><mi>d</mi><mi>d</mi><mi>d</mi></mrow></math> in decimal</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># #"a";
+<br class="ltx_break">
+val it = #"a" : char
+<br class="ltx_break">
+# #"\n";
+<br class="ltx_break">
+val it = #"\n" : char</span></p>
+</blockquote>
+<p class="ltx_p">文字型に対して以下の組込み演算が定義されています．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val chr : int -&gt; char
+<br class="ltx_break">
+val ord : char -&gt; int</span></p>
+</blockquote>
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">chr</span>は与えられた数字をASCIIコードとみなし，そのコードの文字
+を返します．
+<span class="ltx_text ltx_font_typewriter">ord</span>は文字型データのASCIIコードを返します．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># ord #"a";
+<br class="ltx_break">
+val it = 97 : int
+<br class="ltx_break">
+# chr (97 + 7);
+<br class="ltx_break">
+val it = #"h" : char
+<br class="ltx_break">
+# ord #"a" - ord #"A";
+<br class="ltx_break">
+val it = 32 : int
+<br class="ltx_break">
+# chr (ord #"H" + 32);
+<br class="ltx_break">
+val it = #"h" : char</span></p>
+</blockquote>
+</div>
+</section>
+<section id="SS4" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">7.4.4 </span>string 型</h2>
+
+<div id="SS4.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">string</span>は文字列を表すデータ型です．
+<span class="ltx_text ltx_font_typewriter">string</span>定数は<span class="ltx_text ltx_font_typewriter">"</span>と<span class="ltx_text ltx_font_typewriter">"</span>で囲んで文字列表します．
+この文字列の中に特殊文字を含める場合は，<span class="ltx_text ltx_font_typewriter">char</span>型で定義され
+ているエスケープシーケンスを使います．
+<span class="ltx_text ltx_font_typewriter">string</span>データには，標準出力にプリントする<span class="ltx_text ltx_font_typewriter">print</span>と
+２つの文字列を連結する<code class="ltx_verbatim ltx_font_typewriter">^</code>が組込み関数として定義されています．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># "SML#" ^ "\n";
+<br class="ltx_break">
+val it = "SML#\n" : string
+<br class="ltx_break">
+# print it;
+<br class="ltx_break">
+SML#
+<br class="ltx_break">
+val it = () : unit</span></p>
+</blockquote>
+</div>
+</section>
+<section id="SS5" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">7.4.5 </span>word 型</h2>
+
+<div id="SS5.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">word</span>は符号なし整数型です．
+<span class="ltx_text ltx_font_typewriter">word</span>型定数は<span class="ltx_text ltx_font_typewriter">0w<math id="SS5.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">d<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS5.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>または<span class="ltx_text ltx_font_typewriter">0wx<math id="SS5.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">h<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS5.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+の形で表現します．
+ここで<math id="SS5.p1.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">d<span class="ltx_text ltx_font_upright"><math id="SS5.p1.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>はそれぞれ十進数，<math id="SS5.p1.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">h<span class="ltx_text ltx_font_upright"><math id="SS5.p1.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は16進の数字列です．
+SML#は<span class="ltx_text ltx_font_typewriter">word</span>型定数を16進表現で表示します．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># 0w10;
+<br class="ltx_break">
+val it = 0wxa : word
+<br class="ltx_break">
+# 0wxA;
+<br class="ltx_break">
+val it = 0wxa : word</span></p>
+</blockquote>
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">word</span>型データに対しても<span class="ltx_text ltx_font_typewriter">int</span>型と同じ四則演算が定義され
+ています．
+さらに<span class="ltx_text ltx_font_typewriter">word</span>型データに対しては，種々のビット演算が定義されて
+います．</p>
+</div>
+</section>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch7.S3.html" title="7.3 式の組み合わせによる計算の表現 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.3 </span>
+式の組み合わせによる計算の表現</span></a><a href="Ch7.S5.html" title="7.5 bool型と条件式 ‣ Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.5 </span>
+<span class="ltx_text ltx_font_typewriter">bool</span>型と条件式</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Mar 25 14:55:50 2025 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

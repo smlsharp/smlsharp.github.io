@@ -1,0 +1,1396 @@
+<!DOCTYPE html><html>
+<head>
+<title>22.5 SELECTクエリ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版</title>
+<!--Generated on Tue Mar 25 14:55:50 2025 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on 令和7年3月.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-book.css" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+<link rel="up" href="Ch22.html" title="Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="up up" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="up up up" href="./" title="プログラミング言語SML#解説 4.2.0版">
+<link rel="start" href="./" title="プログラミング言語SML#解説 4.2.0版">
+<link rel="prev" href="Ch22.S4.html" title="22.4 SQL評価式 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="next" href="Ch22.S6.html" title="22.6 SQLコマンド ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch22.S1.html" title="22.1 SQLの型 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch22.S2.html" title="22.2 SQLクエリのためのML式の拡張構文 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch22.S3.html" title="22.3 接続先データベース宣言式：_sqlserver ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch22.S4.html" title="22.4 SQL評価式 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch22.S6.html" title="22.6 SQLコマンド ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch22.S7.html" title="22.7 SQL実行関数式 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch22.S8.html" title="22.8 SQLライブラリ：SQLストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch22.S9.html" title="22.9 SQLライブラリ：SQL.Opストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch22.S10.html" title="22.10 SQLライブラリ：SQL.Numericストラクチャ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch22.S11.html" title="22.11 標準SQL文法との差異（参考） ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch15.html" title="Chapter 15 序論 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch16.html" title="Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch17.html" title="Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch18.html" title="Chapter 18 型 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch19.html" title="Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch20.html" title="Chapter 20 パターンとパターンマッチング ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch21.html" title="Chapter 21 識別子のスコープ規則 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch22.html" title="Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch23.html" title="Chapter 23 核言語の宣言とインターフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch24.html" title="Chapter 24 モジュール言語の宣言とインタフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch25.html" title="Chapter 25 SML#のライブラリ概要 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch26.html" title="Chapter 26 Standard ML標準ライブラリ ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch27.html" title="Chapter 27 SML#システムライブラリ ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch28.html" title="Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch29.html" title="Chapter 29 SML#実行時データ管理 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.2.0版">
+</head>
+<body>
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.2.0版</div>
+<div>
+<a href="Ch22.html" title="Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22 </span>SQL式とコマンド</span></a><a href="Ch22.S4.html" title="22.4 SQL評価式 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.4 </span>SQL評価式</span></a><a href="Ch22.S6.html" title="22.6 SQLコマンド ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.6 </span>SQLコマンド</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">22.5 </span>SELECTクエリ</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">SML#では，
+SML#では，SELECTクエリの各句を独立に部分的に定義し，
+それらを合成することで，SELECTクエリ全体を構築することができる．
+SELECTクエリを構成する句
+<math id="p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlclause<span class="ltx_text ltx_font_upright"><math id="p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>には以下のものがある．
+</p>
+</div>
+<div id="p2" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row">
+<math id="p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlclause<span class="ltx_text ltx_font_upright"><math id="p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_th_row"><math id="p2.m3" class="ltx_Math" alttext="::=" display="inline"><mrow><mo>:</mo><mo>:</mo><mo>=</mo></mrow></math></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column">
+<math id="p2.m4" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlSelectClause<span class="ltx_text ltx_font_upright"><math id="p2.m5" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column">SELECT句</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"><span class="ltx_text ltx_markedasmath"> <math id="p2.m6.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></th>
+<td class="ltx_td ltx_align_left">
+<math id="p2.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlFromClause<span class="ltx_text ltx_font_upright"><math id="p2.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">FROM句</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"><span class="ltx_text ltx_markedasmath"> <math id="p2.m9.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></th>
+<td class="ltx_td ltx_align_left">
+<math id="p2.m10" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlWhereClause<span class="ltx_text ltx_font_upright"><math id="p2.m11" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">WHERE句</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"><span class="ltx_text ltx_markedasmath"> <math id="p2.m12.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></th>
+<td class="ltx_td ltx_align_left">
+<math id="p2.m13" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlOrderClause<span class="ltx_text ltx_font_upright"><math id="p2.m14" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">ORDER BY句</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"><span class="ltx_text ltx_markedasmath"> <math id="p2.m15.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></th>
+<td class="ltx_td ltx_align_left">
+<math id="p2.m16" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlOffsetClause<span class="ltx_text ltx_font_upright"><math id="p2.m17" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">OFFSET句</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"><span class="ltx_text ltx_markedasmath"> <math id="p2.m18.m1" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math></span></th>
+<td class="ltx_td ltx_align_left">
+<math id="p2.m19" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlLimitClause<span class="ltx_text ltx_font_upright"><math id="p2.m20" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">LIMIT句</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">各句の構文の詳細は本節で副節に分けて定義する．
+</p>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">SELECTクエリ全体はこれらの句およびGROUP BY句<math id="p4.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlGroupClause<span class="ltx_text ltx_font_upright"><math id="p4.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>を
+組み合わせて構成される．
+その構文は以下の通りである．
+</p>
+</div>
+<div id="p5" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row"><math id="p5.m1" class="ltx_Math" alttext="\mbox{$\,\langle$}{\it sqlselect}\mbox{$\rangle\,$}" display="inline"><mrow><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow><mi>s</mi><mi>q</mi><mi>l</mi><mi>s</mi><mi>e</mi><mi>l</mi><mi>e</mi><mi>c</mi><mi>t</mi><mrow><mo stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></mrow></math></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row">::=</th>
+<td class="ltx_td ltx_align_left">
+<math id="p5.m2" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlSelectClause<span class="ltx_text ltx_font_upright"><math id="p5.m3" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">SELECT句を持つSELECTクエリ</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<td class="ltx_td ltx_align_left">
+<math id="p5.m4" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlFromClause<span class="ltx_text ltx_font_upright"><math id="p5.m5" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<td class="ltx_td ltx_align_left">
+<math id="p5.m6" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><math id="p5.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlWhereClause<span class="ltx_text ltx_font_upright"><math id="p5.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="p5.m9" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span>
+</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<td class="ltx_td ltx_align_left">
+<math id="p5.m10" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><math id="p5.m11" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlGroupClause<span class="ltx_text ltx_font_upright"><math id="p5.m12" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="p5.m13" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span>
+</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<td class="ltx_td ltx_align_left">
+<math id="p5.m14" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><math id="p5.m15" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlOrderClause<span class="ltx_text ltx_font_upright"><math id="p5.m16" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="p5.m17" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span>
+</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<td class="ltx_td ltx_align_left">
+<math id="p5.m18" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><math id="p5.m19" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlLimitClause<span class="ltx_text ltx_font_upright"><math id="p5.m20" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="p5.m21" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span>
+</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="p5.m22" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">select ... ( <math id="p5.m23" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p5.m24" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> )</span>
+</td>
+<td class="ltx_td ltx_align_left">SELECT句が埋め込まれるSELECTクエリ</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<td class="ltx_td ltx_align_left">
+<math id="p5.m25" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlFromClause<span class="ltx_text ltx_font_upright"><math id="p5.m26" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<td class="ltx_td ltx_align_left">
+<math id="p5.m27" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><math id="p5.m28" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlWhereClause<span class="ltx_text ltx_font_upright"><math id="p5.m29" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="p5.m30" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span>
+</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<td class="ltx_td ltx_align_left">
+<math id="p5.m31" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><math id="p5.m32" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlGroupClause<span class="ltx_text ltx_font_upright"><math id="p5.m33" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="p5.m34" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span>
+</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<td class="ltx_td ltx_align_left">
+<math id="p5.m35" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><math id="p5.m36" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlOrderClause<span class="ltx_text ltx_font_upright"><math id="p5.m37" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="p5.m38" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span>
+</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<td class="ltx_td ltx_align_left">
+<math id="p5.m39" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><math id="p5.m40" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlLimitClause<span class="ltx_text ltx_font_upright"><math id="p5.m41" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="p5.m42" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span>
+</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="p5.m43" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">select ... ( <math id="p5.m44" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p5.m45" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> )</span>
+</td>
+<td class="ltx_td ltx_align_left">SELECTクエリ全体の埋め込み</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="p6" class="ltx_para">
+<p class="ltx_p">最初の2つの構文がSELECTクエリを構成する．
+SELECTクエリは，SELECT句とFROM句を必ず含む．
+その他の句は任意である．
+一部のRDBMSの実装（例えばPostgreSQLなど）では
+FROM句を持たないSELECTクエリが許されているが，
+SML#ではSELECTクエリは必ずFROM句を持たなければならない．
+2つ目の構文冒頭の
+<span class="ltx_text ltx_font_typewriter">select ... (<math id="p6.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p6.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span>については後述する．
+</p>
+</div>
+<div id="p7" class="ltx_para">
+<p class="ltx_p">SELECTクエリを構成する各句が以下の型を持つならば，
+SELECTクエリ全体は<span class="ltx_text ltx_font_typewriter">(<math id="p7.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>, <math id="p7.m2" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.query</span>型を持つ．
+</p>
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><math id="I1.i1.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlFromClause<span class="ltx_text ltx_font_upright"><math id="I1.i1.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は
+<span class="ltx_text ltx_font_typewriter">(<math id="I1.i1.p1.m3" class="ltx_Math" alttext="\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math>, <math id="I1.i1.p1.m4" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.from</span>型を持つ．
+</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><math id="I1.i2.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlWhereClause<span class="ltx_text ltx_font_upright"><math id="I1.i2.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は存在するならば
+<span class="ltx_text ltx_font_typewriter">(<math id="I1.i2.p1.m3" class="ltx_Math" alttext="\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math> -&gt; <math id="I1.i2.p1.m4" class="ltx_Math" alttext="\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math>, <math id="I1.i2.p1.m5" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.whr</span>型を持つ．
+</p>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p">GROUP BY句が存在するとき，
+<math id="I1.i3.p1.m1" class="ltx_Math" alttext="\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn>1</mn></msub></mrow></math>をグループ化した型<math id="I1.i3.p1.m2" class="ltx_Math" alttext="\tau_{2}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn>2</mn></msub></mrow></math>が計算される
+（<a href="#SS4" title="22.5.4 GROUP BY句 ‣ 22.5 SELECTクエリ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.5.4</span></a>節参照）．
+GROUP BY句がなければ，<math id="I1.i3.p1.m3" class="ltx_Math" alttext="\tau_{2}=\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn>2</mn></msub><mo>=</mo><mi>τ</mi><msub><mi></mi><mn>1</mn></msub></mrow></math>である．
+</p>
+</div>
+</li>
+<li id="I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i4.p1" class="ltx_para">
+<p class="ltx_p"><math id="I1.i4.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlSelectClause<span class="ltx_text ltx_font_upright"><math id="I1.i4.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は，
+<span class="ltx_text ltx_font_typewriter">(<math id="I1.i4.p1.m3" class="ltx_Math" alttext="\tau_{2}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">2</mn></msub></mrow></math>, <math id="I1.i4.p1.m4" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>, <math id="I1.i4.p1.m5" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.select</span>型を持つ．
+</p>
+</div>
+</li>
+<li id="I1.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i5.p1" class="ltx_para">
+<p class="ltx_p"><math id="I1.i5.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlOrderClause<span class="ltx_text ltx_font_upright"><math id="I1.i5.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は存在するならば
+<span class="ltx_text ltx_font_typewriter">(<math id="I1.i5.p1.m3" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math> -&gt; <math id="I1.i5.p1.m4" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>, <math id="I1.i5.p1.m5" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.orderby</span>型を持つ．
+</p>
+</div>
+</li>
+<li id="I1.i6" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i6.p1" class="ltx_para">
+<p class="ltx_p"><math id="I1.i6.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlLimitClause<span class="ltx_text ltx_font_upright"><math id="I1.i6.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は存在するならば
+<span class="ltx_text ltx_font_typewriter">(<math id="I1.i6.p1.m3" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math> -&gt; <math id="I1.i6.p1.m4" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>, <math id="I1.i6.p1.m5" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.limit</span>型を持つ．
+</p>
+</div>
+</li>
+</ul>
+<p class="ltx_p">例えば，以下は完全なSELECTクエリの例である．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val q = fn db =&gt; _sql select #t.name as name, #t.age as age
+<br class="ltx_break">
+                      from #db.employee as t
+<br class="ltx_break">
+                      where #t.age &gt;= 20</span></p>
+</blockquote>
+</div>
+<div id="p8" class="ltx_para">
+<p class="ltx_p">3つ目の構文
+<span class="ltx_text ltx_font_typewriter">select...(<math id="p8.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p8.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span>は，
+SELECTクエリを直接書く代わりに，
+SML#の式<math id="p8.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_upright"><math id="p8.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>を評価した結果得られた
+SELECTクエリを埋め込む．
+<math id="p8.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_upright"><math id="p8.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は<span class="ltx_text ltx_font_typewriter">SQL.query</span>型でなければならない．
+例えば，以下は上述の例のクエリ<span class="ltx_text ltx_font_typewriter">q</span>をサブクエリとして
+他のクエリ<span class="ltx_text ltx_font_typewriter">q2</span>に埋め込む例である．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val q2 = fn db =&gt; _sql select #t.name as name
+<br class="ltx_break">
+                       from (select...(q db)) as t
+<br class="ltx_break">
+                       where #t.name like "%Taro%"</span></p>
+</blockquote>
+</div>
+<div id="p9" class="ltx_para">
+<p class="ltx_p">2つ目の構文および以下の副節に示す各句の構文の定義のとおり，
+一部の例外を除き，
+句名に続けて<span class="ltx_text ltx_font_typewriter">...(<math id="p9.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p9.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span>と書くことで，
+SML#の式を評価した結果をその句とすることができる．
+例えば，
+上述の例と同等のSELECTクエリを，
+以下のように，
+SELECT句とFROM句を独立に定義したのち，
+<span class="ltx_text ltx_font_typewriter">...(<math id="p9.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p9.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span>記法を用いて組み合わせることで
+構築することができる．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val s = _sql select #t.name as name, #t.age as age
+<br class="ltx_break">
+val f = fn db =&gt; _sql from #db.employee as t
+<br class="ltx_break">
+val q = fn db =&gt; _sql select...(s) from...(f db)</span></p>
+</blockquote>
+</div>
+<div id="p10" class="ltx_para">
+<p class="ltx_p">これら
+<span class="ltx_text ltx_font_typewriter">...(<math id="p10.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p10.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span>記法に含まれる
+<math id="p10.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_upright"><math id="p10.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は，SQL評価式ではなく，
+SML#の式である．
+この<math id="p10.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_upright"><math id="p10.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の中では，
+通常のSML#の式と同様に，
+SQL予約語は予約語ではなく識別子と解釈される．
+</p>
+</div>
+<section id="SS1" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.5.1 </span>SELECT句</h2>
+
+<div id="SS1.p1" class="ltx_para">
+<p class="ltx_p">SELECT句<math id="SS1.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlSelectClause<span class="ltx_text ltx_font_upright"><math id="SS1.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の構文は以下の通りである．
+</p>
+</div>
+<div id="SS1.p2" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column">
+<math id="SS1.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlSelectClause<span class="ltx_text ltx_font_upright"><math id="SS1.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column">::=</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column">
+<span class="ltx_text ltx_font_typewriter">select</span>
+ <math id="SS1.p2.m3" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><math id="SS1.p2.m4" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">distinct_all<span class="ltx_text ltx_font_upright"><math id="SS1.p2.m5" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="SS1.p2.m6" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span>
+ <math id="SS1.p2.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlSelectField<span class="ltx_text ltx_font_upright"><math id="SS1.p2.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_typewriter ltx_font_upright">,</span></span> <math id="SS1.p2.m9" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math><span class="ltx_text ltx_font_typewriter">,</span>
+ <math id="SS1.p2.m10" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlSelectField<span class="ltx_text ltx_font_upright"><math id="SS1.p2.m11" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="SS1.p2.m12" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">distinct_all<span class="ltx_text ltx_font_upright"><math id="SS1.p2.m13" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">distinct</span>  <math id="SS1.p2.m14" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <span class="ltx_text ltx_font_typewriter">all</span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="SS1.p2.m15" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlSelectField<span class="ltx_text ltx_font_upright"><math id="SS1.p2.m16" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<math id="SS1.p2.m17" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlexp<span class="ltx_text ltx_font_upright"><math id="SS1.p2.m18" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <math id="SS1.p2.m19" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><span class="ltx_text ltx_font_typewriter">as <math id="SS1.p2.m20" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS1.p2.m21" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><math id="SS1.p2.m22" class="ltx_Math" alttext=")?" display="inline"><mrow><mo stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="SS1.p3" class="ltx_para">
+<p class="ltx_p">SELECT句は1つ以上のフィールド
+<math id="SS1.p3.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlSelectField<span class="ltx_text ltx_font_upright"><math id="SS1.p3.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>からなる．
+各フィールドはラベル<math id="SS1.p3.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">lab<span class="ltx_text ltx_font_upright"><math id="SS1.p3.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>を持つ．
+<math id="SS1.p3.m5" class="ltx_Math" alttext="i" display="inline"><mi>i</mi></math>番目のフィールド（最初のフィールドを1とする）の
+<span class="ltx_text ltx_font_typewriter">as <math id="SS1.p3.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<math id="SS1.p3.m7" class="ltx_Math" alttext="{}_{i}" display="inline"><msub><mi></mi><mi>i</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS1.p3.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>が
+省略されている場合，
+<span class="ltx_text ltx_font_typewriter">as <math id="SS1.p3.m9" class="ltx_Math" alttext="i" display="inline"><mi>i</mi></math></span>が指定されているとみなす．
+どのフィールドのラベルも他のフィールドのラベルと異なって
+いなければならない．
+</p>
+</div>
+<div id="SS1.p4" class="ltx_para">
+<p class="ltx_p"><math id="SS1.p4.m1" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>個のフィールドを持つ<math id="SS1.p4.m2" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlSelectClause<span class="ltx_text ltx_font_upright"><math id="SS1.p4.m3" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の型は，
+その<math id="SS1.p4.m4" class="ltx_Math" alttext="i" display="inline"><mi>i</mi></math>番目（<math id="SS1.p4.m5" class="ltx_Math" alttext="1\leq i\leq n" display="inline"><mrow><mn>1</mn><mo>≤</mo><mi>i</mi><mo>≤</mo><mi>n</mi></mrow></math>）のフィールド
+<span class="ltx_text ltx_font_typewriter"><math id="SS1.p4.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlexp<math id="SS1.p4.m7" class="ltx_Math" alttext="{}_{i}" display="inline"><msub><mi></mi><mi>i</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS1.p4.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> as <math id="SS1.p4.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<math id="SS1.p4.m10" class="ltx_Math" alttext="{}_{i}" display="inline"><msub><mi></mi><mi>i</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS1.p4.m11" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の
+SQL評価式
+<math id="SS1.p4.m12" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlexp<math id="SS1.p4.m13" class="ltx_Math" alttext="{}_{i}" display="inline"><msub><mi></mi><mi>i</mi></msub></math><span class="ltx_text ltx_font_upright"><math id="SS1.p4.m14" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の型が
+<math id="SS1.p4.m15" class="ltx_Math" alttext="(\tau,w)\triangleright\tau_{i}" display="inline"><mrow><mo stretchy="false">(</mo><mi>τ</mi><mo>,</mo><mi>w</mi><mo stretchy="false">)</mo><mo>▷</mo><mi>τ</mi><msub><mi></mi><mi>i</mi></msub></mrow></math>
+のとき，
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">(<math id="SS1.p4.m16" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>,
+{<math id="SS1.p4.m17" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<math id="SS1.p4.m18" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS1.p4.m19" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> : <math id="SS1.p4.m20" class="ltx_Math" alttext="\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math>, <math id="SS1.p4.m21" class="ltx_Math" alttext="\ldots" display="inline"><mi mathvariant="normal">…</mi></math>, <math id="SS1.p4.m22" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<math id="SS1.p4.m23" class="ltx_Math" alttext="{}_{n}" display="inline"><msub><mi></mi><mi>n</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS1.p4.m24" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> : <math id="SS1.p4.m25" class="ltx_Math" alttext="\tau_{n}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mi>n</mi></msub></mrow></math>} list,
+<math id="SS1.p4.m26" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.query</span></p>
+</blockquote>
+<p class="ltx_p">である．
+</p>
+</div>
+</section>
+<section id="SS2" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.5.2 </span>FROM句</h2>
+
+<div id="SS2.p1" class="ltx_para">
+<p class="ltx_p">FROM句<math id="SS2.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlFromClause<span class="ltx_text ltx_font_upright"><math id="SS2.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の構文は以下の通りである．
+</p>
+</div>
+<div id="SS2.p2" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column">
+<math id="SS2.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlFromClause<span class="ltx_text ltx_font_upright"><math id="SS2.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column">::=</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column">
+<span class="ltx_text ltx_font_typewriter">from</span> <math id="SS2.p2.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlTable<span class="ltx_text ltx_font_upright"><math id="SS2.p2.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+<span class="ltx_text ltx_font_typewriter">,</span> <math id="SS2.p2.m5" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math> <span class="ltx_text ltx_font_typewriter">,</span> <math id="SS2.p2.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlTable<span class="ltx_text ltx_font_upright"><math id="SS2.p2.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="SS2.p2.m8" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">from ... (<math id="SS2.p2.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS2.p2.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="SS2.p3" class="ltx_para">
+<p class="ltx_p">最初の構文がFROM句を構築する．
+2つ目の構文は式<math id="SS2.p3.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_upright"><math id="SS2.p3.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の評価結果をFROM句として埋め込む．
+<math id="SS2.p3.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_upright"><math id="SS2.p3.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は<span class="ltx_text ltx_font_typewriter">SQL.from</span>型でなければならない．
+</p>
+</div>
+<div id="SS2.p4" class="ltx_para">
+<p class="ltx_p">最初の構文が含むコンマは，SML#の組式のコンマと曖昧に
+なることがある．
+例えば，
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">(1, _sql from #db.t1, #db.t2, #db.t3)</span></p>
+</blockquote>
+<p class="ltx_p">は，1とFROM句のペアなのか，
+あるいは2番目の要素を<span class="ltx_text ltx_font_typewriter">_sql from #db.t1</span>とする4つ組なのか，
+曖昧である．
+前者を意図しているならば
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">(1, _sql (from #db.t1, #db.t2, #db.t3))</span></p>
+</blockquote>
+<p class="ltx_p">後者を意図しているならば
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">(1, _sql (from #db.t1), #db.t2, #db.t3)</span></p>
+</blockquote>
+<p class="ltx_p">のように，括弧を付けて書かなければならない．
+<a href="Ch22.S2.html" title="22.2 SQLクエリのためのML式の拡張構文 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.2</span></a>節で示した<span class="ltx_text ltx_font_typewriter">_sql</span>式が書ける
+位置の制限は，
+この曖昧さを回避するために導入されている．
+なお，
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">(_sql from #db.t1, #db.t2, #db.t3)</span></p>
+</blockquote>
+<p class="ltx_p">は，開き括弧の直後に<span class="ltx_text ltx_font_typewriter">_sql</span>が来ているため，全体がひとつのSQL構文で
+あると認識される．
+</p>
+</div>
+<div id="SS2.p5" class="ltx_para">
+<p class="ltx_p"><math id="SS2.p5.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlTable<span class="ltx_text ltx_font_upright"><math id="SS2.p5.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>はテーブルを表す式であり，その構文は
+以下の通りである．
+</p>
+</div>
+<div id="SS2.p6" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row">
+<math id="SS2.p6.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlTable<span class="ltx_text ltx_font_upright"><math id="SS2.p6.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row">::=</th>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">#<math id="SS2.p6.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS2.p6.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">.<math id="SS2.p6.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS2.p6.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">テーブル参照</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="SS2.p6.m7" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter"><math id="SS2.p6.m8" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlTable<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS2.p6.m9" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> as <math id="SS2.p6.m10" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS2.p6.m11" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">テーブルのラベル付け</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="SS2.p6.m12" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">( <math id="SS2.p6.m13" class="ltx_Math" alttext="(" display="inline"><mo mathvariant="normal" stretchy="false">(</mo></math>_sql<math id="SS2.p6.m14" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math> <math id="SS2.p6.m15" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlselect<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS2.p6.m16" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> )</span>
+</td>
+<td class="ltx_td ltx_align_left">テーブルサブクエリ</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="SS2.p6.m17" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="SS2.p6.m18" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlTable<span class="ltx_text ltx_font_upright"><math id="SS2.p6.m19" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <math id="SS2.p6.m20" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><span class="ltx_text ltx_font_typewriter">inner</span><math id="SS2.p6.m21" class="ltx_Math" alttext=")?" display="inline"><mrow><mo stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math> <span class="ltx_text ltx_font_typewriter">join</span>
+<math id="SS2.p6.m22" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlTable<span class="ltx_text ltx_font_upright"><math id="SS2.p6.m23" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <span class="ltx_text ltx_font_typewriter">on</span> <math id="SS2.p6.m24" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlexp<span class="ltx_text ltx_font_upright"><math id="SS2.p6.m25" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">テーブルの内部結合</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="SS2.p6.m26" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="SS2.p6.m27" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlTable<span class="ltx_text ltx_font_upright"><math id="SS2.p6.m28" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <span class="ltx_text ltx_font_typewriter">cross join</span> <math id="SS2.p6.m29" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlTable<span class="ltx_text ltx_font_upright"><math id="SS2.p6.m30" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">テーブルの直積</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_th ltx_th_row"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="SS2.p6.m31" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<math id="SS2.p6.m32" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlTable<span class="ltx_text ltx_font_upright"><math id="SS2.p6.m33" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <span class="ltx_text ltx_font_typewriter">natural join</span> <math id="SS2.p6.m34" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlTable<span class="ltx_text ltx_font_upright"><math id="SS2.p6.m35" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left">テーブルの自然結合</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row"> <math id="SS2.p6.m36" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</th>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">(<math id="SS2.p6.m37" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlTable<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS2.p6.m38" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span>
+</td>
+<td class="ltx_td"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="SS2.p7" class="ltx_para">
+<p class="ltx_p">ラベル付け構文について以下の規則がある．
+</p>
+<ul id="I2" class="ltx_itemize">
+<li id="I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i1.p1" class="ltx_para">
+<p class="ltx_p">ラベル付け構文は他のどの<math id="I2.i1.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlTable<span class="ltx_text ltx_font_upright"><math id="I2.i1.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>構文よりも結合力が強い．
+</p>
+</div>
+</li>
+<li id="I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i2.p1" class="ltx_para">
+<p class="ltx_p">テーブル参照
+<span class="ltx_text ltx_font_typewriter">#<math id="I2.i2.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I2.i2.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">.<math id="I2.i2.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I2.i2.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>に
+直接かかるラベル付け構文が無い場合，
+<span class="ltx_text ltx_font_typewriter">as <math id="I2.i2.p1.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I2.i2.p1.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>が補われ，
+テーブルと同名のラベルが付けられているものとみなす．
+</p>
+</div>
+</li>
+</ul>
+<p class="ltx_p">また，<math id="SS2.p7.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlTable<span class="ltx_text ltx_font_upright"><math id="SS2.p7.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の構文には以下の制限がある．
+</p>
+<ul id="I3" class="ltx_itemize">
+<li id="I3.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i1.p1" class="ltx_para">
+<p class="ltx_p"><math id="I3.i1.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlFromClause<span class="ltx_text ltx_font_upright"><math id="I3.i1.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>に現れる全ての
+<span class="ltx_text ltx_font_typewriter">as <math id="I3.i1.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I3.i1.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は互いに異なっていなければならない．
+従って，同じ名前のテーブルを2度以上参照するときは，
+それぞれの参照に別のラベルを<span class="ltx_text ltx_font_typewriter">as</span>で付けなければならない．
+</p>
+</div>
+</li>
+<li id="I3.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"><math id="I3.i2.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlTable<math id="I3.i2.p1.m2" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I3.i2.p1.m3" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> natural join <math id="I3.i2.p1.m4" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlTable<math id="I3.i2.p1.m5" class="ltx_Math" alttext="{}_{2}" display="inline"><msub><mi></mi><mn mathvariant="normal">2</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I3.i2.p1.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の
+<math id="I3.i2.p1.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlTable<math id="I3.i2.p1.m8" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_upright"><math id="I3.i2.p1.m9" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>および<math id="I3.i2.p1.m10" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlTable<math id="I3.i2.p1.m11" class="ltx_Math" alttext="{}_{2}" display="inline"><msub><mi></mi><mn mathvariant="normal">2</mn></msub></math><span class="ltx_text ltx_font_upright"><math id="I3.i2.p1.m12" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は，
+内部結合または直積であってはならない．
+</p>
+</div>
+</li>
+<li id="I3.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"><math id="I3.i3.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlTable<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I3.i3.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> as <math id="I3.i3.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I3.i3.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の
+<math id="I3.i3.p1.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlTable<span class="ltx_text ltx_font_upright"><math id="I3.i3.p1.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は内部結合および直積であってはならない．
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="SS2.p8" class="ltx_para">
+<p class="ltx_p"><math id="SS2.p8.m1" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>個の
+<span class="ltx_text ltx_font_typewriter"><math id="SS2.p8.m2" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlTable<math id="SS2.p8.m3" class="ltx_Math" alttext="{}_{i}" display="inline"><msub><mi></mi><mi>i</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS2.p8.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> as <math id="SS2.p8.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<math id="SS2.p8.m6" class="ltx_Math" alttext="{}_{i}" display="inline"><msub><mi></mi><mi>i</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS2.p8.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>（<math id="SS2.p8.m8" class="ltx_Math" alttext="1\leq i\leq n" display="inline"><mrow><mn>1</mn><mo>≤</mo><mi>i</mi><mo>≤</mo><mi>n</mi></mrow></math>）を持つ
+FROM句の型は，
+<math id="SS2.p8.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlTable<math id="SS2.p8.m10" class="ltx_Math" alttext="{}_{i}" display="inline"><msub><mi></mi><mi>i</mi></msub></math><span class="ltx_text ltx_font_upright"><math id="SS2.p8.m11" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の型を<math id="SS2.p8.m12" class="ltx_Math" alttext="\tau_{i}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mi>i</mi></msub></mrow></math>とするとき，
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">({<math id="SS2.p8.m13" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<math id="SS2.p8.m14" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS2.p8.m15" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> : <math id="SS2.p8.m16" class="ltx_Math" alttext="\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math>, <math id="SS2.p8.m17" class="ltx_Math" alttext="\ldots" display="inline"><mi mathvariant="normal">…</mi></math>, <math id="SS2.p8.m18" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<math id="SS2.p8.m19" class="ltx_Math" alttext="{}_{n}" display="inline"><msub><mi></mi><mi>n</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS2.p8.m20" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> : <math id="SS2.p8.m21" class="ltx_Math" alttext="\tau_{n}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mi>n</mi></msub></mrow></math>} list,
+<math id="SS2.p8.m22" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>)
+SQL.from</span></p>
+</blockquote>
+<p class="ltx_p">である．
+</p>
+</div>
+<div id="SS2.p9" class="ltx_para">
+<p class="ltx_p"><math id="SS2.p9.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlTable<math id="SS2.p9.m2" class="ltx_Math" alttext="{}_{i}" display="inline"><msub><mi></mi><mi>i</mi></msub></math><span class="ltx_text ltx_font_upright"><math id="SS2.p9.m3" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の型は以下の通りである．
+</p>
+<ul id="I4" class="ltx_itemize">
+<li id="I4.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I4.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">#<math id="I4.i1.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I4.i1.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">.<math id="I4.i1.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I4.i1.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の型は，
+SML#の変数<math id="I4.i1.p1.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">vid<span class="ltx_text ltx_font_upright"><math id="I4.i1.p1.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の型が
+<span class="ltx_text ltx_font_typewriter">(<math id="I4.i1.p1.m7" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>, <math id="I4.i1.p1.m8" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.db</span>でかつ
+<math id="I4.i1.p1.m9" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>がフィールド<math id="I4.i1.p1.m10" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">lab<span class="ltx_text ltx_font_upright"><math id="I4.i1.p1.m11" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>:<math id="I4.i1.p1.m12" class="ltx_Math" alttext="\tau^{\prime}" display="inline"><mrow><mi>τ</mi><msup><mi></mi><mo>′</mo></msup></mrow></math>を持つレコード型のとき，
+<math id="I4.i1.p1.m13" class="ltx_Math" alttext="\tau^{\prime}" display="inline"><mrow><mi>τ</mi><msup><mi></mi><mo>′</mo></msup></mrow></math>である．
+</p>
+</div>
+</li>
+<li id="I4.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I4.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"><math id="I4.i2.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlTable<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I4.i2.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> as <math id="I4.i2.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I4.i2.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の型は
+<math id="I4.i2.p1.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlTable<span class="ltx_text ltx_font_upright"><math id="I4.i2.p1.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の型に等しい．
+</p>
+</div>
+</li>
+<li id="I4.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I4.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">(<math id="I4.i3.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlselect<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I4.i3.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span>の型は，
+<math id="I4.i3.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlselect<span class="ltx_text ltx_font_upright"><math id="I4.i3.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の型が<span class="ltx_text ltx_font_typewriter">(<math id="I4.i3.p1.m5" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>,<math id="I4.i3.p1.m6" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.query</span>のとき<math id="I4.i3.p1.m7" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>である．
+</p>
+</div>
+</li>
+<li id="I4.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I4.i4.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"><math id="I4.i4.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlTable<math id="I4.i4.p1.m2" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I4.i4.p1.m3" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> natural join <math id="I4.i4.p1.m4" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlTable<math id="I4.i4.p1.m5" class="ltx_Math" alttext="{}_{2}" display="inline"><msub><mi></mi><mn mathvariant="normal">2</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I4.i4.p1.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の
+型は，2つのテーブルを自然結合したレコード型である．
+</p>
+</div>
+</li>
+</ul>
+<p class="ltx_p">SML#は内部結合式および直積式の型を計算しない．
+そのため，内部結合および直積の結果に
+<span class="ltx_text ltx_font_typewriter">as</span>で直接にラベル付けをすることはできない
+（構文上制限されている）．
+内部結合および直積の結果の型は
+FROM句全体の型であるレコード型として現れる．
+</p>
+</div>
+<div id="SS2.p10" class="ltx_para">
+<p class="ltx_p">FROM句は，概念上，テーブルを結合したひとつのテーブルを
+計算する．
+FROM句の型に現れるレコード型
+<span class="ltx_text ltx_font_typewriter">{<math id="SS2.p10.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<math id="SS2.p10.m2" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS2.p10.m3" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> : <math id="SS2.p10.m4" class="ltx_Math" alttext="\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math>,
+<math id="SS2.p10.m5" class="ltx_Math" alttext="\ldots" display="inline"><mi mathvariant="normal">…</mi></math>, <math id="SS2.p10.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<math id="SS2.p10.m7" class="ltx_Math" alttext="{}_{n}" display="inline"><msub><mi></mi><mi>n</mi></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS2.p10.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> : <math id="SS2.p10.m9" class="ltx_Math" alttext="\tau_{n}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mi>n</mi></msub></mrow></math>}</span>は，
+このテーブルの各行における，
+ラベル付けされた成分を表している．
+他の句に現れるSQLカラム参照式
+<span class="ltx_text ltx_font_typewriter">#<math id="SS2.p10.m10" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<math id="SS2.p10.m11" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS2.p10.m12" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">.<math id="SS2.p10.m13" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<math id="SS2.p10.m14" class="ltx_Math" alttext="{}_{2}" display="inline"><msub><mi></mi><mn mathvariant="normal">2</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS2.p10.m15" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の
+<math id="SS2.p10.m16" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">lab<math id="SS2.p10.m17" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_upright"><math id="SS2.p10.m18" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は，
+各成分に付けられたこれらのラベルを指す．
+</p>
+</div>
+</section>
+<section id="SS3" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.5.3 </span>WHERE句</h2>
+
+<div id="SS3.p1" class="ltx_para">
+<p class="ltx_p">WHERE句<math id="SS3.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlWhereClause<span class="ltx_text ltx_font_upright"><math id="SS3.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の構文は以下の通りである．
+</p>
+</div>
+<div id="SS3.p2" class="ltx_para">
+<table class="ltx_tabular ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="SS3.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlWhereClause<span class="ltx_text ltx_font_upright"><math id="SS3.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">where <math id="SS3.p2.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlexp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS3.p2.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="SS3.p2.m5" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">where ... (<math id="SS3.p2.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS3.p2.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="SS3.p3" class="ltx_para">
+<p class="ltx_p">最初の構文がWHERE句を構成する．
+<math id="SS3.p3.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlexp<span class="ltx_text ltx_font_upright"><math id="SS3.p3.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の型が
+<math id="SS3.p3.m3" class="ltx_Math" alttext="(\tau,w)\triangleright\mbox{\tt\frenchspacing SQL.bool3}" display="inline"><mrow><mo stretchy="false">(</mo><mi>τ</mi><mo>,</mo><mi>w</mi><mo stretchy="false">)</mo><mo>▷</mo><mtext mathvariant="monospace">SQL.bool3</mtext></mrow></math>のとき，
+WHERE句の型は
+<span class="ltx_text ltx_font_typewriter">(<math id="SS3.p3.m4" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math> -&gt; <math id="SS3.p3.m5" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>, <math id="SS3.p3.m6" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.whr</span>である．
+</p>
+</div>
+<div id="SS3.p4" class="ltx_para">
+<p class="ltx_p">2つ目の構文は式<math id="SS3.p4.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_upright"><math id="SS3.p4.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の評価結果をWHERE句として埋め込む．
+<math id="SS3.p4.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_upright"><math id="SS3.p4.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は<span class="ltx_text ltx_font_typewriter">SQL.whr</span>型でなければならない．
+</p>
+</div>
+</section>
+<section id="SS4" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.5.4 </span>GROUP BY句</h2>
+
+<div id="SS4.p1" class="ltx_para">
+<p class="ltx_p">GROUP BY句<math id="SS4.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlGroupClause<span class="ltx_text ltx_font_upright"><math id="SS4.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の構文は以下の通りである．
+</p>
+</div>
+<div id="SS4.p2" class="ltx_para">
+<table class="ltx_tabular ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="SS4.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlGroupClause<span class="ltx_text ltx_font_upright"><math id="SS4.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">group by</span> <math id="SS4.p2.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlexp<span class="ltx_text ltx_font_upright"><math id="SS4.p2.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_typewriter ltx_font_upright">,</span></span> <math id="SS4.p2.m5" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math> <span class="ltx_text ltx_font_typewriter">,</span>
+ <math id="SS4.p2.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlexp<span class="ltx_text ltx_font_upright"><math id="SS4.p2.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+ <math id="SS4.p2.m8" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><span class="ltx_text ltx_font_typewriter">having</span> <math id="SS4.p2.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlexp<span class="ltx_text ltx_font_upright"><math id="SS4.p2.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="SS4.p2.m11" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="SS4.p2.m12" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left"><span class="ltx_text ltx_font_typewriter">group by ()</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="SS4.p3" class="ltx_para">
+<p class="ltx_p">他の句とは異なり，
+GROUP BY句には
+<span class="ltx_text ltx_font_typewriter">...(<math id="SS4.p3.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS4.p3.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span>記法が存在せず，従って
+SELECTクエリから分離して構築することができない．
+GROUP BY句は，構文上，ひとつのSELECTクエリの一部として
+SELECT句およびFROM句と共に現れる．
+</p>
+</div>
+<div id="SS4.p4" class="ltx_para">
+<p class="ltx_p">FROM句の型を
+<span class="ltx_text ltx_font_typewriter">(<math id="SS4.p4.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>, <math id="SS4.p4.m2" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.from</span>型とすると，
+GROUP BY句にコンマ区切りで並べられている
+<math id="SS4.p4.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlexp<math id="SS4.p4.m4" class="ltx_Math" alttext="{}_{i}" display="inline"><msub><mi></mi><mi>i</mi></msub></math><span class="ltx_text ltx_font_upright"><math id="SS4.p4.m5" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>はそれぞれ，
+<math id="SS4.p4.m6" class="ltx_Math" alttext="(\tau,w)\triangleright\tau_{i}" display="inline"><mrow><mo stretchy="false">(</mo><mi>τ</mi><mo>,</mo><mi>w</mi><mo stretchy="false">)</mo><mo>▷</mo><mi>τ</mi><msub><mi></mi><mi>i</mi></msub></mrow></math>型でなければならない．
+GROUP BY句はこれらの式の評価結果の組をキーとして，
+FROM句が計算したテーブルを複数の行のグループに分割する．
+行のグループのテーブルの型<math id="SS4.p4.m7" class="ltx_Math" alttext="\tau^{\prime}" display="inline"><mrow><mi>τ</mi><msup><mi></mi><mo>′</mo></msup></mrow></math>は後述する方法で計算される．
+</p>
+</div>
+<div id="SS4.p5" class="ltx_para">
+<p class="ltx_p">GROUP BY句は高々ひとつのHAVING句を持ってもよい．
+HAVING句のSQL評価式は
+GROUP BY句の評価後に行のグループをフィルタするための条件式であり，
+従ってその型は<math id="SS4.p5.m1" class="ltx_Math" alttext="(\tau^{\prime},w)\triangleright\mbox{\tt\frenchspacing SQL.bool3}" display="inline"><mrow><mo stretchy="false">(</mo><mi>τ</mi><msup><mi></mi><mo>′</mo></msup><mo>,</mo><mi>w</mi><mo stretchy="false">)</mo><mo>▷</mo><mtext mathvariant="monospace">SQL.bool3</mtext></mrow></math>である．
+</p>
+</div>
+<div id="SS4.p6" class="ltx_para">
+<p class="ltx_p">2つ目の構文
+<span class="ltx_text ltx_font_typewriter">group by ()</span>は，
+FROM句が計算したテーブル全体をひとつのグループとする
+ことを表す標準SQLの構文である．
+伝統的な標準SQLでは，
+GROUP BY句を書かずにSELECT句で集約関数を用いると，
+そのクエリはテーブル全体を集約するものとみなされる．
+例えば，
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SELECT avg(e.age) FROM employee AS e</span></p>
+</blockquote>
+<p class="ltx_p">は，テーブル全体の<span class="ltx_text ltx_font_typewriter">e.age</span>の平均を求める正しいSQLクエリである．
+一方，SML#では，
+テーブル全体を集約するクエリには
+<span class="ltx_text ltx_font_typewriter">group by ()</span>を書かなければならない．
+上述のSQLクエリは，SML#では以下のように書く．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">fn db =&gt; _sql select avg(#e.age) from #db.employee as e group by ()</span></p>
+</blockquote>
+<p class="ltx_p">データベースサーバーには，SML#プログラムに書かれている通り，
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SELECT avg(e.age) FROM employee AS e GROUP BY ()</span></p>
+</blockquote>
+<p class="ltx_p">が送信される．
+</p>
+</div>
+<div id="SS4.p7" class="ltx_para">
+<p class="ltx_p">GROUP BY句が計算する行のグループの型<math id="SS4.p7.m1" class="ltx_Math" alttext="\tau^{\prime}" display="inline"><mrow><mi>τ</mi><msup><mi></mi><mo>′</mo></msup></mrow></math>は，
+おおよそ以下のようにして計算される．
+</p>
+<ol id="I5" class="ltx_enumerate">
+<li id="I5.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="I5.i1.p1" class="ltx_para">
+<p class="ltx_p">グループ化する前の行の型を
+</p>
+<table id="Ch22.Ex1" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Ch22.Ex1.m1" class="ltx_Math" alttext="\tau=\mbox{\mbox{{\tt\frenchspacing\char 123$k_{1}$:$\tau_{1}$, $\ldots$, $k_{%
+n}$:$\tau_{n}$\char 125}}}" display="block"><mrow><mi>τ</mi><mo>=</mo><mrow><mtext mathvariant="monospace">{</mtext><mrow><mi>k</mi><msub><mi></mi><mn>1</mn></msub></mrow><mtext mathvariant="monospace">:</mtext><mrow><mi>τ</mi><msub><mi></mi><mn>1</mn></msub></mrow><mtext mathvariant="monospace">, </mtext><mi mathvariant="normal">…</mi><mtext mathvariant="monospace">, </mtext><mrow><mi>k</mi><msub><mi></mi><mi>n</mi></msub></mrow><mtext mathvariant="monospace">:</mtext><mrow><mi>τ</mi><msub><mi></mi><mi>n</mi></msub></mrow><mtext mathvariant="monospace">}</mtext></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">とする．
+FROM句が出力するテーブルの型は<math id="I5.i1.p1.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> list</span>である．
+</p>
+</div>
+</li>
+<li id="I5.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="I5.i2.p1" class="ltx_para">
+<p class="ltx_p">行をグループ化すると，
+その型は<math id="I5.i2.p1.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> list list</span>となる．
+</p>
+</div>
+</li>
+<li id="I5.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span> 
+<div id="I5.i3.p1" class="ltx_para">
+<p class="ltx_p">行のグループ
+<span class="ltx_text ltx_font_typewriter">{<math id="I5.i3.p1.m1" class="ltx_Math" alttext="k_{1}" display="inline"><mrow><mi>k</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math>:<math id="I5.i3.p1.m2" class="ltx_Math" alttext="\tau_{1}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mn mathvariant="normal">1</mn></msub></mrow></math>, <math id="I5.i3.p1.m3" class="ltx_Math" alttext="\ldots" display="inline"><mi mathvariant="normal">…</mi></math>, <math id="I5.i3.p1.m4" class="ltx_Math" alttext="k_{n}" display="inline"><mrow><mi>k</mi><msub><mi></mi><mi>n</mi></msub></mrow></math>:<math id="I5.i3.p1.m5" class="ltx_Math" alttext="\tau_{n}" display="inline"><mrow><mi>τ</mi><msub><mi></mi><mi>n</mi></msub></mrow></math>} list</span>を転置し，
+<math id="I5.i3.p1.m6" class="ltx_Math" alttext="\tau^{t}=\mbox{{\tt\frenchspacing\char 123$k_{1}$:$\tau_{1}$ list, $\ldots$, $%
+k_{n}$:$\tau_{n}$ list\char 125}}" display="inline"><mrow><mi>τ</mi><msup><mi></mi><mi>t</mi></msup><mo>=</mo><mrow><mtext mathvariant="monospace">{</mtext><mrow><mi>k</mi><msub><mi></mi><mn>1</mn></msub></mrow><mtext mathvariant="monospace">:</mtext><mrow><mi>τ</mi><msub><mi></mi><mn>1</mn></msub></mrow><mtext mathvariant="monospace"> list, </mtext><mi mathvariant="normal">…</mi><mtext mathvariant="monospace">, </mtext><mrow><mi>k</mi><msub><mi></mi><mi>n</mi></msub></mrow><mtext mathvariant="monospace">:</mtext><mrow><mi>τ</mi><msub><mi></mi><mi>n</mi></msub></mrow><mtext mathvariant="monospace"> list}</mtext></mrow></mrow></math>とする．
+</p>
+</div>
+</li>
+</ol>
+<p class="ltx_p">手順3の転置を行うためには，カラム名の集合
+<math id="SS4.p7.m2" class="ltx_Math" alttext="k_{1},\ldots,k_{n}" display="inline"><mrow><mi>k</mi><msub><mi></mi><mn>1</mn></msub><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mi>k</mi><msub><mi></mi><mi>n</mi></msub></mrow></math>が静的に確定している必要がある．
+SML#は，
+カラム名の集合を，
+同じクエリに構文上含まれるカラム参照式の集合から取得する．
+GROUP BY句にキーとして指定されているか，
+SELECT句などに含まれるグループを指すカラム参照式
+<span class="ltx_text ltx_font_typewriter">#<math id="SS4.p7.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<math id="SS4.p7.m4" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS4.p7.m5" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">.<math id="SS4.p7.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<math id="SS4.p7.m7" class="ltx_Math" alttext="{}_{2}" display="inline"><msub><mi></mi><mn mathvariant="normal">2</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS4.p7.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>それぞれについて，
+もしそのカラム参照式が
+GROUP BY句に書かれたキーのいずれかひとつに一致するならば，
+そのカラムを単一の値のカラムとしてGROUP BY句の結果の型に含める．
+そうでないならば，
+そのカラムは値のリストを持つカラムとなる．
+参照されないカラムの型は，
+GROUP BY句の出力の型として計算されない．
+</p>
+</div>
+<div id="SS4.p8" class="ltx_para">
+<p class="ltx_p">行の集合の型の計算は，あくまで構文上の文脈に基づいて行われ，
+変数の参照関係などを考慮しない．
+例えば，
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val q = fn db =&gt; _sql select #e.department, avg(#e.salary)
+<br class="ltx_break">
+                      from #db.employee as e
+<br class="ltx_break">
+                      group by #e.department</span></p>
+</blockquote>
+<p class="ltx_p">はGROUP BY句を持つ正しいクエリである一方，
+SELECT句を分離した以下の例では型エラーが発生する．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val s = _sql select #e.department, avg(#e.salary)
+<br class="ltx_break">
+val q = fn db =&gt; _sql select...(s)
+<br class="ltx_break">
+                      from #db.employee as e
+<br class="ltx_break">
+                      group by #e.department</span></p>
+</blockquote>
+<p class="ltx_p">なぜなら，SELECT句がGROUP BY句と構文上同じSELECTクエリに現れる
+最初の例では，
+GROUP BY句の出力の型に
+<span class="ltx_text ltx_font_typewriter">#e.department</span>と<span class="ltx_text ltx_font_typewriter">#e.salary</span>の両方が適切に含まれる一方，
+2つ目の例では
+SELECT句がGROUP BY句を持つSELECTクエリの中に無いため，
+GROUP BY句の結果は全く参照されないものとして
+GROUP BY句の型が計算されるからである．
+良い習慣として，<code class="ltx_verbatim ltx_font_typewriter">group by</code>を含むクエリを書くときは，
+<code class="ltx_verbatim ltx_font_typewriter">select</code>に<span class="ltx_text ltx_font_typewriter">...(<math id="SS4.p8.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS4.p8.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span>記法を使わない
+ことが望ましい．
+</p>
+</div>
+<div id="SS4.p9" class="ltx_para">
+<p class="ltx_p">以下は，注意深い読者のための補足説明である．
+SELECT句を分離しても，もしそのSELECT句が
+GROUP BY句で指定したキーしか参照しないならば，
+型エラーは発生しない．
+例えば上述の例の<span class="ltx_text ltx_font_typewriter">s</span>の定義を書き換えて
+<span class="ltx_text ltx_font_typewriter">avg(#e.salary)</span>を削除し，
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val s = _sql select #e.department
+<br class="ltx_break">
+val q = fn db =&gt; _sql select...(s)
+<br class="ltx_break">
+                      from #db.employee as e
+<br class="ltx_break">
+                      group by #e.department</span></p>
+</blockquote>
+<p class="ltx_p">としたならば，型エラーは発生しない．
+なぜなら，<span class="ltx_text ltx_font_typewriter">#e.department</span>はGROUP BY句で指定された
+キーであり，従ってSELECT句での参照の有無にかかわらず
+GROUP BY句の型に含まれるからである．
+</p>
+</div>
+</section>
+<section id="SS5" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.5.5 </span>ORDER BY句</h2>
+
+<div id="SS5.p1" class="ltx_para">
+<p class="ltx_p">ORDER BY句<math id="SS5.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlOrderClause<span class="ltx_text ltx_font_upright"><math id="SS5.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の構文は以下の通りである．
+</p>
+</div>
+<div id="SS5.p2" class="ltx_para">
+<table class="ltx_tabular ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="SS5.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlOrderClause<span class="ltx_text ltx_font_upright"><math id="SS5.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">order by <math id="SS5.p2.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlOrderKey<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS5.p2.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">, <math id="SS5.p2.m5" class="ltx_Math" alttext="\cdots" display="inline"><mi mathvariant="normal">⋯</mi></math> <math id="SS5.p2.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlOrderKey<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS5.p2.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="SS5.p2.m8" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">order by ... ( <math id="SS5.p2.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS5.p2.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> )</span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="SS5.p2.m11" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlOrderKey<span class="ltx_text ltx_font_upright"><math id="SS5.p2.m12" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<math id="SS5.p2.m13" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlexp<span class="ltx_text ltx_font_upright"><math id="SS5.p2.m14" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <math id="SS5.p2.m15" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><math id="SS5.p2.m16" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">asc_desc<span class="ltx_text ltx_font_upright"><math id="SS5.p2.m17" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="SS5.p2.m18" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="SS5.p2.m19" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">asc_desc<span class="ltx_text ltx_font_upright"><math id="SS5.p2.m20" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">asc</span>  <math id="SS5.p2.m21" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <span class="ltx_text ltx_font_typewriter">desc</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="SS5.p3" class="ltx_para">
+<p class="ltx_p">最初の構文がORDER BY句を構築する．
+2つ目の構文は式<math id="SS5.p3.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_upright"><math id="SS5.p3.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の評価結果をORDER BY句として埋め込む．
+<math id="SS5.p3.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_upright"><math id="SS5.p3.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は<span class="ltx_text ltx_font_typewriter">SQL.orderby</span>型でなければならない．
+</p>
+</div>
+<div id="SS5.p4" class="ltx_para">
+<p class="ltx_p">ORDER BY句は
+SELECT句が計算した結果のテーブルに対して
+行の並び替えを行う．
+SELECT句の結果の型を<math id="SS5.p4.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>とすると，
+ORDER BY句に現れる各<math id="SS5.p4.m2" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlexp<math id="SS5.p4.m3" class="ltx_Math" alttext="{}_{i}" display="inline"><msub><mi></mi><mi>i</mi></msub></math><span class="ltx_text ltx_font_upright"><math id="SS5.p4.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は
+<math id="SS5.p4.m5" class="ltx_Math" alttext="(\tau,w)\triangleright\tau_{i}" display="inline"><mrow><mo stretchy="false">(</mo><mi>τ</mi><mo>,</mo><mi>w</mi><mo stretchy="false">)</mo><mo>▷</mo><mi>τ</mi><msub><mi></mi><mi>i</mi></msub></mrow></math>型であり，
+ORDER BY句全体の型は
+<span class="ltx_text ltx_font_typewriter">(<math id="SS5.p4.m6" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math> -&gt; <math id="SS5.p4.m7" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>, <math id="SS5.p4.m8" class="ltx_Math" alttext="w" display="inline"><mi>w</mi></math>) SQL.orderby</span>である．
+</p>
+</div>
+<div id="SS5.p5" class="ltx_para">
+<p class="ltx_p">ORDER BY句には，
+後方互換性を持たない仕様変更や，
+ベンダー独自の拡張が存在する．
+SML#でORDER BY句にキーとして書けるのは，
+SELECT句が出力する結果のカラムを参照する任意の式である．
+ORDER BY句から
+SELECT句の結果のカラムを参照するには，
+テーブル名を持たないカラム参照式
+<span class="ltx_text ltx_font_typewriter">#.<math id="SS5.p5.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">lab<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS5.p5.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>を用いる．
+例えば以下のように書く．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">fn db =&gt; _sql select #e.name as name, #.age as age
+<br class="ltx_break">
+              from #db.employee as e
+<br class="ltx_break">
+              order by #.age</span></p>
+</blockquote>
+<p class="ltx_p">多くのデータベースエンジンは，
+SELECT句の結果に含まれないカラムをキーとしてソートすることを
+許している一方，そのようなカラム参照はSML#では型エラーとなる．
+例えば，以下のクエリは型エラーである．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">fn db =&gt; _sql select #e.name as name, #.age as age
+<br class="ltx_break">
+              from #db.employee as e
+<br class="ltx_break">
+              order by #e.department</span></p>
+</blockquote>
+</div>
+</section>
+<section id="SS6" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.5.6 </span>OFFSET句またはLIMIT句</h2>
+
+<div id="SS6.p1" class="ltx_para">
+<p class="ltx_p">OFFSET句およびLIMIT句は，
+SELECT句の計算結果から指定範囲の行のみを取り出す．
+標準SQLに定められているのがOFFSET句，
+ベンダーによる拡張がLIMIT句であり，
+これらは機能的に等価である．
+どちらも広く受け入れられているため，
+SML#ではこれら両方をサポートする．
+</p>
+</div>
+<div id="SS6.p2" class="ltx_para">
+<p class="ltx_p"><math id="SS6.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlOffsetOrLimitClause<span class="ltx_text ltx_font_upright"><math id="SS6.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の構文を以下に示す．
+</p>
+</div>
+<div id="SS6.p3" class="ltx_para">
+<table class="ltx_tabular ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="SS6.p3.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlOffsetOrLimitClause<span class="ltx_text ltx_font_upright"><math id="SS6.p3.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">sqlOffsetClause</span>  <math id="SS6.p3.m3" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <span class="ltx_text ltx_font_typewriter">sqlLimitClause</span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="SS6.p3.m4" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlOffsetClause<span class="ltx_text ltx_font_upright"><math id="SS6.p3.m5" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">offset <math id="SS6.p3.m6" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlatexp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS6.p3.m7" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> <math id="SS6.p3.m8" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">row˙rows<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS6.p3.m9" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+ <math id="SS6.p3.m10" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><math id="SS6.p3.m11" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlFetchClause<span class="ltx_text ltx_font_upright"><math id="SS6.p3.m12" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="SS6.p3.m13" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="SS6.p3.m14" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlFetchClause<span class="ltx_text ltx_font_upright"><math id="SS6.p3.m15" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">fetch <math id="SS6.p3.m16" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">first˙next<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS6.p3.m17" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> <math id="SS6.p3.m18" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlatexp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS6.p3.m19" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">
+ <math id="SS6.p3.m20" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">row˙rows<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS6.p3.m21" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> only</span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="SS6.p3.m22" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">row_rows<span class="ltx_text ltx_font_upright"><math id="SS6.p3.m23" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">row</span>  <math id="SS6.p3.m24" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <span class="ltx_text ltx_font_typewriter">rows</span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="SS6.p3.m25" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">first_next<span class="ltx_text ltx_font_upright"><math id="SS6.p3.m26" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">first</span>  <math id="SS6.p3.m27" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math> <span class="ltx_text ltx_font_typewriter">next</span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="SS6.p3.m28" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlLimitClause<span class="ltx_text ltx_font_upright"><math id="SS6.p3.m29" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">limit <math id="SS6.p3.m30" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlexp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS6.p3.m31" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+ <math id="SS6.p3.m32" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><math id="SS6.p3.m33" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlLimitOffsetClause<span class="ltx_text ltx_font_upright"><math id="SS6.p3.m34" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="SS6.p3.m35" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="SS6.p3.m36" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">limit all</span>
+ <math id="SS6.p3.m37" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><math id="SS6.p3.m38" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlLimitOffsetClause<span class="ltx_text ltx_font_upright"><math id="SS6.p3.m39" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="SS6.p3.m40" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="SS6.p3.m41" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlLimitOffsetClause<span class="ltx_text ltx_font_upright"><math id="SS6.p3.m42" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">offset <math id="SS6.p3.m43" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">sqlexp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS6.p3.m44" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="SS6.p4" class="ltx_para">
+<p class="ltx_p">予約語<span class="ltx_text ltx_font_typewriter">offset</span>の使い方が
+LIMIT句およびOFFSET句でそれぞれ異なることに注意が必要である．
+LIMIT句はOFFSET副句を持ち，予約語<span class="ltx_text ltx_font_typewriter">limit</span>から始まる．
+OFFSET句はFETCH副句を持ち，予約語<span class="ltx_text ltx_font_typewriter">offset</span>から始まる．
+これらの副句を混ぜて使うことはできない．
+また，
+OFFSET句に定数でない式を書く場合は，式が括弧で囲まれていなければならない．
+</p>
+</div>
+<div id="SS6.p5" class="ltx_para">
+<p class="ltx_p">これらの句に現れる
+<math id="SS6.p5.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlexp<span class="ltx_text ltx_font_upright"><math id="SS6.p5.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>または<math id="SS6.p5.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlatexp<span class="ltx_text ltx_font_upright"><math id="SS6.p5.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の型は
+<math id="SS6.p5.m5" class="ltx_Math" alttext="(\mbox{\tt\frenchspacing\char 123\char 125},w)\triangleright\mbox{\tt%
+\frenchspacing int}" display="inline"><mrow><mo stretchy="false">(</mo><mtext mathvariant="monospace">{}</mtext><mo>,</mo><mi>w</mi><mo stretchy="false">)</mo><mo>▷</mo><mtext>𝚒𝚗𝚝</mtext></mrow></math>である．
+従って，
+これらの句の中にカラム参照式を書くことはできない．
+</p>
+</div>
+<div id="SS6.p6" class="ltx_para">
+<p class="ltx_p">いくつかのデータベースエンジンでは，
+1つのクエリの中でこれらの句を複数指定したり，
+句の順序を入れ替えたりすることを許している．
+SML#では，標準SQLに従い，
+これらの副句は主句の後に続いて現れなければならない．
+また，OFFSET句およびLIMIT句はどちらも高々1つまでしか書けない．
+</p>
+</div>
+</section>
+<section id="SS7" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">22.5.7 </span>相関サブクエリ</h2>
+
+<div id="SS7.p1" class="ltx_para">
+<p class="ltx_p">SELECTクエリがネストしているとき，
+内側のSELECTクエリは外側のクエリのサブクエリである．
+相関サブクエリとは，
+外側のクエリのFROM句が導入するカラムを参照するサブクエリを言う．
+以下は，標準SQLで書かれた相関サブクエリの例である．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">SELECT e.department AS department, e.name AS name
+<br class="ltx_break">
+FROM empoloyee AS e
+<br class="ltx_break">
+WHERE e.salary &gt; (SELECT avg(#t.salary)
+<br class="ltx_break">
+                  FROM employee as t
+<br class="ltx_break">
+                  WHERE t.department = e.department
+<br class="ltx_break">
+                  GROUP BY ())</span></p>
+</blockquote>
+</div>
+<div id="SS7.p2" class="ltx_para">
+<p class="ltx_p">SML#では，
+サブクエリを
+SELECT句など<math id="SS7.p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sqlexp<span class="ltx_text ltx_font_upright"><math id="SS7.p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>が書ける場所
+（<a href="Ch22.S4.html#SS8" title="22.4.8 SQLサブクエリ ‣ 22.4 SQL評価式 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.4.8</span></a>節参照）と
+FROM句（<a href="#SS2" title="22.5.2 FROM句 ‣ 22.5 SELECTクエリ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.5.2</span></a>節参照）に
+書くことができる．
+サブクエリは，以下の構文上の制約を満たすとき，
+相関サブクエリであってもよい．
+</p>
+<ol id="I6" class="ltx_enumerate">
+<li id="I6.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="I6.i1.p1" class="ltx_para">
+<p class="ltx_p">そのサブクエリおよび構文上そのサブクエリを囲む全てのSELECTクエリの
+FROM句が<span class="ltx_text ltx_font_typewriter">from...(<math id="I6.i1.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I6.i1.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span>の形でないとき
+（<span class="ltx_ref ltx_ref_self"><span class="ltx_text ltx_ref_tag">22.5</span></span>節参照），
+そのサブクエリは相関サブクエリであってもよい．
+</p>
+</div>
+</li>
+</ol>
+<p class="ltx_p">以下は，上述の標準SQLで書いた相関サブクエリをSML#で書いた
+例である．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">fn db =&gt; _sql select #e.department as department, #e.name as name
+<br class="ltx_break">
+              from #db.empoloyee as e
+<br class="ltx_break">
+              where #e.salary &gt; (select avg(#t.salary)
+<br class="ltx_break">
+                                 from #db.employee as t
+<br class="ltx_break">
+                                 where #t.department = #e.department
+<br class="ltx_break">
+                                 group by ())</span></p>
+</blockquote>
+<p class="ltx_p">ネストしたSELECTクエリのいずれかのFROM句が
+<span class="ltx_text ltx_font_typewriter">from...(<math id="SS7.p2.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS7.p2.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span>の場合，
+サブクエリは相関サブクエリと解釈されない．
+例えば以下のように，上述の例のサブクエリのFROM句を
+<span class="ltx_text ltx_font_typewriter">from...(<math id="SS7.p2.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS7.p2.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span>に書き直したとき，
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">let
+<br class="ltx_break">
+  val f = fn db =&gt; _sql from #db.employee as t
+<br class="ltx_break">
+in
+<br class="ltx_break">
+  fn db =&gt; _sql select #e.department as department, #e.name as name
+<br class="ltx_break">
+                from #db.empoloyee as e
+<br class="ltx_break">
+                where #e.salary &gt; (select avg(#t.salary)
+<br class="ltx_break">
+                                   from...(f db)
+<br class="ltx_break">
+                                   where #t.department = #e.department
+<br class="ltx_break">
+                                   group by ())
+<br class="ltx_break">
+end</span></p>
+</blockquote>
+<p class="ltx_p">サブクエリの<span class="ltx_text ltx_font_typewriter">#e.department</span>の<span class="ltx_text ltx_font_typewriter">e</span>は，
+外側の<span class="ltx_text ltx_font_typewriter">from #db.employee as e</span>の<span class="ltx_text ltx_font_typewriter">e</span>ではなく，
+<span class="ltx_text ltx_font_typewriter">from ...(x db)</span>が導入する<span class="ltx_text ltx_font_typewriter">e</span>を参照する，と解釈される．
+従って，<span class="ltx_text ltx_font_typewriter">x db</span>は<span class="ltx_text ltx_font_typewriter">e</span>を束縛するFROM句でなくてはならず，
+この例は型エラーとなる．
+外側のFROM句を<span class="ltx_text ltx_font_typewriter">from...(<math id="SS7.p2.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="SS7.p2.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">)</span>にした場合も，
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">let
+<br class="ltx_break">
+  val f = fn db =&gt; _sql from #db.empoloyee as e
+<br class="ltx_break">
+in
+<br class="ltx_break">
+  fn db =&gt; _sql select #e.department as department, #e.name as name
+<br class="ltx_break">
+                from...(f db)
+<br class="ltx_break">
+                where #e.salary &gt; (select avg(#t.salary)
+<br class="ltx_break">
+                                   from #db.employee as t
+<br class="ltx_break">
+                                   where #t.department = #e.department
+<br class="ltx_break">
+                                   group by ())
+</span></p>
+</blockquote>
+<p class="ltx_p">サブクエリは相関サブクエリとみなされず，
+サブクエリの<span class="ltx_text ltx_font_typewriter">#e.department</span>の<span class="ltx_text ltx_font_typewriter">e</span>は未定義となり，
+型エラーとなる．
+</p>
+</div>
+<div id="SS7.p3" class="ltx_para">
+<p class="ltx_p">GROUP BY句と相関サブクエリは，期待される通りに組み合わせることができる．
+例えば，以下は，
+各部署の平均給料を上回る給料をもらっている最年少の人の年齢を問い合わせる
+クエリである．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">fn db =&gt; _sql
+<br class="ltx_break">
+  select #e.department, (select min(#t.age)
+<br class="ltx_break">
+                         from #db.employee as t
+<br class="ltx_break">
+                         where (#t.department = #e.department
+<br class="ltx_break">
+                                and (Some) #t.salary &gt; min(#e.salary))
+<br class="ltx_break">
+                         group by ())
+<br class="ltx_break">
+  from #db.employee as e
+<br class="ltx_break">
+  group by #e.department</span></p>
+</blockquote>
+<p class="ltx_p">このクエリでは，外側のGROUP BY句でグループ化したカラム
+<span class="ltx_text ltx_font_typewriter">#e.salary</span>を，サブクエリの中で<span class="ltx_text ltx_font_typewriter">min</span>関数を用いて集約している．
+GROUP BY句の型は構文上の文脈から計算されるが
+（<a href="#SS4" title="22.5.4 GROUP BY句 ‣ 22.5 SELECTクエリ ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">22.5.4</span></a>節参照），
+SML#コンパイラはグループが相関サブクエリからも参照されている
+ことを正しく認識する．
+</p>
+</div>
+<div id="SS7.p4" class="ltx_para">
+<p class="ltx_p">以下は，注意深い読者のための補足説明である．
+相関サブクエリは，構文上，他のクエリの内側に
+なければならないが，
+だからといって，相関サブクエリ式を評価した結果得られるSQL評価式が，
+MLの静的スコープのように構文上ネストするクエリとだけ相関する，
+というわけではない．
+相関サブクエリが書ける場所の制約は，
+あくまで相関サブクエリの型を計算できるようにするための規則に過ぎない．
+相関サブクエリを含むSQL評価式が第一級市民である以上，
+SML#の言語機能を駆使して，あるクエリ<math id="SS7.p4.m1" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math>の内側で作った
+相関サブクエリ<math id="SS7.p4.m2" class="ltx_Math" alttext="B" display="inline"><mi>B</mi></math>を取り出し別のクエリ<math id="SS7.p4.m3" class="ltx_Math" alttext="C" display="inline"><mi>C</mi></math>に埋め込むことも，
+型さえ合っているならば可能である．
+このとき，<math id="SS7.p4.m4" class="ltx_Math" alttext="C" display="inline"><mi>C</mi></math>に埋め込まれた<math id="SS7.p4.m5" class="ltx_Math" alttext="B" display="inline"><mi>B</mi></math>が参照する外側のテーブルは，
+<math id="SS7.p4.m6" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math>のものではなく，<math id="SS7.p4.m7" class="ltx_Math" alttext="C" display="inline"><mi>C</mi></math>のものである．
+SQLクエリがどのような経緯で組み立てられたとしても，
+その組み立て操作の型が正しいならば，
+結果として作られるSQLクエリは正しい．
+</p>
+</div>
+</section>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch22.S4.html" title="22.4 SQL評価式 ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.4 </span>SQL評価式</span></a><a href="Ch22.S6.html" title="22.6 SQLコマンド ‣ Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">22.6 </span>SQLコマンド</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Mar 25 14:55:50 2025 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

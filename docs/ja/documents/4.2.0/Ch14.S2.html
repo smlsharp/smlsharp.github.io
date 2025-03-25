@@ -1,0 +1,299 @@
+<!DOCTYPE html><html>
+<head>
+<title>14.2 分割コンパイル例‣ Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版</title>
+<!--Generated on Tue Mar 25 14:55:50 2025 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on 令和7年3月.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-book.css" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+<link rel="up" href="Ch14.html" title="Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="up up" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="up up up" href="./" title="プログラミング言語SML#解説 4.2.0版">
+<link rel="start" href="./" title="プログラミング言語SML#解説 4.2.0版">
+<link rel="prev" href="Ch14.S1.html" title="14.1 分割コンパイルの概要 ‣ Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="next" href="Ch14.S3.html" title="14.3 インターフェイスファイルの構造 ‣ Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch14.S1.html" title="14.1 分割コンパイルの概要 ‣ Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch14.S3.html" title="14.3 インターフェイスファイルの構造 ‣ Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch14.S4.html" title="14.4 型の隠蔽 ‣ Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch14.S5.html" title="14.5 シグネチャの扱い ‣ Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch14.S6.html" title="14.6 ファンクタのサポート ‣ Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch14.S7.html" title="14.7 レプリケーション宣言 ‣ Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch14.S8.html" title="14.8 トップレベルの実行 ‣ Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch5.html" title="Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch6.html" title="Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch7.html" title="Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch8.html" title="Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch9.html" title="Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch10.html" title="Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch11.html" title="Chapter 11 SML#の拡張機能：マルチスレッドプログラミング ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch13.html" title="Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch14.html" title="Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.2.0版">
+</head>
+<body>
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.2.0版</div>
+<div>
+<a href="Ch14.html" title="Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">14 </span>
+SML#の拡張機能：SML#分割コンパイルシステム</span></a><a href="Ch14.S1.html" title="14.1 分割コンパイルの概要 ‣ Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">14.1 </span>分割コンパイルの概要</span></a><a href="Ch14.S3.html" title="14.3 インターフェイスファイルの構造 ‣ Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">14.3 </span>インターフェイスファイルの構造</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">14.2 </span>分割コンパイル例</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">前節のシナリオに従い，乱数を使うおみくじプログラムを例に，分割コ
+ンパイルをして実行形式ファイルを作ってみましょう．
+システムを</p>
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">random</span>：乱数発生器</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">main</span>：メインパート</p>
+</div>
+</li>
+</ul>
+<p class="ltx_p">に分割することにします．
+まず，このインターフェイスファイルを以下のように設計します．</p>
+<ul id="I2" class="ltx_itemize">
+<li id="I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">random.smi</span>の定義．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">structure Random =
+
+<br class="ltx_break">
+struct
+
+<br class="ltx_break">
+  val intit : int * int -&gt; unit
+
+<br class="ltx_break">
+  val genrand : unit -&gt; int
+
+<br class="ltx_break">
+end</span></p>
+</blockquote>
+<p class="ltx_p">このインターフェイスファイルは，このインターフェイスファイルを実
+装するソースファイルが，他のファイルは参照せずに<span class="ltx_text ltx_font_typewriter">Random</span> structureを提
+供することを表しています．</p>
+</div>
+</li>
+<li id="I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">main.smi</span>の定義．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">_require "basis.smi"
+<br class="ltx_break">
+_require "./random.smi"</span></p>
+</blockquote>
+<p class="ltx_p">このインターフェイスファイルは，SML#の基本ライブラリ<span class="ltx_text ltx_font_typewriter">"basis.smi"</span>（The Standard ML Basis Library）とこのディレクトリにある
+<span class="ltx_text ltx_font_typewriter">random.smi</span>を利用し，外部には何も提供しないことを意味しています．</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">このインターフェイスを使えば，<span class="ltx_text ltx_font_typewriter">main.sml</span>と<span class="ltx_text ltx_font_typewriter">random.sml</span>を独
+立に開発できます．
+<span class="ltx_text ltx_font_typewriter">main.sml</span>は図<a href="#Ch14.F1" title="Figure 14.1 ‣ 14.2 分割コンパイル例 ‣ Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">14.1</span></a>のように定義できます．
+このファイルは，<span class="ltx_text ltx_font_typewriter">random.smi</span>を実装するソースファイルが存在し
+なくても，コンパイルしエラーがないか確認することができます．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ smlsharp -c main.sml</span></p>
+</blockquote>
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">-c</span>はSML#コンパイラにコンパイルしオブジェクトファイ
+ルを生成を指示します．
+対話型での使用と同様に型チェックをした後，エラーがなければ，
+オブジェクトファイル<span class="ltx_text ltx_font_typewriter">main.o</span>を作ります．
+インターフェイスファイルは，ファイル名の<span class="ltx_text ltx_font_typewriter">.sml</span>を<span class="ltx_text ltx_font_typewriter">.smi</span>に変
+えたものが自動的に使用されます．
+ソースコード冒頭に<span class="ltx_text ltx_font_typewriter">_interface <math id="p2.m1" class="ltx_Math" alttext="filePath" display="inline"><mrow><mi>f</mi><mi>i</mi><mi>l</mi><mi>e</mi><mi>P</mi><mi>a</mi><mi>t</mi><mi>h</mi></mrow></math></span>宣言を書くことにより
+インターフェースファイルを明示的に指定することもできます．</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">次に，<span class="ltx_text ltx_font_typewriter">random.sml</span>を開発します．
+高品質の乱数発生関数の開発は，数学的な知識と注意深いコーディング
+が要求されます．
+ここでは，これはスクラッチから開発するのではなく，既存のCでの実
+装を使うことにします．
+種々ある乱数発生アルゴリズムの中で，その品質と速度の両方の点から
+Mersenne Twisterが信頼できます．
+このアルゴリズムはCのソースファイル<span class="ltx_text ltx_font_typewriter">mt19937ar.c</span>として提供されています．</p>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">そこでこのファイルをダウンロードしましょう．
+インターネットでMersenne Twisterあるいは<span class="ltx_text ltx_font_typewriter">mt19937ar.c</span>をサーチすれば簡単に見つけることができます．
+このファイルには以下の関数が定義されています．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">void init_genrand(unsigned long s);
+<br class="ltx_break">
+void init_by_array(unsigned long init_key[], int key_length);
+<br class="ltx_break">
+unsigned long genrand_int32(void);
+<br class="ltx_break">
+long genrand_int31(void);
+<br class="ltx_break">
+double genrand_real1(void);
+<br class="ltx_break">
+double genrand_real2(void);
+<br class="ltx_break">
+double genrand_real3(void);
+<br class="ltx_break">
+double genrand_res53(void);
+<br class="ltx_break">
+int main(void);</span></p>
+</blockquote>
+<p class="ltx_p">この中の<span class="ltx_text ltx_font_typewriter">main</span>は，このアルゴリズムをテストするためのメイン関
+数です．
+我々は新たな実行形式プログラムを作成するので，<span class="ltx_text ltx_font_typewriter">main</span>関数は，
+我々のトップレベルファイル<span class="ltx_text ltx_font_typewriter">main.sml</span>をコンパイルしたオブジェクトファ
+イルに含まれているはずです．
+そこで，<span class="ltx_text ltx_font_typewriter">mt19937ar.c</span>ファイルの関数<span class="ltx_text ltx_font_typewriter">int main(void)</span>の定
+義をコメントアウトする必要があります．
+その他の関数は，SML#から利用できるライブラリ関数です．
+ここでは以下の２つを使うことにします．</p>
+<ul id="I3" class="ltx_itemize">
+<li id="I3.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">void init_genrand(unsigned long s)</span>．
+シーズの長さを受け取りアルゴリズムを初期化する関数です．
+シーズ<span class="ltx_text ltx_font_typewriter">s</span>は非負な整数ならなんでも構いません．</p>
+</div>
+</li>
+<li id="I3.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I3.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">long genrand_int31(void)</span>．初期化された後は，呼ばれる毎に31ビッ
+トの符号なし整数（32ビット非負整数）のランダムな列を返します．</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="p5" class="ltx_para">
+<p class="ltx_p">そこで，これを利用して，<span class="ltx_text ltx_font_typewriter">random.sml</span>を以下のように定義します．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">structure Random =
+<br class="ltx_break">
+struct
+<br class="ltx_break">
+  val init = _import "init_genrand" : int -&gt; unit
+<br class="ltx_break">
+  val genrand = _import "genrand_int31" : unit -&gt; int
+<br class="ltx_break">
+end</span></p>
+</blockquote>
+<p class="ltx_p">このソースファイルも，以下のコマンドにより，このファイルだけで単
+独にコンパイルできます．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ smlsharp -c random.sml</span></p>
+</blockquote>
+<p class="ltx_p">このソースファイルの定義と並行して，（<span class="ltx_text ltx_font_typewriter">main</span>関数をコメントア
+ウトした）Mersenne Twisterをコンパイルし，オブジェクトファイルを生
+成しておきます．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ gcc -c -o mt.o mt19937ar.c</span></p>
+</blockquote>
+<p class="ltx_p">以上ですべてのソースファイルがそれぞれコンパイルされ，オブジェク
+トファイルが作られたはずです．
+それらオブジェクトファイルは，トップレベルのインターフェイスファ
+イルと必要なオブジェクトファイルを指定することによって，実行形式ファイル
+が作成されます．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ smlsharp main.smi mt.o
+</span></p>
+</blockquote>
+<p class="ltx_p">SML#コンパイラは，<span class="ltx_text ltx_font_typewriter">smi</span>ファイルを解析し，このファイル
+から参照されている<span class="ltx_text ltx_font_typewriter">smi</span>ファイルを再帰的にたどり，対応するオブジェク
+トファイルのリストを作り，コマンドラインに指定されたC言語のオブジェクト
+ファイルと共に，システムのリンカーを起動し，実行形式ファイルを作成します．</p>
+</div>
+<figure id="Ch14.F1" class="ltx_figure">
+<table class="ltx_tabular ltx_centering ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left"><span class="ltx_inline-para ltx_minipage ltx_align_middle" style="width:407.2pt;">
+<span id="Ch14.F1.p1" class="ltx_para">
+<span class="ltx_quote">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter">fun main() =
+<br class="ltx_break">
+  let
+<br class="ltx_break">
+    fun getInt () = 
+<br class="ltx_break">
+      case TextIO.inputLine TextIO.stdIn of
+<br class="ltx_break">
+         NONE =&gt; 0
+<br class="ltx_break">
+      | SOME s =&gt; (case Int.fromString s of NONE =&gt; 0 | SOME i =&gt; i)
+<br class="ltx_break">
+    val seed = (print "好きな数を入力してください（0で終了です）．"; getInt())
+<br class="ltx_break">
+  in
+<br class="ltx_break">
+    if seed = 0 then ()
+<br class="ltx_break">
+    else
+<br class="ltx_break">
+      let
+<br class="ltx_break">
+        val _ = Random.init seed;
+<br class="ltx_break">
+        val oracle = Random.genrand()
+<br class="ltx_break">
+        val message = 
+<br class="ltx_break">
+          "あなたの運勢は，" ^
+<br class="ltx_break">
+          (case oracle mod 4 of 0 =&gt; "大吉" | 1 =&gt; "小吉"| 2 =&gt; "吉" | 3 =&gt; "凶")
+<br class="ltx_break">
+          ^ "です．\n"
+<br class="ltx_break">
+        val message = print message
+<br class="ltx_break">
+      in
+<br class="ltx_break">
+        main ()
+<br class="ltx_break">
+      end
+<br class="ltx_break">
+  end
+<br class="ltx_break">
+val _ = main();</span></span>
+</span>
+</span></span></td>
+</tr>
+</tbody>
+</table>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 14.1: </span>main.smlの例</figcaption>
+</figure>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch14.S1.html" title="14.1 分割コンパイルの概要 ‣ Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">14.1 </span>分割コンパイルの概要</span></a><a href="Ch14.S3.html" title="14.3 インターフェイスファイルの構造 ‣ Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">14.3 </span>インターフェイスファイルの構造</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Mar 25 14:55:50 2025 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

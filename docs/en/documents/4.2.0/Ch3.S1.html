@@ -1,0 +1,139 @@
+<!DOCTYPE html><html>
+<head>
+<title>3.1 What is SML#？‣ Chapter 3 Overview of SML# ‣ Part I Overview ‣ SML# Document Version 4.2.0</title>
+<!--Generated on Tue Mar 25 14:56:23 2025 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on Mar, 2025.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-book.css" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+<link rel="up" href="Ch3.html" title="Chapter 3 Overview of SML# ‣ Part I Overview ‣ SML# Document Version 4.2.0">
+<link rel="up up" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.2.0">
+<link rel="up up up" href="./" title="SML# Document Version 4.2.0">
+<link rel="start" href="./" title="SML# Document Version 4.2.0">
+<link rel="prev" href="Ch3.html" title="Chapter 3 Overview of SML# ‣ Part I Overview ‣ SML# Document Version 4.2.0">
+<link rel="next" href="Ch3.S2.html" title="3.2 History of SML# ‣ Chapter 3 Overview of SML# ‣ Part I Overview ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch3.S2.html" title="3.2 History of SML# ‣ Chapter 3 Overview of SML# ‣ Part I Overview ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch3.S3.html" title="3.3 SML# Development Team and Contact Information ‣ Chapter 3 Overview of SML# ‣ Part I Overview ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch3.S4.html" title="3.4 Acknowledgments ‣ Chapter 3 Overview of SML# ‣ Part I Overview ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch3.S5.html" title="3.5 Limitations in SML# version 4.2.0 ‣ Chapter 3 Overview of SML# ‣ Part I Overview ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch1.html" title="Chapter 1 Preface ‣ Part I Overview ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch2.html" title="Chapter 2 About This Document ‣ Part I Overview ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch3.html" title="Chapter 3 Overview of SML# ‣ Part I Overview ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch4.html" title="Chapter 4 SML# License ‣ Part I Overview ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 4.2.0">
+</head>
+<body>
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 4.2.0</div>
+<div>
+<a href="Ch3.html" title="Chapter 3 Overview of SML# ‣ Part I Overview ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3 </span>Overview of SML#</span></a><a href="Ch3.html" title="Chapter 3 Overview of SML# ‣ Part I Overview ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3 </span>Overview of SML#</span></a><a href="Ch3.S2.html" title="3.2 History of SML# ‣ Chapter 3 Overview of SML# ‣ Part I Overview ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.2 </span>History of SML#</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">3.1 </span>What is SML#？</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">SML# is a new programming language in the ML-family,
+having the following features.</p>
+<ol id="I1" class="ltx_enumerate">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">Backward compatibility with Standard ML.</span>
+SML# can compile all programs that conform to the
+definition of the Standard ML<cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib5" title="" class="ltx_ref">5</a>]</cite> with a few exceptions.</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">Record polymorphism.</span>
+SML# supports record polymorphism <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib9" title="" class="ltx_ref">9</a>]</cite>.
+In SML# , field selection operators <span class="ltx_text ltx_font_typewriter">#<math id="I1.i2.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">label<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i2.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+and record patterns <span class="ltx_text ltx_font_typewriter">{<math id="I1.i2.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">field-pat<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="I1.i2.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter">,...}</span> are fully
+polymorphic.
+This feature is essential in modular development of programs
+manipulating records, and is the key to extend ML with SQL.</p>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">Seamless integration of SQL.</span>
+SML# seamlessly integrates (currently a subset of) SQL.
+Instead of providing built-in primitives to access
+database servers, SML# integrate SQL expressions themselves as
+polymorphically-typed first-class citizens.
+This allows the programmer to directly access databases in
+your polymorphic ML code.</p>
+</div>
+</li>
+<li id="I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">4.</span> 
+<div id="I1.i4.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">Direct interface to C.</span>
+SML# programs can directly call C functions of your own
+coding or in system libraries.
+The programmer need only declare their names and types, without
+writing mysterious “stubs” or conversion functions.
+The SML# generates external references to C functions,
+which are resolved and linked by the system linker.
+Both static and dynamic linking are supported.</p>
+</div>
+</li>
+<li id="I1.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">5.</span> 
+<div id="I1.i5.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">Separate compilation and linking.</span>
+SML# supports true separate compilation and linking.
+By writing an interface file, each source file is compiled
+separately into an object file in the standard system format (e.g. ELF
+format.)
+The separately compiled object files are then linked together
+possibly with C functions and libraries into an executable program.</p>
+</div>
+</li>
+<li id="I1.i6" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">6.</span> 
+<div id="I1.i6.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">Multithread support for multicore CPUs.</span>
+The non-moving GC <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib16" title="" class="ltx_ref">16</a>]</cite> and direct C interface allow
+SML# code to directly call POSIX thread library.
+As far as the OS thread library support a multicore CPU,
+SML# program automatically obtains multithread capability for
+multicore CPUs.
+With the non-moving fully concurrent GC we have just developed,
+concurrent threads run efficiently on a multicore CPU.</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">The SML# compiler and its runtime system are developed
+by the SML# development team.
+They are open-source software distributed under the MIT
+license copyrighted by the SML# development team
+(See Section <a href="Ch4.html" title="Chapter 4 SML# License ‣ Part I Overview ‣ SML# Document Version 4.2.0" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4</span></a>).
+The current SML# development team consists of
+Atsushi Ohori (Tohoku University) and Katsuhiro Ueno (Niigata University)
+(in the alphabetical order).</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch3.html" title="Chapter 3 Overview of SML# ‣ Part I Overview ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3 </span>Overview of SML#</span></a><a href="Ch3.S2.html" title="3.2 History of SML# ‣ Chapter 3 Overview of SML# ‣ Part I Overview ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.2 </span>History of SML#</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Mar 25 14:56:23 2025 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

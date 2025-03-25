@@ -1,0 +1,616 @@
+<!DOCTYPE html><html>
+<head>
+<title>16.2 分割コンパイルモードのプログラム‣ Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版</title>
+<!--Generated on Tue Mar 25 14:55:50 2025 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on 令和7年3月.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-book.css" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+<link rel="up" href="Ch16.html" title="Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="up up" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="up up up" href="./" title="プログラミング言語SML#解説 4.2.0版">
+<link rel="start" href="./" title="プログラミング言語SML#解説 4.2.0版">
+<link rel="prev" href="Ch16.S1.html" title="16.1 対話型モードのプログラム ‣ Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="next" href="Ch16.S3.html" title="16.3 プログラムの主な構成要素 ‣ Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch16.S1.html" title="16.1 対話型モードのプログラム ‣ Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch16.S3.html" title="16.3 プログラムの主な構成要素 ‣ Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch15.html" title="Chapter 15 序論 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch16.html" title="Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch17.html" title="Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch18.html" title="Chapter 18 型 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch19.html" title="Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch20.html" title="Chapter 20 パターンとパターンマッチング ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch21.html" title="Chapter 21 識別子のスコープ規則 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch22.html" title="Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch23.html" title="Chapter 23 核言語の宣言とインターフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch24.html" title="Chapter 24 モジュール言語の宣言とインタフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch25.html" title="Chapter 25 SML#のライブラリ概要 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch26.html" title="Chapter 26 Standard ML標準ライブラリ ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch27.html" title="Chapter 27 SML#システムライブラリ ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch28.html" title="Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch29.html" title="Chapter 29 SML#実行時データ管理 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.2.0版">
+</head>
+<body>
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.2.0版</div>
+<div>
+<a href="Ch16.html" title="Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">16 </span>SML#の構造</span></a><a href="Ch16.S1.html" title="16.1 対話型モードのプログラム ‣ Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">16.1 </span>対話型モードのプログラム</span></a><a href="Ch16.S3.html" title="16.3 プログラムの主な構成要素 ‣ Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">16.3 </span>
+プログラムの主な構成要素</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">16.2 </span>分割コンパイルモードのプログラム</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">分割コンパイルモードのプログラムは，ソースファイル
+とそのインターフェイスを記述したインターフェイスファ
+イルの集合である．
+ソースファイルの内容<math id="p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">source<span class="ltx_text ltx_font_upright"><math id="p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は以下の通りである．
+</p>
+</div>
+<div id="p2" class="ltx_para ltx_align_center">
+<table class="ltx_tabular ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">source<span class="ltx_text ltx_font_upright"><math id="p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<math id="p2.m3" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><math id="p2.m4" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">interfaceFileSpec<span class="ltx_text ltx_font_upright"><math id="p2.m5" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="p2.m6" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span><span class="ltx_text ltx_font_upright">  </span><span class="ltx_text ltx_font_upright"><math id="p2.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span>sourceProgram<span class="ltx_text ltx_font_upright"><math id="p2.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="p2.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">interfaceFileSpec<span class="ltx_text ltx_font_upright"><math id="p2.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">_interface  <span class="ltx_text ltx_font_typewriter">"</span><math id="p2.m11" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">filePath<span class="ltx_text ltx_font_upright"><math id="p2.m12" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_typewriter ltx_font_upright">"</span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="p2.m13" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sourceProgram<span class="ltx_text ltx_font_upright"><math id="p2.m14" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="p2.m15" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<math id="p2.m16" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">decl<span class="ltx_text ltx_font_upright"><math id="p2.m17" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright">  </span><span class="ltx_text ltx_font_upright"><math id="p2.m18" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span>sourceProgram<span class="ltx_text ltx_font_upright"><math id="p2.m19" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="p2.m20" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<math id="p2.m21" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">topdecl<span class="ltx_text ltx_font_upright"><math id="p2.m22" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright">  </span><span class="ltx_text ltx_font_upright"><math id="p2.m23" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span>sourceProgram<span class="ltx_text ltx_font_upright"><math id="p2.m24" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">ソースファイルに対応するインタフェイスファイルの指定
+<math id="p3.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">interfaceFileSpec<span class="ltx_text ltx_font_upright"><math id="p3.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>指定しない場合でかつ，ソースファイル<math id="p3.m3" class="ltx_Math" alttext="S" display="inline"><mi>S</mi></math><span class="ltx_text ltx_font_typewriter">.sml</span>と同一ディレクトリにサフィクスが<span class="ltx_text ltx_font_typewriter">.smi</span>の同一の名の
+ファイル<math id="p3.m4" class="ltx_Math" alttext="S" display="inline"><mi>S</mi></math><span class="ltx_text ltx_font_typewriter">.smi</span>があれば，そのファイルが暗黙に
+インタフェイスファイルとして指定される．
+<math id="p3.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">filePath<span class="ltx_text ltx_font_upright"><math id="p3.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は相対パスであり，
+OSによらず，ディレクトリの区切り文字には<span class="ltx_text ltx_font_typewriter">/</span>（スラッシュ）を用いる．
+</p>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">インターフェイスファイルの内容<math id="p4.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">interface<span class="ltx_text ltx_font_upright"><math id="p4.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は，ソースファ
+イルが必要とする他のコンパイル単位の参照宣言の列<math id="p4.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">requireList<span class="ltx_text ltx_font_upright"><math id="p4.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>と，
+ソースファイルが他のコンパイル単位に提供する仕様の列<math id="p4.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">provideList<span class="ltx_text ltx_font_upright"><math id="p4.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>を記述する．
+</p>
+</div>
+<div id="p5" class="ltx_para ltx_align_center">
+<table class="ltx_tabular ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="p5.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">interface<span class="ltx_text ltx_font_upright"><math id="p5.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<math id="p5.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">requireList<span class="ltx_text ltx_font_upright"><math id="p5.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright">  </span><span class="ltx_text ltx_font_upright"><math id="p5.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span>provideList<span class="ltx_text ltx_font_upright"><math id="p5.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="p5.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">requireList<span class="ltx_text ltx_font_upright"><math id="p5.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="p5.m9" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">_require</span>  <math id="p5.m10" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><span class="ltx_text ltx_font_typewriter">local</span><math id="p5.m11" class="ltx_Math" alttext=")?" display="inline"><mrow><mo stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math>  <math id="p5.m12" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">interfaceName<span class="ltx_text ltx_font_upright"><math id="p5.m13" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright">  </span><span class="ltx_text ltx_font_upright"><math id="p5.m14" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span>requireList<span class="ltx_text ltx_font_upright"><math id="p5.m15" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright">  </span><span class="ltx_text ltx_font_upright"><math id="p5.m16" class="ltx_Math" alttext="(" display="inline"><mo mathvariant="normal" stretchy="false">(</mo></math></span><span class="ltx_text ltx_font_typewriter ltx_font_upright">init</span><span class="ltx_text ltx_font_upright"><math id="p5.m17" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="p5.m18" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<span class="ltx_text ltx_font_typewriter">_require</span>  <math id="p5.m19" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><span class="ltx_text ltx_font_typewriter">local</span><math id="p5.m20" class="ltx_Math" alttext=")?" display="inline"><mrow><mo stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math>  <math id="p5.m21" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sigFilePath<span class="ltx_text ltx_font_upright"><math id="p5.m22" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright">  </span><span class="ltx_text ltx_font_upright"><math id="p5.m23" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span>requireList<span class="ltx_text ltx_font_upright"><math id="p5.m24" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright">  </span><span class="ltx_text ltx_font_upright"><math id="p5.m25" class="ltx_Math" alttext="(" display="inline"><mo mathvariant="normal" stretchy="false">(</mo></math></span><span class="ltx_text ltx_font_typewriter ltx_font_upright">init</span><span class="ltx_text ltx_font_upright"><math id="p5.m26" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="p5.m27" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">interfaceName<span class="ltx_text ltx_font_upright"><math id="p5.m28" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<math id="p5.m29" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">smiFilePath<span class="ltx_text ltx_font_upright"><math id="p5.m30" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="p5.m31" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<math id="p5.m32" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">librarySmiFilePath<span class="ltx_text ltx_font_upright"><math id="p5.m33" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="p5.m34" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">provideList<span class="ltx_text ltx_font_upright"><math id="p5.m35" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="p5.m36" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<math id="p5.m37" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">provide<span class="ltx_text ltx_font_upright"><math id="p5.m38" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright">  </span><span class="ltx_text ltx_font_upright"><math id="p5.m39" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span>provideList<span class="ltx_text ltx_font_upright"><math id="p5.m40" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="p5.m41" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">provide<span class="ltx_text ltx_font_upright"><math id="p5.m42" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<math id="p5.m43" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">provideInfix<span class="ltx_text ltx_font_upright"><math id="p5.m44" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="p5.m45" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<math id="p5.m46" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">provideVal<span class="ltx_text ltx_font_upright"><math id="p5.m47" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="p5.m48" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<math id="p5.m49" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">provideType<span class="ltx_text ltx_font_upright"><math id="p5.m50" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="p5.m51" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<math id="p5.m52" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">provideDatatype<span class="ltx_text ltx_font_upright"><math id="p5.m53" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="p5.m54" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<math id="p5.m55" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">provideException<span class="ltx_text ltx_font_upright"><math id="p5.m56" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="p5.m57" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<math id="p5.m58" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">provideStr<span class="ltx_text ltx_font_upright"><math id="p5.m59" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="p5.m60" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<math id="p5.m61" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">provideFun<span class="ltx_text ltx_font_upright"><math id="p5.m62" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="p6" class="ltx_para">
+<p class="ltx_p"><math id="p6.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">requireList<span class="ltx_text ltx_font_upright"><math id="p6.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は，ソースファイルが参照する他の
+ソースファイルのインターフェイスファイル（smiファイル）パス，
+ライブラリのsmiファイル名，
+またはシグネチャファイルのパス名を指定する．
+<span class="ltx_text ltx_font_typewriter">_require</span>に続く<span class="ltx_text ltx_font_typewriter">local</span>は，
+その<span class="ltx_text ltx_font_typewriter">_require</span>で指定されたインターフェースファイルが
+ソースファイルからのみ参照され，
+<math id="p6.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">provideList<span class="ltx_text ltx_font_upright"><math id="p6.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>からは参照されないことを表す．
+この<span class="ltx_text ltx_font_typewriter">local</span>を適切に加えることによって，不要なインターフェース
+ファイルの読み込みを抑止し，コンパイル時間を短縮することができる．
+<span class="ltx_text ltx_font_typewriter">init</span>は，指定されたインターフェースファイルに対応する
+プログラムが，<span class="ltx_text ltx_font_typewriter">_require</span>が書かれたプログラムよりも先に必ず評価
+されることを表す注釈である．
+<math id="p6.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">provideList<span class="ltx_text ltx_font_upright"><math id="p6.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は，ソースファイルが，他のコンパイル単位
+に提供する宣言の仕様である．</p>
+</div>
+<div id="p7" class="ltx_para">
+<p class="ltx_p"><math id="p7.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">smiFilePath<span class="ltx_text ltx_font_upright"><math id="p7.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>，<math id="p7.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sigFilePath<span class="ltx_text ltx_font_upright"><math id="p7.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>，および
+<math id="p7.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">librarySmiFilePath<span class="ltx_text ltx_font_upright"><math id="p7.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は，<span class="ltx_text ltx_font_typewriter">_require</span>が書かれたファイルから
+他のファイルへの相対パスである．
+OSによらず，ディレクトリの区切り文字には<span class="ltx_text ltx_font_typewriter">/</span>（スラッシュ）を
+用いる．
+パスが<span class="ltx_text ltx_font_typewriter">.</span>（ピリオド）から始まっておらずかつファイルが存在
+しない場合は，コマンドラインで与えられたロードパスからファイルを検索する．</p>
+</div>
+<div id="p8" class="ltx_para">
+<p class="ltx_p">SML#が提供する代表的なライブラリのインターフェイスファイ
+ルには以下のものがある．
+</p>
+</div>
+<div id="p9" class="ltx_para">
+<blockquote class="ltx_quote">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_l ltx_border_r ltx_border_t">ライブラリsmiファイル名</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">内容</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_tt">basis.smi</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_tt">Standard ML基本ライブラリ</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">ml-yacc-lib.smi</td>
+<td class="ltx_td ltx_align_left ltx_border_r">yacc, lexツール</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">smlformat-lib.smi</td>
+<td class="ltx_td ltx_align_left ltx_border_r">SMLFormatフォーマッタ生成ツール</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">smlnj-lib.smi</td>
+<td class="ltx_td ltx_align_left ltx_border_r">Standard ML of New Jerseyライブラリ</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">ffi.smi</td>
+<td class="ltx_td ltx_align_left ltx_border_r">Cとの連携サポートライブラリ</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">thread.smi</td>
+<td class="ltx_td ltx_align_left ltx_border_r">マルチスレッドサポートライブラリ</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r">reify.smi</td>
+<td class="ltx_td ltx_align_left ltx_border_r">動的型付けサポートライブラリ</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_l ltx_border_r">smlunit-lib.smi</td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">単体テストツール</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<div id="p10" class="ltx_para">
+<p class="ltx_p">宣言に対応するプロバイドは以下の通りである．
+</p>
+</div>
+<div id="p11" class="ltx_para">
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">核言語の宣言とインタフェイスの対応</p>
+<blockquote class="ltx_quote">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_top">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_l ltx_border_r ltx_border_t">宣言 (<math id="I1.i1.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">decl<span class="ltx_text ltx_font_upright"><math id="I1.i1.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>)</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">対応するプロバイド (<math id="I1.i1.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">provide<span class="ltx_text ltx_font_upright"><math id="I1.i1.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>)</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">
+<math id="I1.i1.p1.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">infixDecl<span class="ltx_text ltx_font_upright"><math id="I1.i1.p1.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">
+<math id="I1.i1.p1.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">provideInfix<span class="ltx_text ltx_font_upright"><math id="I1.i1.p1.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">
+<math id="I1.i1.p1.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">valDecl<span class="ltx_text ltx_font_upright"><math id="I1.i1.p1.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">
+<math id="I1.i1.p1.m11" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">provideVal<span class="ltx_text ltx_font_upright"><math id="I1.i1.p1.m12" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">
+<math id="I1.i1.p1.m13" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">valRecDecl<span class="ltx_text ltx_font_upright"><math id="I1.i1.p1.m14" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">
+<math id="I1.i1.p1.m15" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">provideVal<span class="ltx_text ltx_font_upright"><math id="I1.i1.p1.m16" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">
+<math id="I1.i1.p1.m17" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">funDecl<span class="ltx_text ltx_font_upright"><math id="I1.i1.p1.m18" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">
+<math id="I1.i1.p1.m19" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">provideVal<span class="ltx_text ltx_font_upright"><math id="I1.i1.p1.m20" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">
+<math id="I1.i1.p1.m21" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">datatypeDecl<span class="ltx_text ltx_font_upright"><math id="I1.i1.p1.m22" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">
+<math id="I1.i1.p1.m23" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">provideData<span class="ltx_text ltx_font_upright"><math id="I1.i1.p1.m24" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">
+<math id="I1.i1.p1.m25" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">typeDecl<span class="ltx_text ltx_font_upright"><math id="I1.i1.p1.m26" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">
+<math id="I1.i1.p1.m27" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">provideType<span class="ltx_text ltx_font_upright"><math id="I1.i1.p1.m28" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">
+<math id="I1.i1.p1.m29" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exceptionDecl<span class="ltx_text ltx_font_upright"><math id="I1.i1.p1.m30" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">
+<math id="I1.i1.p1.m31" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">provideException<span class="ltx_text ltx_font_upright"><math id="I1.i1.p1.m32" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_l ltx_border_r ltx_border_t">
+<math id="I1.i1.p1.m33" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">localDecl<span class="ltx_text ltx_font_upright"><math id="I1.i1.p1.m34" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_border_b ltx_border_r ltx_border_t"></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">モジュール言語の宣言とインタフェイスの対応</p>
+<blockquote class="ltx_quote">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_top">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_l ltx_border_r ltx_border_t">宣言 (<math id="I1.i2.p1.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">topdecl<span class="ltx_text ltx_font_upright"><math id="I1.i2.p1.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>)</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">対応するプロバイド (<math id="I1.i2.p1.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">provide<span class="ltx_text ltx_font_upright"><math id="I1.i2.p1.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>)</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">
+<math id="I1.i2.p1.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strDecl<span class="ltx_text ltx_font_upright"><math id="I1.i2.p1.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">
+<math id="I1.i2.p1.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">provideStr<span class="ltx_text ltx_font_upright"><math id="I1.i2.p1.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">
+<math id="I1.i2.p1.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sigDecl<span class="ltx_text ltx_font_upright"><math id="I1.i2.p1.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_border_r ltx_border_t"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">
+<math id="I1.i2.p1.m11" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">functorDecl<span class="ltx_text ltx_font_upright"><math id="I1.i2.p1.m12" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">
+<math id="I1.i2.p1.m13" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">provideFun<span class="ltx_text ltx_font_upright"><math id="I1.i2.p1.m14" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_l ltx_border_r ltx_border_t">
+<math id="I1.i2.p1.m15" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">localTopdecl<span class="ltx_text ltx_font_upright"><math id="I1.i2.p1.m16" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_border_b ltx_border_r ltx_border_t"></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p class="ltx_p">シグネチャファイルは，インタフェイスに直接
+<span class="ltx_text ltx_font_typewriter">_require</span> <math id="I1.i2.p1.m17" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sigFilePath<span class="ltx_text ltx_font_upright"><math id="I1.i2.p1.m18" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+宣言で参照する．
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="p12" class="ltx_para">
+<p class="ltx_p">以下に簡単なプログラム例を示す．</p>
+<ul id="I2" class="ltx_itemize">
+<li id="I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i1.p1" class="ltx_para">
+<p class="ltx_p">例１（基本ライブラリの使用）</p>
+</div>
+<div id="I2.i1.p2" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_l ltx_border_r ltx_border_t">ファイル</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">コード</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_tt"><span class="ltx_inline-para ltx_minipage ltx_align_middle" style="width:226.2pt;">
+<span id="I2.i1.p2.p1" class="ltx_para">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter">hello.sml</span></span>
+</span></span></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_tt"><span class="ltx_inline-para ltx_minipage ltx_align_middle" style="width:226.2pt;">
+<span id="I2.i1.p2.p2" class="ltx_para">
+<span class="ltx_quote">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter">val _ = print "こんにちは，SML＃へようこそ\n"</span></span>
+</span>
+</span></span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_inline-para ltx_minipage ltx_align_middle" style="width:226.2pt;">
+<span id="I2.i1.p2.p3" class="ltx_para">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter">hello.smi</span></span>
+</span></span></td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r ltx_border_t"><span class="ltx_inline-para ltx_minipage ltx_align_middle" style="width:226.2pt;">
+<span id="I2.i1.p2.p4" class="ltx_para">
+<span class="ltx_quote">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter">_require "basis.smi"</span></span>
+</span>
+</span></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="I2.i1.p3" class="ltx_para">
+<p class="ltx_p">コンパイルと実行例</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ smlsharp hello.sml
+<br class="ltx_break">
+$ ./a.out
+<br class="ltx_break">
+こんにちは，SML＃へようこそ
+<br class="ltx_break">
+$</span></p>
+</blockquote>
+</div>
+</li>
+<li id="I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I2.i2.p1" class="ltx_para">
+<p class="ltx_p">例２（分割コンパイル）</p>
+</div>
+<div id="I2.i2.p2" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_l ltx_border_r ltx_border_t">ファイル</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_r ltx_border_t">コード</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_tt"><span class="ltx_inline-para ltx_minipage ltx_align_middle" style="width:226.2pt;">
+<span id="I2.i2.p2.p1" class="ltx_para">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter">hello.sml</span></span>
+</span></span></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_tt"><span class="ltx_inline-para ltx_minipage ltx_align_middle" style="width:226.2pt;">
+<span id="I2.i2.p2.p2" class="ltx_para">
+<span class="ltx_quote">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter">val _ = puts "こんにちは，SML＃へようこそ"</span></span>
+</span>
+</span></span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_inline-para ltx_minipage ltx_align_middle" style="width:226.2pt;">
+<span id="I2.i2.p2.p3" class="ltx_para">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter">hello.smi</span></span>
+</span></span></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_inline-para ltx_minipage ltx_align_middle" style="width:226.2pt;">
+<span id="I2.i2.p2.p4" class="ltx_para">
+<span class="ltx_quote">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter">_require "puts.smi"</span></span>
+</span>
+</span></span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_inline-para ltx_minipage ltx_align_middle" style="width:226.2pt;">
+<span id="I2.i2.p2.p5" class="ltx_para">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter">puts.sml</span>
+</span>
+</span></span></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t"><span class="ltx_inline-para ltx_minipage ltx_align_middle" style="width:226.2pt;">
+<span id="I2.i2.p2.p6" class="ltx_para">
+<span class="ltx_quote">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter">val puts = _import "puts" : string -&gt; int</span></span>
+</span>
+</span></span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_inline-para ltx_minipage ltx_align_middle" style="width:226.2pt;">
+<span id="I2.i2.p2.p7" class="ltx_para">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter">puts.smi</span></span>
+</span></span></td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r ltx_border_t"><span class="ltx_inline-para ltx_minipage ltx_align_middle" style="width:226.2pt;">
+<span id="I2.i2.p2.p8" class="ltx_para">
+<span class="ltx_quote">
+<span class="ltx_p"><span class="ltx_text ltx_font_typewriter">val puts : string -&gt; int</span></span>
+</span>
+</span></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="I2.i2.p3" class="ltx_para">
+<p class="ltx_p">コンパイルと実行例</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ smlsharp -c hello.sml
+<br class="ltx_break">
+$ smlsharp -c puts.sml
+<br class="ltx_break">
+$ smlsharp -o hello hello.smi
+<br class="ltx_break">
+$ ./hello
+<br class="ltx_break">
+こんにちは，SML＃へようこそ
+<br class="ltx_break">
+$</span></p>
+</blockquote>
+</div>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch16.S1.html" title="16.1 対話型モードのプログラム ‣ Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">16.1 </span>対話型モードのプログラム</span></a><a href="Ch16.S3.html" title="16.3 プログラムの主な構成要素 ‣ Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">16.3 </span>
+プログラムの主な構成要素</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Mar 25 14:55:50 2025 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html><html>
+<head>
+<title>24.1  Structure declarations :  ⟨strDecl⟩   ‣ Chapter 24 Module language declarations and interface ‣ Part III Reference manual ‣ SML# Document Version 4.2.0</title>
+<!--Generated on Tue Mar 25 14:56:23 2025 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on Mar, 2025.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-book.css" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+<link rel="up" href="Ch24.html" title="Chapter 24 Module language declarations and interface ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="up up" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="up up up" href="./" title="SML# Document Version 4.2.0">
+<link rel="start" href="./" title="SML# Document Version 4.2.0">
+<link rel="prev" href="Ch24.html" title="Chapter 24 Module language declarations and interface ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="next" href="Ch24.S2.html" title="24.2 Structure expressions and their evaluation : ⟨ strexp ⟩ ‣ Chapter 24 Module language declarations and interface ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch24.S2.html" title="24.2 Structure expressions and their evaluation : ⟨ strexp ⟩ ‣ Chapter 24 Module language declarations and interface ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch24.S3.html" title="24.3 Signature expression : ⟨ sigexp ⟩ ‣ Chapter 24 Module language declarations and interface ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch24.S4.html" title="24.4 Module language interface ‣ Chapter 24 Module language declarations and interface ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch15.html" title="Chapter 15 Introduction ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch16.html" title="Chapter 16 The SML# Structure ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch17.html" title="Chapter 17 Lexical structure ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch18.html" title="Chapter 18 Types ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch19.html" title="Chapter 19 Expressions ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch20.html" title="Chapter 20 Patterns and Pattern Matching ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch21.html" title="Chapter 21 Scope rules for identifier ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch22.html" title="Chapter 22 SQL Expressions and Commands ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch23.html" title="Chapter 23 Declarations of the core language and their interfaces ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch24.html" title="Chapter 24 Module language declarations and interface ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch25.html" title="Chapter 25 Overview of SML# Libraries ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch26.html" title="Chapter 26 Standard ML Basis Library ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch27.html" title="Chapter 27 SML# System Library ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch28.html" title="Chapter 28 The smlsharp command ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch29.html" title="Chapter 29 SML# Run-time data management ‣ Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 4.2.0">
+</head>
+<body>
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 4.2.0</div>
+<div>
+<a href="Ch24.html" title="Chapter 24 Module language declarations and interface ‣ Part III Reference manual ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">24 </span>Module language declarations and interface</span></a><a href="Ch24.html" title="Chapter 24 Module language declarations and interface ‣ Part III Reference manual ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">24 </span>Module language declarations and interface</span></a><a href="Ch24.S2.html" title="24.2 Structure expressions and their evaluation : ⟨ strexp ⟩ ‣ Chapter 24 Module language declarations and interface ‣ Part III Reference manual ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">24.2 </span>
+Structure expressions and their evaluation : <math class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strexp<span class="ltx_text ltx_font_upright"><math class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">24.1 </span>
+Structure declarations : <math id="m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strDecl<span class="ltx_text ltx_font_upright"><math id="m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">Syntax for structure declaration is given below.
+</p>
+</div>
+<div id="p2" class="ltx_para ltx_align_center">
+<table class="ltx_tabular ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="p2.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strDecl<span class="ltx_text ltx_font_upright"><math id="p2.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">:=</td>
+<td class="ltx_td ltx_align_left"> <span class="ltx_text ltx_font_typewriter">structure</span> <math id="p2.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strbind<span class="ltx_text ltx_font_upright"><math id="p2.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">
+<math id="p2.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strbind<span class="ltx_text ltx_font_upright"><math id="p2.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center">::=</td>
+<td class="ltx_td ltx_align_left">
+<math id="p2.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strid<span class="ltx_text ltx_font_upright"><math id="p2.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <span class="ltx_text ltx_font_typewriter">=</span> <math id="p2.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strexp<span class="ltx_text ltx_font_upright"><math id="p2.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <math id="p2.m11" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><span class="ltx_text ltx_font_typewriter">and</span> <math id="p2.m12" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strbind<span class="ltx_text ltx_font_upright"><math id="p2.m13" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="p2.m14" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="p2.m15" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<math id="p2.m16" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strid<span class="ltx_text ltx_font_upright"><math id="p2.m17" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <span class="ltx_text ltx_font_typewriter">:</span> <math id="p2.m18" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sigexp<span class="ltx_text ltx_font_upright"><math id="p2.m19" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <span class="ltx_text ltx_font_typewriter">=</span> <math id="p2.m20" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strexp<span class="ltx_text ltx_font_upright"><math id="p2.m21" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <math id="p2.m22" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><span class="ltx_text ltx_font_typewriter">and</span> <math id="p2.m23" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strbind<span class="ltx_text ltx_font_upright"><math id="p2.m24" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="p2.m25" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td"></td>
+<td class="ltx_td ltx_align_center"> <math id="p2.m26" class="ltx_Math" alttext="|" display="inline"><mo stretchy="false">|</mo></math>
+</td>
+<td class="ltx_td ltx_align_left">
+<math id="p2.m27" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strid<span class="ltx_text ltx_font_upright"><math id="p2.m28" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <span class="ltx_text ltx_font_typewriter">:&gt;</span> <math id="p2.m29" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sigexp<span class="ltx_text ltx_font_upright"><math id="p2.m30" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <span class="ltx_text ltx_font_typewriter">=</span> <math id="p2.m31" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strexp<span class="ltx_text ltx_font_upright"><math id="p2.m32" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <math id="p2.m33" class="ltx_Math" alttext="(" display="inline"><mo stretchy="false">(</mo></math><span class="ltx_text ltx_font_typewriter">and</span> <math id="p2.m34" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strbind<span class="ltx_text ltx_font_upright"><math id="p2.m35" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_upright"><math id="p2.m36" class="ltx_Math" alttext=")?" display="inline"><mrow><mo mathvariant="normal" stretchy="false">)</mo><mi mathvariant="normal">?</mi></mrow></math></span></span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">If there are multiple bindings separated with <span class="ltx_text ltx_font_typewriter">and</span> then
+the structure names are bound simultaneously, whose scope is the rest of
+declarations that follow this declaration.
+So, in the following example, <span class="ltx_text ltx_font_typewriter">y</span> is bound to <span class="ltx_text ltx_font_typewriter">2</span> and
+not <span class="ltx_text ltx_font_typewriter">1</span>.
+</p>
+</div>
+<div id="p4" class="ltx_para">
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">structure A = struct val a = 1 end;
+
+<br class="ltx_break">
+structure B = struct val b = 1 end;
+
+<br class="ltx_break">
+structure A = struct val a = 2 end and B = struct val b = A.a end;
+
+<br class="ltx_break">
+val x = A.a;
+
+<br class="ltx_break">
+val y = B.b;</span></p>
+</blockquote>
+</div>
+<div id="p5" class="ltx_para">
+<p class="ltx_p">Binding structure names with signature constraints are
+translated to binding to structure expressions with signature constraints
+as follows.
+</p>
+</div>
+<div id="p6" class="ltx_para">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<thead class="ltx_thead">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_l ltx_border_r ltx_border_t">source</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_r ltx_border_t">translated to</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t">
+<math id="p6.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strid<span class="ltx_text ltx_font_upright"><math id="p6.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <span class="ltx_text ltx_font_typewriter">:</span> <math id="p6.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sigexp<span class="ltx_text ltx_font_upright"><math id="p6.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <span class="ltx_text ltx_font_typewriter">=</span> <math id="p6.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strexp<span class="ltx_text ltx_font_upright"><math id="p6.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t">
+<math id="p6.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strid<span class="ltx_text ltx_font_upright"><math id="p6.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <span class="ltx_text ltx_font_typewriter">=</span> <math id="p6.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strexp<span class="ltx_text ltx_font_upright"><math id="p6.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_typewriter ltx_font_upright">:</span></span> <math id="p6.m11" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sigexp<span class="ltx_text ltx_font_upright"><math id="p6.m12" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_b ltx_border_l ltx_border_r ltx_border_t">
+<math id="p6.m13" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strid<span class="ltx_text ltx_font_upright"><math id="p6.m14" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <span class="ltx_text ltx_font_typewriter">:&gt;</span> <math id="p6.m15" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sigexp<span class="ltx_text ltx_font_upright"><math id="p6.m16" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <span class="ltx_text ltx_font_typewriter">=</span> <math id="p6.m17" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strexp<span class="ltx_text ltx_font_upright"><math id="p6.m18" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_b ltx_border_r ltx_border_t">
+<math id="p6.m19" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strid<span class="ltx_text ltx_font_upright"><math id="p6.m20" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> <span class="ltx_text ltx_font_typewriter">=</span> <math id="p6.m21" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strexp<span class="ltx_text ltx_font_upright"><math id="p6.m22" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span><span class="ltx_text ltx_font_typewriter ltx_font_upright">:&gt;</span></span> <math id="p6.m23" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">sigexp<span class="ltx_text ltx_font_upright"><math id="p6.m24" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="p7" class="ltx_para">
+<p class="ltx_p">Evaluation of a structure declaration is done as follows.
+</p>
+<ol id="I1" class="ltx_enumerate">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">Evaluate the structure expression and obtain a static type
+environment <math id="I1.i1.p1.m1" class="ltx_Math" alttext="\Gamma" display="inline"><mi mathvariant="normal">Γ</mi></math> and a runtime environment <math id="I1.i1.p1.m2" class="ltx_Math" alttext="E" display="inline"><mi>E</mi></math>, as defined in the
+following section.
+</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">Obtain <math id="I1.i2.p1.m1" class="ltx_Math" alttext="\Gamma^{\prime}" display="inline"><mrow><mi mathvariant="normal">Γ</mi><msup><mi></mi><mo>′</mo></msup></mrow></math> and <math id="I1.i2.p1.m2" class="ltx_Math" alttext="E^{\prime}" display="inline"><mrow><mi>E</mi><msup><mi></mi><mo>′</mo></msup></mrow></math> from <math id="I1.i2.p1.m3" class="ltx_Math" alttext="\Gamma^{\prime}" display="inline"><mrow><mi mathvariant="normal">Γ</mi><msup><mi></mi><mo>′</mo></msup></mrow></math> and <math id="I1.i2.p1.m4" class="ltx_Math" alttext="E^{\prime}" display="inline"><mrow><mi>E</mi><msup><mi></mi><mo>′</mo></msup></mrow></math> by prefixing the
+long names defined in them with the structure name <math id="I1.i2.p1.m5" class="ltx_Math" alttext="S" display="inline"><mi>S</mi></math>, and add them to
+the current environments.
+</p>
+</div>
+</li>
+</ol>
+<p class="ltx_p">For example, if structure expression <math id="p7.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strexp<span class="ltx_text ltx_font_upright"><math id="p7.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> generates
+a static type environment <math id="p7.m3" class="ltx_Math" alttext="\{longId_{1}:\tau_{1},...,longid_{n}:\tau_{n}\}" display="inline"><mrow><mo stretchy="false">{</mo><mi>l</mi><mi>o</mi><mi>n</mi><mi>g</mi><mi>I</mi><mi>d</mi><msub><mi></mi><mn>1</mn></msub><mo>:</mo><mi>τ</mi><msub><mi></mi><mn>1</mn></msub><mo>,</mo><mo>.</mo><mo>.</mo><mo>.</mo><mo>,</mo><mi>l</mi><mi>o</mi><mi>n</mi><mi>g</mi><mi>i</mi><mi>d</mi><msub><mi></mi><mi>n</mi></msub><mo>:</mo><mi>τ</mi><msub><mi></mi><mi>n</mi></msub><mo stretchy="false">}</mo></mrow></math>
+and a runtime value environment <math id="p7.m4" class="ltx_Math" alttext="\{longId_{1}:v_{1},...,longid_{n}:v_{n}\}" display="inline"><mrow><mo stretchy="false">{</mo><mi>l</mi><mi>o</mi><mi>n</mi><mi>g</mi><mi>I</mi><mi>d</mi><msub><mi></mi><mn>1</mn></msub><mo>:</mo><mi>v</mi><msub><mi></mi><mn>1</mn></msub><mo>,</mo><mo>.</mo><mo>.</mo><mo>.</mo><mo>,</mo><mi>l</mi><mi>o</mi><mi>n</mi><mi>g</mi><mi>i</mi><mi>d</mi><msub><mi></mi><mi>n</mi></msub><mo>:</mo><mi>v</mi><msub><mi></mi><mi>n</mi></msub><mo stretchy="false">}</mo></mrow></math>, then
+evaluating the structure declaration <span class="ltx_text ltx_font_typewriter">structure <math id="p7.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">strid<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p7.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> =
+<math id="p7.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">strexp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p7.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span> has the effect of extending the current type
+environment and runtime environment with the bindings
+<math id="p7.m9" class="ltx_Math" alttext="\{S.longId_{1}:\tau_{1},...,S.longid_{n}:\tau_{n}\}" display="inline"><mrow><mo stretchy="false">{</mo><mi>S</mi><mo>.</mo><mi>l</mi><mi>o</mi><mi>n</mi><mi>g</mi><mi>I</mi><mi>d</mi><msub><mi></mi><mn>1</mn></msub><mo>:</mo><mi>τ</mi><msub><mi></mi><mn>1</mn></msub><mo>,</mo><mo>.</mo><mo>.</mo><mo>.</mo><mo>,</mo><mi>S</mi><mo>.</mo><mi>l</mi><mi>o</mi><mi>n</mi><mi>g</mi><mi>i</mi><mi>d</mi><msub><mi></mi><mi>n</mi></msub><mo>:</mo><mi>τ</mi><msub><mi></mi><mi>n</mi></msub><mo stretchy="false">}</mo></mrow></math> and
+<math id="p7.m10" class="ltx_Math" alttext="\{S.longId_{1}:v_{1},...,S.longid_{n}:v_{n}\}" display="inline"><mrow><mo stretchy="false">{</mo><mi>S</mi><mo>.</mo><mi>l</mi><mi>o</mi><mi>n</mi><mi>g</mi><mi>I</mi><mi>d</mi><msub><mi></mi><mn>1</mn></msub><mo>:</mo><mi>v</mi><msub><mi></mi><mn>1</mn></msub><mo>,</mo><mo>.</mo><mo>.</mo><mo>.</mo><mo>,</mo><mi>S</mi><mo>.</mo><mi>l</mi><mi>o</mi><mi>n</mi><mi>g</mi><mi>i</mi><mi>d</mi><msub><mi></mi><mi>n</mi></msub><mo>:</mo><mi>v</mi><msub><mi></mi><mi>n</mi></msub><mo stretchy="false">}</mo></mrow></math>.
+</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch24.html" title="Chapter 24 Module language declarations and interface ‣ Part III Reference manual ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">24 </span>Module language declarations and interface</span></a><a href="Ch24.S2.html" title="24.2 Structure expressions and their evaluation : ⟨ strexp ⟩ ‣ Chapter 24 Module language declarations and interface ‣ Part III Reference manual ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">24.2 </span>
+Structure expressions and their evaluation : <math class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">strexp<span class="ltx_text ltx_font_upright"><math class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Mar 25 14:56:23 2025 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

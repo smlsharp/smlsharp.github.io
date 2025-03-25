@@ -1,0 +1,139 @@
+<!DOCTYPE html><html>
+<head>
+<title>9.1 ランク１多相性‣ Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版</title>
+<!--Generated on Tue Mar 25 14:55:50 2025 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on 令和7年3月.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-book.css" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+<link rel="up" href="Ch9.html" title="Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="up up" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="up up up" href="./" title="プログラミング言語SML#解説 4.2.0版">
+<link rel="start" href="./" title="プログラミング言語SML#解説 4.2.0版">
+<link rel="prev" href="Ch9.html" title="Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="next" href="Ch9.S2.html" title="9.2 ランク１多相性による値多相性制約の緩和 ‣ Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch9.S2.html" title="9.2 ランク１多相性による値多相性制約の緩和 ‣ Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch9.S3.html" title="9.3 第一級オーバーローディング ‣ Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch5.html" title="Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch6.html" title="Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch7.html" title="Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch8.html" title="Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch9.html" title="Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch10.html" title="Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch11.html" title="Chapter 11 SML#の拡張機能：マルチスレッドプログラミング ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch13.html" title="Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch14.html" title="Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.2.0版">
+</head>
+<body>
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.2.0版</div>
+<div>
+<a href="Ch9.html" title="Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">9 </span>SML#の拡張機能：その他の型の拡張</span></a><a href="Ch9.html" title="Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">9 </span>SML#の拡張機能：その他の型の拡張</span></a><a href="Ch9.S2.html" title="9.2 ランク１多相性による値多相性制約の緩和 ‣ Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">9.2 </span>ランク１多相性による値多相性制約の緩和</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">9.1 </span>ランク１多相性</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">Standard MLの多相型システムが推論できる多相型は，すべての多相型
+変数が最も外側で束縛される型です．
+例えば関数</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">fun f x y = (x, y)</span></p>
+</blockquote>
+<p class="ltx_p">に対しては，</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">val f = fn : [’a, ’b. ’a -&gt; ’b -&gt; ’a * ’b]</span></p>
+</blockquote>
+<p class="ltx_p">の型が推論されます．
+SML#では，このような関数に対して以下のようなネストした多
+相型を推論可能に拡張しています．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># fun f x y = (x, y);
+<br class="ltx_break">
+val f = fn : [’a. ’a -&gt; [’b. ’b -&gt; ’a * ’b]]</span></p>
+</blockquote>
+<p class="ltx_p">この型は，<span class="ltx_text ltx_font_typewriter">’a</span>としてある型<math id="p1.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>を受け取って多相関数
+<span class="ltx_text ltx_font_typewriter">[’b. ’b -&gt; <math id="p1.m2" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math> * ’b]</span>を返す関数型です．
+実際，以下のような動作をします．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># f 1;
+<br class="ltx_break">
+val it = fn : [’b. ’b -&gt; int * ’b]
+<br class="ltx_break">
+# it "ML";
+<br class="ltx_break">
+val it = (1, "ML") : int * string</span></p>
+</blockquote>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">型変数を<math id="p2.m1" class="ltx_Math" alttext="t" display="inline"><mi>t</mi></math>，種々の型にインスタンス化ができない単相型を<math id="p2.m2" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math>，
+多相型を<math id="p2.m3" class="ltx_Math" alttext="\sigma" display="inline"><mi>σ</mi></math>で表すと，Standard ML言語の多相型はおおよそ以下のように
+定義されるランク０と呼ばれる型です．</p>
+<table id="Ch33.S3.EGx9" class="ltx_equationgroup ltx_eqn_eqnarray ltx_eqn_table">
+
+<tbody id="Ch9.Ex1"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="Ch9.Ex1.m1" class="ltx_Math" alttext="\displaystyle\tau" display="inline"><mi>τ</mi></math></td>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><math id="Ch9.Ex1.m2" class="ltx_Math" alttext="\displaystyle::=" display="inline"><mrow><mo>:</mo><mo>:</mo><mo>=</mo></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="Ch9.Ex1.m3" class="ltx_Math" alttext="\displaystyle t\mbox{\ $|$\ }b\mbox{\ $|$\ }\tau\rightarrow\tau\mbox{\ $|$\ }%
+\tau*\tau" display="inline"><mrow><mi>t</mi><mrow><mtext> </mtext><mo stretchy="false">|</mo><mtext> </mtext></mrow><mi>b</mi><mrow><mtext> </mtext><mo stretchy="false">|</mo><mtext> </mtext></mrow><mi>τ</mi><mo>→</mo><mi>τ</mi><mrow><mtext> </mtext><mo stretchy="false">|</mo><mtext> </mtext></mrow><mi>τ</mi><mo>*</mo><mi>τ</mi></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+<tbody id="Ch9.Ex2"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="Ch9.Ex2.m1" class="ltx_Math" alttext="\displaystyle\sigma" display="inline"><mi>σ</mi></math></td>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><math id="Ch9.Ex2.m2" class="ltx_Math" alttext="\displaystyle::=" display="inline"><mrow><mo>:</mo><mo>:</mo><mo>=</mo></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="Ch9.Ex2.m3" class="ltx_Math" alttext="\displaystyle\tau\mbox{\ $|$\ }\forall(t_{1},\ldots,t_{n}).\tau" display="inline"><mrow><mi>τ</mi><mrow><mtext> </mtext><mo stretchy="false">|</mo><mtext> </mtext></mrow><mo>∀</mo><mo stretchy="false">(</mo><mi>t</mi><msub><mi></mi><mn>1</mn></msub><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mi>t</mi><msub><mi></mi><mi>n</mi></msub><mo stretchy="false">)</mo><mo>.</mo><mi>τ</mi></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">これに対して，SML#で推論可能な多相型は，多相型が関数の引
+数の位置以外の位置にくることを許す以下のようなランク１と呼ばれる型です．</p>
+<table id="Ch33.S3.EGx10" class="ltx_equationgroup ltx_eqn_eqnarray ltx_eqn_table">
+
+<tbody id="Ch9.Ex3"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="Ch9.Ex3.m1" class="ltx_Math" alttext="\displaystyle\tau" display="inline"><mi>τ</mi></math></td>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><math id="Ch9.Ex3.m2" class="ltx_Math" alttext="\displaystyle::=" display="inline"><mrow><mo>:</mo><mo>:</mo><mo>=</mo></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="Ch9.Ex3.m3" class="ltx_Math" alttext="\displaystyle t\mbox{\ $|$\ }b\mbox{\ $|$\ }\tau\rightarrow\tau\mbox{\ $|$\ }%
+\tau*\tau" display="inline"><mrow><mi>t</mi><mrow><mtext> </mtext><mo stretchy="false">|</mo><mtext> </mtext></mrow><mi>b</mi><mrow><mtext> </mtext><mo stretchy="false">|</mo><mtext> </mtext></mrow><mi>τ</mi><mo>→</mo><mi>τ</mi><mrow><mtext> </mtext><mo stretchy="false">|</mo><mtext> </mtext></mrow><mi>τ</mi><mo>*</mo><mi>τ</mi></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+<tbody id="Ch9.Ex4"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="Ch9.Ex4.m1" class="ltx_Math" alttext="\displaystyle\sigma" display="inline"><mi>σ</mi></math></td>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><math id="Ch9.Ex4.m2" class="ltx_Math" alttext="\displaystyle::=" display="inline"><mrow><mo>:</mo><mo>:</mo><mo>=</mo></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="Ch9.Ex4.m3" class="ltx_Math" alttext="\displaystyle\tau\mbox{\ $|$\ }\forall(t_{1},\ldots,t_{n}).\tau\mbox{\ $|$\ }%
+\tau\rightarrow\sigma\mbox{\ $|$\ }\sigma*\sigma" display="inline"><mrow><mi>τ</mi><mrow><mtext> </mtext><mo stretchy="false">|</mo><mtext> </mtext></mrow><mo>∀</mo><mo stretchy="false">(</mo><mi>t</mi><msub><mi></mi><mn>1</mn></msub><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mi>t</mi><msub><mi></mi><mi>n</mi></msub><mo stretchy="false">)</mo><mo>.</mo><mi>τ</mi><mrow><mtext> </mtext><mo stretchy="false">|</mo><mtext> </mtext></mrow><mi>τ</mi><mo>→</mo><mi>σ</mi><mrow><mtext> </mtext><mo stretchy="false">|</mo><mtext> </mtext></mrow><mi>σ</mi><mo>*</mo><mi>σ</mi></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">この拡張は，もともとレコード多相性の効率的な実現を目指した技術的
+な拡張であり，純粋なMLの型理論の枠組みでは殆ど違いはありません．
+しかし，Standard MLの改訂版で導入された値多相性制約のもとでは，
+重要な拡張となっています．
+次節で値多相性とランク１多相性の関連を解説します．
+</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch9.html" title="Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">9 </span>SML#の拡張機能：その他の型の拡張</span></a><a href="Ch9.S2.html" title="9.2 ランク１多相性による値多相性制約の緩和 ‣ Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">9.2 </span>ランク１多相性による値多相性制約の緩和</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Mar 25 14:55:50 2025 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

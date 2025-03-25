@@ -1,0 +1,117 @@
+<!DOCTYPE html><html>
+<head>
+<title>33.1  Compiler Start-up ‣ Chapter 33 Control structure of the compiler ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 4.2.0</title>
+<!--Generated on Tue Mar 25 14:56:23 2025 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on Mar, 2025.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-book.css" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+<link rel="up" href="Ch33.html" title="Chapter 33 Control structure of the compiler ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 4.2.0">
+<link rel="up up" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.2.0">
+<link rel="up up up" href="./" title="SML# Document Version 4.2.0">
+<link rel="start" href="./" title="SML# Document Version 4.2.0">
+<link rel="prev" href="Ch33.html" title="Chapter 33 Control structure of the compiler ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 4.2.0">
+<link rel="next" href="Ch33.S2.html" title="33.2 The compiler command main function ‣ Chapter 33 Control structure of the compiler ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch33.S2.html" title="33.2 The compiler command main function ‣ Chapter 33 Control structure of the compiler ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch33.S3.html" title="33.3 The compiler toplevel ‣ Chapter 33 Control structure of the compiler ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch31.html" title="Chapter 31 Preface ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch32.html" title="Chapter 32 The SML# Source Distribution Package ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch33.html" title="Chapter 33 Control structure of the compiler ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 4.2.0">
+</head>
+<body>
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 4.2.0</div>
+<div>
+<a href="Ch33.html" title="Chapter 33 Control structure of the compiler ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">33 </span>Control structure of the compiler</span></a><a href="Ch33.html" title="Chapter 33 Control structure of the compiler ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">33 </span>Control structure of the compiler</span></a><a href="Ch33.S2.html" title="33.2 The compiler command main function ‣ Chapter 33 Control structure of the compiler ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">33.2 </span>The compiler command main function</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">33.1 </span>
+Compiler Start-up
+</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">The SML# compiler is an SML# program separately
+compiled and liked by the SML# compiler.
+the main
+function of an SML# program, initially called from the
+SML# runtime system, sequentially evaluets the top-level
+declarations of the set of source files in an order that respects the
+dependency among the source files.
+The set of source files of an SML# program consists of
+the source file corresponding to the root interface file specified as a
+command line argument to the link mode SML# command, and the
+source files correspondig to the interface files that are (directly and
+indirectly) referenced from the root interface file.</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">The SML# compiler command is linked by the following shell command
+written in <span class="ltx_text ltx_font_typewriter">Makefile</span> file for the target
+<span class="ltx_text ltx_font_typewriter">src/compiler/smlsharp</span>.
+</p>
+</div>
+<div id="p3" class="ltx_para">
+<pre class="ltx_verbatim ltx_font_typewriter">
+        $(SMLSHARP_ENV) $(SMLSHARP_STAGE1) -Bsrc -nostdpath $(SMLFLAGS) \
+Ψ-filemap=filemap \
+Ψ$(RDYNAMIC_LDFLAGS) $(LLVM_SMLSHARP_LDFLAGS) --link-all \
+Ψ$(srcdir)/src/compiler/smlsharp.smi \
+Ψ$(COMPILER_SUPPORT_OBJECTS) $(LLVM_LIBS) $(LLVM_SYSLIBS) -o $@
+</pre>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">In the standard configuration, the shell variable
+<span class="ltx_text ltx_font_typewriter">SMLSHARP_STAGE1</span> is bound to <span class="ltx_text ltx_font_typewriter">minismlsharp</span> commande, which
+is the same as <span class="ltx_text ltx_font_typewriter">smlsharp</span> except that it links a minimal set of
+libraries.
+The top-lebel source file of the SML# compiler is</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">./src/compiler/smlsharp.sml</span><span class="ltx_text ltx_font_typewriter"></span></p>
+</blockquote>
+<p class="ltx_p">which corresponds to the root interface file <span class="ltx_text ltx_font_typewriter">./src/compiler/smlsharp.smi</span>
+specified in the avove shell command.
+This file consists of the following four lines.
+</p>
+</div>
+<div id="p5" class="ltx_para">
+<pre class="ltx_verbatim ltx_font_typewriter">
+  val commandLineName = CommandLine.name ()
+  val commandArgs = CommandLine.arguments ()
+  val status = Main.main (commandLineName, commandArgs)
+  val () = OS.Process.exit status
+</pre>
+</div>
+<div id="p6" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">Main.main</span> is the following <span class="ltx_text ltx_font_typewriter">main</span> function written
+in the file <span class="ltx_text ltx_font_typewriter">Main.sml</span> in <span class="ltx_text ltx_font_typewriter">comiler/compilePhases/main/main</span>
+directory.
+</p>
+<pre class="ltx_verbatim ltx_font_typewriter">
+  val main : string * string list -&gt; OS.Process.status
+</pre>
+<p class="ltx_p">This is the top-level function of the SML# compiler.
+This function takes a command name (<span class="ltx_text ltx_font_typewriter">smlsharp</span>) string
+and command line parameter string list, and perform compilations and
+linking according to the parameter specification.
+</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch33.html" title="Chapter 33 Control structure of the compiler ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">33 </span>Control structure of the compiler</span></a><a href="Ch33.S2.html" title="33.2 The compiler command main function ‣ Chapter 33 Control structure of the compiler ‣ Part V SML# Internals and Data Structures ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">33.2 </span>The compiler command main function</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Mar 25 14:56:23 2025 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html><html>
+<head>
+<title>7.11 Using higher-order functions‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0</title>
+<!--Generated on Tue Mar 25 14:56:23 2025 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on Mar, 2025.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-book.css" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+<link rel="up" href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="up up" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="up up up" href="./" title="SML# Document Version 4.2.0">
+<link rel="start" href="./" title="SML# Document Version 4.2.0">
+<link rel="prev" href="Ch7.S10.html" title="7.10 Higher-order functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="next" href="Ch7.S12.html" title="7.12 Imperative features of ML ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S1.html" title="7.1 About the ML language family ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S2.html" title="7.2 Declarative programming ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S3.html" title="7.3 Representing computation by composing expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S4.html" title="7.4 Constants literals and built-in primitives ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S5.html" title="7.5 Type bool and conditional expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S6.html" title="7.6 Compound expressions and function definitions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S7.html" title="7.7 Recursive functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S8.html" title="7.8 Functions with multiple arguments ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S9.html" title="7.9 Function application syntax ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S10.html" title="7.10 Higher-order functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S12.html" title="7.12 Imperative features of ML ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S13.html" title="7.13 Mutable memory reference types ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S14.html" title="7.14 Left-to-right applicative order evaluation ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S15.html" title="7.15 Procedural control ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S16.html" title="7.16 Loop and tail recursion ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S17.html" title="7.17 let expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S18.html" title="7.18 List data type ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S19.html" title="7.19 Principle in composing expressions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="section" href="Ch7.S20.html" title="7.20 Polymorphic functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch5.html" title="Chapter 5 Installing SML# ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch6.html" title="Chapter 6 Setting up SML# programming environment ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch8.html" title="Chapter 8 SML# feature: record polymorphism ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch9.html" title="Chapter 9 SML# feature: other type system extensions ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch10.html" title="Chapter 10 SML# feature: direct interface to C ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch11.html" title="Chapter 11 SML# feature: Multithread programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch12.html" title="Chapter 12 SML# feature: seamless SQL integration ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch13.html" title="Chapter 13 SML# feature: dynamic types and typed manipulation of JSON ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="chapter" href="Ch14.html" title="Chapter 14 SML# feature: separate compilation ‣ Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt1.html" title="Part I Overview ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt2.html" title="Part II Tutorials ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt3.html" title="Part III Reference manual ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt4.html" title="Part IV Programming Tools ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt5.html" title="Part V SML# Internals and Data Structures ‣ SML# Document Version 4.2.0">
+<link rel="part" href="Pt6.html" title="Part VI Bibliography and other documents ‣ SML# Document Version 4.2.0">
+</head>
+<body>
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">SML# Document Version 4.2.0</div>
+<div>
+<a href="Ch7.html" title="Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7 </span>Introduction to ML programming</span></a><a href="Ch7.S10.html" title="7.10 Higher-order functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.10 </span>Higher-order functions</span></a><a href="Ch7.S12.html" title="7.12 Imperative features of ML ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.12 </span>Imperative features of ML</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">7.11 </span>Using higher-order functions</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">The key to writing a cool, i.e. readable and concise program
+efficiently is to understand the role of higher-order functions
+and to compose expressions using higher-order functions.
+As in any programming skill, mastering higher-order functions
+require certain amount of practice, and is beyond this tutorial.
+However, there are few basic concepts that are important in
+writing expressions using higher-order functions.
+This tutorial attempt to exhibit them.
+In what follows, we learn these concepts through simple
+examples.</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">In high school mathematics, we have learned <math id="p2.m1" class="ltx_Math" alttext="\Sigma" display="inline"><mi mathvariant="normal">Σ</mi></math> notation.
+This notation satisfies the following equations.</p>
+<table id="Ch33.S3.EGx3" class="ltx_equationgroup ltx_eqn_eqnarray ltx_eqn_table">
+
+<tbody id="Ch7.Ex9"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="Ch7.Ex9.m1" class="ltx_Math" alttext="\displaystyle\sum_{k=1}^{0}f(k)" display="inline"><mrow><mstyle displaystyle="true"><mo largeop="true" movablelimits="false" symmetric="true">∑</mo></mstyle><msub><mi></mi><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow></msub><msup><mi></mi><mn>0</mn></msup><mi>f</mi><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo></mrow></math></td>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><math id="Ch7.Ex9.m2" class="ltx_Math" alttext="\displaystyle=" display="inline"><mo>=</mo></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="Ch7.Ex9.m3" class="ltx_Math" alttext="\displaystyle 0" display="inline"><mn>0</mn></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+<tbody id="Ch7.Ex10"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="Ch7.Ex10.m1" class="ltx_Math" alttext="\displaystyle\sum_{k=1}^{n+1}f(k)" display="inline"><mrow><mstyle displaystyle="true"><mo largeop="true" movablelimits="false" symmetric="true">∑</mo></mstyle><msub><mi></mi><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow></msub><msup><mi></mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup><mi>f</mi><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo></mrow></math></td>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><math id="Ch7.Ex10.m2" class="ltx_Math" alttext="\displaystyle=" display="inline"><mo>=</mo></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="Ch7.Ex10.m3" class="ltx_Math" alttext="\displaystyle f(n)+\sum_{k=1}^{n}f(k)" display="inline"><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo>+</mo><mstyle displaystyle="true"><mo largeop="true" movablelimits="false" symmetric="true">∑</mo></mstyle><msub><mi></mi><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow></msub><msup><mi></mi><mi>n</mi></msup><mi>f</mi><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">The reason for learning this notation is because this notation
+represents a useful abstraction, i.e. summing up a sequence of
+expressions with integer indexes.
+A brief analysis of the notation <math id="p2.m2" class="ltx_Math" alttext="\sum_{k=1}^{n}f(k)" display="inline"><mrow><mo largeop="true" symmetric="true">∑</mo><msub><mi></mi><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow></msub><msup><mi></mi><mi>n</mi></msup><mi>f</mi><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo></mrow></math> reveals the
+following.</p>
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">The notation contains 3 variables <math id="I1.i1.p1.m1" class="ltx_Math" alttext="k,n,f" display="inline"><mrow><mi>k</mi><mo>,</mo><mi>n</mi><mo>,</mo><mi>f</mi></mrow></math>.
+Among them, <math id="I1.i1.p1.m2" class="ltx_Math" alttext="k" display="inline"><mi>k</mi></math> is a variable that is only to indicate that
+expressions are index by <math id="I1.i1.p1.m3" class="ltx_Math" alttext="k=1,\ldots,n" display="inline"><mrow><mi>k</mi><mo>=</mo><mn>1</mn><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mi>n</mi></mrow></math>, and is not a real variable.
+The variables of this expression are <math id="I1.i1.p1.m4" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math> and <math id="I1.i1.p1.m5" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math>.</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">Expression <math id="I1.i2.p1.m1" class="ltx_Math" alttext="\sum_{k=1}^{n}f(k)" display="inline"><mrow><mo largeop="true" symmetric="true">∑</mo><msub><mi></mi><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow></msub><msup><mi></mi><mi>n</mi></msup><mi>f</mi><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo></mrow></math> denotes the value
+<math id="I1.i2.p1.m2" class="ltx_Math" alttext="f(1)+f(2)+\cdots+f(n)" display="inline"><mrow><mi>f</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo><mo>+</mo><mi>f</mi><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo><mo>+</mo><mi mathvariant="normal">⋯</mi><mo>+</mo><mi>f</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow></math>
+for any given integer <math id="I1.i2.p1.m3" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math> and a function <math id="I1.i2.p1.m4" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math>.
+</p>
+</div>
+</li>
+</ul>
+<p class="ltx_p"><math id="p2.m3" class="ltx_Math" alttext="\sum" display="inline"><mo largeop="true" symmetric="true">∑</mo></math> is a function that takes an integer <math id="p2.m4" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math> and a function
+<math id="p2.m5" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math> that takes an integer and returns an integer, i.e. it is a
+higher-order function.
+In ML, this higher-order function is directly code as follows.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># fun Sigma f 0 = 0
+<br class="ltx_break">
+&gt;    | Sigma f n = f n + Sigma f (n - 1);
+<br class="ltx_break">
+val Sigma = fn : (int -&gt; int) -&gt; int -&gt; int</span></p>
+</blockquote>
+<p class="ltx_p">This <span class="ltx_text ltx_font_typewriter">Sigma</span> can compute the summation of any inter function.</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># Sigma square 3;
+<br class="ltx_break">
+val it = 14 : int
+<br class="ltx_break">
+# Sigma (powerCurry 3) 3;
+<br class="ltx_break">
+val it = 36 : int</span></p>
+</blockquote>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">As demonstrated by this example, higher-order functions has the
+power of representing a useful computation pattern by abstracting its
+components as argument functions.
+The key to writing a cool ML code is to master the skill of
+abstracting useful computation patterns as higher-order functions.
+Polymorphic typing we shall learn in Section
+<a href="Ch7.S20.html" title="7.20 Polymorphic functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0" class="ltx_ref"><span class="ltx_text ltx_ref_tag">7.20</span></a> can be regarded as a mechanism to
+support this style of programming.
+Higher-functions with their polymorphic typing enable the ML
+programmer to code a complicated system in a concise and declarative
+way.
+</p>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch7.S10.html" title="7.10 Higher-order functions ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.10 </span>Higher-order functions</span></a><a href="Ch7.S12.html" title="7.12 Imperative features of ML ‣ Chapter 7 Introduction to ML programming ‣ Part II Tutorials ‣ SML# Document Version 4.2.0" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">7.12 </span>Imperative features of ML</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Mar 25 14:56:23 2025 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

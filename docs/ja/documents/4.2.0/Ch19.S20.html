@@ -1,0 +1,312 @@
+<!DOCTYPE html><html>
+<head>
+<title>19.20 組み込み型とその演算‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版</title>
+<!--Generated on Tue Mar 25 14:55:50 2025 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on 令和7年3月.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-book.css" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+<link rel="up" href="Ch19.html" title="Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="up up" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="up up up" href="./" title="プログラミング言語SML#解説 4.2.0版">
+<link rel="start" href="./" title="プログラミング言語SML#解説 4.2.0版">
+<link rel="prev" href="Ch19.S19.html" title="19.19 関数式 fn ⟨ match ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="next" href="Ch19.S21.html" title="19.21 静的インポート式: _import ⟨ string ⟩ : ⟨ cfunty ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch19.S1.html" title="19.1 演算子式の展開 ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch19.S2.html" title="19.2 定数式 ⟨ scon ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch19.S3.html" title="19.3 long識別子式 ⟨ longVid ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch19.S4.html" title="19.4 レコード式 { ⟨ lab 1 ⟩ = ⟨ exp 1 ⟩ , … , ⟨ lab n ⟩ = ⟨ exp n ⟩ } ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch19.S5.html" title="19.5 組式( ⟨ exp 1 ⟩ , ⋯ , ⟨ exp n ⟩ )とunit式() ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch19.S6.html" title="19.6 フィールドセレクタ式 # ⟨ lab ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch19.S7.html" title="19.7 リスト式 [ ⟨ exp 1 ⟩ , ⋯ , ⟨ exp n ⟩ ] ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch19.S8.html" title="19.8 逐次実行式 ( ⟨ exp 1 ⟩ ; ⋯ ; ⟨ exp n ⟩ ) ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch19.S9.html" title="19.9 局所宣言式 let ⟨ declList ⟩ in ⟨ exp 1 ⟩ ; ⋯ ; ⟨ exp n ⟩ end ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch19.S10.html" title="19.10 関数適用式 ⟨ appexp ⟩ ⟨ atexp ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch19.S11.html" title="19.11 フィールドアップデート式 ⟨ appexp ⟩ # { ⟨ exprow ⟩ } ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch19.S12.html" title="19.12 型制約式 ⟨ exp ⟩ : ⟨ ty ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch19.S13.html" title="19.13 論理演算式 ⟨ exp 1 ⟩ andalso ⟨ exp 2 ⟩ および ⟨ exp 1 ⟩ orelse ⟨ exp 2 ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch19.S14.html" title="19.14 例外処理式 ⟨ exp ⟩ handle ⟨ match ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch19.S15.html" title="19.15 例外発生式 raise ⟨ exp ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch19.S16.html" title="19.16 条件式 if ⟨ exp 1 ⟩ then ⟨ exp 2 ⟩ else ⟨ exp 3 ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch19.S17.html" title="19.17 while式 while ⟨ exp 1 ⟩ do ⟨ exp 2 ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch19.S18.html" title="19.18 場合分け式 case ⟨ exp ⟩ of ⟨ match ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch19.S19.html" title="19.19 関数式 fn ⟨ match ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch19.S21.html" title="19.21 静的インポート式: _import ⟨ string ⟩ : ⟨ cfunty ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch19.S22.html" title="19.22 動的インポート式: ⟨ exp ⟩ : _import ⟨ cfunty ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch19.S23.html" title="19.23 サイズ式 _sizeof( ⟨ ty ⟩ ) ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch19.S24.html" title="19.24 動的型キャスト式 _dynamic ⟨ exp ⟩ as ⟨ ty ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch19.S25.html" title="19.25 動的型キャスト付き場合分け式 _dynamiccase ⟨ exp ⟩ of ⟨ match ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch15.html" title="Chapter 15 序論 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch16.html" title="Chapter 16 SML#の構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch17.html" title="Chapter 17 字句構造 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch18.html" title="Chapter 18 型 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch19.html" title="Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch20.html" title="Chapter 20 パターンとパターンマッチング ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch21.html" title="Chapter 21 識別子のスコープ規則 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch22.html" title="Chapter 22 SQL式とコマンド ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch23.html" title="Chapter 23 核言語の宣言とインターフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch24.html" title="Chapter 24 モジュール言語の宣言とインタフェイス ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch25.html" title="Chapter 25 SML#のライブラリ概要 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch26.html" title="Chapter 26 Standard ML標準ライブラリ ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch27.html" title="Chapter 27 SML#システムライブラリ ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch28.html" title="Chapter 28 SML#コンパイラの起動 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch29.html" title="Chapter 29 SML#実行時データ管理 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.2.0版">
+</head>
+<body>
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.2.0版</div>
+<div>
+<a href="Ch19.html" title="Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">19 </span>式</span></a><a href="Ch19.S19.html" title="19.19 関数式 fn ⟨ match ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">19.19 </span>関数式
+<span class="ltx_text ltx_font_typewriter">fn</span><span class="ltx_text ltx_font_typewriter"> <math class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">match<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></a><a href="Ch19.S21.html" title="19.21 静的インポート式: _import ⟨ string ⟩ : ⟨ cfunty ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">19.21 </span>静的インポート式:
+<span class="ltx_text ltx_font_typewriter">_import</span><span class="ltx_text ltx_font_typewriter"> <math class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">string<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> : <math class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">cfunty<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">19.20 </span>組み込み型とその演算</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">SML#の組み込み型の中で，例外型(<span class="ltx_text ltx_font_typewriter">exn</span>)の操作は，
+第<a href="Ch19.S14.html" title="19.14 例外処理式 ⟨ exp ⟩ handle ⟨ match ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">19.14</span></a>節で定義した<span class="ltx_text ltx_font_typewriter">handle</span>構文と<span class="ltx_text ltx_font_typewriter">raise</span>
+構文で行われる．
+ユニット型(<span class="ltx_text ltx_font_typewriter">unit</span>)に対する特別な操作はない．
+それ以外の組み込み型の値の操作は，組み込み関数として提供され，関
+数適用式を通じて使用される．</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">参照型(<span class="ltx_text ltx_font_typewriter">’a ref</span>)と配列型(<span class="ltx_text ltx_font_typewriter">’a array</span>)以外の値は，
+自然な関数型言語の意味論に従う値であり，組み込み関数は
+値を受け取り値を返す関数である．</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">参照型(<span class="ltx_text ltx_font_typewriter">’a ref</span>)と配列型(<span class="ltx_text ltx_font_typewriter">’a array</span>)は，メモリー領域の
+破壊的な更新を許す．</p>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"><math id="p4.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">ty<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p4.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> ref</span>の値は<math id="p4.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">ty<span class="ltx_text ltx_font_upright"><math id="p4.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>型の値へのポインターで
+あり，以下の組み込み関数で操作される．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">ref : <math id="p4.m5" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">ty<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p4.m6" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> -&gt; <math id="p4.m7" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">ty<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p4.m8" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> ref
+<br class="ltx_break">
+  ! : <math id="p4.m9" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">ty<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p4.m10" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> ref -&gt; <math id="p4.m11" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">ty<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p4.m12" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span>
+<br class="ltx_break"></span><span class="ltx_text ltx_font_typewriter">
+ := : <math id="p4.m13" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">ty<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p4.m14" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> ref * <math id="p4.m15" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">ty<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p4.m16" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> -&gt; unit
+<br class="ltx_break">
+infix 3 :=</span></p>
+</blockquote>
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">ref <math id="p4.m17" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p4.m18" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>によって，<math id="p4.m19" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_upright"><math id="p4.m20" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の評価結果の値を
+指すポインタが生成される．
+<span class="ltx_text ltx_font_typewriter">ref <math id="p4.m21" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p4.m22" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は，<math id="p4.m23" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exp<span class="ltx_text ltx_font_upright"><math id="p4.m24" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の評価結果の値がポイン
+タであれば，そのポインタが指す値を取り出す．
+<span class="ltx_text ltx_font_typewriter"><math id="p4.m25" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<math id="p4.m26" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p4.m27" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> := <math id="p4.m28" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">exp<math id="p4.m29" class="ltx_Math" alttext="{}_{2}" display="inline"><msub><mi></mi><mn mathvariant="normal">2</mn></msub></math><span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p4.m30" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>は，
+<math id="p4.m31" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exp<math id="p4.m32" class="ltx_Math" alttext="{}_{1}" display="inline"><msub><mi></mi><mn mathvariant="normal">1</mn></msub></math><span class="ltx_text ltx_font_upright"><math id="p4.m33" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の評価結果の値がポインタであれば，そのポインタが指す値を，
+<math id="p4.m34" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">exp<math id="p4.m35" class="ltx_Math" alttext="{}_{2}" display="inline"><msub><mi></mi><mn mathvariant="normal">2</mn></msub></math><span class="ltx_text ltx_font_upright"><math id="p4.m36" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>の評価結果の値で書き換える．</p>
+</div>
+<div id="p5" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"><math id="p5.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">ty<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p5.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> array</span>の値は<math id="p5.m3" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo stretchy="false">⟨</mo></mrow></math><span class="ltx_text ltx_font_italic">ty<span class="ltx_text ltx_font_upright"><math id="p5.m4" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span>型の値を要素の型とする
+変更可能な配列型である．</p>
+</div>
+<div id="p6" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"><math id="p6.m1" class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">ty<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math id="p6.m2" class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> array</span>を含むその他の組み込み型を操作する組み込み関数は，
+型ごとに第<a href="Ch25.html" title="Chapter 25 SML#のライブラリ概要 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">25</span></a>節で定義する標準ライブラリとして以下の
+名前のストラクチャにまとめられている．
+<span class="ltx_text ltx_font_typewriter">General</span>ストラクチャには，参照型の組み込み演算，組み込み型
+を操作する際に発生するシステム定義の例外などが定義されている．
+</p>
+</div>
+<div id="p7" class="ltx_para ltx_minipage ltx_align_center ltx_align_middle" style="width:407.2pt;">
+<table class="ltx_tabular ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">組み込み型</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">ストラクチャ</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">シグネチャ</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">int8</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">Int8</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">INTEGER</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">int16</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">Int16</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">INTEGER</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">int</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">Int, Int32</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">INTEGER</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">int64</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">Int64</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">INTEGER</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">intInf</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">IntInf</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">INTINF</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">word8</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">Word8</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">WORD</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">word16</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">Word16</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">WORD</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">word</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">Word, Word32</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">WORD</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">word64</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">Word64</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">WORD</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">real32</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">Real32</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">REAL</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">real</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">Real, Real64</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">REAL</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">char</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">Char</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">CHAR</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_typewriter">string</span></td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">String</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">STRING</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">
+<math id="p7.m1" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> array</span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">Array</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">ARRAY</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t">
+<math id="p7.m2" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> vector</span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">Vector</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">VECTOR</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_l ltx_border_r ltx_border_t">
+<math id="p7.m3" class="ltx_Math" alttext="\tau" display="inline"><mi>τ</mi></math><span class="ltx_text ltx_font_typewriter"> ref</span>, <span class="ltx_text ltx_font_typewriter">exn</span>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r ltx_border_t">General</td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r ltx_border_t">GENERAL</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="p8" class="ltx_para">
+<p class="ltx_p">定義されている演算一覧は，以下のように対話型環境で対応するストラ
+クチャを再定義してみると，見ることができる．
+</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter"># structure X = Int;
+<br class="ltx_break">
+structure X =
+<br class="ltx_break">
+  struct
+<br class="ltx_break">
+    type int = Int32.int
+<br class="ltx_break">
+    val * = &lt;builtin&gt; : int * int -&gt; int
+<br class="ltx_break">
+    val + = &lt;builtin&gt; : int * int -&gt; int
+<br class="ltx_break">
+    val - = &lt;builtin&gt; : int * int -&gt; int
+<br class="ltx_break">
+    val &lt; = &lt;builtin&gt; : int * int -&gt; bool
+<br class="ltx_break">
+    val &lt;= = &lt;builtin&gt; : int * int -&gt; bool
+<br class="ltx_break">
+    val &gt; = &lt;builtin&gt; : int * int -&gt; bool
+<br class="ltx_break">
+    val &gt;= = &lt;builtin&gt; : int * int -&gt; bool
+<br class="ltx_break">
+    val abs = &lt;builtin&gt; : int -&gt; int
+<br class="ltx_break">
+    val compare = fn : int * int -&gt; General.order
+<br class="ltx_break">
+    val div = &lt;builtin&gt; : int * int -&gt; int
+<br class="ltx_break">
+    val fmt = fn : StringCvt.radix -&gt; int -&gt; string
+<br class="ltx_break">
+    val fromInt = fn : int -&gt; int
+<br class="ltx_break">
+    val fromLarge = fn : intInf -&gt; int
+<br class="ltx_break">
+    val fromString = fn : string -&gt; int option
+<br class="ltx_break">
+    val max = fn : int * int -&gt; int
+<br class="ltx_break">
+    val maxInt = SOME 2147483647 : int option
+<br class="ltx_break">
+    val min = fn : int * int -&gt; int
+<br class="ltx_break">
+    val minInt = SOME  2147483648 : int option
+<br class="ltx_break">
+    val mod = &lt;builtin&gt; : int * int -&gt; int
+<br class="ltx_break">
+    val precision = SOME 32 : int option
+<br class="ltx_break">
+    val quot = &lt;builtin&gt; : int * int -&gt; int
+<br class="ltx_break">
+    val rem = &lt;builtin&gt; : int * int -&gt; int
+<br class="ltx_break">
+    val sameSign = fn : int * int -&gt; bool
+<br class="ltx_break">
+    val scan = fn
+<br class="ltx_break">
+      : [’a. StringCvt.radix
+<br class="ltx_break">
+          -&gt; (’a -&gt; (char * ’a) option) -&gt; ’a -&gt; (int * ’a) option]
+<br class="ltx_break">
+    val sign = fn : int -&gt; int
+<br class="ltx_break">
+    val toInt = fn : int -&gt; int
+<br class="ltx_break">
+    val toLarge = fn : int -&gt; intInf
+<br class="ltx_break">
+    val toString = fn : int -&gt; string
+<br class="ltx_break">
+    val <code class="ltx_verbatim">~</code> = &lt;builtin&gt; : int -&gt; int
+<br class="ltx_break">
+  end</span></p>
+</blockquote>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch19.S19.html" title="19.19 関数式 fn ⟨ match ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">19.19 </span>関数式
+<span class="ltx_text ltx_font_typewriter">fn</span><span class="ltx_text ltx_font_typewriter"> <math class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">match<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></a><a href="Ch19.S21.html" title="19.21 静的インポート式: _import ⟨ string ⟩ : ⟨ cfunty ⟩ ‣ Chapter 19 式 ‣ Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">19.21 </span>静的インポート式:
+<span class="ltx_text ltx_font_typewriter">_import</span><span class="ltx_text ltx_font_typewriter"> <math class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">string<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span><span class="ltx_text ltx_font_typewriter"> : <math class="ltx_Math" alttext="\,\langle" display="inline"><mrow><mspace width="1.66666666666667pt"></mspace><mo mathvariant="normal" stretchy="false">⟨</mo></mrow></math></span><span class="ltx_text ltx_font_italic">cfunty<span class="ltx_text ltx_font_typewriter ltx_font_upright"><math class="ltx_Math" alttext="\rangle\," display="inline"><mrow><mo mathvariant="normal" stretchy="false">⟩</mo><mspace width="1.66666666666667pt"></mspace></mrow></math></span></span></span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Mar 25 14:55:50 2025 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

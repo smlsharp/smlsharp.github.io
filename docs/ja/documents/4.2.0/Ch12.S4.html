@@ -1,0 +1,168 @@
+<!DOCTYPE html><html>
+<head>
+<title>12.4 データベース問い合わせ実行例‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版</title>
+<!--Generated on Tue Mar 25 14:55:50 2025 by LaTeXML (version 0.8.5) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on 令和7年3月.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-book.css" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=MML_CHTML" type="text/javascript"></script>
+<link rel="up" href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="up up" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="up up up" href="./" title="プログラミング言語SML#解説 4.2.0版">
+<link rel="start" href="./" title="プログラミング言語SML#解説 4.2.0版">
+<link rel="prev" href="Ch12.S3.html" title="12.3 問い合わせの実行 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="next" href="Ch12.S5.html" title="12.5 その他のSQL文 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch12.S1.html" title="12.1 関係データベースとSQL ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch12.S2.html" title="12.2 SML#へのSQL式の導入 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch12.S3.html" title="12.3 問い合わせの実行 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="section" href="Ch12.S5.html" title="12.5 その他のSQL文 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch5.html" title="Chapter 5 SML#のインストール ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch6.html" title="Chapter 6 SML#プログラミング環境の準備 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch7.html" title="Chapter 7 MLプログラミング入門 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch8.html" title="Chapter 8 SML#の拡張機能：レコード多相性 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch9.html" title="Chapter 9 SML#の拡張機能：その他の型の拡張 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch10.html" title="Chapter 10 SML#の拡張機能：Cとの直接連携 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch11.html" title="Chapter 11 SML#の拡張機能：マルチスレッドプログラミング ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch13.html" title="Chapter 13 SML#の拡張機能：動的型付け機構とJSONの型付き操作 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="chapter" href="Ch14.html" title="Chapter 14 SML#の拡張機能：SML#分割コンパイルシステム ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt1.html" title="Part I 概要 ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt2.html" title="Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt3.html" title="Part III 参照マニュアル ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt4.html" title="Part IV プログラミングツール ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt5.html" title="Part V SML#の内部構造 ‣ プログラミング言語SML#解説 4.2.0版">
+<link rel="part" href="Pt6.html" title="Part VI 参考文献，その他 ‣ プログラミング言語SML#解説 4.2.0版">
+</head>
+<body>
+<div class="ltx_page_main">
+<header class="ltx_page_header"><div class="ltx_document_title">プログラミング言語SML#解説 4.2.0版</div>
+<div>
+<a href="Ch12.html" title="Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="up"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">12 </span>
+SML#の拡張機能：SQLの統合</span></a><a href="Ch12.S3.html" title="12.3 問い合わせの実行 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">12.3 </span>問い合わせの実行</span></a><a href="Ch12.S5.html" title="12.5 その他のSQL文 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">12.5 </span>その他のSQL文</span></a>
+</div></header>
+<div class="ltx_page_content">
+<section class="ltx_section ltx_authors_1line">
+<h1 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">12.4 </span>データベース問い合わせ実行例</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">以上の構文を使いデータベースの問い合わせを行なってみましょう．
+SML#の通常のインストールでは，データベースサーバは
+PostgreSQLと接続するように設定されています．
+データベースをアクセスするためには，PostgreSQLサーバをインストー
+ルし起動しておく必要があります．</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">まず以下の手順で，PostgreSQLサーバでデータベースを構築しましょう．
+以下に簡単な手順を示します．
+詳しくはPostgreSQLドキュメントを参照してください．</p>
+<ol id="I1" class="ltx_enumerate">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">PostgreSQLサーバを起動します．
+例えば<span class="ltx_text ltx_font_typewriter">pg_ctl start -D /usr/local/pgsql/data</span>
+ようにすると起動できるはずです．</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">コマンドラインで<span class="ltx_text ltx_font_typewriter">createuser <math id="I1.i2.p1.m1" class="ltx_Math" alttext="\mathit{myAccount}" display="inline"><mrow><mi>m</mi><mi>y</mi><mi>A</mi><mi>c</mi><mi>c</mi><mi>o</mi><mi>u</mi><mi>n</mi><mi>t</mi></mrow></math></span>を実行し
+<span class="ltx_text ltx_font_typewriter">PostgreSQL</span>のユーザのロールを作成する．
+<math id="I1.i2.p1.m2" class="ltx_Math" alttext="\mathit{myAccount}" display="inline"><mrow><mi>m</mi><mi>y</mi><mi>A</mi><mi>c</mi><mi>c</mi><mi>o</mi><mi>u</mi><mi>n</mi><mi>t</mi></mrow></math>は，使用するユーザの名前です．</p>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p">コマンドラインで<span class="ltx_text ltx_font_typewriter">createdb mydb</span>を実行しデータベースを作成する．</p>
+</div>
+</li>
+<li id="I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">4.</span> 
+<div id="I1.i4.p1" class="ltx_para">
+<p class="ltx_p">SQL言語インタープリタを起動し，データベースの中にテーブルを作成す
+る．
+例えば，第<a href="Ch12.S1.html" title="12.1 関係データベースとSQL ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12.1</span></a>節の例のデータベースは，以下
+のようにすれば作成できます．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ psql mydb
+<br class="ltx_break">
+mydb# CREATE TABLE Persons (
+<br class="ltx_break">
+    name text not null, age int not null, salary int not null
+<br class="ltx_break">
+  );
+<br class="ltx_break">
+mydb# INSERT INTO Persons VALUES (’Joe’, 21, 10000);
+<br class="ltx_break">
+mydb# INSERT INTO Persons VALUES (’Sue’, 31, 20000);
+<br class="ltx_break">
+mydb# INSERT INTO Persons VALUES (’Bob’, 41, 30000);
+<br class="ltx_break"></span></p>
+</blockquote>
+</div>
+</li>
+</ol>
+<p class="ltx_p">自分のアカウント（ここでは<math id="p2.m1" class="ltx_Math" alttext="\mathit{myAccount}" display="inline"><mrow><mi>m</mi><mi>y</mi><mi>A</mi><mi>c</mi><mi>c</mi><mi>o</mi><mi>u</mi><mi>n</mi><mi>t</mi></mrow></math>）に戻り，データベース
+にアクセスできるか確認してみましょう．
+以下のような結果が得られれば，成功です．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ psql mydb
+<br class="ltx_break">
+mydb=# SELECT * FROM Persons;
+<br class="ltx_break">
+mydb=# SELECT * FROM Persons;
+<br class="ltx_break">
+ name | age | salary 
+<br class="ltx_break">
+------+-----+--------
+<br class="ltx_break">
+ Joe  |  21 |  10000
+<br class="ltx_break">
+ Sue  |  31 |  20000
+<br class="ltx_break">
+ Bob  |  41 |  20000
+<br class="ltx_break">
+(3 行)</span></p>
+</blockquote>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">ではいよいよ，このデータベースをSML#からアクセスしてみま
+しょう．
+第<a href="Ch12.S2.html" title="12.2 SML#へのSQL式の導入 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12.2</span></a>節で定義した問い合わせ関数を<span class="ltx_text ltx_font_typewriter">myQuery</span>とします．
+対話型セッションで以下のような結果が得られるはずです．</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">$ smlsharp
+<br class="ltx_break">
+# val myServer = _sqlserver SQL.postgresql "dbname=mydb" : {Persons:{name:string, age:int, salary :int} list};
+<br class="ltx_break">
+val myServer = _ : {Persons: {age: int, name: string, salary: int} list} SQL.server
+<br class="ltx_break">
+# val conn = SQL.connet myServer;
+<br class="ltx_break">
+val conn = _ : {Persons: {age: int, name: string, salary: int} list} SQL.conn
+<br class="ltx_break">
+# val rel = myQuery conn;
+<br class="ltx_break">
+val rel = {Persons: {age: int, name: string, salary: int}} list SQL.conn
+<br class="ltx_break">
+# SQL.fetchAll rel;
+<br class="ltx_break">
+val it = {{age=32, name="Sue"}, {age=41, name="Bob"}} : {age:int, name: string} list</span></p>
+</blockquote>
+</div>
+</section>
+</div>
+<footer class="ltx_page_footer">
+<div>
+<a href="Ch12.S3.html" title="12.3 問い合わせの実行 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="prev"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">12.3 </span>問い合わせの実行</span></a><a href="Ch12.S5.html" title="12.5 その他のSQL文 ‣ Chapter 12 SML#の拡張機能：SQLの統合 ‣ Part II チュートリアル ‣ プログラミング言語SML#解説 4.2.0版" class="ltx_ref" rel="next"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">12.5 </span>その他のSQL文</span></a>
+</div>
+<div class="ltx_page_logo">Generated  on Tue Mar 25 14:55:50 2025 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>
