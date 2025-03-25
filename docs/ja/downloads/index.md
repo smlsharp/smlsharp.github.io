@@ -6,17 +6,17 @@ translated: true
 SML#コンパイラおよびSML#用プログラム開発ツールは、MITライセンスの下で配布されているオープンソースソフトウェアです。
 [ライセンスページ](../about/license/)および[LICENSE](https://github.com/smlsharp/smlsharp/blob/master/LICENSE)ファイルをお読みください。
 
-SML#の最新版は4.1.0です。セットアップ方法については[ドキュメント](../documents/index.md)をご覧ください。リリースごとの主な変更点は[Changes](https://github.com/smlsharp/smlsharp/blob/master/Changes)ファイルをご覧ください。
+SML#の最新版は4.2.0です。セットアップ方法については[ドキュメント](../documents/index.md)をご覧ください。リリースごとの主な変更点は[Changes](https://github.com/smlsharp/smlsharp/blob/master/Changes)ファイルをご覧ください。
 
 
 ### 最新のリリース
 
 #### ソースコード
 
-* [smlsharp-4.1.0.tar.gz](https://github.com/smlsharp/smlsharp/releases/download/v4.1.0/smlsharp-4.1.0.tar.gz)（2024年11月8日リリース）
+* [smlsharp-4.2.0.tar.gz](https://github.com/smlsharp/smlsharp/releases/download/v4.2.0/smlsharp-4.2.0.tar.gz)（2025年3月24日リリース）
   ```
-  SIZE: 14181338
-  SHA256: b19543a42654f4bda1d690c6ea6e4d9ee16dc7544b95828f8a7c649e0919a8a1
+  SIZE: 14518864
+  SHA256: 931fb54762c30ab018c804e669d696522cfabafe0a6f85cadefecee1eff710b7
   ```
 
 #### パッケージシステムからインストール
@@ -46,7 +46,7 @@ SML#の最新版は4.1.0です。セットアップ方法については[ドキ�
   apt install smlsharp
   ```
 
-* Ubuntu 20.04 LTS (focal), 22.04 LTS (jammy), 24.04 LTS (noble):
+* 22.04 LTS (jammy), 24.04 LTS (noble):
   ```
   apt-add-repository ppa:smlsharp/ppa
   apt update
@@ -63,6 +63,11 @@ SML#の最新版は4.1.0です。セットアップ方法については[ドキ�
   ```
   rpm -i https://smlsharp.github.io/repos/almalinux/smlsharp-release-almalinux-8-1.noarch.rpm
   dnf install smlsharp smlsharp-smlformat smlsharp-smllex smlsharp-smlyacc
+  ```
+
+* Nix/NixOS
+  ```
+  nix run github:smlsharp/nixpkgs
   ```
 
 * macOS (Homebrew)

@@ -7,7 +7,7 @@ The SML# compiler and its relevant tools are open source software distributed
 under the MIT license copyrighted by the SML# development team.
 (The [License page](../about/license/) and the [LICENSE](https://github.com/smlsharp/smlsharp/blob/master/LICENSE) file in the distribution.)
 
-The latest version of SML# is 4.0.0.
+The latest version of SML# is 4.2.0.
 See the [document](../documents/index.md) page for details on how to set up SML#.
 See the [Changes](https://github.com/smlsharp/smlsharp/blob/master/Changes) file for major changes in each release.
 
@@ -15,10 +15,10 @@ See the [Changes](https://github.com/smlsharp/smlsharp/blob/master/Changes) file
 
 #### Source code
 
-* [smlsharp-4.1.0.tar.gz](https://github.com/smlsharp/smlsharp/releases/download/v4.1.0/smlsharp-4.1.0.tar.gz)（Released on 8 Nov 2024)
+* [smlsharp-4.2.0.tar.gz](https://github.com/smlsharp/smlsharp/releases/download/v4.2.0/smlsharp-4.2.0.tar.gz)（Released on 24 Mar 2025)
   ```
-  SIZE: 14181338
-  SHA256: b19543a42654f4bda1d690c6ea6e4d9ee16dc7544b95828f8a7c649e0919a8a1
+  SIZE: 14518864
+  SHA256: 931fb54762c30ab018c804e669d696522cfabafe0a6f85cadefecee1eff710b7
   ```
 
 #### Installing SML# from package systems
@@ -53,7 +53,7 @@ See the [document](../documents/index.md) for details.
   apt install smlsharp
   ```
 
-* Ubuntu 20.04 LTS (focal), 22.04 LTS (jammy), 24.04 LTS (noble):
+* Ubuntu 22.04 LTS (jammy), 24.04 LTS (noble):
   ```
   apt-add-repository ppa:smlsharp/ppa
   apt update
@@ -70,6 +70,11 @@ See the [document](../documents/index.md) for details.
   ```
   rpm -i https://smlsharp.github.io/repos/almalinux/smlsharp-release-almalinux-8-1.noarch.rpm
   dnf install smlsharp smlsharp-smlformat smlsharp-smllex smlsharp-smlyacc
+  ```
+
+* Nix/NixOS
+  ```
+  nix run github:smlsharp/nixpkgs
   ```
 
 * macOS (Homebrew)
