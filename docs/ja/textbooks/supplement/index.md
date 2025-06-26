@@ -16,8 +16,7 @@ title: "「SML#で始める実践MLプログラミング」補足説明"
 p.168の上部のコードブロックの最後の宣言を以下のように変更して使用してください。
 ```
 val 累積陽性者Url = 
-    "https://github.com/smlsharp/mlpractice-book/\
-    \covid19japan.json"
+    "https://github.com/smlsharp/mlpractice-book/raw/refs/heads/master/covid19japan-all.json"
 ```
 このファイルのソースと配布条件は、
 [covid19japanjsonNotice.txt](https://github.com/smlsharp/mlpractice-book/blob/master/covid19japanjsonNotice.txt)
