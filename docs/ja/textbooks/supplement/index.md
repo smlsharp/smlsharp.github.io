@@ -11,7 +11,7 @@ title: "「SML#で始める実践MLプログラミング」補足説明"
 
 * 本教科書執筆時点の covid19の累積感染者データファイルを本書のサポートレポジトリ
 にファイル
-[covid19japan.json](https://github.com/smlsharp/mlpractice-book/blob/master/covid19japan.json)
+[covid19japan.json](https://github.com/smlsharp/mlpractice-book/blob/master/covid19japan-all.json)
 として公開しています。```corona.go.jp```サイトが任務を終えて閉鎖された場合は、
 p.168の上部のコードブロックの最後の宣言を以下のように変更して使用してください。
 ```
@@ -19,5 +19,5 @@ val 累積陽性者Url =
     "https://github.com/smlsharp/mlpractice-book/raw/refs/heads/master/covid19japan-all.json"
 ```
 このファイルのソースと配布条件は、
-[covid19japanjsonNotice.txt](https://github.com/smlsharp/mlpractice-book/blob/master/covid19japanjsonNotice.txt)
+[covid19japanjson-allNotice.txt](https://github.com/smlsharp/mlpractice-book/blob/master/covid19japanjson-allNotice.txt)
 に記されています。
