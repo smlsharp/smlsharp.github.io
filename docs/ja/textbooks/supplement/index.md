@@ -9,15 +9,26 @@ title: "「SML#で始める実践MLプログラミング」補足説明"
 
 ### 9.10.1 データソースの特定とデータのインポート
 
-* 本教科書執筆時点の covid19の累積感染者データファイルを本書のサポートレポジトリ
-にファイル
+* 本教科書執筆時点の covid19の累積感染者データファイルを本書のサポートレポジトリにファイル
 [covid19japan-all.json](https://github.com/smlsharp/mlpractice-book/blob/master/covid19japan-all.json)
-として公開しています。```corona.go.jp```サイトが任務を終えて閉鎖された場合は、
+として公開しています。
+このファイルのソースと配布条件は、
+[covid19japanjson-allNotice.txt](https://github.com/smlsharp/mlpractice-book/blob/master/covid19japanjson-allNotice.txt)
+に記されています。
+```corona.go.jp```サイトが任務を終えて閉鎖された場合は、
 p.168の上部のコードブロックの最後の宣言を以下のように変更して使用してください。
 ```
 val 累積陽性者Url = 
     "https://github.com/smlsharp/mlpractice-book/raw/refs/heads/master/covid19japan-all.json"
 ```
-このファイルのソースと配布条件は、
-[covid19japanjson-allNotice.txt](https://github.com/smlsharp/mlpractice-book/blob/master/covid19japanjson-allNotice.txt)
-に記されています。
+
+同一のライセンスに従う，よりサイズの小さいファイル
+[covid19japan.json](https://github.com/smlsharp/mlpractice-book/blob/master/covid19japan.json)
+を追加しました．
+このファイルはp.168の上部のコードブロックの最後の宣言を以下のように変更して使用してください。
+```
+val 累積陽性者Url = 
+    "https://github.com/smlsharp/mlpractice-book/raw/refs/heads/master/covid19japan.json"
+```
+
+
