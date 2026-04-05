@@ -14,8 +14,8 @@ title: "「SML#で始める実践MLプログラミング」補足説明"
 として公開しています。
 このファイルのソースと配布条件は、
 [covid19japanjson-allNotice.txt](https://github.com/smlsharp/mlpractice-book/blob/master/covid19japanjson-allNotice.txt)
-に記されています。
-```corona.go.jp```サイトが任務を終えて閉鎖された場合は、
+に記されています．
+corona.go.jpサイトが任務を終えて閉鎖された場合は、
 p.168の上部のコードブロックの最後の宣言を以下のように変更して使用してください。
 ```
 val 累積陽性者Url = 
