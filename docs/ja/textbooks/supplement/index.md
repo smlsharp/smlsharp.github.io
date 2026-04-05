@@ -21,7 +21,6 @@ p.168の上部のコードブロックの最後の宣言を以下のように変
 val 累積陽性者Url = 
     "https://github.com/smlsharp/mlpractice-book/raw/refs/heads/master/covid19japan-all.json"
 ```
-
 同一のライセンスに従う，よりサイズの小さいファイル
 [covid19japan.json](https://github.com/smlsharp/mlpractice-book/blob/master/covid19japan.json)
 を追加しました．
